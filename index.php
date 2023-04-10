@@ -1,3 +1,7 @@
+<?php
+    include_once("rotas.php");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,6 +11,6 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <a href="<?php echo $loginCliRoute;?>">login do cliente</a>
 </body>
 </html>

@@ -1,0 +1,139 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema petshop
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `petshop` ;
+
+-- -----------------------------------------------------
+-- Schema petshop
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `petshop` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `petshop` ;
+
+-- -----------------------------------------------------
+-- Table `petshop`.`Funcionarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petshop`.`Funcionarios` (
+  `pk_Funcionario` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(200) NOT NULL,
+  `cpf` CHAR(11) NOT NULL UNIQUE,
+  `profissao` ENUM('Veterinario', 'Secretaria', 'Groomer') NOT NULL,
+  `senha` VARCHAR(250) NOT NULL,
+  PRIMARY KEY (`pk_Funcionario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `petshop`.`Enderecos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petshop`.`Enderecos` (
+  `pk_Endereco` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cep` CHAR(8) NOT NULL,
+  `logradouro` VARCHAR(100) NOT NULL,
+  `numero` VARCHAR(5) NOT NULL,
+  `bairro` VARCHAR(100) NOT NULL,
+  `municipio` VARCHAR(100) NOT NULL,
+  `uf` CHAR(2) NOT NULL,
+  PRIMARY KEY (`pk_Endereco`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `petshop`.`Clientes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petshop`.`Clientes` (
+  `pk_Cliente` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `fk_Endereco` INT UNSIGNED NOT NULL,
+  `cpf` CHAR(11) NOT NULL UNIQUE,
+  `nome` VARCHAR(100) NOT NULL,
+  `sobrenome` VARCHAR(200) NOT NULL,
+  `celular` CHAR(11) NOT NULL,
+  `email` VARCHAR(200) NOT NULL UNIQUE,
+  `senha` VARCHAR(250) NOT NULL,
+  PRIMARY KEY (`pk_Cliente`),
+  CONSTRAINT `fk_Clientes_Enderecos`
+    FOREIGN KEY (`fk_Endereco`)
+    REFERENCES `petshop`.`Enderecos` (`pk_Endereco`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `petshop`.`Animais`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petshop`.`Animais` (
+  `pk_Animal` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `fk_Cliente` INT UNSIGNED NOT NULL,
+  `nome` VARCHAR(100) NOT NULL,
+  `data_nascimento` DATE NOT NULL,
+  `raca` VARCHAR(45) NOT NULL,
+  `peso` FLOAT NOT NULL,
+  `cor` VARCHAR(45) NOT NULL,
+  `data_cadastro` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`pk_Animal`),
+  CONSTRAINT `fk_Animais_Clientes1`
+    FOREIGN KEY (`fk_Cliente`)
+    REFERENCES `petshop`.`Clientes` (`pk_Cliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `petshop`.`Agendamentos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `petshop`.`Agendamentos` (
+  `pk_Agendamento` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `fk_Funcionario` INT UNSIGNED NOT NULL,
+  `fk_Animal` INT UNSIGNED NULL,
+  `data_agendamento` DATE NOT NULL,
+  `horario_agendamento` TIME NOT NULL,
+  `status` ENUM('Disponivel', 'Marcado', 'Em_Andamento', 'Concluido', 'Cancelado') NOT NULL DEFAULT 'Disponivel',
+  `descricao` TEXT NULL,
+  `tipo` ENUM('Banho', 'Tosa', 'Veterinário') NOT NULL,
+  PRIMARY KEY (`pk_Agendamento`),
+  CONSTRAINT `fk_Agendamentos_Funcionarios`
+    FOREIGN KEY (`fk_Funcionario`)
+    REFERENCES `petshop`.`Funcionarios` (`pk_Funcionario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Agendamentos_Animais`
+    FOREIGN KEY (`fk_Animal`)
+    REFERENCES `petshop`.`Animais` (`pk_Animal`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+insert into Funcionarios values 
+(default, 'Violett', 11122233396, 'Secretaria', 
+'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af');
+
+insert into Enderecos VALUES
+(default, '05885370', 'rua jose', '123', 'limoeiro', 'São Paulo', 'SP');
+
+insert into Clientes VALUES
+(default, 1, 11122233396, 'Violett', 'Vohor', '11958855005', 'scar@example.com', 
+'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af');
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
