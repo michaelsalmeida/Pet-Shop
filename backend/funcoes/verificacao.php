@@ -1,5 +1,6 @@
 <?php
     function loged() {
+        session_start();
         return isset($_SESSION['loggedin']) && $_SESSION['loggedin'];
     }
 

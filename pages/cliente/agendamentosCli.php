@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("../../rotas.php");
 include_once($connRoute);
 require_once "../../backend/funcoes/verificacao.php";
@@ -23,13 +22,10 @@ require_once "../../backend/funcoes/verificacao.php";
   <?php
   if (!loged()) {
     $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
-    header("Location: " . $loginFunRoute);
+    header("Location: " . $loginCliRoute);
   }
   ?>
-
-  <header>
-    <button onclick="executeFunctions('logoff')">sair</button>
-  </header>
+  <button onclick="executeFunctions('logoff')">sair</button>
 </body>
 
 </html>
