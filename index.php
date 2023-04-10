@@ -12,5 +12,6 @@
 </head>
 <body>
     <a href="<?php echo $loginCliRoute;?>">login do cliente</a>
+    <a href="<?php echo $cadastroCliRoute; ?>">Cadastro do cliente</a>
 </body>
 </html>
