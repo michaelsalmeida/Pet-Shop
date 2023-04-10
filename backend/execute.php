@@ -1,10 +1,10 @@
 <?php
     include_once("../rotas.php");
-    include_once($verificacaoRoute);
+    require_once($verificacaoRoute);
 
     switch($_GET['function']){
         case 'logoff':
             logoff();
-            echo $loginFunRoute;
+            echo $loginCliRoute;
             break;
     }

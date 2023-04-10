@@ -1,5 +1,6 @@
 <?php
     include_once("rotas.php");
+    require_once $verificacaoRoute;
 ?>
 
 <!DOCTYPE html>
@@ -9,8 +10,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 <body>
     <a href="<?php echo $loginCliRoute;?>">login do cliente</a>
+    <a href="<?php echo "pages/cliente/agendamentosCli.php";?>">agendamento</a>
+
+    <?php
+        if (loged()) {
+            echo "<button onclick=executeFunctions('logoff')>sair</button>";
+        }
+    ?>
 </body>
 </html>

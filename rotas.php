@@ -5,7 +5,7 @@ $rootBack = $root . "backend/";
 $rootBackProc = $rootBack . "processos/";
 $rootBackFunctions = $rootBack . "funcoes/";
 $rootFront = $root . "pages/";
-$rootBackPages = $rootFront . "backendPages/";
+$rootCliPages = $rootFront . "cliente/";
 $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/Backend/conexao.php';
 // $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php';
 
@@ -16,7 +16,7 @@ $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/Backend/conexao.php';
 
 
 // ----------------------    Rotas do Cliente    -----------------------------
-$loginCliRoute = $rootBackPages . "loginCliente.php";
+$loginCliRoute = $rootCliPages . "loginCliente.php";
 $homeRoute = $root . "index.php";
 
 
@@ -29,5 +29,5 @@ $procLoginCliRoute = $rootBackProc . "proc_loginCli.php";
 
 $functionsRoute = $rootBackFunctions . "functions.js";
 
-// $verificacaoRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/verificacao.php";
-$verificacaoRoute = $_SERVER['DOCUMENT_ROOT'] . "/backend/funcoes/verificacao.php";
+$verificacaoRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/verificacao.php";
+// $verificacaoRoute = $_SERVER['DOCUMENT_ROOT'] . "/backend/funcoes/verificacao.php";

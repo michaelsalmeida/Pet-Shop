@@ -1,5 +1,11 @@
 function executeFunctions(func) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", `../../backend/execute.php?function=${func}`, true);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}`, true);
+    xhr.onload = function() {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            var response = xhr.responseText; // Get the response from the server
+            location.href = response; // Log the response to the console
+        }
+    };
     xhr.send();
 }
