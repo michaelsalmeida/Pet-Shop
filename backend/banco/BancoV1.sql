@@ -15,7 +15,7 @@ DROP SCHEMA IF EXISTS `petshop` ;
 -- -----------------------------------------------------
 -- Schema petshop
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `petshop` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+CREATE SCHEMA IF NOT EXISTS `petshop` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 USE `petshop` ;
 
 -- -----------------------------------------------------
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Funcionarios` (
   PRIMARY KEY (`pk_Funcionario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 
 -- -----------------------------------------------------
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Enderecos` (
   PRIMARY KEY (`pk_Endereco`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 
 -- -----------------------------------------------------
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Clientes` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 
 -- -----------------------------------------------------
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Animais` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 
 -- -----------------------------------------------------
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Agendamentos` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 insert into Funcionarios values 
 (default, 'Violett', 11122233396, 'Secretaria', 

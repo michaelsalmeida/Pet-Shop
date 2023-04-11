@@ -11,8 +11,10 @@ $hash = hash("sha512", $senha);
 
 try {
     // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
-    $resultado = mysqli_query($conn, "SELECT pk_Cliente FROM Clientes
-    WHERE email = '$email' and senha = '$hash'");
+    $stmt = $conn->prepare("SELECT pk_Cliente FROM Clientes WHERE email = ? and senha = ?");
+    $stmt->bind_param("ss", $email, $hash);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
 
     // Verifica se a query deu algum retorno
     if ($row = $resultado->fetch_row()) {
@@ -21,7 +23,8 @@ try {
         header("Location: ". $homeRoute);
     } else {
         $_SESSION['msglogin'] = "<p>USUÁRIO OU SENHA INCORRETO(S).</p>";
-        header("Location: " . $loginCliRoute);
+        echo $email."<br>". $hash;
+        // header("Location: " . $loginCliRoute);
     }
 } catch (Exception $e) {
     echo $e->getMessage();

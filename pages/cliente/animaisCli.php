@@ -11,7 +11,7 @@ require_once "../../backend/funcoes/verificacao.php";
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agendamentos</title>
+  <title>Animais</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
   <link rel="stylesheet" href="cssBack/modalfechamento.css">
   <link rel="stylesheet" href="cssBack/lista.css">
@@ -25,7 +25,8 @@ require_once "../../backend/funcoes/verificacao.php";
     header("Location: " . $loginCliRoute);
   }
   ?>
-  <a href="<?php echo $fazAgendamentoCliRoute; ?>">Fazer Agendamento</a>
+  
+  <a href="<?php echo $cadAnimaisCliRoute; ?>">Cadastrar Animal</a>
   <button onclick="executeFunctions('logoff')">sair</button>
 </body>
 

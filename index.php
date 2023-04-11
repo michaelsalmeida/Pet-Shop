@@ -13,13 +13,17 @@
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 <body>
-    <a href="<?php echo $loginCliRoute;?>">login do cliente</a>
+    <a href="<?php echo $loginCliRoute; ?>">login do cliente</a>
     <a href="<?php echo $cadastroCliRoute; ?>">Cadastro do cliente</a>
-    <a href="<?php echo "pages/cliente/agendamentosCli.php";?>">agendamento</a>
+    <a href="<?php echo $agendamentoCliRoute;?>">agendamento</a>
 
     <?php
         if (loged()) {
-            echo "<button onclick=executeFunctions('logoff')>sair</button>";
+            echo "
+            <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+            <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+            <button onclick=executeFunctions('logoff')>sair</button>
+            ";
         }
     ?>
 </body>
