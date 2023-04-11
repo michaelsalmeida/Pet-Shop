@@ -13,9 +13,9 @@
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 <body>
-    <a href="<?php echo $loginCliRoute; ?>">login do cliente</a>
+    <a href="<?php echo $loginCliRoute; ?>">Login do cliente</a>
     <a href="<?php echo $cadastroCliRoute; ?>">Cadastro do cliente</a>
-    <a href="<?php echo $agendamentoCliRoute;?>">agendamento</a>
+    <a href="<?php echo $agendamentoCliRoute;?>">Agendamento</a>
 
     <?php
         if (loged()) {

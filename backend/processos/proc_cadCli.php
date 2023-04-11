@@ -90,9 +90,17 @@
             // Se a inserção ocorre normalmente, o usuário é enviado para a página de login
             $_SESSION['msgCadCli'] = "Cliente Cadastrado com Sucesso";
             header('location: ' . $loginCliRoute);
-        } catch (Exception $e) {
-            echo $e->getMessage();
-            $_SESSION['msgCadCli'] = "Cliente Não Cadastrado";
+        } catch (mysqli_sql_exception  $e) {
+            if ($e->getCode() === 1062 && strpos($e->getMessage(), 'cpf') !== false) {
+                // Handle the error for duplicate entry in the cpf column
+                $_SESSION['msgCadCli'] = "CPF já cadastrado";
+            } elseif ($e->getCode() === 1062 && strpos($e->getMessage(), 'email') !== false) {
+                // Handle the error for duplicate entry in the email column
+                $_SESSION['msgCadCli'] = "Email já cadastrado";
+            } else {
+                // Handle any other database exception
+                $_SESSION['msgCadCli'] = "Cliente não Cadastrado.";
+            }
             header('Location: ' . $cadastroCliRoute);
         }
     }

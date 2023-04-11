@@ -33,7 +33,7 @@
                 <td>$row[0]</td>
                 <td>$data</td>
                 <td>$row[2]</td>
-                <td>$row[3]</td>
+                <td>$row[3] Kg</td>
             </tr>";
         }
         return $retornar;
