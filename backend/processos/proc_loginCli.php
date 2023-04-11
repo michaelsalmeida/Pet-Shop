@@ -24,7 +24,7 @@ try {
     } else {
         $_SESSION['msglogin'] = "<p>USUÁRIO OU SENHA INCORRETO(S).</p>";
         echo $email."<br>". $hash;
-        // header("Location: " . $loginCliRoute);
+        header("Location: " . $loginCliRoute);
     }
 } catch (Exception $e) {
     echo $e->getMessage();

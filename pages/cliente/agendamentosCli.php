@@ -1,7 +1,7 @@
 <?php
 include_once("../../rotas.php");
 include_once($connRoute);
-require_once "../../backend/funcoes/verificacao.php";
+require_once $funcoesRoute;
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +25,9 @@ require_once "../../backend/funcoes/verificacao.php";
     header("Location: " . $loginCliRoute);
   }
   ?>
+
+  
+
   <a href="<?php echo $fazAgendamentoCliRoute; ?>">Fazer Agendamento</a>
   <button onclick="executeFunctions('logoff')">Logoff</button>
 </body>

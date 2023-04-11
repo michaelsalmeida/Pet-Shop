@@ -1,7 +1,7 @@
 <?php
 include_once("../../rotas.php");
 include_once($connRoute);
-require_once "../../backend/funcoes/verificacao.php";
+require_once $funcoesRoute;
 ?>
 
 <!DOCTYPE html>

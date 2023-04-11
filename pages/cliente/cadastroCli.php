@@ -1,7 +1,7 @@
 <?php
     session_start();
     include_once('../../rotas.php');
-    require_once "../../backend/funcoes/verificacao.php";
+    require_once $funcoesRoute;
 ?>
 
 <!DOCTYPE html>
@@ -75,8 +75,6 @@
             <input type="submit" value="Entrar">
 
         </form>
-
-
 
     </div>
 
