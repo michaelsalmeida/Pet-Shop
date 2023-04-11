@@ -18,19 +18,18 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
 <body onresize="checaDispositivo()" onload="checaDispositivo()">
     <div class="container box-conteudo">
-        <a href="<?php echo $loginFunRoute; ?>">Corporativo </a>
-        <form action="<?php echo $procLoginCliRoute; ?>" method="post">
-            <h1>Sign In</h1>
+        <form action="<?php echo $procLoginFunRoute; ?>" method="post">
+            <h1>Sign In Funcionário</h1>
             <?php
-            if (isset($_SESSION['msglogin'])) {
-                echo "<p>" . $_SESSION['msglogin'] . "</p>";
-                unset($_SESSION['msglogin']);
+            if (isset($_SESSION['msgloginFun'])) {
+                echo "<p>" . $_SESSION['msgloginFun'] . "</p>";
+                unset($_SESSION['msgloginFun']);
             }
             ?>
 
-            <div class="email">
-                <label for="email">Email</label><br>
-                <input type="email" name="email">
+            <div class="login">
+                <label for="login">Login</label><br>
+                <input type="text" name="login" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}">
             </div>
 
             <div class="senha">

@@ -12,6 +12,8 @@ $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/Backend/conexao.php';
 
 // ----------------------    Rotas do Funcionário    -----------------------------
 
+$procLoginFunRoute = $rootBackProc . "proc_loginFun.php";
+$loginFunRoute = $rootFunPages . "loginFuncionario.php";
 
 //                           FIM Rotas Funcionário
 
