@@ -1,15 +1,24 @@
 <?php
-    function logedCli() {
+    function loged() {
         session_start();
         // Verifica se o usuário está logado
-        return isset($_SESSION['loggedinCli']) && $_SESSION['loggedinCli'];
+        if (isset($_SESSION['tipo'])) {
+            return isset($_SESSION['loggedinFun']) && $_SESSION['loggedinFun'];
+        } else {
+            return isset($_SESSION['loggedinCli']) && $_SESSION['loggedinCli'];
+        }
     }
 
-    function logoffCli() {
+    function logoff() {
         session_start();
         // Desloga o usuário
-        unset($_SESSION['loggedinCli']);
-        unset($_SESSION['idCli']);
+        if (isset($_SESSION['tipo'])) {
+            unset($_SESSION['loggedinFun']);
+            unset($_SESSION['idFun']);
+        } else {
+            unset($_SESSION['loggedinCli']);
+            unset($_SESSION['idCli']);
+        }
     }
 
     function gerarTabela() {

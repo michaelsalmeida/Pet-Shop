@@ -3,8 +3,8 @@
     require_once($funcoesRoute);
 
     switch($_GET['function']){
-        case 'logoffCli':
-            logoffCli();
+        case 'logoff':
+            logoff();
             echo $loginCliRoute;
             break;
         case 'gerarTabela':

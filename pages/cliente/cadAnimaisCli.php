@@ -20,7 +20,7 @@ require_once $funcoesRoute;
 
 <body onresize="checaDispositivo()" onload="checaDispositivo()">
     <?php
-    if (!logedCli()) {
+    if (!loged()) {
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
         header("Location: " . $loginCliRoute);
     }
@@ -51,7 +51,7 @@ require_once $funcoesRoute;
         <input type="submit" value="Cadastrar">
     </form>
 
-    <button onclick="executeFunctions('logoffCli')">Logoff</button>
+    <button onclick="executeFunctions('logoff')">Logoff</button>
     <script src="<?php echo $dataHojeRoute; ?>"></script>
 </body>
 
