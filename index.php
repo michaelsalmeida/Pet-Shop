@@ -13,7 +13,6 @@
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 <body>
-    <a href="<?php echo $loginCliRoute; ?>">Login do cliente</a>
     <a href="<?php echo $cadastroCliRoute; ?>">Cadastro do cliente</a>
     <a href="<?php echo $agendamentoCliRoute;?>">Agendamento</a>
 
@@ -24,6 +23,8 @@
             <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
             <button onclick=executeFunctions('logoff')>Logoff</button>
             ";
+        } else {
+            echo "<a href='<?php echo $loginCliRoute; ?>'>Login do cliente</a>";
         }
     ?>
 </body>

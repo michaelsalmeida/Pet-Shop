@@ -10,7 +10,6 @@
     $celular = htmlspecialchars($_POST['celular']);
     
     // Endereço
-    
     $cep = htmlspecialchars($_POST['cep']);
     $rua = htmlspecialchars($_POST['log']);
     $numero = htmlspecialchars($_POST['numero']);
@@ -91,14 +90,15 @@
             $_SESSION['msgCadCli'] = "Cliente Cadastrado com Sucesso";
             header('location: ' . $loginCliRoute);
         } catch (mysqli_sql_exception  $e) {
+            // Pega o código do erro, 1062 é o código de entrada duplicada,
             if ($e->getCode() === 1062 && strpos($e->getMessage(), 'cpf') !== false) {
-                // Handle the error for duplicate entry in the cpf column
+                // e verifica se na mensagem de error há a string cpf
                 $_SESSION['msgCadCli'] = "CPF já cadastrado";
             } elseif ($e->getCode() === 1062 && strpos($e->getMessage(), 'email') !== false) {
-                // Handle the error for duplicate entry in the email column
+                // e verifica se na mensagem de error há a string email
                 $_SESSION['msgCadCli'] = "Email já cadastrado";
             } else {
-                // Handle any other database exception
+                // Trabalha qualquer outro erro
                 $_SESSION['msgCadCli'] = "Cliente não Cadastrado.";
             }
             header('Location: ' . $cadastroCliRoute);

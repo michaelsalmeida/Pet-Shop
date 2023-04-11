@@ -1,12 +1,24 @@
 <?php
     function loged() {
         session_start();
-        return isset($_SESSION['loggedin']) && $_SESSION['loggedin'];
+        // Verifica se o usuário está logado
+        if (isset($_SESSION['tipo'])) {
+            return isset($_SESSION['loggedinFun']) && $_SESSION['loggedinFun'];
+        } else {
+            return isset($_SESSION['loggedinCli']) && $_SESSION['loggedinCli'];
+        }
     }
 
     function logoff() {
         session_start();
-        unset($_SESSION['loggedin']);
+        // Desloga o usuário
+        if (isset($_SESSION['tipo'])) {
+            unset($_SESSION['loggedinFun']);
+            unset($_SESSION['idFun']);
+        } else {
+            unset($_SESSION['loggedinCli']);
+            unset($_SESSION['idCli']);
+        }
     }
 
     function gerarTabela() {
@@ -14,10 +26,16 @@
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
+        // String de preparação
         $stmt = $conn->prepare("SELECT nome, data_nascimento, raca, peso FROM Animais WHERE fk_Cliente = ?");
+        // Substituição da string preparada pelos valores corretos
         $stmt->bind_param("s", $_SESSION['id']);
+        // Executa o sql
         $stmt->execute();
+        // Pega o resultado do banco
         $resultado = $stmt->get_result();
+
+        // String que será retornada na tabela
         $retornar =
         "<tr>
             <th>Nome</th>
@@ -26,7 +44,9 @@
             <th>Peso</th>
         </tr>";
         
+        // Pega cada linha da query e monta as linhas da tabela
         foreach($resultado->fetch_all() as $row) {
+            // Formata a data
             $data = date('d/m/Y', strtotime($row[1]));
             $retornar = $retornar .
             "<tr>
