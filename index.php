@@ -24,7 +24,7 @@
             <button onclick=executeFunctions('logoff')>Logoff</button>
             ";
         } else {
-            echo "<a href='<?php echo $loginCliRoute; ?>'>Login do cliente</a>";
+            echo "<a href='$loginCliRoute'>Login do cliente</a>";
         }
     ?>
 </body>

@@ -9,7 +9,7 @@
 
     try {
         // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo funcionário
-        $stmt = $conn->prepare("SELECT pk_Funcionario, profissao FROM Funcionarios WHERE cpf = ? and senha = ?");
+        $stmt = $conn->prepare("SELECT pk_Funcionario, profissao, nome FROM Funcionarios WHERE cpf = ? and senha = ?");
         $stmt->bind_param("ss", $login, $hash);
         $stmt->execute();
         $resultado = $stmt->get_result();
@@ -19,6 +19,7 @@
             $_SESSION['loggedinFun'] = true;
             $_SESSION['idFun'] = $row[0];   // id do cliente
             $_SESSION['tipo'] = $row[1];
+            $_SESSION['nome'] = $row[2];
             header("Location: ". $agendamentoFunRoute);
         } else {
             $_SESSION['msgloginFun'] = "<p>USUÁRIO OU SENHA INCORRETO(S).</p>"; 
