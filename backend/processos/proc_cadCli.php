@@ -3,24 +3,23 @@
     include_once('../../rotas.php');
     include_once($connRoute);
 
-
     // Pega os valores do form
+    $cpf = htmlspecialchars($_POST['cpf']);
     $nome = htmlspecialchars($_POST['nome']);
     $sobrenome = htmlspecialchars($_POST['sobrenome']);
-    $cpf = htmlspecialchars($_POST['cpf']);
     $celular = htmlspecialchars($_POST['celular']);
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $senha = hash("sha512", htmlspecialchars($_POST['senha']));
-
+    
     // Endereço
-
+    
     $cep = htmlspecialchars($_POST['cep']);
     $rua = htmlspecialchars($_POST['log']);
     $numero = htmlspecialchars($_POST['numero']);
     $bairro = htmlspecialchars($_POST['bairro']);
     $cidade = htmlspecialchars($_POST['cid']);
     $uf = htmlspecialchars($_POST['uf']);
-
+    
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $senha = hash("sha512", htmlspecialchars($_POST['senha']));
 
     // Remove os pontos e hífens do cpf
     $cpf = str_replace('.', '', $cpf);
@@ -76,16 +75,24 @@
     }
 
 
-    if ($certo1 == true && $certo2 == true){
-        $comando = "insert into Clientes values ('default', '$cpf', '$nome', '$sobrenome', '$celular', '$cep', '$rua', '$numero', '$bairro', '$cidade', '$uf', '$email', '$senha');";
-        $execute = mysqli_query($conn, $comando);
+    if ($certo1 && $certo2){
+        try {
+            // String de preparação
+            $stmt = $conn->prepare("INSERT INTO Clientes
+            (pk_Cliente, cpf, nome, sobrenome, celular, cep, logradouro, numero, bairro, municipio, uf, email, senha)
+            VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            // Substituição da string preparada pelos valores corretos
+            $stmt->bind_param("ssssssssssss",
+            $cpf, $nome, $sobrenome, $celular, $cep, $rua, $numero, $bairro, $cidade, $uf, $email, $senha);
+            // Executa o sql
+            $stmt->execute();
 
-        // Se a inserção ocorre normalmente, o usuário é enviado para a página de login
-        if (mysqli_insert_id($conn)) {
-            header('location : ' . $loginCliRoute);
-        } 
-
+            // Se a inserção ocorre normalmente, o usuário é enviado para a página de login
+            $_SESSION['msgCadCli'] = "Cliente Cadastrado com Sucesso";
+            header('location: ' . $loginCliRoute);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            $_SESSION['msgCadCli'] = "Cliente Não Cadastrado";
+            header('Location: ' . $cadastroCliRoute);
+        }
     }
-
-
-?>

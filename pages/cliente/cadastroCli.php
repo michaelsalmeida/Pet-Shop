@@ -1,6 +1,7 @@
 <?php
     session_start();
     include_once('../../rotas.php');
+    require_once "../../backend/funcoes/verificacao.php";
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +15,16 @@
 </head>
 <body>
 
+    <?php
+    if (!loged()) {
+        $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
+        header("Location: " . $loginCliRoute);
+    }
+    if (isset($_SESSION['msgCadAnimaisCli'])) {
+        echo $_SESSION['msgCadAnimaisCli'];
+        unset($_SESSION['msgCadAnimaisCli']);
+    }
+    ?>
     <div id="pi">
         <form action="<?php echo $procCadCliRoute; ?>" method="post" id="pai">
 
