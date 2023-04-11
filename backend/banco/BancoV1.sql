@@ -15,7 +15,7 @@ DROP SCHEMA IF EXISTS `petshop` ;
 -- -----------------------------------------------------
 -- Schema petshop
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `petshop` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+CREATE SCHEMA IF NOT EXISTS `petshop` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 USE `petshop` ;
 
 -- -----------------------------------------------------
@@ -30,24 +30,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Funcionarios` (
   PRIMARY KEY (`pk_Funcionario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `petshop`.`Enderecos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `petshop`.`Enderecos` (
-  `pk_Endereco` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `cep` CHAR(8) NOT NULL,
-  `logradouro` VARCHAR(100) NOT NULL,
-  `numero` VARCHAR(5) NOT NULL,
-  `bairro` VARCHAR(100) NOT NULL,
-  `municipio` VARCHAR(100) NOT NULL,
-  `uf` CHAR(2) NOT NULL,
-  PRIMARY KEY (`pk_Endereco`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 
 -- -----------------------------------------------------
@@ -55,22 +38,22 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `petshop`.`Clientes` (
   `pk_Cliente` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `fk_Endereco` INT UNSIGNED NOT NULL,
   `cpf` CHAR(11) NOT NULL UNIQUE,
   `nome` VARCHAR(100) NOT NULL,
   `sobrenome` VARCHAR(200) NOT NULL,
   `celular` CHAR(11) NOT NULL,
+  `cep` CHAR(8) NOT NULL,
+  `logradouro` VARCHAR(100) NOT NULL,
+  `numero` VARCHAR(5) NOT NULL,
+  `bairro` VARCHAR(100) NOT NULL,
+  `municipio` VARCHAR(100) NOT NULL,
+  `uf` CHAR(2) NOT NULL,
   `email` VARCHAR(200) NOT NULL UNIQUE,
   `senha` VARCHAR(250) NOT NULL,
-  PRIMARY KEY (`pk_Cliente`),
-  CONSTRAINT `fk_Clientes_Enderecos`
-    FOREIGN KEY (`fk_Endereco`)
-    REFERENCES `petshop`.`Enderecos` (`pk_Endereco`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`pk_Cliente`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 
 -- -----------------------------------------------------
@@ -93,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Animais` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 
 -- -----------------------------------------------------
@@ -121,14 +104,12 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Agendamentos` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 insert into Funcionarios values 
 (default, 'Violett', 11122233396, 'Secretaria', 
 'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af');
 
-insert into Enderecos VALUES
-(default, '05885370', 'rua jose', '123', 'limoeiro', 'São Paulo', 'SP');
 
 insert into Clientes VALUES
 (default, 1, 11122233396, 'Violett', 'Vohor', '11958855005', 'scar@example.com', 
