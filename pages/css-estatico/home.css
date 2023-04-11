@@ -1,0 +1,159 @@
+.carrossel{
+  margin: 50px 0px;
+}
+
+/* AGENDAMENTO */
+
+.agendamento{
+  margin: 100px auto !important;
+}
+
+.agendamento div{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.agendamento div h1{
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.agendamento div h2{
+  font-size: 20px;
+}
+
+.agendamento a{
+  color: white;
+  background-color: #8C52FF;
+  padding: 5px 50px;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+.agendamento a:hover{
+  background-color: #9a6bf8;
+}
+
+.agendamento img{
+  margin: 20px 0px;
+}
+
+/* FIM AGENDAMENTO */
+
+/* DESCONTO */
+
+.desconto{
+  margin: 100px 0px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #EBEBEB;
+  padding: 40px 0px;
+}
+
+.desconto h2{
+  color: #8C52FF;
+  font-weight: bold;
+}
+
+.desconto div{
+  display: grid;
+  grid-template-columns: 150px 150px;
+  place-items: center;
+}
+@media (max-width: 600px) {
+  .desconto div{
+    grid-template-columns: 150px;
+    gap: 10px;
+  }
+}
+
+.desconto p{
+  font-weight: bold;
+  font-style: italic;
+  width: 80%;
+}
+
+.desconto a{
+  color: white;
+  background-color: #8C52FF;
+  padding: 5px 50px;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+
+.desconto a:hover{
+  background-color: #9a6bf8;
+}
+
+/* FIM DESCONTO */
+
+/* SERVIÇOES */
+
+.servicos{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.servicos h2{
+  color: #8C52FF;
+  font-weight: bold;
+}
+
+.servicos h3{
+  font-weight: bold;
+}
+
+.servicos p{
+  font-size: 20px;
+  width: 90%;
+}
+
+.boxServicos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.boxServicos div{
+  border: solid;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+}
+@media (max-width: 450px) {
+  .boxServicos div{
+    width: 100%
+  }
+}
+
+.boxServicos div p{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.servicos a{
+  color: white;
+  background-color: #8C52FF;
+  padding: 5px 50px;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+.servicos a:hover{
+  background-color: #9a6bf8;
+}
+/* FIM SERVIÇOES */

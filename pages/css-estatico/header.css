@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* RESET */
+
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+/* FIM RESET */
+
+/* CONTATOS HEADER */
+
+.contatoHeader{
+  background-color: #D7D7D7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.contatoHeader p{
+  margin: 0px;
+}
+
+.contatoHeader img{
+  width: 300px;
+}
+
+/* FIM CONTATOS HEADER */
+
+/* HEADER */
+
+header, footer{
+  background-color: #8C52FF;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+header .logo img, footer .logo img{
+  width: 100px;
+  object-fit: contain;
+}
+
+header .links, footer .links{
+  display: flex;
+  gap: 20px;
+}
+
+header .acesso, footer .acesso{
+  display: flex;
+  gap: 20px;
+}
+
+header a, footer a{
+  text-decoration: none;
+  color: white;
+  transition: all 0.5s;
+}
+
+header a:hover, footer a:hover{
+  color: #2B0086;
+}
+
+header .acesso a, footer .acesso a{
+  background-color: #6E29FF;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+footer .redes{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
