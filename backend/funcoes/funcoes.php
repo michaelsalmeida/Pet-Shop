@@ -56,5 +56,12 @@
                 <td>$row[3] Kg</td>
             </tr>";
         }
+
+        if ($retornar = "") {
+            $retornar = "
+            <tr>
+                <td colspan=4>Não há animais cadastrados</td>
+            </tr>";
+        }
         return $retornar;
     }

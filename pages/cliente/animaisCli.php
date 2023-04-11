@@ -45,21 +45,6 @@ require_once $funcoesRoute;
   ?>
   
   <table id="animais">
-    <tr>
-      <th>Nome</th>
-      <th>Data de Nascimento</th>
-      <th>Raça</th>
-      <th>Peso</th>
-    </tr>
-    <tr>
-      <td>Violett</td>
-      <td>02/07/2003</td>
-      <td>Cadela</td>
-      <td>70Kg</td>
-    </tr>
-    <tr>
-      <td colspan=4>Não há animais cadastrados</td>
-    </tr>
   </table>
 
   <a href="<?php echo $cadAnimaisCliRoute; ?>">Cadastrar Animal</a>

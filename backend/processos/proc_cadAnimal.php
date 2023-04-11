@@ -23,13 +23,13 @@ try {
     (pk_Animal, fk_Cliente, nome, data_nascimento, especie, raca, peso, cor, data_cadastro)
     VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?)");
     // Substituição da string preparada pelos valores corretos
-    $stmt->bind_param("ssssssss", $_SESSION['id'], $nome, $dataNasc, $espec, $raca, $peso, $cor, $hoje);
+    $stmt->bind_param("ssssssss", $_SESSION['idCli'], $nome, $dataNasc, $espec, $raca, $peso, $cor, $hoje);
     // Executa o sql
     $stmt->execute();
 
     $_SESSION['msgCadAnimaisCli'] = "Animal Cadastrado";
     header("Location: ".$cadAnimaisCliRoute);
 } catch (Exception $e) {
-    $_SESSION['msgCadAnimaisCli'] = "Animal Não Cadastrado: ". $e->getMessage();
+    $_SESSION['msgCadAnimaisCli'] = "Animal Não Cadastrado: <br>". $_SESSION['id'] . $e->getMessage();
     header("Location: ".$cadAnimaisCliRoute);
 }

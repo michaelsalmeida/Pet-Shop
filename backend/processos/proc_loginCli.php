@@ -13,7 +13,7 @@ try {
     // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
     $stmt = $conn->prepare("SELECT pk_Cliente FROM Clientes WHERE email = ? and senha = ?");
     // Substituição da string preparada pelos valores corretos
-    $stmt->bind_param("ss", $login, $hash);
+    $stmt->bind_param("ss", $email, $hash);
     // Executa o sql
     $stmt->execute();
     // Pega os resultados da query
@@ -26,7 +26,8 @@ try {
         header("Location: ". $homeRoute);
     } else {
         $_SESSION['msglogin'] = "<p>USUÁRIO OU SENHA INCORRETO(S).</p>"; 
-        header("Location: " . $loginCliRoute);
+        echo $email . $hash;
+        // header("Location: " . $loginCliRoute);
     }
 } catch (Exception $e) {
     echo $e->getMessage();

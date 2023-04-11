@@ -15,16 +15,16 @@
 <body>
     <a href="<?php echo $cadastroCliRoute; ?>">Cadastro do cliente</a>
     <a href="<?php echo $agendamentoCliRoute;?>">Agendamento</a>
-
+    <a href='<?php echo $fazAgendamentoCliRoute;?>'>Fazer Agendamento</a>
+    <a href='<?php echo $cadAnimaisCliRoute;?>'>Cadastrar Animais</a>
+    
     <?php
-        if (loged()) {
+        if (!loged()) {
             echo "
-            <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
-            <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-            <button onclick=executeFunctions('logoff')>Logoff</button>
+            <a href='$loginCliRoute'>Login do cliente</a>
             ";
         } else {
-            echo "<a href='<?php echo $loginCliRoute; ?>'>Login do cliente</a>";
+            echo "<button onclick=executeFunctions('logoff')>Logoff</button>";
         }
     ?>
 </body>

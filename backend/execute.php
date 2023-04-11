@@ -8,6 +8,6 @@
             echo $loginCliRoute;
             break;
         case 'gerarTabela':
-            print_r(gerarTabela());
+            echo gerarTabela();
             break;
     }
