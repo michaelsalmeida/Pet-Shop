@@ -29,7 +29,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
             <div class="login">
                 <label for="login">Login</label><br>
-                <input type="text" name="login" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}">
+                <input type="text" name="login" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}" placeholder="digite o cpf do funcionário">
             </div>
 
             <div class="senha">
