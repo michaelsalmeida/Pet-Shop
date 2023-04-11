@@ -1,7 +1,7 @@
 <?php
     session_start();
     include_once('../../rotas.php');
-    require_once $funcoesRoute;
+    include_once ($funcoesRoute);
 ?>
 
 <!DOCTYPE html>
@@ -16,13 +16,9 @@
 <body>
 
     <?php
-    if (!loged()) {
-        $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
-        header("Location: " . $loginCliRoute);
-    }
-    if (isset($_SESSION['msgCadAnimaisCli'])) {
-        echo $_SESSION['msgCadAnimaisCli'];
-        unset($_SESSION['msgCadAnimaisCli']);
+    if (isset($_SESSION['msgCadCli'])) {
+        echo $_SESSION['msgCadCli'];
+        unset($_SESSION['msgCadCli']);
     }
     ?>
     <div id="pi">

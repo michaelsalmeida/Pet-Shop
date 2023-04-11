@@ -1,6 +1,6 @@
 <?php
     include_once("rotas.php");
-    require_once $verificacaoRoute;
+    require_once $funcoesRoute;
 ?>
 
 <!DOCTYPE html>
