@@ -12,7 +12,7 @@ echo "
     <a href='$registroRoute'>Nova Entrada</a>
     <a id='meuBota'>Fechamento</a>
     <a href='$historicoRoute'>Histórico</a>
-    <a href='$procLogoffRoute'>Sair</a><br>
+    <a href='$procLogoffCliRoute'>Sair</a><br>
 
     <form action='$listaRoute' method='get'>
     <input type='text' placeholder='Pesquise por placas:' name='pesq'><input type='submit' value='Pesquisar'>

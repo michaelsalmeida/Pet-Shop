@@ -20,7 +20,7 @@ require_once $funcoesRoute;
 
 <body onresize="checaDispositivo()" onload="checaDispositivo()">
   <?php
-  if (!loged()) {
+  if (!logedCli()) {
     $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
     header("Location: " . $loginCliRoute);
   }
@@ -29,7 +29,7 @@ require_once $funcoesRoute;
   
 
   <a href="<?php echo $fazAgendamentoCliRoute; ?>">Fazer Agendamento</a>
-  <button onclick="executeFunctions('logoff')">Logoff</button>
+  <button onclick="executeFunctions('logoffCli')">Logoff</button>
 </body>
 
 </html>

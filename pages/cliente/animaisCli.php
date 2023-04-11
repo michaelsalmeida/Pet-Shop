@@ -38,7 +38,7 @@ require_once $funcoesRoute;
 
 <body onresize="checaDispositivo()" onload="gerarTabela()">
   <?php
-  if (!loged()) {
+  if (!logedCli()) {
     $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
     header("Location: " . $loginCliRoute);
   }
@@ -63,7 +63,7 @@ require_once $funcoesRoute;
   </table>
 
   <a href="<?php echo $cadAnimaisCliRoute; ?>">Cadastrar Animal</a>
-  <button onclick="executeFunctions('logoff')">Logoff</button>
+  <button onclick="executeFunctions('logoffCli')">Logoff</button>
 </body>
 
 </html>

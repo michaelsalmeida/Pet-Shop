@@ -18,11 +18,11 @@
     <a href="<?php echo $agendamentoCliRoute;?>">Agendamento</a>
 
     <?php
-        if (loged()) {
+        if (logedCli()) {
             echo "
             <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
             <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-            <button onclick=executeFunctions('logoff')>Logoff</button>
+            <button onclick=executeFunctions('logoffCli')>Logoff</button>
             ";
         }
     ?>
