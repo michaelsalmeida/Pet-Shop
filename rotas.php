@@ -43,6 +43,7 @@ $proc_cadAnimalRoute = $rootBackProc . "proc_cadAnimal.php";
 // ----------------------    Rotas com JavaScripts    -----------------------------
 $functionsRoute = $rootBackFunctions . "functions.js";
 $viacepRoute = $rootBackFunctions . "viacep.js";
+$dataHojeRoute = $rootBackFunctions . "dataHoje.js";
 
 
 

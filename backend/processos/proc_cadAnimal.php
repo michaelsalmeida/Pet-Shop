@@ -3,25 +3,31 @@ session_start();
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexão
 
-// Pega os valores digitados no login, pelo usuário
-$nome = htmlspecialchars($_POST['nome']);
-$dataNasc = $_POST['dataNasc'];
-
 try {
-    // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
-    $resultado = mysqli_query($conn, "SELECT pk_Cliente FROM Clientes
-    WHERE email = '$email' and senha = '$hash'");
+    // Pega os valores digitados no login, pelo usuário
+    $nome = htmlspecialchars($_POST['nome']);
 
-    // Verifica se a query deu algum retorno
-    if ($row = $resultado->fetch_row()) {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['id'] = $row[0];   // id do cliente
-        header("Location: ". $homeRoute);
-    } else {
-        $_SESSION['msglogin'] = "<p>USUÁRIO OU SENHA INCORRETO(S).</p>";
-        echo $email."<br>". $hash;
-        // header("Location: " . $loginCliRoute);
-    }
+    // Trata data que vem do front
+    $dataRecebida = new DateTime($_POST['dataNasc']);
+    $dataNasc = $dataRecebida->format('Y-m-d');
+
+    $espec = htmlspecialchars($_POST['espec']);
+    $raca = htmlspecialchars($_POST['raca']);
+    $peso = filter_var($_POST['peso'], FILTER_SANITIZE_NUMBER_FLOAT);
+    $cor = htmlspecialchars($_POST['cor']);
+    $hoje = date('Y-m-d');
+
+    // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
+    $stmt = $conn->prepare("INSERT INTO Animais
+    (pk_Animal, fk_Cliente, nome, data_nascimento, especie, raca, peso, cor, data_cadastro)
+    VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssss", $_SESSION['id'], $nome, $dataNasc, $espec, $raca, $peso, $cor, $hoje);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    $_SESSION['msgCadAnimaisCli'] = "Animal Cadastrado";
+    header("Location: ".$cadAnimaisCliRoute);
 } catch (Exception $e) {
-    echo $e->getMessage();
+    $_SESSION['msgCadAnimaisCli'] = "Animal Não Cadastrado: ". $e->getMessage();
+    header("Location: ".$cadAnimaisCliRoute);
 }

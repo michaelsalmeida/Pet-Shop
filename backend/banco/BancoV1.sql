@@ -1,5 +1,5 @@
 -- MySQL Workbench Forward Engineering
-
+-- drop database petshop;
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -32,42 +32,24 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 
-
 -- -----------------------------------------------------
--- Table `petshop`.`Enderecos`
+-- Table `petshop`.`Clientes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `petshop`.`Enderecos` (
-  `pk_Endereco` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `petshop`.`Clientes` (
+  `pk_Cliente` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cpf` CHAR(11) NOT NULL UNIQUE,
+  `nome` VARCHAR(100) NOT NULL,
+  `sobrenome` VARCHAR(200) NOT NULL,
+  `celular` CHAR(11) NOT NULL,
   `cep` CHAR(8) NOT NULL,
   `logradouro` VARCHAR(100) NOT NULL,
   `numero` VARCHAR(5) NOT NULL,
   `bairro` VARCHAR(100) NOT NULL,
   `municipio` VARCHAR(100) NOT NULL,
   `uf` CHAR(2) NOT NULL,
-  PRIMARY KEY (`pk_Endereco`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_general_ci;
-
-
--- -----------------------------------------------------
--- Table `petshop`.`Clientes`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `petshop`.`Clientes` (
-  `pk_Cliente` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `fk_Endereco` INT UNSIGNED NOT NULL,
-  `cpf` CHAR(11) NOT NULL UNIQUE,
-  `nome` VARCHAR(100) NOT NULL,
-  `sobrenome` VARCHAR(200) NOT NULL,
-  `celular` CHAR(11) NOT NULL,
   `email` VARCHAR(200) NOT NULL UNIQUE,
   `senha` VARCHAR(250) NOT NULL,
-  PRIMARY KEY (`pk_Cliente`),
-  CONSTRAINT `fk_Clientes_Enderecos`
-    FOREIGN KEY (`fk_Endereco`)
-    REFERENCES `petshop`.`Enderecos` (`pk_Endereco`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`pk_Cliente`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
@@ -81,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Animais` (
   `fk_Cliente` INT UNSIGNED NOT NULL,
   `nome` VARCHAR(100) NOT NULL,
   `data_nascimento` DATE NOT NULL,
+  `especie` VARCHAR(45) NOT NULL,
   `raca` VARCHAR(45) NOT NULL,
   `peso` FLOAT NOT NULL,
   `cor` VARCHAR(45) NOT NULL,
@@ -127,12 +110,12 @@ insert into Funcionarios values
 (default, 'Violett', 11122233396, 'Secretaria', 
 'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af');
 
-insert into Enderecos VALUES
-(default, '05885370', 'rua jose', '123', 'limoeiro', 'São Paulo', 'SP');
-
 insert into Clientes VALUES
-(default, 1, 11122233396, 'Violett', 'Vohor', '11958855005', 'scar@example.com', 
+(default, 11122233396, 'Violett', 'Vohor', '11958855005', '05005400', 'limão', '123', 'limoeiro', 'São Paulo', 'sp', 'scar@example.com',
 'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af');
+
+select * from Animais;
+select * from Clientes;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

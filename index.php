@@ -22,7 +22,7 @@
             echo "
             <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
             <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-            <button onclick=executeFunctions('logoff')>sair</button>
+            <button onclick=executeFunctions('logoff')>Logoff</button>
             ";
         }
     ?>

@@ -18,7 +18,7 @@
         <label>NOME :</label>
         <input type="text" name="nome" placeholder="Digite o nome completo" required autofocus><br><br>
 
-        <label>CNPJ :</label>
+        <label>CNPJ:</label>
         <input type="text" name="cnpj" pattern="[0-9]{14}" placeholder="Digite seu email"><br><br>
 
         <div>

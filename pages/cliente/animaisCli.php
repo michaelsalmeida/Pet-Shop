@@ -27,7 +27,7 @@ require_once "../../backend/funcoes/verificacao.php";
   ?>
   
   <a href="<?php echo $cadAnimaisCliRoute; ?>">Cadastrar Animal</a>
-  <button onclick="executeFunctions('logoff')">sair</button>
+  <button onclick="executeFunctions('logoff')">Logoff</button>
 </body>
 
 </html>

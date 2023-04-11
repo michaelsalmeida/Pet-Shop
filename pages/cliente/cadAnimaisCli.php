@@ -24,25 +24,35 @@ require_once "../../backend/funcoes/verificacao.php";
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
         header("Location: " . $loginCliRoute);
     }
+    if (isset($_SESSION['msgCadAnimaisCli'])) {
+        echo $_SESSION['msgCadAnimaisCli'];
+        unset($_SESSION['msgCadAnimaisCli']);
+    }
     ?>
     <form action="<?php echo $proc_cadAnimalRoute;?>" method="post">
         <label for="nome">Nome</label><br>
-        <input type="email" name="nome"><br><br>
+        <input type="text" name="nome"><br><br>
     
         <label for="dataNasc">Data de Nascimento </label><br>
         <input type="date" name="dataNasc"><br><br>
     
+        <label for="espec">Espécie</label><br>
+        <input type="text" name="espec"><br><br>
+
         <label for="raca">Raça</label><br>
         <input type="text" name="raca"><br><br>
     
         <label for="peso">Peso (Kg)</label><br>
-        <input type="number" name="peso" step=0.01><br><br>
+        <input type="number" name="peso" step=0.01  pattern="[0-9]*"><br><br>
     
         <label for="cor">Cor</label><br>
         <input type="text" name="cor"><br><br>
+
+        <input type="submit" value="Cadastrar">
     </form>
 
-    <button onclick="executeFunctions('logoff')">sair</button>
+    <button onclick="executeFunctions('logoff')">Logoff</button>
+    <script src="<?php echo $dataHojeRoute; ?>"></script>
 </body>
 
 </html>

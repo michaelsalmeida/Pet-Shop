@@ -26,7 +26,7 @@ require_once "../../backend/funcoes/verificacao.php";
   }
   ?>
   <a href="<?php echo $fazAgendamentoCliRoute; ?>">Fazer Agendamento</a>
-  <button onclick="executeFunctions('logoff')">sair</button>
+  <button onclick="executeFunctions('logoff')">Logoff</button>
 </body>
 
 </html>
