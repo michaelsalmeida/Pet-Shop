@@ -76,6 +76,11 @@ header .acesso a, footer .acesso a{
   border-radius: 5px;
 }
 
+footer{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 footer .redes{
   display: flex;
   flex-direction: row;
@@ -85,6 +90,8 @@ footer .redes{
 footer p{
   color: white;
   margin-top: 20px;
+  width: 90%;
+  text-align: center;
 }
 
 /* FIM FOOTER */
