@@ -40,7 +40,7 @@ $homeRoute = $root . "index.php";
 $procLoginCliRoute = $rootBackProc . "proc_loginCli.php";
 $procCadCliRoute = $rootBackProc . "proc_cadCli.php";
 $proc_cadAnimalRoute = $rootBackProc . "proc_cadAnimal.php";
-$procExcAnimal = $rootBackProc . "proc_excAnimal.php";
+$procExcAnimalRoute = $rootBackProc . "proc_excAnimal.php";
 
 
 
