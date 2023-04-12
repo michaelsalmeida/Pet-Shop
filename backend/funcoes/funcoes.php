@@ -78,21 +78,31 @@
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
         
-        if (isset($_SESSION['tipo'])){
+        if ($_SESSION['tipo'] == 'Veterinario' || $_SESSION['tipo'] == 'Esteticista'){
 
-            $stmt = $conn->prepare("SELECT data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status` from Agendamentos
+            // String de preparação
+            $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status` from Agendamentos
             inner join Animais
             on Agendamentos.fk_Animal = Animais.pk_Animal
             inner join Clientes
-            on Animais.fk_Cliente = Clientes.pk_Cliente");
+            on Animais.fk_Cliente = Clientes.pk_Cliente
+            inner join Funcionarios
+            on Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
+            Where fk_Funcionario = ?");
+
+             // Substituição da string preparada pelos valores corretos
+            $stmt->bind_param("s", $_SESSION['idFun']);
 
         } else {
-            $stmt = $conn->prepare("SELECT nome, data_nascimento, raca, peso FROM Animais WHERE fk_Cliente = ?");
+            $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status` from Agendamentos
+            inner join Animais
+            on Agendamentos.fk_Animal = Animais.pk_Animal
+            inner join Clientes
+            on Animais.fk_Cliente = Clientes.pk_Cliente
+            inner join Funcionarios
+            on Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario");
         }
-        // String de preparação
-        
-        // Substituição da string preparada pelos valores corretos
-        $stmt->bind_param("s", $_SESSION['id']);
+ 
         // Executa o sql
         $stmt->execute();
         // Pega o resultado do banco
@@ -101,10 +111,13 @@
         // String que será retornada na tabela
         $retornar =
         "<tr>
-            <th>Nome</th>
-            <th>Data de Nascimento</th>
-            <th>Raça</th>
-            <th>Peso</th>
+            <th>Profissional</th>
+            <th>Data Agendamento</th>
+            <th>Horário do agendamento</th>
+            <th>Nome do animal</th>
+            <th>Nome do dono</th>
+            <th>Detalhes</th>
+            <th>Status</th>
         </tr>";
         
         // Pega cada linha da query e monta as linhas da tabela
@@ -117,7 +130,11 @@
                 <td>$data</td>
                 <td>$row[2]</td>
                 <td>$row[3] Kg</td>
+                <td>$row[4]</td>
+                <td>Detalhes</td>
+                <td>$row[5]</td>
             </tr>";
         }
         return $retornar;
     }
+
