@@ -1,0 +1,127 @@
+/* MAPA */
+
+.mapa {
+    margin: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.mapa .frame {
+    width: 100%;
+    height: fit-content;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.mapa iframe {
+    width: inherit;
+    border-top: 10px solid #8D6ECA;
+    border-bottom: 10px solid #8D6ECA;
+}
+
+.mapa h1 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.mapa a {
+    border: solid #8D6ECA;
+    width: 90%;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    color: #8D6ECA;
+    transition: all 0.5s;
+}
+
+.mapa a:hover {
+    background-color: #8d6eca40;
+}
+
+/* FIM MAPA */
+
+/* MENSAGEM */
+
+.mensagem {
+    background-color: #F4F4F4;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nome{
+    grid-area: nome;
+}
+#tell{
+    grid-area: tell;
+}
+#email{
+    grid-area: email;
+}
+#msg{
+    grid-area: msg;
+}
+
+.mensagem form {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: 
+    'nome tell'
+    'email email'
+    'msg msg';
+    width: 60%;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.mensagem fieldset{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.mensagem fieldset label{
+    padding: 0 0 2px 5px;
+}
+
+.mensagem fieldset input{
+    border-radius: 5px;
+    border: solid black;
+}
+
+.mensagem fieldset textarea{
+    border-radius: 5px;
+    border: solid black;
+}
+
+.mensagem input[type= "submit"]{
+    background-color: #8D6ECA;
+    color: white;
+    border: none;
+    padding: 5px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 200px;
+    margin: 0 70%;
+}
+
+@media (max-width: 700px) {
+    .mensagem form{
+        grid-template-columns: auto;
+        grid-template-areas: 
+        'nome'
+        'tell'
+        'email'
+        'msg';
+    }
+
+    .mensagem input[type= "submit"]{
+        margin: 0 20%;
+    }
+}
+
+/* FIM MENSAGEM */
