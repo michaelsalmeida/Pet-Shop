@@ -132,6 +132,16 @@ SELECT data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `stat
 
 -- delete from Clientes where pk_Cliente = 9;
 
+SELECT Funcionarios.nome, data_agendamento, 
+        horario_agendamento, Animais.nome, Clientes.nome, `status` from Agendamentos
+            inner join Animais
+            on Agendamentos.fk_Animal = Animais.pk_Animal
+            inner join Clientes
+            on Animais.fk_Cliente = Clientes.pk_Cliente
+            inner join Funcionarios
+            on Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
+            Where pk_Cliente = 1;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
