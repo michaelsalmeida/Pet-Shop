@@ -130,7 +130,7 @@ SELECT data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `stat
             inner join Clientes
             on Animais.fk_Cliente = Clientes.pk_Cliente;
 
-delete from Clientes where pk_Cliente = 9;
+-- delete from Clientes where pk_Cliente = 9;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
