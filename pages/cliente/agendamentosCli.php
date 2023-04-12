@@ -16,9 +16,27 @@ require_once $funcoesRoute;
   <link rel="stylesheet" href="cssBack/modalfechamento.css">
   <link rel="stylesheet" href="cssBack/lista.css">
   <script src="<?php echo $functionsRoute; ?>"></script>
+  <style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #dddddd;
+  }
+  </style>
 </head>
 
-<body onresize="checaDispositivo()" onload="checaDispositivo()">
+<body onresize="checaDispositivo()" onload="gerarTabelaAgen()">
   <?php
   if (!loged()) {
     $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
@@ -26,7 +44,8 @@ require_once $funcoesRoute;
   }
   ?>
 
-  
+  <table id="agendamentos">
+  </table>
 
   <a href="<?php echo $fazAgendamentoCliRoute; ?>">Fazer Agendamento</a>
   <button onclick="executeFunctions('logoff')">Logoff</button>

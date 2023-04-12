@@ -7,7 +7,10 @@
             logoff();
             echo $loginCliRoute;
             break;
-        case 'gerarTabela':
-            echo gerarTabela();
+        case 'gerarTabelaAni':
+            echo gerarTabelaAni();
+            break;
+        case 'gerarTabelaAgen':
+            echo gerarTabelaAgen();
             break;
     }

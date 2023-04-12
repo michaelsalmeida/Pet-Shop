@@ -11,15 +11,27 @@ function executeFunctions(func) {
     xhr.send();
 }
 
-function gerarTabela() {
-    console.log('teste');
+function gerarTabelaAni() {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=gerarTabela`, true);
-    // xhr.open("GET", location.origin + `/backend/execute.php?function=gerarTabela`, true);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=gerarTabelaAni`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=gerarTabelaAni`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Get the response from the server
             document.getElementById("animais").innerHTML = response;
+        }
+    };
+    xhr.send();
+}
+
+function gerarTabelaAgen() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=gerarTabelaAgen`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=gerarTabelaAgen`, true);
+    xhr.onload = function() {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            var response = xhr.responseText; // Get the response from the server
+            document.getElementById("agendamentos").innerHTML = response;
         }
     };
     xhr.send();
