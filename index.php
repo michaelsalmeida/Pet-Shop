@@ -30,19 +30,23 @@ require_once $funcoesRoute;
       <img src="pages/img-estatico/logo.svg" alt="">
     </a>
 
-    <div class="links">
-      <a href="">BLOG</a>
-      <a href="">SOBRE NÓS</a>
-      <a href="">CONSULTA</a>
-      <a href="">CONTATO</a>
-    </div>
-
-    <div class="acesso">
-      <a href="<?php echo $loginCliRoute; ?>"><img src="pages/img-estatico/login.svg" alt=""> Login</a>
+    <div class="responsive">
+      <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+      <div class="links">
+        <a href="">BLOG</a>
+        <a href="">SOBRE NÓS</a>
+        <a href="">CONSULTA</a>
+        <a href="">CONTATO</a>
+      </div>
   
-      <a href="<?php echo $cadastroCliRoute; ?>">Cadastro</a>
+      <div class="acesso">
+        <a href="<?php echo $loginCliRoute; ?>"><img src="pages/img-estatico/login.svg" alt=""> Login</a>
+    
+        <a href="<?php echo $cadastroCliRoute; ?>">Cadastro</a>
+      </div>
     </div>
 
+    <img src="pages/img-estatico/menu.png" class="menu" alt="menu">
   </header>
 
   <section class="container carrossel">
@@ -144,6 +148,8 @@ require_once $funcoesRoute;
       <img src="pages/img-estatico/twitter.svg" alt="">
       <img src="pages/img-estatico/github.svg" alt="">
     </div>
+
+    <p>© Hamtaro Petshop trabalho com fins lucrativos</p>
   </footer>
 
   <?php
@@ -156,7 +162,7 @@ require_once $funcoesRoute;
   }
   ?>
 
-  <script src="script.js"></script>
+  <script src="pages/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 
