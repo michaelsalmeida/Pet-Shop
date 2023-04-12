@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Agendamentos` (
   `horario_agendamento` TIME NOT NULL,
   `status` ENUM('Disponivel', 'Marcado', 'Em_Andamento', 'Concluido', 'Cancelado') NOT NULL DEFAULT 'Disponivel',
   `descricao` TEXT NULL,
-  `tipo` ENUM('Banho', 'Tosa', 'Veterinário') NOT NULL,
+  `tipo` ENUM('Banho', 'Tosa', 'Veterinário', 'Banho e Tosa') NOT NULL,
   PRIMARY KEY (`pk_Agendamento`),
   CONSTRAINT `fk_Agendamentos_Funcionarios`
     FOREIGN KEY (`fk_Funcionario`)
