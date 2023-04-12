@@ -121,7 +121,7 @@
         return $retornar;
     }
 
-    function gerarTabelaFun() {
+    function gerarTabelaAgenFun() {
         session_start();
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
@@ -177,7 +177,7 @@
                 <td>$row[0]</td>
                 <td>$data</td>
                 <td>$row[2]</td>
-                <td>$row[3] Kg</td>
+                <td>$row[3]</td>
                 <td>$row[4]</td>
                 <td>Detalhes</td>
                 <td>$row[5]</td>

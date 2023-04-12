@@ -15,20 +15,38 @@ require_once $funcoesRoute;
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
   <link rel="stylesheet" href="cssBack/modalfechamento.css">
   <link rel="stylesheet" href="cssBack/lista.css">
+  <style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #dddddd;
+  }
+  </style>
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onresize="checaDispositivo()" onload="checaDispositivo()">
+<body onresize="checaDispositivo()" onload="gerarTabelaAgenFun()">
   <?php
   if (!loged()) {
     $_SESSION['msgloginFun'] = "Por favor, faça o login primeiro.";
     header("Location: " . $loginFunRoute);
   }
-
-  
-
-
   ?>
+
+  <table id="tabela">
+
+  </table>
 
   
 

@@ -23,7 +23,7 @@
             header("Location: ". $agendamentoFunRoute);
         } else {
             $_SESSION['msgloginFun'] = "<p>USUÁRIO OU SENHA INCORRETO(S).</p>"; 
-            header("Location: " . $loginCliRoute);
+            header("Location: " . $loginFunRoute);
         }
     } catch (Exception $e) {
         echo $e->getMessage();

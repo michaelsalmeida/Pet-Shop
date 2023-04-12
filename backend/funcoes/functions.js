@@ -24,14 +24,14 @@ function gerarTabelaAni() {
     xhr.send();
 }
 
-function gerarTabelaAgen() {
+function gerarTabelaAgenFun() {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=gerarTabelaAgen`, true);
-    // xhr.open("GET", location.origin + `/backend/execute.php?function=gerarTabelaAgen`, true);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=gerarTabelaAgenFun`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=gerarTabelaAgenFun`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Get the response from the server
-            document.getElementById("agendamentos").innerHTML = response;
+            document.getElementById("tabela").innerHTML = response;
         }
     };
     xhr.send();
