@@ -10,8 +10,8 @@
         case 'gerarTabelaAni':
             echo gerarTabelaAni();
             break;
-        case 'gerarTabelaAgen':
-            echo gerarTabelaAgen();
+        case 'gerarTabelaAgenCli':
+            echo gerarTabelaAgenCli();
             break;
         case 'gerarTabelaAgenFun':
             echo gerarTabelaAgenFun();

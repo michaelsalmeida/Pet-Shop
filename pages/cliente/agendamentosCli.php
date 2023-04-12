@@ -36,7 +36,7 @@ require_once $funcoesRoute;
   </style>
 </head>
 
-<body onresize="checaDispositivo()" onload="gerarTabelaAgen()">
+<body onresize="checaDispositivo()" onload="gerarTabelaAgenCli()">
   <?php
   if (!loged()) {
     $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";

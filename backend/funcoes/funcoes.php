@@ -71,15 +71,22 @@
         return $retornar;
     }
 
-    function gerarTabelaAgen() {
+    function gerarTabelaAgenCli() {
         session_start();
         include_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/rotas.php');
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         // String de preparação
-        $stmt = $conn->prepare("SELECT nome, data_nascimento, raca, peso, pk_Animal 
-        FROM Agendamentos WHERE fk_Cliente = ?");
+        $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, 
+        horario_agendamento, Animais.nome, Clientes.nome, `status` from Agendamentos
+            inner join Animais
+            on Agendamentos.fk_Animal = Animais.pk_Animal
+            inner join Clientes
+            on Animais.fk_Cliente = Clientes.pk_Cliente
+            inner join Funcionarios
+            on Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
+            Where pk_Cliente = ?");
         // Substituição da string preparada pelos valores corretos
         $stmt->bind_param("s", $_SESSION['idCli']);
         // Executa o sql
@@ -89,17 +96,19 @@
 
         // String que será retornada na tabela
         $retornar = "<tr>
-            <th>Nome</th>
-            <th>Data de Nascimento</th>
-            <th>Raça</th>
-            <th>Peso</th>
-            <th></th>
+            <th>Profissional</th>
+            <th>Data Agendamento</th>
+            <th>Horário do agendamento</th>
+            <th>Nome do animal</th>
+            <th>Nome do dono</th>
+            <th>Detalhes</th>
+            <th>Status</th>
         </tr>";
         
         if (mysqli_num_rows($resultado) == 0) {
             $retornar = $retornar . "
             <tr>
-                <td colspan=4>Não há animais cadastrados</td>
+                <td colspan=7>Não há agendamentos cadastrados</td>
             </tr>
             ";
         } else {
@@ -112,9 +121,10 @@
                     <td>$row[0]</td>
                     <td>$data</td>
                     <td>$row[2]</td>
-                    <td>$row[3] Kg</td>
-                    <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/backend/processos/proc_excAnimal.php?id="
-                    . $row[4] ."'>Excluir</a></td>
+                    <td>$row[3]</td>
+                    <td>$row[4]</td>
+                    <td>Detalhes</td>
+                    <td>$row[5]</td>
                 </tr>";
             }
         }
