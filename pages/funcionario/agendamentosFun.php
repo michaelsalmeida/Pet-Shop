@@ -51,6 +51,7 @@ require_once $funcoesRoute;
   
 
   <button onclick="executeFunctions('logoff')">Logoff</button>
+  <a href="<?php echo $cadastroCliRoute; ?>">Cadastrar Cliente</a>
 </body>
 
 </html>

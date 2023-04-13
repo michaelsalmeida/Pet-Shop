@@ -46,12 +46,12 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
                 <div class="login">
                     <label for="login">CPF</label><br>
-                    <input type="text" name="login" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}">
+                    <input type="text" name="login" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}" required>
                 </div>
 
                 <div class="senha">
                     <label for="senha">Senha</label><br>
-                    <input type="password" name="senha">
+                    <input type="password" name="senha" required>
                 </div>
 
             </div>

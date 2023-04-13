@@ -249,3 +249,28 @@
         return $retornar;
     }
     
+    function cadastrarAgendamentos(){
+
+        session_start();
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+
+        $prof = $_GET['servico'];
+
+        $stmt = $conn->prepare("Select nome, pk_Funcionario from Funcionarios where profissao = ?");
+
+        $stmt->bind_param("s", $prof);
+
+        // Executa o sql
+        $stmt->execute();
+
+        // Pega o resultado do banco
+        $resultado = $stmt->get_result();
+
+        $retornar = "<option disabled selected hidden>Selecione um funcionário</option>";
+
+        foreach($resultado->fetch_all() as $row){
+            $retornar = $retornar . "<option value='$row[0]'>$row[0]</option>";
+        }
+
+        return $retornar;
+    }   

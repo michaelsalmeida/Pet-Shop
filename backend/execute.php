@@ -19,4 +19,7 @@
         case 'gerarTabelaAgenFun':
             echo gerarTabelaAgenFun();
             break;
+        case 'cadastrarAgendamentos':
+            echo cadastrarAgendamentos();
+            break;
     }
