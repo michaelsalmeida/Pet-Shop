@@ -160,7 +160,7 @@ require_once $funcoesRoute;
       <img src="pages/img-estatico/github.svg" alt="">
     </div>
 
-    <p>© Hamtaro Petshop trabalho com fins lucrativos</p>
+    <p>© Hamtaro Petshop todos direitos reservados</p>
   </footer>
 
   <script src="pages/script.js"></script>

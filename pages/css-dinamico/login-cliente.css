@@ -1,5 +1,7 @@
 body{
     background-image: url(../img-dinamico/fundo-login.svg);
+    background-repeat: no-repeat;
+
 }
 
 /* HEADER LOGIN  */
@@ -7,10 +9,11 @@ body{
 header{
     margin-top: 20px;
     padding:0  50px;
-    gap: 20px;
     background-color: transparent;
+    
 
 }
+
 .acesso-seguro{
     display: flex;
     color: black;
@@ -24,7 +27,6 @@ header .corporativo{
     border-radius: 5px;
 }
 
-
 #logo{
     color: #727272;
     width: 500px;
@@ -32,6 +34,21 @@ header .corporativo{
     font-weight: bolder;
     font-family: serif;
 }
+
+.links-login-cliente{
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    align-items: center;
+    gap: 50px;
+}
+
+@media (max-width:1300px) {
+    .acesso-seguro{
+        display: none;
+    }
+}
+
 
 /* HEADER LOGIN */
 
@@ -43,11 +60,11 @@ header .corporativo{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* background-color: aqua; */
-    width: 800px;
     padding: 30px 0;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
+    overflow: hidden;
     
 }
 .titulos{
@@ -56,6 +73,7 @@ header .corporativo{
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .titulos h1{
@@ -75,7 +93,8 @@ header .corporativo{
     border: 2px solid #403F3F;
     outline: none;
     border-radius: 5px;
-    padding: 0 10px;   
+    padding: 0 10px; 
+   
 }
 
 .botoes{
@@ -95,8 +114,50 @@ header .corporativo{
     font-weight: 700;
     font-size: 18px;
     border-radius: 5px;
+    margin-bottom: 20px;
 
 }
+
+.botoes p{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #FF2626;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+@media (max-width:900px) {
+    #logo{
+        font-size: 18px;
+    }
+
+    header .corporativo{
+        font-weight: 16px;
+        padding: 5px 10px;
+    }
+
+    .inputs input{
+        width: 300px;
+    }
+
+    .botoes input[type='submit']{
+        padding: 7px 60px;
+    }
+
+}
+
+.box-cadastro{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    margin: 30px 0;
+
+}
+
+/*FORMULÁRIO DE LOGIN*/
 
 
 

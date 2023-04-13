@@ -21,27 +21,21 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
 
     <header>
+        <a href="" id="logo">
+            <p>Hamtaro Petshop</p>
+        </a>
+        <div class="links-login-cliente">
+            <a href="<?php echo $loginFunRoute; ?>" class="corporativo">Corporativo </a>
 
-        <a href="" id="logo"><p>Hamtaro Petshop</p></a>
-
-
-        <div class="responsive">
-            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <div class="acesso-seguro">
+                <p>Ambiente Seguro</p>
+                <img src="../img-dinamico/cadeado.svg" alt="">
+            </div>
         </div>
-
-        <a href="<?php echo $loginFunRoute; ?>" class="corporativo">Corporativo </a>
-
-        <div class="acesso-seguro">
-            <p>Ambiente Seguro</p>
-            <img src="../img-dinamico/cadeado.svg" alt="">
-        </div>
-
-
-        <img src="../img-estatico/menu.png" class="menu" alt="menu">
     </header>
 
-    <div class="container box-conteudo">
 
+    <div class="container box-conteudo">
         <form action="<?php echo $procLoginCliRoute; ?>" method="post">
 
             <div class="titulos">
@@ -63,6 +57,8 @@ include_once($connRoute); // Inclui o arquivo de conexao
                 </div>
 
             </div>
+
+
             <div class="botoes">
                 <input type="submit" value="Entrar">
 
@@ -75,8 +71,12 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
                 <a class="voltar" href="<?php echo $homeRoute; ?>">Voltar</a>
             </div>
-
         </form>
+    </div>
+
+
+    <div class="box-cadastro">
+        <span>Ainda não possui cadastro online na Hamtaro? <a href="<?php echo $cadastroCliRoute; ?>" class="cadastro-cliente">Cadastre-se</a></span>
     </div>
 
 
@@ -89,7 +89,6 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
 
 
-    <script src="../script.js"></script>
 </body>
 
 </html>

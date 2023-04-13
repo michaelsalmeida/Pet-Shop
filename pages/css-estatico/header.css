@@ -146,7 +146,7 @@ footer p{
     transition: all 0.5s;
   }
   .fechaMenu:hover{
-    scale: 1.3f;
+    transform: scale(1.05);
   }
 
   footer{
