@@ -40,7 +40,6 @@ require_once $funcoesRoute;
       </div>
 
       <div class="acesso">
-        <a href="<?php echo $loginCliRoute; ?>"><img src="pages/img-estatico/login.svg" alt=""> Login</a>
 
         <a href="<?php echo $cadastroCliRoute; ?>">Cadastro</a>
 
@@ -51,6 +50,8 @@ require_once $funcoesRoute;
             <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
             <button onclick=executeFunctions('logoff')>Logoff</button>
             ";
+        } else {
+          echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
         }
         ?>
       </div>

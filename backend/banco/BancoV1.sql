@@ -120,6 +120,9 @@ insert into Animais values
 insert into Agendamentos values
 (default, 1, 1, '2023-04-11', '16:40', 'Em_Andamento', 'teste de descrição', 'Veterinário');
 
+insert into Agendamentos values
+(default, 1, 1, '2023-04-11', '16:40', 'Disponivel', 'teste de descrição', 'Veterinário');
+
 select * from Animais;
 select * from Clientes;
 select pk_Cliente from Clientes where email = "scar@example.com" and senha = "b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af";

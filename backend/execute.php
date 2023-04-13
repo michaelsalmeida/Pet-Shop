@@ -13,7 +13,10 @@
         case 'gerarTabelaAgenCli':
             echo gerarTabelaAgenCli();
             break;
+        case 'gerarTabelaFazAgenCli':
+            echo gerarTabelaFazAgenCli();
+            break;
         case 'gerarTabelaAgenFun':
             echo gerarTabelaAgenFun();
-            break; 
+            break;
     }

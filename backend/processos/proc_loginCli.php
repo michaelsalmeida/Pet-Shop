@@ -25,9 +25,8 @@ try {
         $_SESSION['idCli'] = $row[0];   // id do cliente
         header("Location: ". $homeRoute);
     } else {
-        $_SESSION['msglogin'] = "<p>USUÁRIO OU SENHA INCORRETO(S).</p>"; 
-        echo $email . $hash;
-        // header("Location: " . $loginCliRoute);
+        $_SESSION['msglogin'] = "USUÁRIO OU SENHA INCORRETO(S).";
+        header("Location: " . $loginCliRoute);
     }
 } catch (Exception $e) {
     echo $e->getMessage();
