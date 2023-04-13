@@ -1,0 +1,114 @@
+body{
+    background-image: url(../img-dinamico/fundo-login.svg);
+}
+
+/* HEADER LOGIN  */
+
+header{
+    margin-top: 20px;
+    padding:0  50px;
+    gap: 20px;
+    background-color: transparent;
+
+}
+.acesso-seguro{
+    display: flex;
+    color: black;
+    width: 300px;
+    gap: 10px;
+}
+
+header .corporativo{
+    background-color: #6E29FF;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+
+#logo{
+    color: #727272;
+    width: 500px;
+    font-size: 24px;
+    font-weight: bolder;
+    font-family: serif;
+}
+
+/* HEADER LOGIN */
+
+
+/*FORMULÁRIO DE LOGIN*/
+
+.box-conteudo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: aqua; */
+    width: 800px;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    
+}
+.titulos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.titulos h1{
+    color: #8C52FF;
+    font-weight: bold;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.inputs input{
+    width: 400px;
+    height: 40px;
+    border: 2px solid #403F3F;
+    outline: none;
+    border-radius: 5px;
+    padding: 0 10px;   
+}
+
+.botoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.botoes input[type='submit']{
+    text-transform: uppercase;
+    padding: 7px 100px;
+    cursor: pointer;
+    border: none;
+    background-color: #8C52FF;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 5px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
