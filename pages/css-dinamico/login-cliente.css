@@ -115,7 +115,12 @@ header .corporativo{
     font-size: 18px;
     border-radius: 5px;
     margin-bottom: 20px;
+    transition: all 0.5s;
 
+}
+
+.botoes input[type='submit']:hover{
+    background-color: #9a6bf8;
 }
 
 .botoes p{

@@ -1,0 +1,11 @@
+body{
+    background-image: url(../img-dinamico/fundo-login-funcionario.svg);
+}
+
+.links-login-cliente{
+    width: 15%;
+}
+
+.inputs{
+    align-items: center;
+}

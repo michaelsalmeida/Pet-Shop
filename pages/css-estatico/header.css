@@ -68,6 +68,7 @@ header a, footer a{
 
 header a:hover, footer a:hover{
   color: #2B0086;
+  
 }
 
 header .acesso a, footer .acesso a{
