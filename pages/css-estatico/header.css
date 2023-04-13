@@ -68,6 +68,7 @@ header a, footer a{
 
 header a:hover, footer a:hover{
   color: #2B0086;
+  
 }
 
 header .acesso a, footer .acesso a{
@@ -146,7 +147,7 @@ footer p{
     transition: all 0.5s;
   }
   .fechaMenu:hover{
-    scale: 1.3f;
+    transform: scale(1.05);
   }
 
   footer{

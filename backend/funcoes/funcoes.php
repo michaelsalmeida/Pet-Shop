@@ -78,8 +78,8 @@
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         // String de preparação
-        $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, 
-        horario_agendamento, Animais.nome, Clientes.nome, `status` from Agendamentos
+        $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento,
+        horario_agendamento, Animais.nome, Clientes.nome, Agendamento.tipo, `status` from Agendamentos
             inner join Animais
             on Agendamentos.fk_Animal = Animais.pk_Animal
             inner join Clientes
@@ -101,6 +101,7 @@
             <th>Horário do agendamento</th>
             <th>Nome do animal</th>
             <th>Nome do dono</th>
+            <th>Tipo</th>
             <th>Detalhes</th>
             <th>Status</th>
         </tr>";
@@ -123,8 +124,60 @@
                     <td>$row[2]</td>
                     <td>$row[3]</td>
                     <td>$row[4]</td>
-                    <td>Detalhes</td>
                     <td>$row[5]</td>
+                    <td>Detalhes</td>
+                    <td>$row[6]</td>
+                </tr>";
+            }
+        }
+        return $retornar;
+    }
+
+    function gerarTabelaFazAgenCli() {
+        session_start();
+        include_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/rotas.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+
+        // String de preparação
+        $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento,
+        horario_agendamento from Agendamentos
+            inner join Funcionarios
+            on Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
+            Where `status` = 'Disponivel' AND data_agendamento = ? AND tipo = ?");
+        
+        // Substituição da string preparada pelos valores corretos
+        $stmt->bind_param("ss", $_GET['data'], $_GET['tipo']);
+        // Executa o sql
+        $stmt->execute();
+        // Pega o resultado do banco
+        $resultado = $stmt->get_result();
+
+        // String que será retornada na tabela
+        $retornar = "<tr>
+            <th>Profissional</th>
+            <th>Data Agendamento</th>
+            <th>Horário do agendamento</th>
+            <th>Detalhes</th>
+        </tr>";
+        
+        if (mysqli_num_rows($resultado) == 0) {
+            $retornar = $retornar . "
+            <tr>
+                <td colspan=7>Não há agendamentos cadastrados</td>
+            </tr>
+            ";
+        } else {
+            // Pega cada linha da query e monta as linhas da tabela
+            foreach($resultado->fetch_all() as $row) {
+                // Formata a data
+                $data = date('d/m/Y', strtotime($row[1]));
+                $retornar = $retornar .
+                "<tr>
+                    <td>$row[0]</td>
+                    <td>$data</td>
+                    <td>$row[2]</td>
+                    <td>Detalhes</td>
                 </tr>";
             }
         }
@@ -195,4 +248,4 @@
         }
         return $retornar;
     }
-
+    

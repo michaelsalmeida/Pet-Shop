@@ -22,7 +22,7 @@ require_once $funcoesRoute;
 
 <body>
   <div class="contatoHeader">
-    <p>(11)9 8253-2481</p>
+    <p>(11) 98253-2481</p>
     <img src="pages/img-estatico/endereço.svg" alt="">
   </div>
   <header>
@@ -40,7 +40,6 @@ require_once $funcoesRoute;
       </div>
 
       <div class="acesso">
-        <a href="<?php echo $loginCliRoute; ?>"><img src="pages/img-estatico/login.svg" alt=""> Login</a>
 
         <a href="<?php echo $cadastroCliRoute; ?>">Cadastro</a>
 
@@ -51,6 +50,8 @@ require_once $funcoesRoute;
             <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
             <button onclick=executeFunctions('logoff')>Logoff</button>
             ";
+        } else {
+          echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
         }
         ?>
       </div>
@@ -159,7 +160,7 @@ require_once $funcoesRoute;
       <img src="pages/img-estatico/github.svg" alt="">
     </div>
 
-    <p>© Hamtaro Petshop trabalho com fins lucrativos</p>
+    <p>© Hamtaro Petshop todos direitos reservados</p>
   </footer>
 
   <script src="pages/script.js"></script>

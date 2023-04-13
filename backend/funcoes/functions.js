@@ -49,3 +49,18 @@ function gerarTabelaAgenCli() {
     };
     xhr.send();
 }
+
+function gerarTabelaFazAgenCli() {
+    var xhr = new XMLHttpRequest();
+    var tipo = document.getElementById('tipoAgen').value
+    var data = document.getElementById('dataAgen').value
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=gerarTabelaFazAgenCli&tipo=${tipo}&data=${data}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=gerarTabelaFazAgenCli&tipo=${tipo}&data=${data}`, true);
+    xhr.onload = function() {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            var response = xhr.responseText; // Get the response from the server
+            document.getElementById("fazAgend").innerHTML = response;
+        }
+    };
+    xhr.send();
+}
