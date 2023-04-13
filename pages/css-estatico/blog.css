@@ -1,0 +1,93 @@
+/* SESSÃO SUPERIOR DO BLOG */
+
+.blog{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    padding: 50px;
+}
+
+.blog img{
+    width: 350px;
+}
+
+.blog p{
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.blog .divisoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.blog .divisao-maior{
+    width: 250px;
+    height: 10px;
+    background-color: #8C52FF;
+    border-radius: 100px;
+}
+
+
+.blog .divisao-menor{
+    width: 125px;
+    height: 10px;
+    background-color: #D9D9D9;
+    border-radius: 100px;
+}
+
+/* SESSÃO SUPERIOR DO BLOG */
+
+
+/* NOTICIAS BLOG */
+
+.fundo-noticias{
+    background-color: #F4F4F4;
+    text-align: center;
+    display: grid ;
+    flex-direction: column;
+}
+
+.noticias{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+
+.card-noticia{
+    background-color: #ffffff;
+    width: 400px;
+    padding: 50px;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.img-noticia{
+    height: 150px;
+    border-radius: 9px;
+    background-image: url('https://img.freepik.com/fotos-gratis/lindo-retrato-de-cachorro_23-2149218450.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    font-size: 20px;
+}
+
+.info img{
+    width: 24px;
+}
