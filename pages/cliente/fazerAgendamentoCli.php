@@ -1,4 +1,3 @@
-
 <?php
 include_once("../../rotas.php");
 include_once($connRoute);
@@ -16,10 +15,28 @@ require_once $funcoesRoute;
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
     <link rel="stylesheet" href="cssBack/modalfechamento.css">
     <link rel="stylesheet" href="cssBack/lista.css">
+    <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        text-align: center;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #dddddd;
+    }
+    </style>
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onresize="checaDispositivo()" onload="checaDispositivo()">
+<body onresize="checaDispositivo()">
     <?php
     if (!loged()) {
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
@@ -31,21 +48,19 @@ require_once $funcoesRoute;
     }
     ?>
 
-    <form action="<?php echo $proc_cadAnimalRoute;?>" method="post">
+    <form action="<?php echo $proc_cadAnimalRoute; ?>" method="post">
         <label for="nome">Tipo de Agendamento</label><br>
-        <select name="" id="">
+        <select name="tipoAgen" id="tipoAgen" onchange="gerarTabelaFazAgenCli()">
             <option value="" disabled selected hidden>Selecione o tipo de Agendamento</option>
-            <option value="0">Banho</option>
-            <option value="1">Tosa</option>
-            <option value="2">Veterinário</option>
+            <option value="Banho">Banho</option>
+            <option value="Tosa">Tosa</option>
+            <option value="Veterinário">Veterinário</option>
         </select><br><br>
-    
-        <label for="dataNasc">Data de Agendamento</label><br>
-        <input type="date" name="dataNasc"><br><br>
-    
-        <table id="fazAgend">
-            
-        </table>
+
+        <label for="dataAgen">Data de Agendamento</label><br>
+        <input type="date" id="dataAgen" onchange="gerarTabelaFazAgenCli()"><br><br>
+
+        <table id="fazAgend"></table>
 
         <input type="submit" value="Cadastrar">
     </form>
