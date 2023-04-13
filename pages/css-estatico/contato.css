@@ -125,3 +125,42 @@
 }
 
 /* FIM MENSAGEM */
+
+/* CONTATO */
+
+.contato{
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contato h2{
+    font-weight: bold;
+}
+
+.contato div{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: max-content;
+    width: 100%;
+    margin: 20px;
+}
+
+.contato div button{
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.contato div button:hover{
+    background-color: rgba(128, 128, 128, 0.329);
+}
+
+.contato div img{
+    margin: 0px 10px;
+}
+
+/* FIM CONTATO */

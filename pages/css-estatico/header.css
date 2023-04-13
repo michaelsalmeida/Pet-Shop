@@ -22,15 +22,22 @@ a{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: 0px 20px;
 }
 
 .contatoHeader p{
+  font-size: 12px;
   margin: 0px;
 }
 
 .contatoHeader img{
   width: 300px;
+}
+@media (max-width: 300px) {
+  .contatoHeader img{
+    width: 100vw;
+  }
 }
 
 /* FIM CONTATOS HEADER */
@@ -66,9 +73,14 @@ header a, footer a{
   transition: all 0.5s;
 }
 
-header a:hover, footer a:hover{
+header .links a:hover{
   color: #2B0086;
-  
+}
+header .acesso a:hover{
+  filter: grayscale(20);
+}
+footer a:hover{
+  color: #2B0086;
 }
 
 header .acesso a, footer .acesso a{
