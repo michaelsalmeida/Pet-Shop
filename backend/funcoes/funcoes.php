@@ -79,7 +79,7 @@
 
         // String de preparação
         $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento,
-        horario_agendamento, Animais.nome, Clientes.nome, Agendamentos.tipo, `status` from Agendamentos
+        horario_agendamento, Animais.nome, Agendamentos.tipo, `status` from Agendamentos
             inner join Animais
             on Agendamentos.fk_Animal = Animais.pk_Animal
             inner join Clientes
@@ -100,7 +100,6 @@
             <th>Data Agendamento</th>
             <th>Horário do agendamento</th>
             <th>Nome do animal</th>
-            <th>Nome do dono</th>
             <th>Tipo</th>
             <th>Detalhes</th>
             <th>Status</th>
@@ -124,9 +123,8 @@
                     <td>$row[2]</td>
                     <td>$row[3]</td>
                     <td>$row[4]</td>
-                    <td>$row[5]</td>
                     <td>Detalhes</td>
-                    <td>$row[6]</td>
+                    <td>$row[5]</td>
                 </tr>";
             }
         }
@@ -145,7 +143,7 @@
         // Pega o resultado do banco
         $resultado = $stmt->get_result();
 
-        $retornar = "<option disabled selected hidden>Selecione um animal</option>";
+        $retornar = "<option value='0' disabled selected hidden>Selecione um animal</option>";
 
         foreach($resultado->fetch_all() as $row){
             $retornar = $retornar . "<option value='$row[0]'>$row[1]</option>";
@@ -209,16 +207,21 @@
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
-        try {
-            $stmt = $conn->prepare("UPDATE Agendamentos SET fk_Animal = ?, `status` = 'Marcado' WHERE pk_Agendamento = ?");
-            $stmt->bind_param("ss", $_GET['idAni'], $_GET['idAgen']);
-            // Executa o sql
-            $stmt->execute();
-
-            $_SESSION['msgAgendamentoCli'] = "Agendamento Realizado";
-            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/agendamentosCli.php";
-        } catch (Exception $e) {
-            $_SESSION['msgFazAgendamento'] = "Error: ". $e->getMessage();
+        if ($_GET['idAni'] != 0) {
+            try {
+                $stmt = $conn->prepare("UPDATE Agendamentos SET fk_Animal = ?, `status` = 'Marcado' WHERE pk_Agendamento = ?");
+                $stmt->bind_param("ss", $_GET['idAni'], $_GET['idAgen']);
+                // Executa o sql
+                $stmt->execute();
+    
+                $_SESSION['msgAgendamentoCli'] = "Agendamento Realizado";
+                return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/agendamentosCli.php";
+            } catch (Exception $e) {
+                $_SESSION['msgFazAgendamento'] = "Error: ". $e->getMessage();
+                return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/fazerAgendamentoCli.php";
+            }
+        } else {
+            $_SESSION['msgFazAgendamento'] = "Selecione um animal!";
             return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/fazerAgendamentoCli.php";
         }
     }

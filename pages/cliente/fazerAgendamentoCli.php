@@ -50,7 +50,7 @@ require_once $funcoesRoute;
 
     <form>
         <label for="animais">Animal a ser tratado: </label><br>
-        <select name="animais" id="animais"></select><br><br>
+        <select name="animais" id="animais" required></select><br><br>
 
         <label for="nome">Tipo de Agendamento</label><br>
         <select name="tipoAgen" id="tipoAgen" onchange="gerarTabelaFazAgenCli()">
