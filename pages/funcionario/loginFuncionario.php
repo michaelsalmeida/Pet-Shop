@@ -17,7 +17,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
     <link rel="stylesheet" href="../css-dinamico/login-funcionario.css">
 </head>
 
-<body onresize="checaDispositivo()" onload="checaDispositivo()">
+<body>
 
     <header>
         <a href="" id="logo">
