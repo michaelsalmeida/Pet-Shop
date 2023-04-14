@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("rotas.php");
 require_once $funcoesRoute;
 ?>
@@ -40,19 +39,16 @@ require_once $funcoesRoute;
       </div>
 
       <div class="acesso">
-
-        
         <?php
-        if (isset($_SESSION['tipo'])){
-          header("Location: " . $agendamentoFunRoute);
-        }
-
         if (loged()) {
-          echo "
-          <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
-          <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-          <button onclick=executeFunctions('logoff')>Logoff</button>
-          ";
+          if (isset($_SESSION['tipo'])){
+            header("Location: " . $agendamentoFunRoute);
+          } else {
+            echo "
+              <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+              <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+              <button onclick=executeFunctions('logoff')>Logoff</button>";
+          }
         } else {
           echo "<a href='$cadastroCliRoute'>Cadastro</a>";
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
