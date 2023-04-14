@@ -64,12 +64,13 @@
 }
 
 .noticias{
-    padding: 15px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+
 }
 
 
@@ -163,8 +164,7 @@
 
 
 
-/* NOTÍCIAS CSS */
-
+/* IMAGEM DAS NOTICIAS */
 
 .n-1{
     background-image: url('https://royalpets.vteximg.com.br/arquivos/ids/177747/shiba-inu-320x250.jpg?v=637532286692930000');
@@ -173,5 +173,3 @@
 .n-2{
     background-image: url('https://uploads.metropoles.com/wp-content/uploads/2021/03/29155402/gatos-1.jpg');
 }
-
-

@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TITULO DA NOTICIA</title>
+    <title>Pesquisadores descobrem curiosidades surpreendentes sobre a raça de cachorro Shiba Inu.</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css-estatico/header.css">
+    <link rel="stylesheet" href="../css-estatico/header.css">   
     <link rel="stylesheet" href="../css-estatico/noticias.css">
 </head>
 
@@ -38,6 +38,11 @@
 
         <img src="../img-estatico/menu.png" class="menu" alt="menu">
     </header>
+
+
+    
+    <a href="../cliente/blog.php" id="voltar"><img src="../img-estatico/voltar.svg" alt="voltar"></a>
+    
     <div class="box-img">
         <img src="https://media.moneytimes.com.br/uploads/2021/10/shiba-inu.jpg"
             alt="imagem ilustrativa na notícia" class="noticia-img">
