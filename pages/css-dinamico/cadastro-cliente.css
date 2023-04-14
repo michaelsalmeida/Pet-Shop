@@ -12,8 +12,9 @@ header{
   margin-top: 20px;
   padding:0  50px;
   background-color: transparent;
-  
-
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .acesso-seguro{
@@ -47,6 +48,9 @@ header .corporativo{
 }
 
 @media (max-width:1300px) {
+  header{
+    justify-content: center;
+  }
   .acesso-seguro{
       display: none;
   }
