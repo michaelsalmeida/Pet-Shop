@@ -231,9 +231,9 @@
 
             // String de preparação
             $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status` from Agendamentos
-            inner join Animais
+            left join Animais
             on Agendamentos.fk_Animal = Animais.pk_Animal
-            inner join Clientes
+            left join Clientes
             on Animais.fk_Cliente = Clientes.pk_Cliente
             inner join Funcionarios
             on Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
