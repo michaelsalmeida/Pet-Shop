@@ -24,6 +24,25 @@ function gerarTabelaAni() {
     xhr.send();
 }
 
+function altAnimal() {
+    var idAni = document.getElementById("treco").innerText
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);
+    xhr.onload = function() {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText); // Get the response from the server
+            document.getElementsByName("nome")[0].value = response[0];
+            document.getElementsByName("dataNasc")[0].value = response[1];
+            document.getElementsByName("espec")[0].value = response[2];
+            document.getElementsByName("raca")[0].value = response[3];
+            document.getElementsByName("peso")[0].value = response[4];
+            document.getElementsByName("cor")[0].value = response[5];
+        }
+    };
+    xhr.send();
+}
+
 function gerarTabelaAgenFun() {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=gerarTabelaAgenFun`, true);

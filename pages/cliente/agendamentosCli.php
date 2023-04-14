@@ -33,7 +33,7 @@ require_once $funcoesRoute;
   </style>
 </head>
 
-<body>
+<body onload="gerarTabelaAgenCli()">
   <?php
 
   if (isset($_SESSION['tipo'])){
