@@ -80,10 +80,9 @@ function gerarTabelaFazAgenCli() {
 
 function fazAgendamentoCli(idAgen) {
     var idAnimal = document.getElementById('animais').value
-    console.log(idAnimal)
     var xhr = new XMLHttpRequest();
     xhr.open("GET", location.origin + 
-    `/Pet-Shop/backend/execute.php?function=fazAgendamentoCli&idAgen=${idAgen}$idAni=${idAnimal}`, true);
+    `/Pet-Shop/backend/execute.php?function=fazAgendamentoCli&idAgen=${idAgen}&idAni=${idAnimal}`, true);
     // xhr.open("GET", location.origin + 
     // `/backend/execute.php?function=fazAgendamentoCli&idAgen=${idAgen}&idAni=${idAnimal}`, true);
 
