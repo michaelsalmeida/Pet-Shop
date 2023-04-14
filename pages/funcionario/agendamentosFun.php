@@ -44,11 +44,18 @@ require_once $funcoesRoute;
 
   if ($_SESSION['tipo'] == 'Secretaria'){
     echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
+  } elseif ($_SESSION['tipo'] == 'admin') {
+    echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a>";
   }
 
   if (isset($_SESSION['msgCadData'])){
     echo $_SESSION['msgCadData'];
     unset($_SESSION['msgCadData']);
+  }
+  
+  if (isset($_SESSION['msgCadFun'])){
+    echo $_SESSION['msgCadFun'];
+    unset($_SESSION['msgCadFun']);
   }
 
   ?>

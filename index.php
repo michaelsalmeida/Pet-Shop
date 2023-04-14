@@ -53,6 +53,7 @@ require_once $funcoesRoute;
           echo "<a href='$cadastroCliRoute'>Cadastro</a>";
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
         }
+        
         ?>
       </div>
     </div>

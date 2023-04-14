@@ -15,6 +15,7 @@ $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/Backend/conexao.php';
 $loginFunRoute = $rootFunPages . "loginFuncionario.php";
 $agendamentoFunRoute = $rootFunPages . "agendamentosFun.php";
 $cadastradaDatasRoute = $rootFunPages . "cadastrarDatas.php";
+$cadastrarFunRoute = $rootFunPages . "cadFun.php";
 
 //                           FIM Rotas Funcionário
 
@@ -44,6 +45,7 @@ $proc_cadAnimalRoute = $rootBackProc . "proc_cadAnimal.php";
 $altAnimalCliRoute = $rootBackProc . "proc_altAnimal.php";
 $procExcAnimalRoute = $rootBackProc . "proc_excAnimal.php";
 $procCadDataRoute = $rootBackProc . "proc_cadData.php";
+$procCadFunRoute = $rootBackProc . "proc_cadFun.php";
 
 
 
@@ -51,6 +53,7 @@ $procCadDataRoute = $rootBackProc . "proc_cadData.php";
 $functionsRoute = $rootBackFunctions . "functions.js";
 $viacepRoute = $rootBackFunctions . "viacep.js";
 $dataHojeRoute = $rootBackFunctions . "dataHoje.js";
+$confSenhaRoute = $rootBackFunctions . "confSenha.js";
 
 
 
