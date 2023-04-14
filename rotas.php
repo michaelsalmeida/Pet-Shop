@@ -1,14 +1,14 @@
 <?php
-// $root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop" . "/";
-$root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/";
+$root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop" . "/";
+// $root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/";
 $rootBack = $root . "backend/";
 $rootBackProc = $rootBack . "processos/";
 $rootBackFunctions = $rootBack . "funcoes/";
 $rootFront = $root . "pages/";
 $rootCliPages = $rootFront . "cliente/";
 $rootFunPages = $rootFront . "funcionario/";
-// $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/Backend/conexao.php';
-$connRoute = $_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php';
+$connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/Backend/conexao.php';
+// $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php';
 
 // ----------------------    Rotas do Funcionário    -----------------------------
 
@@ -53,5 +53,5 @@ $dataHojeRoute = $rootBackFunctions . "dataHoje.js";
 
 
 
-// $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.php";
-$funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/backend/funcoes/funcoes.php";
+$funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.php";
+// $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/backend/funcoes/funcoes.php";

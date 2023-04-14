@@ -67,7 +67,6 @@ require_once $funcoesRoute;
     </form>
 
     <button onclick="executeFunctions('logoff')">Logoff</button>
-    <script src="<?php echo $dataHojeRoute; ?>"></script>
 </body>
 
 </html>
