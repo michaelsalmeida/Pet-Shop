@@ -106,14 +106,15 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 
+desc Funcionarios;
 insert into Funcionarios values 
 (default, 'Violett', 11122233396, 'admin', 
 'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af'),
 (default, 'Michael', 11111122222, 'Veterinario', 
 'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af'),
 (default, 'josi', 11111111111, 'Secretaria', 
-'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af')
-;
+'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af');
+
 
 insert into Clientes VALUES
 (default, 11122233396, 'Violett', 'Vohor', '11958855005', '05005400', 'limão', '123', 'limoeiro', 'São Paulo', 'sp', 'scar@example.com',
@@ -123,13 +124,13 @@ insert into Animais values
 (default, 1, 'Tobias', '2023-01-01', 'dragao', 'komodo', '45', 'rosa', '2023-04-11');
 
 insert into Agendamentos values
-(default, 1, 1, '2023-04-11', '16:40', 'Em_Andamento', 'teste de descrição', 'Veterinário');
-
-insert into Agendamentos values
-(default, 1, 1, '2023-04-11', '16:40', 'Disponivel', 'teste de descrição', 'Veterinário');
+(default, 2, 1, '2023-04-11', '16:40', 'Em_Andamento', 'teste de descrição', 'Veterinário'),
+(default, 2, 1, '2023-04-11', '16:40', 'Disponivel', 'teste de descrição', 'Veterinário');
 
 select * from Animais;
 select * from Clientes;
+select * from Agendamentos;
+select * from Funcionarios;
 select pk_Cliente from Clientes where email = "scar@example.com" and senha = "b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af";
 
 SELECT data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status` from Agendamentos
@@ -149,8 +150,6 @@ SELECT Funcionarios.nome, data_agendamento,
             inner join Funcionarios
             on Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
             Where pk_Cliente = 1;
-
-select * from Agendamentos;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
