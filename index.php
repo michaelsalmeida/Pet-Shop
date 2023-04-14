@@ -39,24 +39,18 @@ require_once $funcoesRoute;
       </div>
 
       <div class="acesso">
-
-        
         <?php
-        
-
         if (loged()) {
           if (isset($_SESSION['tipo'])){
             header("Location: " . $agendamentoFunRoute);
           } else {
             echo "
-            <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+              <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
               <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-              <button onclick=executeFunctions('logoff')>Logoff</button>
-              ";
+              <button onclick=executeFunctions('logoff')>Logoff</button>";
           }
-          
-          } else {
-          echo '<a href="<?php echo $cadastroCliRoute; ?>">Cadastro</a>';
+        } else {
+          echo "<a href='$cadastroCliRoute'>Cadastro</a>";
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
         }
         
