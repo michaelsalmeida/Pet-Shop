@@ -17,7 +17,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
 </head>
 
-<body onresize="checaDispositivo()" onload="checaDispositivo()">
+<body>
 
 
     <header>
@@ -79,15 +79,6 @@ include_once($connRoute); // Inclui o arquivo de conexao
     <div class="box-cadastro">
         <span>Ainda não possui cadastro online na Hamtaro? <a href="<?php echo $cadastroCliRoute; ?>" class="cadastro-cliente">Cadastre-se</a></span>
     </div>
-
-
-
-
-
-
-
-
-
 
 
 </body>

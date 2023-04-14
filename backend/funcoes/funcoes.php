@@ -73,8 +73,8 @@
 
     function gerarTabelaAgenCli() {
         session_start();
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         // String de preparação
         $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento,
@@ -134,8 +134,8 @@
 
     function checkAnimais() {
         session_start();
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         $stmt = $conn->prepare("Select pk_Animal, nome from Animais where fk_Cliente = ?");
         $stmt->bind_param("s", $_SESSION['idCli']);
@@ -155,8 +155,8 @@
 
     function gerarTabelaFazAgenCli() {
         session_start();
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         // String de preparação
         $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento,
@@ -205,8 +205,8 @@
 
     function fazAgendamentoCli() {
         session_start();
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         try {
             $stmt = $conn->prepare("UPDATE Agendamentos SET fk_Animal = ?, `status` = 'Marcado' WHERE pk_Agendamento = ?");
@@ -215,17 +215,17 @@
             $stmt->execute();
 
             $_SESSION['msgAgendamentoCli'] = "Agendamento Realizado";
-            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/agendamentosCli.php";
+            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/agendamentosCli.php";
         } catch (Exception $e) {
             $_SESSION['msgFazAgendamento'] = "Error: ". $e->getMessage();
-            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/fazerAgendamentoCli.php";
+            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/fazerAgendamentoCli.php";
         }
     }
 
     function gerarTabelaAgenFun() {
         session_start();
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
         
         if ($_SESSION['tipo'] == 'Veterinario' || $_SESSION['tipo'] == 'Esteticista'){
 
@@ -289,8 +289,8 @@
     
     function cadastrarAgendamentos(){
         session_start();
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         $prof = $_GET['servico'];
 
