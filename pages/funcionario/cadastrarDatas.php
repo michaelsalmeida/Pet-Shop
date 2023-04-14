@@ -14,28 +14,35 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+        if (isset($_SESSION['msgTelaCadData'])){
+            echo $_SESSION['msgTelaCadData'];
+            unset($_SESSION['msgTelaCadData']);
+          }
+    ?>
 
     <div>
-        <form action="<?php echo $procCadDataRoute; ?>" >
+        <form action="<?php echo $procCadDataRoute; ?>" method="post">
             <label for="data">DATA :</label>
-            <input type="date" name="data">
+            <input type="date" name="data" required>
 
             <label for="">HORÁRIO :</label>
-            <input type="time" name="hora">
+            <input type="time" name="hora" required>
 
-            <select name="servicos" id="servicos" onchange="gerarAgendamentoFun()">
+            <select name="servicos" id="servicos" onchange="gerarAgendamentoFun()" required>
                 <option value="" disabled selected hidden>Selecione o tipo de serviço</option>
                 <option value="Veterinario">Veterinário</option>
-                <option value="Banho">Banho</option>
-                <option value="Tosa">Tosa</option>
-                <option value="Banho e tosa">Banho e Tosa</option>
+                <option value="Esteticista">Banho</option>
+                <option value="Esteticista">Tosa</option>
+                <option value="Esteticista">Banho e Tosa</option>
             </select>    
             
-            <select name="profissionais" id="profissionais">
+            <select name="profissionais" id="profissionais" required>
                 <option value="" disabled selected hidden>Selecione um tipo de serviço</option>
 
             </select>
-    
+
+            <input type="submit" value="Cadastrar">
         </form>
     </div>
     

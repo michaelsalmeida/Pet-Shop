@@ -17,7 +17,7 @@
         // Verifica se a query deu algum retorno
         if ($row = $resultado->fetch_row()) {
             $_SESSION['loggedinFun'] = true;
-            $_SESSION['idFun'] = $row[0];   // id do cliente
+            $_SESSION['idFun'] = $row[0];   // id do Funcionário
             $_SESSION['tipo'] = $row[1];
             $_SESSION['nome'] = $row[2];
             header("Location: ". $agendamentoFunRoute);

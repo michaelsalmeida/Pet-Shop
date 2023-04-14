@@ -42,6 +42,15 @@ require_once $funcoesRoute;
     $_SESSION['msgloginFun'] = "Por favor, faça o login primeiro.";
     header("Location: " . $loginFunRoute);
   }
+
+  if ($_SESSION['tipo'] == 'Secretaria'){
+    echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
+  }
+
+  if (isset($_SESSION['msgCadData'])){
+    echo $_SESSION['msgCadData'];
+    unset($_SESSION['msgCadData']);
+  }
   ?>
 
   <table id="tabela">
@@ -52,6 +61,7 @@ require_once $funcoesRoute;
 
   <button onclick="executeFunctions('logoff')">Logoff</button>
   <a href="<?php echo $cadastroCliRoute; ?>">Cadastrar Cliente</a>
+  
 </body>
 
 </html>

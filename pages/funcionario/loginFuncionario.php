@@ -24,6 +24,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
             <p>Hamtaro Petshop</p>
         </a>
         <div class="links-login-cliente">
+                <a href="<?php echo $loginCliRoute; ?>" class="corporativo">Cliente</a>
             <div class="acesso-seguro">
                 <p>Ambiente Seguro</p>
                 <img src="../img-dinamico/cadeado.svg" alt="">
@@ -77,7 +78,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
 
     <div class="box-cadastro">
-        <span>Ainda não possui cadastro corporativo na Hamtaro? <a href=""> Informe seu gestor.</a></span>
+        <span>Ainda não possui cadastro corporativo? <a href=""> Informe seu gestor.</a></span>
     </div>
 </body>
 
