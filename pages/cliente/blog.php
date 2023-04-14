@@ -200,6 +200,28 @@
         
     </section>
 
+    <footer>
+        <a href="" class="logo">
+          <img src="../img-estatico/logo.svg" alt="">
+        </a>
+    
+        <div class="links">
+          <a href="">BLOG</a>
+          <a href="">SOBRE NÓS</a>
+          <a href="">CONSULTA</a>
+          <a href="">CONTATO</a>
+        </div>
+    
+        <div class="redes">
+          <img src="../img-estatico/facebook.svg" alt="">
+          <img src="../img-estatico/youtube.svg" alt="">
+          <img src="../img-estatico/twitter.svg" alt="">
+          <img src="../img-estatico/github.svg" alt="">
+        </div>
+    
+        <p>© Hamtaro Petshop todos direitos reservados</p>
+      </footer>
+
 
 
 
