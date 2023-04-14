@@ -12,9 +12,6 @@ require_once $funcoesRoute;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animais</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
-    <link rel="stylesheet" href="cssBack/modalfechamento.css">
-    <link rel="stylesheet" href="cssBack/lista.css">
     <style>
     table {
         font-family: arial, sans-serif;
@@ -36,7 +33,7 @@ require_once $funcoesRoute;
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onresize="checaDispositivo()" onload="checkAnimais()">
+<body onload="checkAnimais()">
     <?php
 
     if (isset($_SESSION['tipo'])){

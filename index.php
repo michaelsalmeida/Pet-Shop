@@ -113,7 +113,7 @@ require_once $funcoesRoute;
 
     <p>Não deixe a saúde do seu pet de lado! No Petshop Hamtaro, estamos oferecendo um desconto especial de 30% em todas as vacinas para cães e gatos. Isso significa que você pode manter o seu pet protegido contra doenças comuns e perigosas por um preço muito mais acessível.</p>
 
-    <a href="">Faça sua consulta</a>
+    <a href="<?php echo $fazAgendamentoCliRoute;?>">Faça sua consulta</a>
   </section>
 
   <section class="container servicos">

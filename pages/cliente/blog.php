@@ -59,13 +59,13 @@
 
         <section class="noticias">
 
-            <a href="">
+            <a href="../noticias/noticia1.html">
                 <div class="card-noticia">
 
-                    <div class="img-noticia"></div>
+                    <div class="img-noticia n-1"></div>
 
                     <div class="info">
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+                        <h2>Pesquisa revela curiosidades sobre a raça Shiba Inu.</h2>
 
                         <img src="../img-estatico/pets.svg" alt="pata do pet">
                     </div>
@@ -76,10 +76,10 @@
             <a href="">
                 <div class="card-noticia">
 
-                    <div class="img-noticia"></div>
+                    <div class="img-noticia n-2"></div>
 
                     <div class="info">
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+                        <h2>Estudo revela que gatos reconhecem o nome dado.</h2>
 
                         <img src="../img-estatico/pets.svg" alt="pata do pet">
                     </div>
@@ -90,7 +90,7 @@
             <a href="">
                 <div class="card-noticia">
 
-                    <div class="img-noticia"></div>
+                    <div class="img-noticia n-3"></div>
 
                     <div class="info">
                         <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
@@ -105,7 +105,7 @@
             <a href="">
                 <div class="card-noticia">
 
-                    <div class="img-noticia"></div>
+                    <div class="img-noticia n-4"></div>
 
                     <div class="info">
                         <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
@@ -117,7 +117,7 @@
             </a><a href="">
                 <div class="card-noticia">
 
-                    <div class="img-noticia"></div>
+                    <div class="img-noticia n-5"></div>
 
                     <div class="info">
                         <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
@@ -129,7 +129,7 @@
             </a><a href="">
                 <div class="card-noticia">
 
-                    <div class="img-noticia"></div>
+                    <div class="img-noticia n-6"></div>
 
                     <div class="info">
                         <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
@@ -220,7 +220,7 @@
         </div>
     
         <p>© Hamtaro Petshop todos direitos reservados</p>
-      </footer>
+    </footer>
 
 
 

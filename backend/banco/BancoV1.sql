@@ -124,8 +124,8 @@ insert into Animais values
 (default, 1, 'Tobias', '2023-01-01', 'dragao', 'komodo', '45', 'rosa', '2023-04-11');
 
 insert into Agendamentos values
-(default, 2, 1, '2023-04-11', '16:40', 'Em_Andamento', 'teste de descrição', 'Veterinário'),
-(default, 2, 1, '2023-04-11', '16:40', 'Disponivel', 'teste de descrição', 'Veterinário');
+(default, 2, null, '2023-04-11', '16:40', 'Disponivel', null, 'Veterinário'),
+(default, 2, null, '2023-04-11', '16:40', 'Disponivel', null, 'Veterinário');
 
 select * from Animais;
 select * from Clientes;
