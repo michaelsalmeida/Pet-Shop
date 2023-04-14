@@ -11,7 +11,7 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css-estatico/blog.css">
 
-</head>
+</head> 
 
 <body>
     <header>
@@ -59,7 +59,7 @@
 
         <section class="noticias">
 
-            <a href="../noticias/noticia1.html">
+            <a href="../noticias/noticia1.php">
                 <div class="card-noticia">
 
                     <div class="img-noticia n-1"></div>
@@ -87,7 +87,7 @@
                 </div>
             </a>
             
-            <a href="">
+            <a href="../noticias/noticia2.php">
                 <div class="card-noticia">
 
                     <div class="img-noticia n-3"></div>
@@ -114,7 +114,8 @@
                     </div>
 
                 </div>
-            </a><a href="">
+            </a>
+            <a href="">
                 <div class="card-noticia">
 
                     <div class="img-noticia n-5"></div>
@@ -126,19 +127,7 @@
                     </div>
 
                 </div>
-            </a><a href="">
-                <div class="card-noticia">
-
-                    <div class="img-noticia n-6"></div>
-
-                    <div class="info">
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-
-                        <img src="../img-estatico/pets.svg" alt="pata do pet">
-                    </div>
-
-                </div>
-            </a>
+            </a> 
 
         </section>
 
