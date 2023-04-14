@@ -266,7 +266,7 @@
         // Pega o resultado do banco
         $resultado = $stmt->get_result();
 
-        $retornar = "<option disabled selected hidden>Selecione um funcionário</option>";
+        $retornar = "<option value='' disabled selected hidden>Selecione um funcionário</option>";
 
         foreach($resultado->fetch_all() as $row){
             $retornar = $retornar . "<option value='$row[0]'>$row[0]</option>";
