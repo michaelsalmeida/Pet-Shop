@@ -25,7 +25,7 @@ function gerarTabelaAni() {
 }
 
 function altAnimal() {
-    var idAni = document.getElementById("treco").innerText
+    var idAni = document.getElementsByName("idAnimal")[0].value
     var xhr = new XMLHttpRequest();
     xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);
     // xhr.open("GET", location.origin + `/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);

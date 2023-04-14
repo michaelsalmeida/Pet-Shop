@@ -41,6 +41,7 @@ $procLoginCliRoute = $rootBackProc . "proc_loginCli.php";
 $procLoginFunRoute = $rootBackProc . "proc_loginFun.php";
 $procCadCliRoute = $rootBackProc . "proc_cadCli.php";
 $proc_cadAnimalRoute = $rootBackProc . "proc_cadAnimal.php";
+$altAnimalCliRoute = $rootBackProc . "proc_altAnimal.php";
 $procExcAnimalRoute = $rootBackProc . "proc_excAnimal.php";
 $procCadDataRoute = $rootBackProc . "proc_cadData.php";
 

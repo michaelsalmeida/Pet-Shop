@@ -31,11 +31,11 @@ require_once $funcoesRoute;
     }
     ?>
 
-    <p hidden id="treco"><?php echo $_GET['id']; ?></p>
-
-    <form action="" method="post">
+    <form action="<?php echo $altAnimalCliRoute;?>" method="post">
+        <input type="hidden" name="idAnimal" value="<?php echo $_GET['id']; ?>">
+        
         <label for="nome">Nome</label><br>
-        <input type="text" name="nome" id="nome"><br><br>
+        <input type="text" name="nome"><br><br>
     
         <label for="dataNasc">Data de Nascimento </label><br>
         <input type="date" name="dataNasc"><br><br>
@@ -52,7 +52,7 @@ require_once $funcoesRoute;
         <label for="cor">Cor</label><br>
         <input type="text" name="cor"><br><br>
 
-        <input type="submit" value="Cadastrar">
+        <input type="submit" value="Alterar">
     </form>
 
     <button onclick="executeFunctions('logoff')">Logoff</button>
