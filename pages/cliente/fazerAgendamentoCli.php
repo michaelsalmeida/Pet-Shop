@@ -36,19 +36,22 @@ require_once $funcoesRoute;
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onresize="checaDispositivo()">
+<body onresize="checaDispositivo()" onload="checkAnimais()">
     <?php
     if (!loged()) {
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
         header("Location: " . $loginCliRoute);
     }
-    if (isset($_SESSION['msgCadAnimaisCli'])) {
-        echo $_SESSION['msgCadAnimaisCli'];
-        unset($_SESSION['msgCadAnimaisCli']);
+    if (isset($_SESSION['msgFazAgendamento'])) {
+        echo $_SESSION['msgFazAgendamento'];
+        unset($_SESSION['msgFazAgendamento']);
     }
     ?>
 
-    <form action="<?php echo $proc_cadAnimalRoute; ?>" method="post">
+    <form>
+        <label for="animais">Animal a ser tratado: </label><br>
+        <select name="animais" id="animais"></select><br><br>
+
         <label for="nome">Tipo de Agendamento</label><br>
         <select name="tipoAgen" id="tipoAgen" onchange="gerarTabelaFazAgenCli()">
             <option value="" disabled selected hidden>Selecione o tipo de Agendamento</option>
@@ -61,8 +64,6 @@ require_once $funcoesRoute;
         <input type="date" id="dataAgen" onchange="gerarTabelaFazAgenCli()"><br><br>
 
         <table id="fazAgend"></table>
-
-        <input type="submit" value="Cadastrar">
     </form>
 
     <button onclick="executeFunctions('logoff')">Logoff</button>

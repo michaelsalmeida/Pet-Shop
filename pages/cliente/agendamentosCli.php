@@ -42,6 +42,10 @@ require_once $funcoesRoute;
     $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
     header("Location: " . $loginCliRoute);
   }
+  if (isset($_SESSION['msgAgendamentoCli'])) {
+    echo "<p>" . $_SESSION['msgAgendamentoCli'] . "<?p>";
+    unset($_SESSION['msgAgendamentoCli']);
+  }
   ?>
 
   <table id="agendamentos">
