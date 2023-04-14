@@ -38,6 +38,11 @@ require_once $funcoesRoute;
 
 <body onresize="checaDispositivo()" onload="gerarTabelaAni()">
   <?php
+
+  if (isset($_SESSION['tipo'])){
+    header("Location: " . $agendamentoFunRoute);
+  }
+  
   if (!loged()) {
     $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
     header("Location: " . $loginCliRoute);
