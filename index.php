@@ -11,7 +11,6 @@ require_once $funcoesRoute;
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hantaro Petshop</title>
-
   <link rel="stylesheet" href="pages/css-estatico/header.css">
   <link rel="stylesheet" href="pages/css-estatico/home.css">
 
@@ -20,7 +19,7 @@ require_once $funcoesRoute;
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body>
+<body onresize="checaDispositivo()">
   <div class="contatoHeader">
     <p>(11) 98253-2481</p>
     <img src="pages/img-estatico/endereço.svg" alt="">
@@ -40,19 +39,21 @@ require_once $funcoesRoute;
       </div>
 
       <div class="acesso">
-
-        <a href="<?php echo $cadastroCliRoute; ?>">Cadastro</a>
-
         <?php
         if (loged()) {
-          echo "
-            <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
-            <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-            <button onclick=executeFunctions('logoff')>Logoff</button>
-            ";
+          if (isset($_SESSION['tipo'])){
+            header("Location: " . $agendamentoFunRoute);
+          } else {
+            echo "
+              <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+              <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+              <button onclick=executeFunctions('logoff')>Logoff</button>";
+          }
         } else {
+          echo "<a href='$cadastroCliRoute'>Cadastro</a>";
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
         }
+        
         ?>
       </div>
     </div>
@@ -109,7 +110,7 @@ require_once $funcoesRoute;
 
     <p>Não deixe a saúde do seu pet de lado! No Petshop Hamtaro, estamos oferecendo um desconto especial de 30% em todas as vacinas para cães e gatos. Isso significa que você pode manter o seu pet protegido contra doenças comuns e perigosas por um preço muito mais acessível.</p>
 
-    <a href="">Faça sua consulta</a>
+    <a href="<?php echo $fazAgendamentoCliRoute;?>">Faça sua consulta</a>
   </section>
 
   <section class="container servicos">

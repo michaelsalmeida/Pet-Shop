@@ -13,8 +13,7 @@ require_once $funcoesRoute;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agendamentos</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
-  <link rel="stylesheet" href="cssBack/modalfechamento.css">
-  <link rel="stylesheet" href="cssBack/lista.css">
+
   <style>
   table {
     font-family: arial, sans-serif;
@@ -45,12 +44,20 @@ require_once $funcoesRoute;
 
   if ($_SESSION['tipo'] == 'Secretaria'){
     echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
+  } elseif ($_SESSION['tipo'] == 'admin') {
+    echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a>";
   }
 
   if (isset($_SESSION['msgCadData'])){
     echo $_SESSION['msgCadData'];
     unset($_SESSION['msgCadData']);
   }
+  
+  if (isset($_SESSION['msgCadFun'])){
+    echo $_SESSION['msgCadFun'];
+    unset($_SESSION['msgCadFun']);
+  }
+
   ?>
 
   <table id="tabela">

@@ -2,6 +2,11 @@
 session_start();
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexao
+
+if (isset($_SESSION['tipo'])){
+    header("Location: " . $agendamentoFunRoute);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +22,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
 </head>
 
-<body onresize="checaDispositivo()" onload="checaDispositivo()">
+<body>
 
 
     <header>
@@ -79,15 +84,6 @@ include_once($connRoute); // Inclui o arquivo de conexao
     <div class="box-cadastro">
         <span>Ainda não possui cadastro online na Hamtaro? <a href="<?php echo $cadastroCliRoute; ?>" class="cadastro-cliente">Cadastre-se</a></span>
     </div>
-
-
-
-
-
-
-
-
-
 
 
 </body>

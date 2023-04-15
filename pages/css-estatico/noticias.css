@@ -1,0 +1,54 @@
+.box-noticia{
+    margin: 100px auto;
+
+}
+
+p{
+    margin: 10px 0 ;
+}
+.box-img{
+    margin: 80px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+.noticia-img{
+    width: 800px;
+    border-radius: 3px;
+}
+
+
+h1{
+    font-size: 32px;
+}
+
+@media (max-width:1000px) {
+    .noticia-img{
+        width: 500px;
+    }
+}
+
+@media (max-width:600px) {
+    .noticia-img{
+        width: 400px;
+    }
+}
+
+
+
+
+
+
+
+
+#voltar img{
+    margin: 40px 0 0 40px;
+    width: 50px;
+    transition: all 0.5s;
+}
+
+#voltar img:hover{
+    transform: scale(1.1);
+}
+
