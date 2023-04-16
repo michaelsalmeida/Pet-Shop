@@ -1,3 +1,8 @@
+<?php
+include_once("../../rotas.php");
+require_once $funcoesRoute;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,23 +24,35 @@
         <img src="../img-estatico/endereço.svg" alt="">
     </div>
     <header>
-        <a href="" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
         <div class="responsive">
             <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
-                <a href="">BLOG</a>
-                <a href="">SOBRE NÓS</a>
+                <a href="<?php echo $blogRoute; ?>">BLOG</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
                 <a href="">CONSULTA</a>
-                <a href="" style="color: #2B0086">CONTATO</a>
+                <a href="#">CONTATO</a>
             </div>
 
             <div class="acesso">
-                <a href="<?php echo $loginCliRoute; ?>"><img src="../img-estatico/login.svg" alt=""> Login</a>
-
-                <a href="<?php echo $cadastroCliRoute; ?>">Cadastro</a>
+                <?php
+                if (loged()) {
+                    if (isset($_SESSION['tipo'])) {
+                        header("Location: " . $agendamentoFunRoute);
+                    } else {
+                        echo "
+                        <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+                        <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+                        <button onclick=executeFunctions('logoff')>Logoff</button>";
+                    }
+                } else {
+                    echo "<a href='$cadastroCliRoute'>Cadastro</a>";
+                    echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
+                }
+                ?>
             </div>
         </div>
 
@@ -52,7 +69,8 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
-        <a target="_blank" href="https://www.google.com/maps/place/Escola+Senai+Suíço-Brasileira+Paulo+Ernesto+Tolle/@-23.6482243,-46.7241806,17z/data=!4m6!3m5!1s0x94ce510e8d3746ed:0x3e9f3a76e1ebfb69!8m2!3d-23.648051!4d-46.7217358!16s%2Fg%2F1wk7rz_s">
+        <a target="_blank"
+            href="https://www.google.com/maps/place/Escola+Senai+Suíço-Brasileira+Paulo+Ernesto+Tolle/@-23.6482243,-46.7241806,17z/data=!4m6!3m5!1s0x94ce510e8d3746ed:0x3e9f3a76e1ebfb69!8m2!3d-23.648051!4d-46.7217358!16s%2Fg%2F1wk7rz_s">
             <img src="../img-estatico/setaMapa.svg" alt="">
             Localização: Avenida interlagos, 2034 - Jardin Marajoara
         </a>
@@ -94,15 +112,15 @@
     </section>
 
     <footer>
-        <a href="" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
         <div class="links">
-            <a href="">BLOG</a>
-            <a href="">SOBRE NÓS</a>
+            <a href="<?php echo $blogRoute; ?>">BLOG</a>
+            <a href="#">SOBRE NÓS</a>
             <a href="">CONSULTA</a>
-            <a href="">CONTATO</a>
+            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
         </div>
 
         <div class="redes">

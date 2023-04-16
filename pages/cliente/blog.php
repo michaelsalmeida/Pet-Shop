@@ -1,3 +1,8 @@
+<?php
+include_once("../../rotas.php");
+require_once $funcoesRoute;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -11,27 +16,39 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css-estatico/blog.css">
 
-</head> 
+</head>
 
 <body>
     <header>
-        <a href="" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
         <div class="responsive">
             <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
-                <a href="">BLOG</a>
-                <a href="">SOBRE NÓS</a>
+                <a href="#">BLOG</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
                 <a href="">CONSULTA</a>
-                <a href="">CONTATO</a>
+                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
             </div>
 
             <div class="acesso">
-                <a href="<?php echo $loginCliRoute; ?>"><img src="../img-estatico/login.svg" alt=""> Login</a>
-
-                <a href="<?php echo $cadastroCliRoute; ?>">Cadastro</a>
+                <?php
+                if (loged()) {
+                    if (isset($_SESSION['tipo'])) {
+                        header("Location: " . $agendamentoFunRoute);
+                    } else {
+                        echo "
+                        <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+                        <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+                        <button onclick=executeFunctions('logoff')>Logoff</button>";
+                    }
+                } else {
+                    echo "<a href='$cadastroCliRoute'>Cadastro</a>";
+                    echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
+                }
+                ?>
             </div>
         </div>
 
@@ -50,7 +67,7 @@
             <div class="divisao-menor"></div>
         </div>
     </section>
-    
+
 
 
     <div class="container-fluid fundo-noticias">
@@ -86,7 +103,7 @@
 
                 </div>
             </a>
-            
+
             <a href="../noticias/noticia2.php">
                 <div class="card-noticia">
 
@@ -127,7 +144,7 @@
                     </div>
 
                 </div>
-            </a> 
+            </a>
 
         </section>
 
@@ -159,7 +176,7 @@
                     <p>Preços bons e funcionários apaixonados pelo animais.</p>
                 </div>
             </div>
-            
+
         </div>
 
         <div class="box-depoimentos">
@@ -181,33 +198,33 @@
                     <p>Gostei do atendimento de qualidade e limpeza do local. </p>
                 </div>
             </div>
-            
+
         </div>
 
-       
 
-        
+
+
     </section>
 
     <footer>
-        <a href="" class="logo">
-          <img src="../img-estatico/logo.svg" alt="">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
+            <img src="../img-estatico/logo.svg" alt="">
         </a>
-    
+
         <div class="links">
-          <a href="">BLOG</a>
-          <a href="">SOBRE NÓS</a>
-          <a href="">CONSULTA</a>
-          <a href="">CONTATO</a>
+            <a href="#">BLOG</a>
+            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+            <a href="">CONSULTA</a>
+            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
         </div>
-    
+
         <div class="redes">
-          <img src="../img-estatico/facebook.svg" alt="">
-          <img src="../img-estatico/youtube.svg" alt="">
-          <img src="../img-estatico/twitter.svg" alt="">
-          <img src="../img-estatico/github.svg" alt="">
+            <img src="../img-estatico/facebook.svg" alt="">
+            <img src="../img-estatico/youtube.svg" alt="">
+            <img src="../img-estatico/twitter.svg" alt="">
+            <img src="../img-estatico/github.svg" alt="">
         </div>
-    
+
         <p>© Hamtaro Petshop todos direitos reservados</p>
     </footer>
 
