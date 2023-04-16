@@ -60,3 +60,18 @@ function altAnimal() {
     };
     xhr.send();
 }
+
+function activeModal(id, tipo) {
+    document.getElementById("id01").style.display="block"
+    if (tipo == "Cancelar") {
+        document.getElementById("tipo").innerHTML = "Você tem certeza que deseja Cancelar este Agendamento?"
+        document.getElementById("conf").setAttribute("href", 
+        location.origin + `/Pet-Shop/backend/processos/proc_cancelAgen.php?id=${id}`)
+        // document.getElementById("conf").setAttribute("href", 
+        // location.origin + `/backend/processos/proc_cancelAgen.php?id=${id}`)
+    } else {
+        // document.getElementById("tipo").innerHTML = "Você tem certeza que deseja Cancelar este Agendamento?"
+        // // document.getElementById("conf").setAttribute("href", location.origin + `/Pet-Shop/backend/processos/proc_cancelAgen.php`)
+        // document.getElementById("conf").setAttribute("href", location.origin + `/backend/processos/proc_cancelAgen.php`)
+    }
+}

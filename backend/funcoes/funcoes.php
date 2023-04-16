@@ -100,7 +100,7 @@
 
         // String de preparação
         $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento,
-        horario_agendamento, Animais.nome, Agendamentos.tipo, `status` from Agendamentos
+        horario_agendamento, Animais.nome, Agendamentos.tipo, `status`, pk_Agendamento from Agendamentos
             inner join Animais
             on Agendamentos.fk_Animal = Animais.pk_Animal
             inner join Clientes
@@ -137,6 +137,14 @@
             foreach($resultado->fetch_all() as $row) {
                 // Formata a data
                 $data = date('d/m/Y', strtotime($row[1]));
+                $botao = "";
+
+                if ($row[5] == "Marcado") {
+                    $botao = "<button onclick='activeModal($row[6],". '"Cancelar"'.")'>Cancelar</button>";
+                } elseif ($row[5] == "Concluido") {
+                    $botao = "<button onclick='activeModal()'>Detalhes</button>";
+                }
+
                 $tabela = $tabela .
                 "<tr>
                     <td>$row[0]</td>
@@ -144,7 +152,7 @@
                     <td>$row[2]</td>
                     <td>$row[3]</td>
                     <td>$row[4]</td>
-                    <td>Detalhes</td>
+                    <td>$botao</td>
                     <td>$row[5]</td>
                 </tr>";
             }

@@ -58,7 +58,7 @@ require_once $funcoesRoute;
         ?>
       </div>
     </div>
-
+        
     <img src="pages/img-estatico/menu.png" class="menu" alt="menu">
   </header>
 
