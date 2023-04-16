@@ -78,6 +78,7 @@
 
     function altAnimal() {
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
         // String de preparação
         $stmt = $conn->prepare("SELECT nome, data_nascimento, especie, raca, peso, cor FROM Animais WHERE pk_Animal = ?");
         // Substituição da string preparada pelos valores corretos
@@ -165,13 +166,14 @@
         // Pega o resultado do banco
         $resultado = $stmt->get_result();
 
-        $retornar = "<option value='0' disabled selected hidden>Selecione um animal</option>";
+        $tabela = "<option value='0' disabled selected hidden>Selecione um animal</option>";
 
         foreach($resultado->fetch_all() as $row){
-            $retornar = $retornar . "<option value='$row[0]'>$row[1]</option>";
+            $tabela = $tabela . "<option value='$row[0]'>$row[1]</option>";
         }
 
-        return $retornar;
+        $retornar = array("animais", $tabela);
+        return json_encode($retornar);
     }
 
     function gerarTabelaFazAgenCli() {
@@ -194,7 +196,7 @@
         $resultado = $stmt->get_result();
 
         // String que será retornada na tabela
-        $retornar = "<tr>
+        $tabela = "<tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
             <th>Horário do agendamento</th>
@@ -202,7 +204,7 @@
         </tr>";
         
         if (mysqli_num_rows($resultado) == 0) {
-            $retornar = $retornar . "
+            $tabela = $tabela . "
             <tr>
                 <td colspan=7>Não há agendamentos cadastrados</td>
             </tr>
@@ -212,16 +214,18 @@
             foreach($resultado->fetch_all() as $row) {
                 // Formata a data
                 $data = date('d/m/Y', strtotime($row[1]));
-                $retornar = $retornar .
+                $tabela = $tabela .
                 "<tr>
                     <td>$row[0]</td>
                     <td>$data</td>
                     <td>$row[2]</td>
-                    <td><button type='button' onclick='fazAgendamentoCli(" . $row[3] . ")'>Agendar</button></td>
+                    <td><button type='button' onclick='executeFunctions('fazAgendamentoCli'," . $row[3] . ")'>Agendar</button></td>
                 </tr>";
             }
         }
-        return $retornar;
+
+        $retornar = array("fazAgend", $tabela);
+        return json_encode($retornar);
     }
 
     function fazAgendamentoCli() {

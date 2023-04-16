@@ -46,7 +46,7 @@ require_once $funcoesRoute;
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        <button onclick=executeFunctions('logoff')>Logoff</button>";
+                        <button onclick=executeFunctions('logoff', '')>Logoff</button>";
                     }
                 } else {
                     echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";

@@ -54,7 +54,7 @@ require_once $funcoesRoute;
   </table>
 
   <a href="<?php echo $fazAgendamentoCliRoute; ?>">Fazer Agendamento</a>
-  <button onclick="executeFunctions('logoff')">Logoff</button>
+  <button onclick="executeFunctions('logoff', '')">Logoff</button>
 </body>
 
 </html>
