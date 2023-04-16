@@ -25,7 +25,6 @@
 
     function gerarTabelaAni() {
         session_start();
-        include_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/rotas.php');
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
@@ -39,7 +38,7 @@
         $resultado = $stmt->get_result();
 
         // String que será retornada na tabela
-        $retornar = "<tr>
+        $tabela = "<tr>
             <th>Nome</th>
             <th>Data de Nascimento</th>
             <th>Raça</th>
@@ -49,7 +48,7 @@
         </tr>";
         
         if (mysqli_num_rows($resultado) == 0) {
-            $retornar = $retornar . "
+            $tabela = $tabela . "
             <tr>
                 <td colspan=4>Não há animais cadastrados</td>
             </tr>
@@ -59,7 +58,7 @@
             foreach($resultado->fetch_all() as $row) {
                 // Formata a data
                 $data = date('d/m/Y', strtotime($row[1]));
-                $retornar = $retornar .
+                $tabela = $tabela .
                 "<tr>
                     <td>$row[0]</td>
                     <td>$data</td>
@@ -72,7 +71,9 @@
                 </tr>";
             }
         }
-        return $retornar;
+
+        $retornar = array('animais', $tabela);
+        return json_encode($retornar);
     }
 
     function altAnimal() {
@@ -114,7 +115,7 @@
         $resultado = $stmt->get_result();
 
         // String que será retornada na tabela
-        $retornar = "<tr>
+        $tabela = "<tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
             <th>Horário do agendamento</th>
@@ -125,7 +126,7 @@
         </tr>";
         
         if (mysqli_num_rows($resultado) == 0) {
-            $retornar = $retornar . "
+            $tabela = $tabela . "
             <tr>
                 <td colspan=7>Não há agendamentos cadastrados</td>
             </tr>
@@ -135,7 +136,7 @@
             foreach($resultado->fetch_all() as $row) {
                 // Formata a data
                 $data = date('d/m/Y', strtotime($row[1]));
-                $retornar = $retornar .
+                $tabela = $tabela .
                 "<tr>
                     <td>$row[0]</td>
                     <td>$data</td>
@@ -147,7 +148,9 @@
                 </tr>";
             }
         }
-        return $retornar;
+
+        $retornar = array("agendamentos", $tabela);
+        return json_encode($retornar);
     }
 
     function checkAnimais() {

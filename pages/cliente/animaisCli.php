@@ -33,7 +33,7 @@ require_once $funcoesRoute;
   </style>
 </head>
 
-<body onload="gerarTabelaAni()">
+<body onload="gerarTabela('gerarTabelaAni')">
   <?php
 
   if (isset($_SESSION['tipo'])){
