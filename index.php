@@ -51,8 +51,8 @@ require_once $funcoesRoute;
               <button onclick=executeFunctions('logoff')>Logoff</button>";
           }
         } else {
-          echo "<a href='$cadastroCliRoute'>Cadastro</a>";
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
+          echo "<a href='$cadastroCliRoute'>Cadastro</a>";
         }
 
         ?>
