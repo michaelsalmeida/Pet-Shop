@@ -142,7 +142,7 @@
                 if ($row[5] == "Marcado") {
                     $botao = "<button onclick='activeModal($row[6],". '"Cancelar"'.")'>Cancelar</button>";
                 } elseif ($row[5] == "Concluido") {
-                    $botao = "<button onclick='activeModal()'>Detalhes</button>";
+                    $botao = "<button onclick='activeModal($row[6],". '"Detalhes"'.")'>Detalhes</button>";
                 }
 
                 $tabela = $tabela .
@@ -352,4 +352,19 @@
 
         $retornar = array('profissionais', $tabela);
         return json_encode($retornar);
+    }
+
+    function getDesc() {
+        session_start();
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+
+        $id = $_GET['id'];
+        $stmt = $conn->prepare("Select descricao from Agendamentos where pk_Agendamento = ?");
+        $stmt->bind_param("s", $id);
+        // Executa o sql
+        $stmt->execute();
+
+        $retornar = $stmt->get_result();
+        return $retornar->fetch_all()[0][0];
     }

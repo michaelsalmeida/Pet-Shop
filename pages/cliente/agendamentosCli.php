@@ -58,12 +58,7 @@ require_once $funcoesRoute;
     <!-- The Modal -->
     <div id="id01" class="w3-modal">
         <div class="w3-modal-content">
-            <div class="w3-container">
-                <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-display-topright">&times;</span>
-                <p id="tipo"></p>
-                <a id="conf">Sim</a>
-                <button onclick="document.getElementById('id01').style.display='none'">Não</button>
+            <div class="w3-container" id="container-modal">
             </div>
         </div>
     </div>

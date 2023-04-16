@@ -64,14 +64,29 @@ function altAnimal() {
 function activeModal(id, tipo) {
     document.getElementById("id01").style.display="block"
     if (tipo == "Cancelar") {
-        document.getElementById("tipo").innerHTML = "Você tem certeza que deseja Cancelar este Agendamento?"
-        document.getElementById("conf").setAttribute("href", 
-        location.origin + `/Pet-Shop/backend/processos/proc_cancelAgen.php?id=${id}`)
-        // document.getElementById("conf").setAttribute("href", 
-        // location.origin + `/backend/processos/proc_cancelAgen.php?id=${id}`)
+        document.getElementById("container-modal").innerHTML = `
+        <p>Você tem certeza que deseja Cancelar este Agendamento?<p>
+        <span onclick="document.getElementById('id01').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>
+        ${
+        `<a href = "` + location.origin + `/Pet-Shop/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>`
+        // `<a href = "` + location.origin + `/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>`
+        }
+        <button onclick="document.getElementById('id01').style.display='none'">Não</button>`;
     } else {
-        // document.getElementById("tipo").innerHTML = "Você tem certeza que deseja Cancelar este Agendamento?"
-        // // document.getElementById("conf").setAttribute("href", location.origin + `/Pet-Shop/backend/processos/proc_cancelAgen.php`)
-        // document.getElementById("conf").setAttribute("href", location.origin + `/backend/processos/proc_cancelAgen.php`)
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
+        // xhr.open("GET", location.origin + `/backend/execute.php?function=getDesc&id=${id}`, true);
+        xhr.onload = function() {
+            if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+                var response = xhr.responseText;
+                document.getElementById("container-modal").innerHTML = `
+                <h2>Descrição do Agendamento</h2>
+                <p>${response}<p>
+                <span onclick="document.getElementById('id01').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>`;
+            }
+        }
+        xhr.send();
     }
 }

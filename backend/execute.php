@@ -31,4 +31,7 @@
         case 'profissionais':
             echo profissionais();
             break;
+        case 'getDesc':
+            echo getDesc();
+            break;
     }
