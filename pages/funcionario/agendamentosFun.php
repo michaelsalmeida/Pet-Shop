@@ -35,7 +35,7 @@ require_once $funcoesRoute;
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onresize="checaDispositivo()" onload="gerarTabelaAgenFun()">
+<body onresize="checaDispositivo()" onload="queryBanco('gerarTabelaAgenFun')">
   <?php
   if (!loged()) {
     $_SESSION['msgloginFun'] = "Por favor, faça o login primeiro.";

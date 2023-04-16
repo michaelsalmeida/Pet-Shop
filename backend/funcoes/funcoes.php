@@ -284,7 +284,7 @@
         $resultado = $stmt->get_result();
 
         // String que será retornada na tabela
-        $retornar =
+        $tabela =
         "<tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
@@ -299,7 +299,7 @@
         foreach($resultado->fetch_all() as $row) {
             // Formata a data
             $data = date('d/m/Y', strtotime($row[1]));
-            $retornar = $retornar .
+            $tabela = $tabela .
             "<tr>
                 <td>$row[0]</td>
                 <td>$data</td>
@@ -310,7 +310,9 @@
                 <td>$row[5]</td>
             </tr>";
         }
-        return $retornar;
+
+        $retornar = array('tabela', $tabela);
+        return json_encode($retornar);
     }
     
     function cadastrarAgendamentos(){
