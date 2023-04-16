@@ -315,7 +315,7 @@
         return json_encode($retornar);
     }
     
-    function cadastrarAgendamentos(){
+    function profissionais(){
         session_start();
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
@@ -332,11 +332,12 @@
         // Pega o resultado do banco
         $resultado = $stmt->get_result();
 
-        $retornar = "<option value='' disabled selected hidden>Selecione um funcionário</option>";
+        $tabela = "<option value='' disabled selected hidden>Selecione um funcionário</option>";
 
         foreach($resultado->fetch_all() as $row){
-            $retornar = $retornar . "<option value='$row[0]'>$row[0]</option>";
+            $tabela = $tabela . "<option value='$row[0]'>$row[0]</option>";
         }
 
-        return $retornar;
+        $retornar = array('profissionais', $tabela);
+        return json_encode($retornar);
     }

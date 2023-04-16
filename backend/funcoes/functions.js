@@ -13,12 +13,32 @@ function executeFunctions(func) {
 
 function queryBanco(tipo) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}`, true);
-    // xhr.open("GET", location.origin + `/backend/execute.php?function=${tipo}`, true);
+
+    extra = "";
+    if (tipo == 'profissionais') {
+        var servico = document.getElementById('servicos').value;
+        extra = `&servico=${servico}`;
+    }
+
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=${tipo}${extra}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Get the response from the server
             document.getElementById(response[0]).innerHTML = response[1];
+        }
+    };
+    xhr.send();
+}
+
+function checkAnimais() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=checkAnimais`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=checkAnimais`, true);
+    xhr.onload = function() {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            var response = xhr.responseText; // Get the response from the server
+            document.getElementById("animais").innerHTML = response;
         }
     };
     xhr.send();
@@ -38,19 +58,6 @@ function altAnimal() {
             document.getElementsByName("raca")[0].value = response[3];
             document.getElementsByName("peso")[0].value = response[4];
             document.getElementsByName("cor")[0].value = response[5];
-        }
-    };
-    xhr.send();
-}
-
-function checkAnimais() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=checkAnimais`, true);
-    // xhr.open("GET", location.origin + `/backend/execute.php?function=checkAnimais`, true);
-    xhr.onload = function() {
-        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
-            var response = xhr.responseText; // Get the response from the server
-            document.getElementById("animais").innerHTML = response;
         }
     };
     xhr.send();
@@ -83,20 +90,6 @@ function fazAgendamentoCli(idAgen) {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Get the response from the server
             location.href = response; // Log the response to the console
-        }
-    };
-    xhr.send();
-}
-
-function gerarAgendamentoFun() {
-    var xhr = new XMLHttpRequest();
-    var servico = document.getElementById('servicos').value;
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=cadastrarAgendamentos&servico=${servico}`, true);
-    // xhr.open("GET", location.origin + `/backend/execute.php?function=cadastrarAgendamentos&servico=${servico}`, true);
-    xhr.onload = function() {
-        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
-            var response = xhr.responseText; // Get the response from the server
-            document.getElementById("profissionais").innerHTML = response;
         }
     };
     xhr.send();

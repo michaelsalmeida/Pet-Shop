@@ -28,7 +28,7 @@
         case 'gerarTabelaAgenFun':
             echo gerarTabelaAgenFun();
             break;
-        case 'cadastrarAgendamentos':
-            echo cadastrarAgendamentos();
+        case 'profissionais':
+            echo profissionais();
             break;
     }
