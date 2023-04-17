@@ -124,6 +124,8 @@
     }
 }
 
+
+
 /* FIM MENSAGEM */
 
 /* CONTATO */
@@ -164,3 +166,11 @@
 }
 
 /* FIM CONTATO */
+
+
+
+
+/* MODIFICAÇÃO PARA DAR UM ESPAÇO ENTRE A BORDA E A PARTE DE DIGITAR */
+input, textarea{
+    padding: 0 9px;
+}

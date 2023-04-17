@@ -95,7 +95,7 @@ require_once $funcoesRoute;
         com cuidado e dedicação, além de consultas personalizadas para garantir a saúde e bem-estar do seu melhor amigo.
       </h2>
 
-      <a href="<?php echo $agendamentoCliRoute; ?>">AGENDAMENTO</a>
+      <a href="<?php echo $agendamentoCliRoute; ?>">Agendamento</a>
     </div>
 
     <img class="col-md-4" src="pages/img-estatico/agendar.svg" alt="">
@@ -128,9 +128,7 @@ require_once $funcoesRoute;
       <div>
         <img src="pages/img-estatico/banho-e-tosa.svg" alt="">
         <h3>Banho e tosa</h3>
-        <p>O serviço de banho e tosa em um pet shop inclui a lavagem, corte de pelos e limpeza de ouvidos e unhas do
-          animal. É importante escolher um profissional qualificado para garantir a higiene e a aparência do seu animal
-          de estimação.</p>
+        <p>O serviço de banho e tosa do Hamtaro Petshop inclui a lavagem, corte de pelos e limpeza de ouvidos e unhas do animal. É importante escolher um profissional qualificado para garantir a higiene e a aparência do seu animal de estimação.</p>
       </div>
 
       <div>
