@@ -12,34 +12,60 @@ require_once $funcoesRoute;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animais</title>
+
+
+    <link rel="stylesheet" href="../css-estatico/header.css">
+    <link rel="stylesheet" href="../css-dinamico/agendamentoCliente.css">
     <style>
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-        text-align: center;
-    }
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            text-align: center;
+        }
 
-    tr:nth-child(odd) {
-        background-color: #dddddd;
-    }
+        tr:nth-child(odd) {
+            background-color: #dddddd;
+        }
     </style>
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
 <body onload="queryBanco('checkAnimais')">
+    <header>
+        <a href="#" class="logo">
+            <img src="../img-estatico/logo.svg" alt="">
+        </a>
+
+        <div class="responsive">
+            <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <div class="links">
+                <a href="<?php echo $blogRoute; ?>">BLOG</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+            </div>
+
+            <div class="acesso">
+                <button onclick="executeFunctions('logoff', '')">Logoff</button>
+            </div>
+        </div>
+        
+        <img src="../img-estatico/menu.png" class="menu" alt="menu">
+    </header>
+
     <?php
 
-    if (isset($_SESSION['tipo'])){
+    if (isset($_SESSION['tipo'])) {
         header("Location: " . $agendamentoFunRoute);
     }
-    
+
     if (!loged()) {
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
         header("Location: " . $loginCliRoute);
@@ -51,6 +77,8 @@ require_once $funcoesRoute;
     ?>
 
     <form>
+        <h1>AGENDAMENTO</h1>
+
         <label for="animais">Animal a ser tratado: </label><br>
         <select name="animais" id="animais" required></select><br><br>
 
@@ -68,7 +96,28 @@ require_once $funcoesRoute;
         <table id="fazAgend"></table>
     </form>
 
-    <button onclick="executeFunctions('logoff', '')">Logoff</button>
+    <footer>
+        <a href="#" class="logo">
+            <img src="../img-estatico/logo.svg" alt="">
+        </a>
+
+        <div class="links">
+            <a href="<?php echo $blogRoute; ?>">BLOG</a>
+            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+        </div>
+
+        <div class="redes">
+            <img src="../img-estatico/facebook.svg" alt="">
+            <img src="../img-estatico/youtube.svg" alt="">
+            <img src="../img-estatico/twitter.svg" alt="">
+            <img src="../img-estatico/github.svg" alt="">
+        </div>
+
+        <p>© Hamtaro Petshop todos direitos reservados</p>
+    </footer>
+
+    <script src="../script.js"></script>
 </body>
 
 </html>
