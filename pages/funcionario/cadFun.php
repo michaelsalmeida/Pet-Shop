@@ -6,6 +6,11 @@
     if (isset($_SESSION['msgCadFun'])){
         echo $_SESSION['msgCadFun'];
         unset($_SESSION['msgCadFun']);
+    }   
+
+    if ($_SESSION['tipo'] != "admin") {
+        $_SESSION['msgRotaProibida'] = "Você Não possui permissão para entrar nessa página";
+        header("Location: " . $agendamentoFunRoute);
     }
 
 ?>

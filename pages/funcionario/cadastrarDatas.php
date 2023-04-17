@@ -44,6 +44,7 @@
 
             <input type="submit" value="Cadastrar">
         </form>
+        <a href="<?php echo $agendamentoFunRoute; ?>">Voltar</a>
     </div>
     
 </body>

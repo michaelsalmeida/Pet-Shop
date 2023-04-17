@@ -101,7 +101,8 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/michael.svg" alt="imagem do colaborador michael" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/michaelsalmeida"><img src="../img-estatico/github.svg" alt="link do github do aluno michael"></a>
+                        <a href="https://github.com/michaelsalmeida"><img src="../img-estatico/github-sobrenos.svg"
+                                alt="link do github do aluno michael"></a>
 
                         <a href="https://www.linkedin.com/in/michael-almeida-34a97b22a/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno michael"></a>
                     </div>
@@ -115,7 +116,8 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/gustavo.svg" alt="imagem do colaborador michael" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/luizbrito6"><img src="../img-estatico/github.svg" alt="link do github do aluno luiz"></a>
+                        <a href="https://github.com/luizbrito6"><img src="../img-estatico/github-sobrenos.svg"
+                                alt="link do github do aluno luiz"></a>
 
                         <a href="https://www.linkedin.com/in/luiz-gustavo-gon%C3%A7alves-brito/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno luiz"></a>
                     </div>
@@ -131,7 +133,8 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/matheus.svg" alt="imagem do colaborador matheus" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/MatthewsTomts"><img src="../img-estatico/github.svg" alt="link do github do aluno matheus"></a>
+                        <a href="https://github.com/MatthewsTomts"><img src="../img-estatico/github-sobrenos.svg"
+                                alt="link do github do aluno matheus"></a>
 
                         <a href="https://www.linkedin.com/in/matheus-farias-524942206/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno matheus"></a>
                     </div>
@@ -147,7 +150,8 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/mayck.svg" alt="imagem do colaborador mayck" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/MayckL2"><img src="../img-estatico/github.svg" alt="link do github do aluno mayck"></a>
+                        <a href="https://github.com/MayckL2"><img src="../img-estatico/github-sobrenos.svg"
+                                alt="link do github do aluno mayck"></a>
 
                         <a href="https://www.linkedin.com/in/mayck-luciano/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno mayck"></a>
                     </div>
@@ -167,6 +171,7 @@ require_once $funcoesRoute;
             <button onclick="formaPagamento()" class="btn-pagamento">Formas de pagamentos</button>
             <button onclick="formaValores()" class="btn-pagamento btn-valores">Valores</button>
         </div>
+        
         <div class="conteudo-pagamento">
 
             <div id="primeiro" class="item-pagamento">

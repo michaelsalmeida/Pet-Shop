@@ -29,6 +29,7 @@ if (isset($_SESSION['tipo'])){
         <a href="" id="logo">
             <p>Hamtaro Petshop</p>
         </a>
+        
         <div class="links-login-cliente">
             <a href="<?php echo $loginFunRoute; ?>" class="corporativo">Corporativo </a>
 

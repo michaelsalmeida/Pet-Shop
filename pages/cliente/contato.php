@@ -19,10 +19,6 @@ require_once $funcoesRoute;
 </head>
 
 <body>
-    <div class="contatoHeader">
-        <p>(11)9 8253-2481</p>
-        <img src="../img-estatico/endereço.svg" alt="">
-    </div>
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
@@ -72,7 +68,7 @@ require_once $funcoesRoute;
         <a target="_blank"
             href="https://www.google.com/maps/place/Escola+Senai+Suíço-Brasileira+Paulo+Ernesto+Tolle/@-23.6482243,-46.7241806,17z/data=!4m6!3m5!1s0x94ce510e8d3746ed:0x3e9f3a76e1ebfb69!8m2!3d-23.648051!4d-46.7217358!16s%2Fg%2F1wk7rz_s">
             <img src="../img-estatico/setaMapa.svg" alt="">
-            Localização: Avenida interlagos, 2034 - Jardin Marajoara
+            Localização: Avenida interlagos, 2034 - Jardim Marajoara
         </a>
     </section>
 
