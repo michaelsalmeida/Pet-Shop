@@ -12,8 +12,7 @@ require_once $funcoesRoute;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre nós - Hamtaro Petshop</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css-estatico/sobre-nos.css">
     <link rel="stylesheet" href="../css-estatico/header.css">
 </head>
@@ -102,11 +101,9 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/michael.svg" alt="imagem do colaborador michael" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/michaelsalmeida"><img src="../img-estatico/github.svg"
-                                alt="link do github do aluno michael"></a>
+                        <a href="https://github.com/michaelsalmeida"><img src="../img-estatico/github.svg" alt="link do github do aluno michael"></a>
 
-                        <a href="https://www.linkedin.com/in/michael-almeida-34a97b22a/"><img
-                                src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno michael"></a>
+                        <a href="https://www.linkedin.com/in/michael-almeida-34a97b22a/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno michael"></a>
                     </div>
                 </div>
 
@@ -118,11 +115,9 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/gustavo.svg" alt="imagem do colaborador michael" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/luizbrito6"><img src="../img-estatico/github.svg"
-                                alt="link do github do aluno luiz"></a>
+                        <a href="https://github.com/luizbrito6"><img src="../img-estatico/github.svg" alt="link do github do aluno luiz"></a>
 
-                        <a href="https://www.linkedin.com/in/luiz-gustavo-gon%C3%A7alves-brito/"><img
-                                src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno luiz"></a>
+                        <a href="https://www.linkedin.com/in/luiz-gustavo-gon%C3%A7alves-brito/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno luiz"></a>
                     </div>
                 </div>
 
@@ -136,11 +131,9 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/matheus.svg" alt="imagem do colaborador matheus" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/MatthewsTomts"><img src="../img-estatico/github.svg"
-                                alt="link do github do aluno matheus"></a>
+                        <a href="https://github.com/MatthewsTomts"><img src="../img-estatico/github.svg" alt="link do github do aluno matheus"></a>
 
-                        <a href="https://www.linkedin.com/in/matheus-farias-524942206/"><img
-                                src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno matheus"></a>
+                        <a href="https://www.linkedin.com/in/matheus-farias-524942206/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno matheus"></a>
                     </div>
                 </div>
 
@@ -154,11 +147,9 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/mayck.svg" alt="imagem do colaborador mayck" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/MayckL2"><img src="../img-estatico/github.svg"
-                                alt="link do github do aluno mayck"></a>
+                        <a href="https://github.com/MayckL2"><img src="../img-estatico/github.svg" alt="link do github do aluno mayck"></a>
 
-                        <a href="https://www.linkedin.com/in/mayck-luciano/"><img src="../img-estatico/linkedin.svg"
-                                alt="link do linkedin do aluno mayck"></a>
+                        <a href="https://www.linkedin.com/in/mayck-luciano/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno mayck"></a>
                     </div>
                 </div>
 
@@ -173,12 +164,12 @@ require_once $funcoesRoute;
 
     <section class="container pagamento">
         <div class="botoes">
-            <button class="btn-pagamento">Formas de pagamentos</button>
-            <button class="btn-pagamento btn-valores">Valores</button>
+            <button onclick="formaPagamento()" class="btn-pagamento">Formas de pagamentos</button>
+            <button onclick="formaValores()" class="btn-pagamento btn-valores">Valores</button>
         </div>
         <div class="conteudo-pagamento">
 
-            <div class="item-pagamento">
+            <div id="primeiro" class="item-pagamento">
 
                 <img src="../img-estatico/debito.svg" alt="débito">
                 <p>Débito</p>
@@ -186,21 +177,21 @@ require_once $funcoesRoute;
             </div>
 
 
-            <div class="item-pagamento">
+            <div id="segundo" class="item-pagamento">
 
                 <img src="../img-estatico/pix.svg" alt="pix">
                 <p>Pix</p>
 
             </div>
 
-            <div class="item-pagamento">
+            <div id="terceiro" class="item-pagamento">
 
                 <img src="../img-estatico/credito.svg" alt="crédito">
                 <p>Crédito</p>
 
             </div>
 
-            <div class="item-pagamento">
+            <div id="quarto" class="item-pagamento">
 
                 <img src="../img-estatico/boleto.svg" alt="crédito">
                 <p>Boleto</p>
@@ -295,9 +286,7 @@ require_once $funcoesRoute;
         <p>© Hamtaro Petshop todos direitos reservados</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
     <script src="../script.js"></script>
 </body>
