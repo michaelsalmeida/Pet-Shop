@@ -20,7 +20,7 @@ require_once $funcoesRoute;
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onresize="checaDispositivo()">
+<body>
   <div class="contatoHeader">
     <p>(11) 98253-2481</p>
     <img src="pages/img-estatico/endereço.svg" alt="">
@@ -48,7 +48,7 @@ require_once $funcoesRoute;
             echo "
               <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
               <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-              <button onclick=executeFunctions('logoff', '')>Logoff</button>";
+              <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Logoff</button>";
           }
         } else {
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
@@ -57,7 +57,7 @@ require_once $funcoesRoute;
 
         ?>
       </div>
-    </div>
+    </div>  
         
     <img src="pages/img-estatico/menu.png" class="menu" alt="menu">
   </header>

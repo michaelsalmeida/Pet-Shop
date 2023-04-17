@@ -227,7 +227,7 @@
                     <td>$row[0]</td>
                     <td>$data</td>
                     <td>$row[2]</td>
-                    <td><button type='button' onclick='executeFunctions('fazAgendamentoCli'," . $row[3] . ")'>Agendar</button></td>
+                    <td><button type='button' onclick='executeFunctions(". '"fazAgendamentoCli",' . $row[3] . ")'>Agendar</button></td>
                 </tr>";
             }
         }
@@ -240,7 +240,7 @@
         session_start();
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
-
+        
         if ($_GET['idAni'] != 0) {
             try {
                 $stmt = $conn->prepare("UPDATE Agendamentos SET fk_Animal = ?, `status` = 'Marcado' WHERE pk_Agendamento = ?");
@@ -249,14 +249,17 @@
                 $stmt->execute();
     
                 $_SESSION['msgAgendamentoCli'] = "Agendamento Realizado";
-                return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/agendamentosCli.php";
+                return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/agendamentosCli.php";
+                // return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/agendamentosCli.php";
             } catch (Exception $e) {
                 $_SESSION['msgFazAgendamento'] = "Error: ". $e->getMessage();
-                return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/fazerAgendamentoCli.php";
+                return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/fazerAgendamentoCli.php";
+                // return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/fazerAgendamentoCli.php";
             }
         } else {
             $_SESSION['msgFazAgendamento'] = "Selecione um animal!";
-            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/fazerAgendamentoCli.php";
+            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/fazerAgendamentoCli.php";
+            // return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/fazerAgendamentoCli.php";
         }
     }
 
@@ -264,7 +267,7 @@
         session_start();
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
-        
+
         if ($_SESSION['tipo'] == 'Veterinario' || $_SESSION['tipo'] == 'Esteticista'){
 
             // String de preparação
@@ -275,10 +278,12 @@
             on Animais.fk_Cliente = Clientes.pk_Cliente
             inner join Funcionarios
             on Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
-            Where fk_Funcionario = ?");
+            Where fk_Funcionario = ?
+            and Funcionarios.nome like ?");
 
+            $pesquisar = "%" . $_GET['pesq'] . "%";
              // Substituição da string preparada pelos valores corretos
-            $stmt->bind_param("s", $_SESSION['idFun']);
+            $stmt->bind_param("ss", $_SESSION['idFun'], $pesquisar);
 
         } else {
             $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status` from Agendamentos
@@ -287,7 +292,11 @@
             left join Clientes
             on Animais.fk_Cliente = Clientes.pk_Cliente
             inner join Funcionarios
-            on Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario");
+            on Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
+            where Funcionarios.nome like ?");
+
+            $pesquisar = "%" . $_GET['pesq'] . "%";
+            $stmt->bind_param("s", $pesquisar);
         }
  
         // Executa o sql
