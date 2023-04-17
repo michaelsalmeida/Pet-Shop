@@ -55,7 +55,7 @@ require_once $funcoesRoute;
         <input type="submit" value="Alterar">
     </form>
 
-    <button onclick="executeFunctions('logoff', '')">Logoff</button>
+    <button onclick="executeFunctions('logoff', '')">Sair</button>
     <script src="<?php echo $dataHojeRoute; ?>"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
 </body>

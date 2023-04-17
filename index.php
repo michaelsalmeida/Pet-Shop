@@ -21,10 +21,12 @@ require_once $funcoesRoute;
 </head>
 
 <body>
+  
   <div class="contatoHeader">
     <p>(11) 98253-2481</p>
     <img src="pages/img-estatico/endereço.svg" alt="">
   </div>
+
   <header>
     <a href="#" class="logo">
       <img src="pages/img-estatico/logo.svg" alt="">
@@ -47,7 +49,7 @@ require_once $funcoesRoute;
             echo "
               <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
               <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-              <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Logoff</button>";
+              <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>";
           }
         } else {
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";

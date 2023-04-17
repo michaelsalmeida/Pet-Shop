@@ -53,7 +53,7 @@ require_once $funcoesRoute;
             </div>
 
             <div class="acesso">
-                <button onclick="executeFunctions('logoff', '')">Logoff</button>
+                <button onclick="executeFunctions('logoff', '')">Sair</button>
             </div>
         </div>
         
