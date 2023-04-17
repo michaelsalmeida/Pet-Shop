@@ -1,13 +1,13 @@
 function executeFunctions(func, idAgen) {
 
     extra = ""
-    if (idAgen != "") {
+    if (idAgen != 0) {
         var idAnimal = document.getElementById('animais').value
         extra = `&idAgen=${idAgen}&idAni=${idAnimal}`
     }
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}`, true);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
     // xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
