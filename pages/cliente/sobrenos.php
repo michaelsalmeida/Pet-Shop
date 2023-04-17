@@ -28,7 +28,6 @@ require_once $funcoesRoute;
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="#">SOBRE NÓS</a>
-                <a href="">CONSULTA</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
             </div>
 
@@ -41,7 +40,7 @@ require_once $funcoesRoute;
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        <button onclick=executeFunctions('logoff', '')>Logoff</button>";
+                        <button onclick=executeFunctions('logoff', '')>Sair</button>";
                     }
                 } else {
                     echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";

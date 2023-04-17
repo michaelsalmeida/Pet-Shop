@@ -53,7 +53,7 @@ require_once $funcoesRoute;
         <input type="submit" value="Cadastrar">
     </form>
 
-    <button onclick="executeFunctions('logoff', '')">Logoff</button>
+    <button onclick="executeFunctions('logoff', '')">Sair</button>
     <script src="<?php echo $dataHojeRoute; ?>"></script>
 </body>
 

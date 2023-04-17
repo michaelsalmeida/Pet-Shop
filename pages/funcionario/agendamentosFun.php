@@ -76,7 +76,7 @@ require_once $funcoesRoute;
   </div>
 
   
-  <button onclick="executeFunctions('logoff', '')">Logoff</button>
+  <button onclick="executeFunctions('logoff', '')">Sair</button>
 
   <table id="tabela">
 

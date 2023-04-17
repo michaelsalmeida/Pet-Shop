@@ -68,7 +68,7 @@ require_once $funcoesRoute;
         <table id="fazAgend"></table>
     </form>
 
-    <button onclick="executeFunctions('logoff', '')">Logoff</button>
+    <button onclick="executeFunctions('logoff', '')">Sair</button>
 </body>
 
 </html>
