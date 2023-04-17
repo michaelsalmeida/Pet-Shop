@@ -44,6 +44,21 @@ a{
 
 /* HEADER */
 
+
+header .acesso button{
+  color: white;
+  background-color: transparent;
+  border: solid;
+  padding: 5px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+header .acesso button:hover{
+  color: #2B0086;
+}
+
 header, footer{
   background-color: #8C52FF;
   display: flex;
