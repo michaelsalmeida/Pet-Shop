@@ -20,7 +20,7 @@ require_once $funcoesRoute;
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onresize="checaDispositivo()">
+<body>
   <div class="contatoHeader">
     <p>(11) 98253-2481</p>
     <img src="pages/img-estatico/endereço.svg" alt="">
