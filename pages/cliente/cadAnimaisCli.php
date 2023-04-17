@@ -14,12 +14,36 @@ require_once $funcoesRoute;
     <title>Animais</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
     <script src="<?php echo $functionsRoute; ?>"></script>
+
+    <link rel="stylesheet" href="../css-estatico/header.css">
+    <link rel="stylesheet" href="../css-dinamico/cadAnimais.css">
 </head>
 
 <body>
+    <header>
+        <a href="../../index.php" class="logo">
+            <img src="../img-estatico/logo.svg" alt="">
+        </a>
+
+        <div class="responsive">
+            <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <div class="links">
+                <a href="<?php echo $blogRoute; ?>">BLOG</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+            </div>
+
+            <div class="acesso">
+                <button onclick="executeFunctions('logoff', '')">Logoff</button>
+            </div>
+        </div>
+
+        <img src="../img-estatico/menu.png" class="menu" alt="menu">
+    </header>
+
     <?php
 
-    if (isset($_SESSION['tipo'])){
+    if (isset($_SESSION['tipo'])) {
         header("Location: " . $agendamentoFunRoute);
     }
     if (!loged()) {
@@ -31,30 +55,53 @@ require_once $funcoesRoute;
         unset($_SESSION['msgCadAnimaisCli']);
     }
     ?>
-    <form action="<?php echo $proc_cadAnimalRoute;?>" method="post">
+    <form action="<?php echo $proc_cadAnimalRoute; ?>" method="post">
+        <h1>CADASTRO DE ANIMAIS</h1>
+
         <label for="nome">Nome</label><br>
-        <input type="text" name="nome"><br><br>
-    
+        <input type="text" name="nome">
+
         <label for="dataNasc">Data de Nascimento </label><br>
-        <input type="date" name="dataNasc"><br><br>
-    
+        <input type="date" name="dataNasc">
+
         <label for="espec">Espécie</label><br>
-        <input type="text" name="espec"><br><br>
+        <input type="text" name="espec">
 
         <label for="raca">Raça</label><br>
-        <input type="text" name="raca"><br><br>
-    
+        <input type="text" name="raca">
+
         <label for="peso">Peso (Kg)</label><br>
-        <input type="number" name="peso" step=0.01  pattern="[0-9]*"><br><br>
-    
+        <input type="number" name="peso" step=0.01 pattern="[0-9]*">
+
         <label for="cor">Cor</label><br>
-        <input type="text" name="cor"><br><br>
+        <input type="text" name="cor">
 
         <input type="submit" value="Cadastrar">
     </form>
 
-    <button onclick="executeFunctions('logoff', '')">Logoff</button>
+    <footer>
+        <a href="#" class="logo">
+            <img src="../img-estatico/logo.svg" alt="">
+        </a>
+
+        <div class="links">
+            <a href="<?php echo $blogRoute; ?>">BLOG</a>
+            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+        </div>
+
+        <div class="redes">
+            <img src="../img-estatico/facebook.svg" alt="">
+            <img src="../img-estatico/youtube.svg" alt="">
+            <img src="../img-estatico/twitter.svg" alt="">
+            <img src="../img-estatico/github.svg" alt="">
+        </div>
+
+        <p>© Hamtaro Petshop todos direitos reservados</p>
+    </footer>
+
     <script src="<?php echo $dataHojeRoute; ?>"></script>
+    <script src="../script.js"></script>
 </body>
 
 </html>

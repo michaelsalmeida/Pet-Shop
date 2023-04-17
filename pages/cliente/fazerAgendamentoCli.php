@@ -40,7 +40,7 @@ require_once $funcoesRoute;
 
 <body onload="queryBanco('checkAnimais')">
     <header>
-        <a href="#" class="logo">
+        <a href="../../index.php" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
