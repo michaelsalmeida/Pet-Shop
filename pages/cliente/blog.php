@@ -65,7 +65,7 @@
                     <div class="img-noticia n-1"></div>
 
                     <div class="info">
-                        <h2>Pesquisa revela curiosidades sobre a raça Shiba Inu.</h2>
+                        <h2>Curiosidades sobre a raça Shiba Inu.</h2>
 
                         <img src="../img-estatico/pets.svg" alt="pata do pet">
                     </div>
@@ -73,7 +73,7 @@
                 </div>
             </a>
 
-            <a href="">
+            <a href="../noticias/noticia2.php">
                 <div class="card-noticia">
 
                     <div class="img-noticia n-2"></div>
@@ -87,13 +87,13 @@
                 </div>
             </a>
             
-            <a href="../noticias/noticia2.php">
+            <a href="../noticias/noticia3.php">
                 <div class="card-noticia">
 
                     <div class="img-noticia n-3"></div>
 
                     <div class="info">
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+                        <h2>Conheça os serviços oferecidos pelo petshop Hamtaro!</h2>
 
                         <img src="../img-estatico/pets.svg" alt="pata do pet">
                     </div>
@@ -102,7 +102,7 @@
             </a>
 
 
-            <a href="">
+            <a href="../noticias/noticia3.php">
                 <div class="card-noticia">
 
                     <div class="img-noticia n-4"></div>
@@ -115,6 +115,21 @@
 
                 </div>
             </a>
+            
+            <a href="">
+                <div class="card-noticia">
+
+                    <div class="img-noticia n-5"></div>
+
+                    <div class="info">
+                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+
+                        <img src="../img-estatico/pets.svg" alt="pata do pet">
+                    </div>
+
+                </div>
+            </a>
+
             <a href="">
                 <div class="card-noticia">
 
@@ -128,7 +143,6 @@
 
                 </div>
             </a> 
-
         </section>
 
 

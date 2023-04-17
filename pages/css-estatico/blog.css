@@ -50,10 +50,12 @@
 
 .fundo-noticias{
     padding: 90px 0;
-    background-color: #D9D9D9;
+    background-color: #eae8e8;
     text-align: center;
     display: grid ;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .fundo-noticias h1{
@@ -61,6 +63,7 @@
     font-size: 32px;
     font-weight: bold;
     color: #8C52FF ;
+    
 }
 
 .noticias{
@@ -70,6 +73,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+    width: 1350px;
 
 }
 
@@ -82,7 +86,7 @@
 .card-noticia{
     background-color: #ffffff;
     width: 330px;
-    padding: 50px;
+    padding: 40px 30px;
     border-radius: 9px;
     display: flex;
     flex-direction: column;
@@ -113,6 +117,15 @@
 .info img{
     width: 24px;
 }
+
+@media (max-width:1350px) {
+    .noticias{
+        width: auto;
+    }
+}
+
+
+/* FIM NOTÍCIAS */
 
 
 
@@ -172,4 +185,9 @@
 
 .n-2{
     background-image: url('https://uploads.metropoles.com/wp-content/uploads/2021/03/29155402/gatos-1.jpg');
+}
+
+.n-3{
+    background-image: url('https://veterinariadavinci.com.br/blog/wp-content/uploads/2017/07/como-escolher-um-veterinario-de-confianca-para-seu-bichinho.jpg');
+
 }

@@ -10,7 +10,7 @@ require_once $funcoesRoute;
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hantaro Petshop</title>
+  <title>Hamtaro Petshop</title>
   <link rel="stylesheet" href="pages/css-estatico/header.css">
   <link rel="stylesheet" href="pages/css-estatico/home.css">
 
