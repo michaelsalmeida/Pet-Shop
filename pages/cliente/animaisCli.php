@@ -33,7 +33,7 @@ require_once $funcoesRoute;
   </style>
 </head>
 
-<body onload="gerarTabelaAni()">
+<body onload="queryBanco('gerarTabelaAni')">
   <?php
 
   if (isset($_SESSION['tipo'])){
@@ -50,7 +50,7 @@ require_once $funcoesRoute;
   </table>
 
   <a href="<?php echo $cadAnimaisCliRoute; ?>">Cadastrar Animal</a>
-  <button onclick="executeFunctions('logoff')">Logoff</button>
+  <button onclick="executeFunctions('logoff', '')">Logoff</button>
 </body>
 
 </html>

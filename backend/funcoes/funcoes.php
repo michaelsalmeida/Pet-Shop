@@ -25,7 +25,6 @@
 
     function gerarTabelaAni() {
         session_start();
-        include_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/rotas.php');
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
@@ -39,7 +38,7 @@
         $resultado = $stmt->get_result();
 
         // String que será retornada na tabela
-        $retornar = "<tr>
+        $tabela = "<tr>
             <th>Nome</th>
             <th>Data de Nascimento</th>
             <th>Raça</th>
@@ -49,7 +48,7 @@
         </tr>";
         
         if (mysqli_num_rows($resultado) == 0) {
-            $retornar = $retornar . "
+            $tabela = $tabela . "
             <tr>
                 <td colspan=4>Não há animais cadastrados</td>
             </tr>
@@ -59,7 +58,7 @@
             foreach($resultado->fetch_all() as $row) {
                 // Formata a data
                 $data = date('d/m/Y', strtotime($row[1]));
-                $retornar = $retornar .
+                $tabela = $tabela .
                 "<tr>
                     <td>$row[0]</td>
                     <td>$data</td>
@@ -72,11 +71,14 @@
                 </tr>";
             }
         }
-        return $retornar;
+
+        $retornar = array('animais', $tabela);
+        return json_encode($retornar);
     }
 
     function altAnimal() {
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
         // String de preparação
         $stmt = $conn->prepare("SELECT nome, data_nascimento, especie, raca, peso, cor FROM Animais WHERE pk_Animal = ?");
         // Substituição da string preparada pelos valores corretos
@@ -98,7 +100,7 @@
 
         // String de preparação
         $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento,
-        horario_agendamento, Animais.nome, Agendamentos.tipo, `status` from Agendamentos
+        horario_agendamento, Animais.nome, Agendamentos.tipo, `status`, pk_Agendamento from Agendamentos
             inner join Animais
             on Agendamentos.fk_Animal = Animais.pk_Animal
             inner join Clientes
@@ -114,7 +116,7 @@
         $resultado = $stmt->get_result();
 
         // String que será retornada na tabela
-        $retornar = "<tr>
+        $tabela = "<tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
             <th>Horário do agendamento</th>
@@ -125,7 +127,7 @@
         </tr>";
         
         if (mysqli_num_rows($resultado) == 0) {
-            $retornar = $retornar . "
+            $tabela = $tabela . "
             <tr>
                 <td colspan=7>Não há agendamentos cadastrados</td>
             </tr>
@@ -135,19 +137,29 @@
             foreach($resultado->fetch_all() as $row) {
                 // Formata a data
                 $data = date('d/m/Y', strtotime($row[1]));
-                $retornar = $retornar .
+                $botao = "";
+
+                if ($row[5] == "Marcado") {
+                    $botao = "<button onclick='activeModal($row[6],". '"Cancelar"'.")'>Cancelar</button>";
+                } elseif ($row[5] == "Concluido") {
+                    $botao = "<button onclick='activeModal($row[6],". '"Detalhes"'.")'>Detalhes</button>";
+                }
+
+                $tabela = $tabela .
                 "<tr>
                     <td>$row[0]</td>
                     <td>$data</td>
                     <td>$row[2]</td>
                     <td>$row[3]</td>
                     <td>$row[4]</td>
-                    <td>Detalhes</td>
+                    <td>$botao</td>
                     <td>$row[5]</td>
                 </tr>";
             }
         }
-        return $retornar;
+
+        $retornar = array("agendamentos", $tabela);
+        return json_encode($retornar);
     }
 
     function checkAnimais() {
@@ -162,13 +174,14 @@
         // Pega o resultado do banco
         $resultado = $stmt->get_result();
 
-        $retornar = "<option value='0' disabled selected hidden>Selecione um animal</option>";
+        $tabela = "<option value='0' disabled selected hidden>Selecione um animal</option>";
 
         foreach($resultado->fetch_all() as $row){
-            $retornar = $retornar . "<option value='$row[0]'>$row[1]</option>";
+            $tabela = $tabela . "<option value='$row[0]'>$row[1]</option>";
         }
 
-        return $retornar;
+        $retornar = array("animais", $tabela);
+        return json_encode($retornar);
     }
 
     function gerarTabelaFazAgenCli() {
@@ -191,7 +204,7 @@
         $resultado = $stmt->get_result();
 
         // String que será retornada na tabela
-        $retornar = "<tr>
+        $tabela = "<tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
             <th>Horário do agendamento</th>
@@ -199,7 +212,7 @@
         </tr>";
         
         if (mysqli_num_rows($resultado) == 0) {
-            $retornar = $retornar . "
+            $tabela = $tabela . "
             <tr>
                 <td colspan=7>Não há agendamentos cadastrados</td>
             </tr>
@@ -209,16 +222,18 @@
             foreach($resultado->fetch_all() as $row) {
                 // Formata a data
                 $data = date('d/m/Y', strtotime($row[1]));
-                $retornar = $retornar .
+                $tabela = $tabela .
                 "<tr>
                     <td>$row[0]</td>
                     <td>$data</td>
                     <td>$row[2]</td>
-                    <td><button type='button' onclick='fazAgendamentoCli(" . $row[3] . ")'>Agendar</button></td>
+                    <td><button type='button' onclick='executeFunctions('fazAgendamentoCli'," . $row[3] . ")'>Agendar</button></td>
                 </tr>";
             }
         }
-        return $retornar;
+
+        $retornar = array("fazAgend", $tabela);
+        return json_encode($retornar);
     }
 
     function fazAgendamentoCli() {
@@ -281,7 +296,7 @@
         $resultado = $stmt->get_result();
 
         // String que será retornada na tabela
-        $retornar =
+        $tabela =
         "<tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
@@ -296,7 +311,7 @@
         foreach($resultado->fetch_all() as $row) {
             // Formata a data
             $data = date('d/m/Y', strtotime($row[1]));
-            $retornar = $retornar .
+            $tabela = $tabela .
             "<tr>
                 <td>$row[0]</td>
                 <td>$data</td>
@@ -307,10 +322,12 @@
                 <td>$row[5]</td>
             </tr>";
         }
-        return $retornar;
+
+        $retornar = array('tabela', $tabela);
+        return json_encode($retornar);
     }
     
-    function cadastrarAgendamentos(){
+    function profissionais(){
         session_start();
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
@@ -327,11 +344,27 @@
         // Pega o resultado do banco
         $resultado = $stmt->get_result();
 
-        $retornar = "<option value='' disabled selected hidden>Selecione um funcionário</option>";
+        $tabela = "<option value='' disabled selected hidden>Selecione um funcionário</option>";
 
         foreach($resultado->fetch_all() as $row){
-            $retornar = $retornar . "<option value='$row[0]'>$row[0]</option>";
+            $tabela = $tabela . "<option value='$row[0]'>$row[0]</option>";
         }
 
-        return $retornar;
+        $retornar = array('profissionais', $tabela);
+        return json_encode($retornar);
+    }
+
+    function getDesc() {
+        session_start();
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+
+        $id = $_GET['id'];
+        $stmt = $conn->prepare("Select descricao from Agendamentos where pk_Agendamento = ?");
+        $stmt->bind_param("s", $id);
+        // Executa o sql
+        $stmt->execute();
+
+        $retornar = $stmt->get_result();
+        return $retornar->fetch_all()[0][0];
     }

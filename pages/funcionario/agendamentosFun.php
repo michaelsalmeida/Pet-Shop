@@ -35,7 +35,7 @@ require_once $funcoesRoute;
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onresize="checaDispositivo()" onload="gerarTabelaAgenFun()">
+<body onresize="checaDispositivo()" onload="queryBanco('gerarTabelaAgenFun')">
   <?php
   if (!loged()) {
     $_SESSION['msgloginFun'] = "Por favor, faça o login primeiro.";
@@ -66,7 +66,7 @@ require_once $funcoesRoute;
 
   
 
-  <button onclick="executeFunctions('logoff')">Logoff</button>
+  <button onclick="executeFunctions('logoff', '')">Logoff</button>
   <a href="<?php echo $cadastroCliRoute; ?>">Cadastrar Cliente</a>
   
 </body>

@@ -29,13 +29,13 @@
             <label for="">HORÁRIO :</label>
             <input type="time" name="hora" required>
 
-            <select name="servicos" id="servicos" onchange="gerarAgendamentoFun()" required>
+            <select name="servicos" id="servicos" onchange="queryBanco('profissionais')" required>
                 <option value="" disabled selected hidden>Selecione o tipo de serviço</option>
                 <option value="Veterinario">Veterinário</option>
                 <option value="Esteticista">Banho</option>
                 <option value="Esteticista">Tosa</option>
                 <option value="Esteticista">Banho e Tosa</option>
-            </select>    
+            </select>
             
             <select name="profissionais" id="profissionais" required>
                 <option value="" disabled selected hidden>Selecione um tipo de serviço</option>

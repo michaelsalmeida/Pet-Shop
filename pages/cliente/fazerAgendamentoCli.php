@@ -33,7 +33,7 @@ require_once $funcoesRoute;
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onload="checkAnimais()">
+<body onload="queryBanco('checkAnimais')">
     <?php
 
     if (isset($_SESSION['tipo'])){
@@ -55,7 +55,7 @@ require_once $funcoesRoute;
         <select name="animais" id="animais" required></select><br><br>
 
         <label for="nome">Tipo de Agendamento</label><br>
-        <select name="tipoAgen" id="tipoAgen" onchange="gerarTabelaFazAgenCli()">
+        <select name="tipoAgen" id="tipoAgen" onchange="queryBanco('gerarTabelaFazAgenCli')">
             <option value="" disabled selected hidden>Selecione o tipo de Agendamento</option>
             <option value="Banho">Banho</option>
             <option value="Tosa">Tosa</option>
@@ -63,12 +63,12 @@ require_once $funcoesRoute;
         </select><br><br>
 
         <label for="dataAgen">Data de Agendamento</label><br>
-        <input type="date" id="dataAgen" onchange="gerarTabelaFazAgenCli()"><br><br>
+        <input type="date" id="dataAgen" onchange="queryBanco('gerarTabelaFazAgenCli')"><br><br>
 
         <table id="fazAgend"></table>
     </form>
 
-    <button onclick="executeFunctions('logoff')">Logoff</button>
+    <button onclick="executeFunctions('logoff', '')">Logoff</button>
 </body>
 
 </html>

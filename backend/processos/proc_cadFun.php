@@ -93,5 +93,3 @@
         $_SESSION['msgCadFun'] = "CPF inválido.";
         header("Location: ". $cadastrarFunRoute);
     }
-
-?>

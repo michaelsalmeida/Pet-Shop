@@ -1,3 +1,8 @@
+<?php
+include_once("../../rotas.php");
+require_once $funcoesRoute;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -15,26 +20,39 @@
 
 <body>
     <header>
-        <a href="" class="logo">
-          <img src="../img-estatico/logo.svg" alt="">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
+            <img src="../img-estatico/logo.svg" alt="">
         </a>
-    
+
         <div class="responsive">
-          <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
-          <div class="links">
-            <a href="">BLOG</a>
-            <a href="">SOBRE NÓS</a>
-            <a href="">CONSULTA</a>
-            <a href="">CONTATO</a>
-          </div>
-      
-          <div class="acesso">
-            <a href="<?php echo $loginCliRoute; ?>"><img src="../img-estatico/login.svg" alt=""> Login</a>
-        
-            <a href="<?php echo $cadastroCliRoute; ?>">Cadastro</a>
-          </div>
+            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <div class="links">
+                <a href="<?php echo $blogRoute; ?>">BLOG</a>
+                <a href="#">SOBRE NÓS</a>
+                <a href="">CONSULTA</a>
+                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+            </div>
+
+            <div class="acesso">
+                <?php
+                if (loged()) {
+                    if (isset($_SESSION['tipo'])) {
+                        header("Location: " . $agendamentoFunRoute);
+                    } else {
+                        echo "
+                        <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+                        <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+                        <button onclick=executeFunctions('logoff', '')>Logoff</button>";
+                    }
+                } else {
+                    echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
+                    echo "<a href='$cadastroCliRoute'>Cadastro</a>";
+                }
+
+                ?>
+            </div>
         </div>
-    
+
         <img src="../img-estatico/menu.png" class="menu" alt="menu">
     </header>
     <img src="../img-estatico/efeito-sobrenos.svg" alt="efeito de onda" class="efeito-onda">
@@ -205,65 +223,77 @@
                 <img src="../img-estatico/amor.svg" alt="ícone do amor">
 
                 <h4>Amor pelos animais</h4>
-                <p>Uma empresa de petshop deve ter um amor incondicional pelos animais e demonstrar isso através do cuidado e da atenção dispensada a eles.</p>
+                <p>Uma empresa de petshop deve ter um amor incondicional pelos animais e demonstrar isso através do
+                    cuidado e da atenção dispensada a eles.</p>
             </div>
 
             <div class="item-valor">
                 <img src="../img-estatico/inovacao.svg" alt="ícone da inovação">
 
                 <h4>Inovação</h4>
-                <p>O mercado de petshop está em constante evolução e é importante que a empresa acompanhe as tendências e busque inovar em seus produtos e serviços.</p>
+                <p>O mercado de petshop está em constante evolução e é importante que a empresa acompanhe as tendências
+                    e busque inovar em seus produtos e serviços.</p>
             </div>
-            
+
             <div class="item-valor">
                 <img src="../img-estatico/compromisso.svg" alt="ícone do compromisso">
 
                 <h4>Compromisso com a saúde e bem-estar </h4>
-                <p>A empresa deve oferecer serviços e produtos de qualidade para garantir a saúde e o bem-estar dos animais, desde alimentação saudável até tratamentos médicos.</p>
+                <p>A empresa deve oferecer serviços e produtos de qualidade para garantir a saúde e o bem-estar dos
+                    animais, desde alimentação saudável até tratamentos médicos.</p>
             </div>
 
             <div class="item-valor">
                 <img src="../img-estatico/agilidade.svg" alt="ícone da agilidade">
 
                 <h4>Agilidade</h4>
-                <p>Uma empresa de petshop deve ter um amor incondicional pelos animais e demonstrar isso através do cuidado e da atenção dispensada a eles.</p>
+                <p>Uma empresa de petshop deve ter um amor incondicional pelos animais e demonstrar isso através do
+                    cuidado e da atenção dispensada a eles.</p>
             </div>
 
             <div class="item-valor">
                 <img src="../img-estatico/etica.svg" alt="ícone da ética">
 
                 <h4>Ética e transparência </h4>
-                <p>A empresa deve agir com ética em todos os aspectos de seu negócio, desde a seleção de fornecedores até o atendimento aos clientes, e ser transparente em suas práticas e políticas.</p>
+                <p>A empresa deve agir com ética em todos os aspectos de seu negócio, desde a seleção de fornecedores
+                    até o atendimento aos clientes, e ser transparente em suas práticas e políticas.</p>
             </div>
-        
+
             <div class="item-valor">
                 <img src="../img-estatico/respeito.svg" alt="ícone do respeito">
 
                 <h4>Respeito</h4>
-                <p>Na nossa petshop, o respeito é um valor inegociável, pois acreditamos que todos os animais merecem ser tratados com cuidado, atenção e carinho, independentemente de sua raça, idade ou condição física.</p>
+                <p>Na nossa petshop, o respeito é um valor inegociável, pois acreditamos que todos os animais merecem
+                    ser tratados com cuidado, atenção e carinho, independentemente de sua raça, idade ou condição
+                    física.</p>
             </div>
-            
-            
 
         </div>
 
 
     </section>
 
+    <footer>
+        <a href="<?php echo $homeRoute; ?>" class="logo">
+            <img src="../img-estatico/logo.svg" alt="">
+        </a>
 
+        <div class="links">
+            <a href="<?php echo $blogRoute; ?>">BLOG</a>
+            <a href="#">SOBRE NÓS</a>
+            <a href="">CONSULTA</a>
+            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+        </div>
 
+        <div class="redes">
+            <img src="../img-estatico/facebook.svg" alt="">
+            <img src="../img-estatico/youtube.svg" alt="">
+            <img src="../img-estatico/twitter.svg" alt="">
+            <img src="../img-estatico/github.svg" alt="">
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
+        <p>© Hamtaro Petshop todos direitos reservados</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

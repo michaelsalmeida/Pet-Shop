@@ -26,12 +26,6 @@
         $_SESSION['msgCadData'] = "<p style='color: green;'>DATA CADASTRADA COM SUCESSO</p>";
         header("location: " . $agendamentoFunRoute);
     } else {
-        $_SESSION['msgTelaCadData'] = "<p style='color: red;'>DATA NÃO CADASTRADA COM SUCESSO</p>";
+        $_SESSION['msgTelaCadData'] = "<p style='color: red;'>DATA NÃO CADASTRADA</p>";
         header("location: " . $cadastradaDatasRoute);
     }
-
-
-    
-
-
-?>

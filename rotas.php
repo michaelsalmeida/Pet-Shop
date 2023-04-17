@@ -10,6 +10,15 @@ $rootFunPages = $rootFront . "funcionario/";
 $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/Backend/conexao.php';
 // $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php';
 
+// ----------------------    Rotas Estáticas    -----------------------------
+
+$blogRoute = $rootCliPages . "blog.php";
+$sobreRoute = $rootCliPages . "sobrenos.php";
+$blogRoute = $rootCliPages . "blog.php";
+$contatoRoute = $rootCliPages . "contato.php";
+
+//                           FIM Rotas Estáticas
+
 // ----------------------    Rotas do Funcionário    -----------------------------
 
 $loginFunRoute = $rootFunPages . "loginFuncionario.php";

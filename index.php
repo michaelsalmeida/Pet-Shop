@@ -14,7 +14,8 @@ require_once $funcoesRoute;
   <link rel="stylesheet" href="pages/css-estatico/header.css">
   <link rel="stylesheet" href="pages/css-estatico/home.css">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
@@ -25,39 +26,39 @@ require_once $funcoesRoute;
     <img src="pages/img-estatico/endereço.svg" alt="">
   </div>
   <header>
-    <a href="" class="logo">
+    <a href="#" class="logo">
       <img src="pages/img-estatico/logo.svg" alt="">
     </a>
 
     <div class="responsive">
       <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
       <div class="links">
-        <a href="">BLOG</a>
-        <a href="">SOBRE NÓS</a>
+        <a href="<?php echo $blogRoute; ?>">BLOG</a>
+        <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
         <a href="">CONSULTA</a>
-        <a href="">CONTATO</a>
+        <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
       </div>
 
       <div class="acesso">
         <?php
         if (loged()) {
-          if (isset($_SESSION['tipo'])){
+          if (isset($_SESSION['tipo'])) {
             header("Location: " . $agendamentoFunRoute);
           } else {
             echo "
               <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
               <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-              <button onclick=executeFunctions('logoff')>Logoff</button>";
+              <button onclick=executeFunctions('logoff', '')>Logoff</button>";
           }
         } else {
-          echo "<a href='$cadastroCliRoute'>Cadastro</a>";
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
+          echo "<a href='$cadastroCliRoute'>Cadastro</a>";
         }
-        
+
         ?>
       </div>
     </div>
-
+        
     <img src="pages/img-estatico/menu.png" class="menu" alt="menu">
   </header>
 
@@ -90,7 +91,9 @@ require_once $funcoesRoute;
     <div class="col-md-7">
       <h1>Agende agora a consulta do seu pet com os melhores veterinários no Petshop Hamtaro!</h1>
 
-      <h2>No Petshop Hamtaro, oferecemos uma equipe de veterinários altamente qualificados, prontos para atender seu pet com cuidado e dedicação, além de consultas personalizadas para garantir a saúde e bem-estar do seu melhor amigo.</h2>
+      <h2>No Petshop Hamtaro, oferecemos uma equipe de veterinários altamente qualificados, prontos para atender seu pet
+        com cuidado e dedicação, além de consultas personalizadas para garantir a saúde e bem-estar do seu melhor amigo.
+      </h2>
 
       <a href="<?php echo $agendamentoCliRoute; ?>">AGENDAMENTO</a>
     </div>
@@ -108,33 +111,42 @@ require_once $funcoesRoute;
       <img src="pages/img-estatico/desconto4.svg" alt="">
     </div>
 
-    <p>Não deixe a saúde do seu pet de lado! No Petshop Hamtaro, estamos oferecendo um desconto especial de 30% em todas as vacinas para cães e gatos. Isso significa que você pode manter o seu pet protegido contra doenças comuns e perigosas por um preço muito mais acessível.</p>
+    <p>Não deixe a saúde do seu pet de lado! No Petshop Hamtaro, estamos oferecendo um desconto especial de 30% em todas
+      as vacinas para cães e gatos. Isso significa que você pode manter o seu pet protegido contra doenças comuns e
+      perigosas por um preço muito mais acessível.</p>
 
-    <a href="<?php echo $fazAgendamentoCliRoute;?>">Faça sua consulta</a>
+    <a href="<?php echo $fazAgendamentoCliRoute; ?>">Faça sua consulta</a>
   </section>
 
   <section class="container servicos">
     <h2>SERVIÇOS DISPONÍVEIS NO HAMTARO PETSHOP</h2>
 
-    <p>Proporcione ao seu animal de estimação os melhores cuidados e atenção que ele merece, agende agora mesmo os serviços de alta qualidade oferecidos em nosso pet shop.</p>
+    <p>Proporcione ao seu animal de estimação os melhores cuidados e atenção que ele merece, agende agora mesmo os
+      serviços de alta qualidade oferecidos em nosso pet shop.</p>
 
     <div class="boxServicos">
       <div>
         <img src="pages/img-estatico/banho-e-tosa.svg" alt="">
         <h3>Banho e tosa</h3>
-        <p>O serviço de banho e tosa em um pet shop inclui a lavagem, corte de pelos e limpeza de ouvidos e unhas do animal. É importante escolher um profissional qualificado para garantir a higiene e a aparência do seu animal de estimação.</p>
+        <p>O serviço de banho e tosa em um pet shop inclui a lavagem, corte de pelos e limpeza de ouvidos e unhas do
+          animal. É importante escolher um profissional qualificado para garantir a higiene e a aparência do seu animal
+          de estimação.</p>
       </div>
 
       <div>
         <img src="pages/img-estatico/Delivery.svg" alt="">
         <h3>Delivery</h3>
-        <p>O Hamtaro é um petshop que oferece o serviço de entrega de pets em casa. Esse serviço permite que os clientes possam receber seus animais de estimação com comodidade e segurança, sem precisar se deslocar até a loja física.</p>
+        <p>O Hamtaro é um petshop que oferece o serviço de entrega de pets em casa. Esse serviço permite que os clientes
+          possam receber seus animais de estimação com comodidade e segurança, sem precisar se deslocar até a loja
+          física.</p>
       </div>
 
       <div>
         <img src="pages/img-estatico/Doctor.svg" alt="">
         <h3>Clinico</h3>
-        <p>A clínica veterinária da Hamtaro oferece serviços completos e confiáveis, incluindo consultas, vacinação, exames laboratoriais, cirurgias e internação. A equipe de veterinários experientes e qualificados cuidará da saúde e do bem-estar do seu animal de estimação.</p>
+        <p>A clínica veterinária da Hamtaro oferece serviços completos e confiáveis, incluindo consultas, vacinação,
+          exames laboratoriais, cirurgias e internação. A equipe de veterinários experientes e qualificados cuidará da
+          saúde e do bem-estar do seu animal de estimação.</p>
       </div>
     </div>
 
@@ -143,15 +155,15 @@ require_once $funcoesRoute;
 
 
   <footer>
-    <a href="" class="logo">
+    <a href="#" class="logo">
       <img src="pages/img-estatico/logo.svg" alt="">
     </a>
 
     <div class="links">
-      <a href="">BLOG</a>
-      <a href="">SOBRE NÓS</a>
+      <a href="<?php echo $blogRoute; ?>">BLOG</a>
+      <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
       <a href="">CONSULTA</a>
-      <a href="">CONTATO</a>
+      <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
     </div>
 
     <div class="redes">
@@ -165,7 +177,9 @@ require_once $funcoesRoute;
   </footer>
 
   <script src="pages/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
