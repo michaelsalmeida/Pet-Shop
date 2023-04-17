@@ -124,6 +124,10 @@ form input[type ="submit"]:hover{
   background-color: #8c52ff80;
 }
 
+form input[type ="submit"]:disabled:hover{
+  background-color: #8C52FF;
+}
+
 @media (max-width: 1000px) {
   form input[type= "submit"]{
     margin: 0 10%;
@@ -144,6 +148,13 @@ form input[type ="submit"]:hover{
 }
 #endereco input{
   border: 2px solid #8C52FF;
+}
+
+.botoes-cadastro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 /* fim do formulario */

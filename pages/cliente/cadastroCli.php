@@ -84,7 +84,7 @@ include_once($funcoesRoute);
 
         <div class="input row">
           <label for="senha">CONFIRMAR SENHA</label>
-          <input type="password" name="senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" placeholder="Digite sua senha" required><br><br>
+          <input type="password" name="confsenha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" placeholder="Digite sua senha" required><br><br>
 
         </div>
 
@@ -111,6 +111,12 @@ include_once($funcoesRoute);
         </div>
 
         <div class="input row">
+          <label>COMPLEMENTO</label>
+          <input type="text" name="complemento" id="complemento" placeholder="Digite o complemento" value = ""><br><br>
+
+        </div>
+
+        <div class="input row">
           <label>BAIRRO</label>
           <input type="text" name="bairro" id="bairro" placeholder="Digite o bairro" required readonly><br><br>
 
@@ -128,24 +134,55 @@ include_once($funcoesRoute);
 
         </div>
 
-        <div class="input row">
-          <label>COMPLEMENTO</label>
-          <input type="text" name="uf" pattern="[a-zA-Z]{2}" id="uf" placeholder="Digite a uf" required readonly><br><br>
-
-        </div>
+        
 
       </div>
+      
+      <div class="botoes-cadastro">
+        <p id="senhanaoigual"></p>
+        <input type="submit" value="Entrar" id="cadastrar" disabled>
+        
+        <?php
+          if (isset($_SESSION['tipo'])){
+            echo "<a href = ". $agendamentoFunRoute . ">Voltar</a>";
+          } else {
+            echo "<a href = ". $homeRoute . ">Voltar</a>";
+          }
 
-      <input type="submit" value="Entrar">
+
+        ?>
+      </div>
+      
+      
 
     </form>
 
   </div>
 
 
-
+ 
   <script src="<?php echo $viacepRoute; ?>"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script>
+
+    var confsenha = document.getElementsByName('confsenha')[0] // Pega os inputs de acordo com o name
+    var senha = document.getElementsByName('senha')[0]
+
+    confsenha.addEventListener('input', conferir) // Aciona a função quando o input tiver uma entrada
+    senha.addEventListener('input', conferir)
+
+    function conferir() {
+        
+        if (senha.value == confsenha.value && senha.value != '' && confsenha.value != '') {
+            document.getElementById('senhanaoigual').innerHTML = 'SENHAS COINCIDEM';
+            document.getElementById('cadastrar').disabled = false; // se as senhas forem diferentes, o botão será desativado
+        } else {
+            document.getElementById('senhanaoigual').innerHTML = 'SENHAS NÃO COINCIDEM';
+            document.getElementById('cadastrar').disabled = true;
+        }
+    }
+
+  </script>
 </body>
 
 </html>

@@ -13,6 +13,7 @@
     $cep = htmlspecialchars($_POST['cep']);
     $rua = htmlspecialchars($_POST['log']);
     $numero = htmlspecialchars($_POST['numero']);
+    $complemento = htmlspecialchars($_POST['complemento']);
     $bairro = htmlspecialchars($_POST['bairro']);
     $cidade = htmlspecialchars($_POST['cid']);
     $uf = htmlspecialchars($_POST['uf']);
@@ -78,11 +79,11 @@
         try {
             // String de preparação
             $stmt = $conn->prepare("INSERT INTO Clientes
-            (pk_Cliente, cpf, nome, sobrenome, celular, cep, logradouro, numero, bairro, municipio, uf, email, senha)
-            VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            (pk_Cliente, cpf, nome, sobrenome, celular, cep, logradouro, numero, complemento, bairro, municipio, uf, email, senha)
+            VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             // Substituição da string preparada pelos valores corretos
-            $stmt->bind_param("ssssssssssss",
-            $cpf, $nome, $sobrenome, $celular, $cep, $rua, $numero, $bairro, $cidade, $uf, $email, $senha);
+            $stmt->bind_param("sssssssssssss",
+            $cpf, $nome, $sobrenome, $celular, $cep, $rua, $numero, $complemento, $bairro, $cidade, $uf, $email, $senha);
             // Executa o sql
             $stmt->execute();
 
