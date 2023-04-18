@@ -48,41 +48,41 @@ include_once($funcoesRoute);
 
       <div id="base" class="col-lg-5">
         <div class="input row">
-          <label for="nome">NOME</label>
+          <label for="nome">NOME *</label>
           <input type="text" name="nome" placeholder="Digite o seu nome" required autofocus><br><br>
         </div>
 
         <div class="input row">
-          <label for="sobrenome">SOBRENOME</label>
+          <label for="sobrenome">SOBRENOME *</label>
           <input type="text" name="sobrenome" placeholder="Digite o seu sobrenome" required><br><br>
         </div>
 
         <div class="input row">
-          <label for="cpf">CPF</label>
+          <label for="cpf">CPF *</label>
           <input type="text" name="cpf" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}" placeholder="Digite seu email" required><br><br>
 
         </div>
 
         <div class="input row">
-          <label for="celular">CELULAR</label>
+          <label for="celular">CELULAR *</label>
           <input type="text" name="celular" pattern="[0-9]{11}" placeholder="Digite seu telefone" require><br><br>
 
         </div>
 
         <div class="input row">
-          <label for="email">EMAIL</label>
+          <label for="email">EMAIL *</label>
           <input type="email" name="email" placeholder="Digite seu email para login" required><br><br>
 
         </div>
 
         <div class="input row">
-          <label for="senha">SENHA</label>
+          <label for="senha">SENHA *</label>
           <input type="password" name="senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" placeholder="Digite sua senha" required><br><br>
 
         </div>
 
         <div class="input row">
-          <label for="senha">CONFIRMAR SENHA</label>
+          <label for="senha">CONFIRMAR SENHA *</label>
           <input type="password" name="confsenha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" placeholder="Digite sua senha" required><br><br>
 
         </div>
@@ -92,19 +92,19 @@ include_once($funcoesRoute);
       <div id="endereco" class="col-lg-5">
 
         <div class="input row">
-          <label>CEP</label>
+          <label>CEP *</label>
           <input type="text" name="cep" pattern="[0-9]{8}" id="cep" placeholder="Digite o CEP" onblur="pesquisacep(this.value)" required><br><br>
 
         </div>
 
         <div class="input row">
-          <label>RUA</label>
+          <label>RUA *</label>
           <input type="text" name="log" id="log" placeholder="Digite sua rua" required readonly><br><br>
 
         </div>
 
         <div class="input row">
-          <label>NÚMERO</label>
+          <label>NÚMERO *</label>
           <input type="text" name="numero" id="numero" placeholder="Digite o número da casa" pattern="\d{1,5}" required><br><br>
 
         </div>
@@ -116,19 +116,19 @@ include_once($funcoesRoute);
         </div>
 
         <div class="input row">
-          <label>BAIRRO</label>
+          <label>BAIRRO *</label>
           <input type="text" name="bairro" id="bairro" placeholder="Digite o bairro" required readonly><br><br>
 
         </div>
 
         <div class="input row">
-          <label>CIDADE</label>
+          <label>CIDADE *</label>
           <input type="text" name="cid" id="cid" placeholder="Digite a cidade" required readonly><br><br>
 
         </div>
 
         <div class="input row">
-          <label>UF</label>
+          <label>UF *</label>
           <input type="text" name="uf" pattern="[a-zA-Z]{2}" id="uf" placeholder="Digite a uf" required readonly><br><br>
 
         </div>
@@ -139,7 +139,7 @@ include_once($funcoesRoute);
       
       <div class="botoes-cadastro">
         <p id="senhanaoigual"></p>
-        <input type="submit" value="Entrar" id="cadastrar" disabled>
+        <input type="submit" value="Cadaastrar" id="cadastrar" disabled>
         
         <?php
           if (isset($_SESSION['tipo'])){
@@ -147,7 +147,6 @@ include_once($funcoesRoute);
           } else {
             echo "<a href = ". $homeRoute . ">Voltar</a>";
           }
-
 
         ?>
       </div>

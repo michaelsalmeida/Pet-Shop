@@ -9,8 +9,13 @@
     }   
 
     if ($_SESSION['tipo'] != "admin") {
-        $_SESSION['msgRotaProibida'] = "Você Não possui permissão para entrar nessa página";
+        // $_SESSION['msgRotaProibida'] = "Você Não possui permissão para entrar nessa página";
         header("Location: " . $agendamentoFunRoute);
+    }
+    
+    if (!isset($_SESSION['tipo'])) {
+        $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
+        header("Location: " . $homeRoute);
     }
 
 ?>

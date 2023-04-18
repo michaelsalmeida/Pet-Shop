@@ -28,6 +28,12 @@
         case 'gerarTabelaAgenFun':
             echo gerarTabelaAgenFun();
             break;
+        case 'gerarTabelaDeleteFun':
+            echo gerarTabelaDeleteFun();
+            break;
+        case 'apagarFun':
+            echo apagarFuncionario();
+            break;
         case 'profissionais':
             echo profissionais();
             break;

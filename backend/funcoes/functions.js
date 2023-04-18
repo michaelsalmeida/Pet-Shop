@@ -32,6 +32,9 @@ function queryBanco(tipo) {
     } else if (tipo == 'gerarTabelaAgenFun'){
         var pesq = document.getElementById('pesq').value;
         var extra = `&pesq=${pesq}`;
+    } else if (tipo == 'gerarTabelaDeleteFun'){
+        var pesq = document.getElementById('pesq').value;
+        var extra = `&pesq=${pesq}`;
     }
 
     xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, true);
@@ -92,4 +95,22 @@ function activeModal(id, tipo) {
         }
         xhr.send();
     }
+}
+
+
+function apagarFun(func, name) {
+
+    extra = `&nome=${name}`;
+
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
+    xhr.onload = function() {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            var response = xhr.responseText; // Get the response from the server
+            location.href = response; // Log the response to the console
+        }
+    };
+    xhr.send();
 }

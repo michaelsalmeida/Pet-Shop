@@ -2,6 +2,8 @@
 include_once("../../rotas.php");
 include_once($connRoute);
 require_once $funcoesRoute;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +44,11 @@ require_once $funcoesRoute;
     header("Location: " . $loginFunRoute);
   }
 
+  if(!isset($_SESSION['tipo'])){
+    // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
+    header("Location: " . $homeRoute);
+  }
+
   if ($_SESSION['tipo'] == 'Secretaria'){
     echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a><br><br>";
     echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a><br><br>";
@@ -49,6 +56,7 @@ require_once $funcoesRoute;
     echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a><br><br>";
     echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a><br><br>";
     echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a><br><br>";
+    echo "<a href=" . $apagarFunRoute . ">Apagar Funcionário  </a><br><br>";
   }
   
 
@@ -65,10 +73,12 @@ require_once $funcoesRoute;
   if (isset($_SESSION['msgRotaProibida'])){
     echo $_SESSION['msgRotaProibida'];
     unset($_SESSION['msgRotaProibida']);
-}   
+  }   
 
 
   ?>
+
+  <button onclick="executeFunctions('logoff', '')">Sair</button>
 
   <div>
     <input type="text" placeholder="Pesquise por um cliente" id="pesq">
@@ -76,7 +86,7 @@ require_once $funcoesRoute;
   </div>
 
   
-  <button onclick="executeFunctions('logoff', '')">Sair</button>
+  
 
   <table id="tabela">
 
