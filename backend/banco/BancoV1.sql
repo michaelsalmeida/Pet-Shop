@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Clientes` (
   `cep` CHAR(8) NOT NULL,
   `logradouro` VARCHAR(100) NOT NULL,
   `numero` VARCHAR(5) NOT NULL,
+  `complemento` VARCHAR(5) NOT NULL,
   `bairro` VARCHAR(100) NOT NULL,
   `municipio` VARCHAR(100) NOT NULL,
   `uf` CHAR(2) NOT NULL,

@@ -43,10 +43,14 @@ require_once $funcoesRoute;
   }
 
   if ($_SESSION['tipo'] == 'Secretaria'){
-    echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
+    echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a><br><br>";
+    echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a><br><br>";
   } elseif ($_SESSION['tipo'] == 'admin') {
-    echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a>";
+    echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a><br><br>";
+    echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a><br><br>";
+    echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a><br><br>";
   }
+  
 
   if (isset($_SESSION['msgCadData'])){
     echo $_SESSION['msgCadData'];
@@ -58,16 +62,27 @@ require_once $funcoesRoute;
     unset($_SESSION['msgCadFun']);
   }
 
+  if (isset($_SESSION['msgRotaProibida'])){
+    echo $_SESSION['msgRotaProibida'];
+    unset($_SESSION['msgRotaProibida']);
+}   
+
+
   ?>
+
+  <div>
+    <input type="text" placeholder="Pesquise por um cliente" id="pesq">
+    <button onclick="queryBanco('gerarTabelaAgenFun')">Pesquisar</button>
+  </div>
+
+  
+  <button onclick="executeFunctions('logoff', '')">Sair</button>
 
   <table id="tabela">
 
   </table>
-
   
-
-  <button onclick="executeFunctions('logoff', '')">Logoff</button>
-  <a href="<?php echo $cadastroCliRoute; ?>">Cadastrar Cliente</a>
+  
   
 </body>
 

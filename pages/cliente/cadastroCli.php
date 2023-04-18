@@ -49,29 +49,29 @@ include_once($funcoesRoute);
 
       <div id="base" class="col-lg-5">
         <div class="input row">
-          <label for="nome">NOME :</label>
+          <label for="nome">NOME</label>
           <input type="text" name="nome" placeholder="Digite o seu nome" required autofocus><br><br>
         </div>
 
         <div class="input row">
-          <label for="sobrenome">SOBRENOME :</label>
+          <label for="sobrenome">SOBRENOME</label>
           <input type="text" name="sobrenome" placeholder="Digite o seu sobrenome" required><br><br>
         </div>
 
         <div class="input row">
-          <label for="cpf">CPF :</label>
+          <label for="cpf">CPF</label>
           <input type="text" name="cpf" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}" placeholder="Digite seu email" required><br><br>
 
         </div>
 
         <div class="input row">
-          <label for="celular">CELULAR :</label>
+          <label for="celular">CELULAR</label>
           <input type="text" name="celular" pattern="[0-9]{11}" placeholder="Digite seu telefone" require><br><br>
 
         </div>
 
         <div class="input row">
-          <label for="email">EMAIL :</label>
+          <label for="email">EMAIL</label>
           <input type="email" name="email" placeholder="Digite seu email para login" required><br><br>
 
         </div>
@@ -82,58 +82,107 @@ include_once($funcoesRoute);
 
         </div>
 
+        <div class="input row">
+          <label for="senha">CONFIRMAR SENHA</label>
+          <input type="password" name="confsenha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" placeholder="Digite sua senha" required><br><br>
+
+        </div>
+
       </div>
 
       <div id="endereco" class="col-lg-5">
 
         <div class="input row">
-          <label>CEP :</label>
+          <label>CEP</label>
           <input type="text" name="cep" pattern="[0-9]{8}" id="cep" placeholder="Digite o CEP" onblur="pesquisacep(this.value)" required><br><br>
 
         </div>
 
         <div class="input row">
-          <label>RUA :</label>
+          <label>RUA</label>
           <input type="text" name="log" id="log" placeholder="Digite sua rua" required readonly><br><br>
 
         </div>
 
         <div class="input row">
-          <label>NÚMERO :</label>
+          <label>NÚMERO</label>
           <input type="text" name="numero" id="numero" placeholder="Digite o número da casa" pattern="\d{1,5}" required><br><br>
 
         </div>
 
         <div class="input row">
-          <label>BAIRRO :</label>
+          <label>COMPLEMENTO</label>
+          <input type="text" name="complemento" id="complemento" placeholder="Digite o complemento" value = ""><br><br>
+
+        </div>
+
+        <div class="input row">
+          <label>BAIRRO</label>
           <input type="text" name="bairro" id="bairro" placeholder="Digite o bairro" required readonly><br><br>
 
         </div>
 
         <div class="input row">
-          <label>CIDADE :</label>
+          <label>CIDADE</label>
           <input type="text" name="cid" id="cid" placeholder="Digite a cidade" required readonly><br><br>
 
         </div>
 
         <div class="input row">
-          <label>UF :</label>
+          <label>UF</label>
           <input type="text" name="uf" pattern="[a-zA-Z]{2}" id="uf" placeholder="Digite a uf" required readonly><br><br>
 
         </div>
 
-      </div>
+        
 
-      <input type="submit" value="Entrar">
+      </div>
+      
+      <div class="botoes-cadastro">
+        <p id="senhanaoigual"></p>
+        <input type="submit" value="Entrar" id="cadastrar" disabled>
+        
+        <?php
+          if (isset($_SESSION['tipo'])){
+            echo "<a href = ". $agendamentoFunRoute . ">Voltar</a>";
+          } else {
+            echo "<a href = ". $homeRoute . ">Voltar</a>";
+          }
+
+
+        ?>
+      </div>
+      
+      
 
     </form>
 
   </div>
 
 
-
+ 
   <script src="<?php echo $viacepRoute; ?>"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script>
+
+    var confsenha = document.getElementsByName('confsenha')[0] // Pega os inputs de acordo com o name
+    var senha = document.getElementsByName('senha')[0]
+
+    confsenha.addEventListener('input', conferir) // Aciona a função quando o input tiver uma entrada
+    senha.addEventListener('input', conferir)
+
+    function conferir() {
+        
+        if (senha.value == confsenha.value && senha.value != '' && confsenha.value != '') {
+            document.getElementById('senhanaoigual').innerHTML = 'SENHAS COINCIDEM';
+            document.getElementById('cadastrar').disabled = false; // se as senhas forem diferentes, o botão será desativado
+        } else {
+            document.getElementById('senhanaoigual').innerHTML = 'SENHAS NÃO COINCIDEM';
+            document.getElementById('cadastrar').disabled = true;
+        }
+    }
+
+  </script>
 </body>
 
 </html>

@@ -1,0 +1,35 @@
+form{
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form label{
+    margin-top: 20px;
+}
+h1{
+    color: #B793FF;
+    margin-bottom: 20px;
+}
+
+select, input{
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+input[type= "submit"]{
+    margin-top: 50px;
+    color: #8C52FF;
+    border: solid;
+    background-color: transparent;
+    width: 200px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+input[type= "submit"]:hover{
+    color: black;
+}
