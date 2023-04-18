@@ -139,7 +139,7 @@ include_once($funcoesRoute);
       
       <div class="botoes-cadastro">
         <p id="senhanaoigual"></p>
-        <input type="submit" value="Cadaastrar" id="cadastrar" disabled>
+        <input type="submit" value="Cadastrar" id="cadastrar" disabled>
         
         <?php
           if (isset($_SESSION['tipo'])){
@@ -147,7 +147,6 @@ include_once($funcoesRoute);
           } else {
             echo "<a href = ". $homeRoute . ">Voltar</a>";
           }
-
         ?>
       </div>
       

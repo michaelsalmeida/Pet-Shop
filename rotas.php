@@ -39,6 +39,7 @@ $agendamentoCliRoute = $rootCliPages . "agendamentosCli.php";
 $fazAgendamentoCliRoute = $rootCliPages . "fazerAgendamentoCli.php";
 $animaisCliRoute = $rootCliPages . "animaisCli.php";
 $cadAnimaisCliRoute = $rootCliPages . "cadAnimaisCli.php";
+$meuPerfilCliRoute = $rootCliPages . "meuPerfilCli.php";
 $homeRoute = $root . "index.php";
 
 
@@ -51,8 +52,9 @@ $homeRoute = $root . "index.php";
 $procLoginCliRoute = $rootBackProc . "proc_loginCli.php";
 $procLoginFunRoute = $rootBackProc . "proc_loginFun.php";
 $procCadCliRoute = $rootBackProc . "proc_cadCli.php";
+$proc_altCliRoute = $rootBackProc . "proc_altCli.php";
 $proc_cadAnimalRoute = $rootBackProc . "proc_cadAnimal.php";
-$altAnimalCliRoute = $rootBackProc . "proc_altAnimal.php";
+$proc_altAnimalCliRoute = $rootBackProc . "proc_altAnimal.php";
 $procExcAnimalRoute = $rootBackProc . "proc_excAnimal.php";
 $procCadDataRoute = $rootBackProc . "proc_cadData.php";
 $procCadFunRoute = $rootBackProc . "proc_cadFun.php";
@@ -70,3 +72,6 @@ $aaa = $rootBackFunctions . "aaa.js";
 
 $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.php";
 // $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/backend/funcoes/funcoes.php";
+
+//30785213031
+//51805990080

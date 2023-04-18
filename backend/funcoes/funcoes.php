@@ -271,7 +271,7 @@
         if ($_SESSION['tipo'] == 'Veterinario' || $_SESSION['tipo'] == 'Esteticista'){
 
             // String de preparação
-            $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status` from Agendamentos
+            $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status`, pk_Agendamento from Agendamentos
             left join Animais
             on Agendamentos.fk_Animal = Animais.pk_Animal
             left join Clientes
@@ -286,7 +286,7 @@
             $stmt->bind_param("ss", $_SESSION['idFun'], $pesquisar);
 
         } else {
-            $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status` from Agendamentos
+            $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status`, pk_Agendamento from Agendamentos
             left join Animais
             on Agendamentos.fk_Animal = Animais.pk_Animal
             left join Clientes
@@ -319,6 +319,12 @@
         // Pega cada linha da query e monta as linhas da tabela
         foreach($resultado->fetch_all() as $row) {
             // Formata a data
+            $det = "<button onclick='finalizarConsulta(finalizarConsul, $row[6])'>Finalizar</button>";
+            
+            if ($row[5] == "Concluido"){
+                $det = "<button onclick='activeModalDetalhesFun($row[6], $row[3], $row[4])'>Detalhes</button>";
+            }
+
             $data = date('d/m/Y', strtotime($row[1]));
             $tabela = $tabela .
             "<tr>
@@ -327,7 +333,7 @@
                 <td>$row[2]</td>
                 <td>$row[3]</td>
                 <td>$row[4]</td>
-                <td>Detalhes</td>
+                <td>$det</td>
                 <td>$row[5]</td>
             </tr>";
         }
@@ -442,3 +448,24 @@
 
     }
     
+    function finalizarConsul(){
+
+    }
+
+    function altMeuPerfilCli() {
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        // String de preparação
+        $stmt = $conn->prepare("SELECT cpf, nome, sobrenome, celular, cep, logradouro, 
+        numero, complemento, bairro, municipio, uf, email FROM Clientes WHERE pk_Cliente = ?");
+        // Substituição da string preparada pelos valores corretos
+        $stmt->bind_param("s", $_GET['idCli']);
+        // Executa o sql
+        $stmt->execute();
+        // Pega o resultado do banco
+        $resultado = $stmt->get_result();
+        $data = $resultado->fetch_all()[0];
+
+        header('Content-Type: application/json');
+        return json_encode($data);
+    }

@@ -13,7 +13,10 @@ try {
     $stmtAni->bind_param("s", $idAgen);
     // Executa o sql
     $stmtAni->execute();
+
+    $_SESSION['msgCanAgen'] = "Agendamento Cancelado.";
     header("Location: ". $agendamentoCliRoute);
 } catch (Exception $e) {
+    $_SESSION['msgCanAgen'] = "Agendamento Não Cancelado.";
     echo $e->getMessage();
 }
