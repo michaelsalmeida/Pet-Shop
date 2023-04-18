@@ -15,10 +15,9 @@ require_once $funcoesRoute;
   <title>Hamtaro Petshop</title>
   <link rel="stylesheet" href="pages/css-estatico/header.css">
   <link rel="stylesheet" href="pages/css-estatico/home.css">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
@@ -69,6 +68,9 @@ require_once $funcoesRoute;
     <img src="pages/img-estatico/menu.png" class="menu" alt="menu">
   </header>
 
+
+
+
   <section class="container carrossel">
     <div class="container" id="slider-container">
       <div id="carouselMainControls" class="carousel slide" data-bs-ride="carousel">
@@ -94,6 +96,10 @@ require_once $funcoesRoute;
       </div>
   </section>
 
+
+
+
+
   <section class="container row agendamento">
     <div class="col-md-7">
       <h1>Agende agora a consulta do seu pet com os melhores veterinários no Petshop Hamtaro!</h1>
@@ -107,6 +113,10 @@ require_once $funcoesRoute;
 
     <img class="col-md-4" src="pages/img-estatico/agendar.svg" alt="">
   </section>
+
+
+
+
 
   <section class="container-fluid desconto">
     <h2>30% DE DESCONTO NA VACINAÇÃO</h2>
@@ -124,6 +134,10 @@ require_once $funcoesRoute;
 
     <a href="<?php echo $fazAgendamentoCliRoute; ?>">Faça sua consulta</a>
   </section>
+
+
+
+
 
   <section class="container servicos">
     <h2>SERVIÇOS DISPONÍVEIS NO HAMTARO PETSHOP</h2>
@@ -156,8 +170,52 @@ require_once $funcoesRoute;
     </div>
 
     <a href="">Confira</a>
-  </section>
+  </section> 
 
+
+  
+
+  <section class="container pagamento">
+
+    <div class="botoes">
+      <button class="btn-pagamento">Formas de pagamentos</button>
+      <button class="btn-pagamento btn-valores">Valores</button>
+    </div>
+
+
+    <div class="conteudo-pagamento">
+
+      <div class="item-pagamento">
+
+        <img src="pages/img-estatico/debito.svg" alt="débito">
+        <p>Débito</p>
+
+      </div>
+
+
+      <div class="item-pagamento">
+
+        <img src="pages/img-estatico/pix.svg" alt="pix">
+        <p>Pix</p>
+
+      </div>
+
+      <div class="item-pagamento">
+
+        <img src="pages/img-estatico/credito.svg" alt="crédito">
+        <p>Crédito</p>
+
+      </div>
+
+      <div class="item-pagamento">
+
+        <img src="pages/img-estatico/boleto.svg" alt="crédito">
+        <p>Boleto</p>
+
+      </div>
+
+    </div>
+  </section>
 
   <footer>
     <a href="#" class="logo">
@@ -181,9 +239,7 @@ require_once $funcoesRoute;
   </footer>
 
   <script src="pages/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 
 </html>

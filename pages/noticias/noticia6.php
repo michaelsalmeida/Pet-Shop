@@ -30,7 +30,6 @@
 
             <div class="acesso">
                 <a href="<?php echo $loginCliRoute; ?>"><img src="../img-estatico/login.svg" alt=""> Login</a>
-
                 <a href="<?php echo $cadastroCliRoute; ?>">Cadastro</a>
             </div>
         </div>
@@ -43,24 +42,21 @@
     <a href="../cliente/blog.php" id="voltar"><img src="../img-estatico/voltar.svg" alt="voltar"></a>
 
     <div class="box-img">
-        <img src="../img-estatico/img-noticia3.svg" alt="imagem ilustrativa na notícia" class="noticia-img">
+        <img src="https://sindilojas-sp.org.br/wp-content/uploads/2018/06/dicas-matadoras-para-fidelizar-clientes-no-seu-petshop.jpg" alt="imagem ilustrativa na notícia" class="noticia-img">
     </div>
     <div class="container box-noticia">
 
-        <h1>Conheça os serviços oferecidos pelo petshop Hamtaro!</h1>
+        <h1>Petshop Hamtaro se destaca no mercado com serviços de qualidade e amor pelos animais</h1>
 
         <hr>
 
         <div class="texto">
-            <p>O petshop Hamtaro é um lugar ideal para cuidar do seu animal de estimação, com serviços de alta qualidade e profissionais experientes. Localizado na região central da cidade, o Hamtaro oferece serviços de banho e tosa, entrega do pet em casa e atendimento clínico para cuidar da saúde dos seus bichinhos.</p>
-            <h2>Serviço de banho e tosa</h2>
-            <p>O serviço de banho e tosa do Hamtaro é realizado por profissionais experientes e qualificados, que garantem a higiene e o bem-estar do seu animal de estimação. Eles utilizam produtos de alta qualidade e técnicas avançadas para proporcionar um banho e tosa seguro e confortável para o seu pet. Além disso, o Hamtaro oferece uma variedade de serviços, como tosa higiênica, tosa bebê, tosa na tesoura, entre outros. Esses serviços são personalizados de acordo com o tipo de pelagem do animal e suas necessidades específicas. O objetivo é garantir que o seu pet saia do Hamtaro com uma aparência saudável, limpa e muito bonita.</p>
-            <h2>Serviço de entrega em casa</h2>
-            <p>O serviço de entrega em casa do Hamtaro é ideal para quem tem uma rotina agitada e não consegue levar o seu pet pessoalmente ao petshop. Com essa opção, você pode agendar a busca do seu animal de estimação e um profissional do Hamtaro irá buscá-lo e entregá-lo em casa, limpo e cheiroso. Esse serviço é muito conveniente para pessoas que possuem animais de grande porte, que podem ser difíceis de transportar em veículos ou para quem tem dificuldades de locomoção.</p>
-            <h2>Serviço clínico</h2>
-            <p>O serviço clínico do Hamtaro é realizado por veterinários qualificados e experientes, que oferecem atendimento especializado e personalizado para cada animal. Eles realizam consultas, exames, vacinação, cirurgias e outros procedimentos necessários para garantir a saúde e o bem-estar do seu pet. O atendimento é personalizado e os profissionais estão sempre à disposição para tirar dúvidas e orientar sobre cuidados específicos para cada tipo de animal.</p>
-            <p>No Hamtaro, você pode ter a certeza de que o seu animal de estimação será tratado com o cuidado e o carinho que ele merece. Não deixe de conhecer os serviços oferecidos pelo Hamtaro e proporcionar ao seu pet uma vida mais feliz e saudável.</p>
-
+            <p>O petshop Hamtaro tem conquistado a admiração de muitos tutores de animais de estimação, devido aos seus serviços de qualidade e amor pelos animais. Com uma equipe de profissionais experientes e altamente capacitados, o Hamtaro se destaca no mercado oferecendo serviços diferenciados para cães, gatos e outros animais de estimação.</p>
+            <p>Um dos principais diferenciais do petshop é o cuidado com a higiene e limpeza, tanto do espaço físico como dos animais. Todos os produtos utilizados no banho e tosa são de alta qualidade, e a equipe se preocupa em manter o ambiente sempre limpo e agradável para os animais.</p>
+            <p>Além disso, os profissionais do Hamtaro são conhecidos por sua paixão e amor pelos animais, o que se reflete na qualidade do atendimento e na dedicação aos bichinhos de estimação. Eles estão sempre dispostos a ajudar os tutores a cuidar dos seus animais, oferecendo orientações sobre alimentação, saúde e bem-estar.</p>
+            <p>O petshop oferece uma ampla variedade de serviços, desde banho e tosa até serviços veterinários e pet-sitting. O Hamtaro também conta com um espaço de recreação para os animais, onde eles podem se divertir e socializar com outros bichinhos, sob supervisão de um profissional capacitado.</p>
+            <p>Todos esses diferenciais têm atraído cada vez mais tutores de animais de estimação, que buscam serviços de qualidade e confiança para cuidar dos seus bichinhos. O petshop Hamtaro tem se destacado no mercado por oferecer tudo isso e muito mais, com amor e paixão pelos animais.</p>
+            <p>Se você busca um lugar confiável e dedicado para cuidar do seu animal de estimação, o Hamtaro é uma excelente opção.</p>
 
 
 

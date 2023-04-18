@@ -59,7 +59,7 @@ require_once $funcoesRoute;
 
         <img src="../img-estatico/gato-blog.svg" alt="gato">
 
-        <p>Descubra curiosidades e novidades sobre o mundo pet na sessão Hamtaro do Blog do Petshop!</p>
+        <p>Descubra curiosidades e novidades sobre o mundo pet na sessão blog do Hamtaro do Petshop!</p>
 
         <div class="divisoes">
             <div class="divisao-maior"></div>
@@ -81,7 +81,7 @@ require_once $funcoesRoute;
                     <div class="img-noticia n-1"></div>
 
                     <div class="info">
-                        <h2>Curiosidades sobre a raça Shiba Inu.</h2>
+                        <h2>Pesquisadores descobrem curiosidades sobre a raça Shiba Inu.</h2>
 
                         <img src="../img-estatico/pets.svg" alt="pata do pet">
                     </div>
@@ -103,7 +103,7 @@ require_once $funcoesRoute;
                 </div>
             </a>
             
-            <a href="../noticias/noticia2.php">
+            <a href="../noticias/noticia3.php">
                 <div class="card-noticia">
 
                     <div class="img-noticia n-3"></div>
@@ -118,13 +118,13 @@ require_once $funcoesRoute;
             </a>
 
 
-            <a href="../noticias/noticia3.php">
+            <a href="../noticias/noticia4.php">
                 <div class="card-noticia">
 
                     <div class="img-noticia n-4"></div>
 
                     <div class="info">
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+                        <h2>Vacinação de animais: proteja seu pet e previna doenças.</h2>
 
                         <img src="../img-estatico/pets.svg" alt="pata do pet">
                     </div>
@@ -132,13 +132,13 @@ require_once $funcoesRoute;
                 </div>
             </a>
             
-            <a href="">
+            <a href="../noticias/noticia5.php">
                 <div class="card-noticia">
 
                     <div class="img-noticia n-5"></div>
 
                     <div class="info">
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+                        <h2>Estudo comprova que interagir com animais melhora a saúde mental.</h2>
 
                         <img src="../img-estatico/pets.svg" alt="pata do pet">
                     </div>
@@ -146,13 +146,13 @@ require_once $funcoesRoute;
                 </div>
             </a>
 
-            <a href="">
+            <a href="../noticias/noticia6.php">
                 <div class="card-noticia">
 
-                    <div class="img-noticia n-5"></div>
+                    <div class="img-noticia n-6"></div>
 
                     <div class="info">
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+                        <h2>Petshop Hamtaro: amor e qualidade nos cuidados com animais</h2>
 
                         <img src="../img-estatico/pets.svg" alt="pata do pet">
                     </div>

@@ -39,13 +39,6 @@ h2{
     }
 }
 
-
-
-
-
-
-
-
 #voltar img{
     margin: 40px 0 0 40px;
     width: 50px;
@@ -55,4 +48,6 @@ h2{
 #voltar img:hover{
     transform: scale(1.1);
 }
+
+
 

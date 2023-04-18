@@ -137,6 +137,7 @@
   align-items: center;
   width: 400px;
 }
+
 @media (max-width: 450px) {
   .boxServicos div{
     width: 100%
@@ -160,3 +161,72 @@
   background-color: #9a6bf8;
 }
 /* FIM SERVIÇOES */
+
+
+
+
+/* FORMAS DE PAGAMENTO */
+
+.pagamento{
+  padding: 80px;
+}
+
+.btn-pagamento{
+  border: none;
+  border-radius: 20px 0px 0px 0px;
+  padding: 10px 20px;
+  background-color: #C852FF;
+  color: #ffffff;
+  outline: none;
+}
+
+.btn-valores{
+  border-radius: 0px 20px 0px 0px;
+  background-color:  #8C52FF;
+
+}
+
+.conteudo-pagamento{
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
+  padding: 50px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 20px 20px;
+  flex-wrap: wrap;
+}
+
+.item-pagamento{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.valores-empresa{
+  padding: 100px 0;
+}
+
+
+.titulo-valores{
+  color: #000000;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.box-valores{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.item-valor{
+  width: 350px;
+}
+
+.item-valor h4{
+  font-weight: 700;
+}

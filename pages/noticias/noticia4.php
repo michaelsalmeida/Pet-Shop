@@ -30,7 +30,6 @@
 
             <div class="acesso">
                 <a href="<?php echo $loginCliRoute; ?>"><img src="../img-estatico/login.svg" alt=""> Login</a>
-
                 <a href="<?php echo $cadastroCliRoute; ?>">Cadastro</a>
             </div>
         </div>
@@ -43,23 +42,23 @@
     <a href="../cliente/blog.php" id="voltar"><img src="../img-estatico/voltar.svg" alt="voltar"></a>
 
     <div class="box-img">
-        <img src="../img-estatico/img-noticia3.svg" alt="imagem ilustrativa na notícia" class="noticia-img">
+        <img src="https://digitalvet.com.br/wp-content/uploads/2019/05/vacinas-para-caes.png" alt="imagem ilustrativa na notícia" class="noticia-img">
     </div>
     <div class="container box-noticia">
 
-        <h1>Conheça os serviços oferecidos pelo petshop Hamtaro!</h1>
+        <h1>Vacinação de animais é importante para prevenir doenças e garantir a saúde dos pets.</h1>
 
         <hr>
 
         <div class="texto">
-            <p>O petshop Hamtaro é um lugar ideal para cuidar do seu animal de estimação, com serviços de alta qualidade e profissionais experientes. Localizado na região central da cidade, o Hamtaro oferece serviços de banho e tosa, entrega do pet em casa e atendimento clínico para cuidar da saúde dos seus bichinhos.</p>
-            <h2>Serviço de banho e tosa</h2>
-            <p>O serviço de banho e tosa do Hamtaro é realizado por profissionais experientes e qualificados, que garantem a higiene e o bem-estar do seu animal de estimação. Eles utilizam produtos de alta qualidade e técnicas avançadas para proporcionar um banho e tosa seguro e confortável para o seu pet. Além disso, o Hamtaro oferece uma variedade de serviços, como tosa higiênica, tosa bebê, tosa na tesoura, entre outros. Esses serviços são personalizados de acordo com o tipo de pelagem do animal e suas necessidades específicas. O objetivo é garantir que o seu pet saia do Hamtaro com uma aparência saudável, limpa e muito bonita.</p>
-            <h2>Serviço de entrega em casa</h2>
-            <p>O serviço de entrega em casa do Hamtaro é ideal para quem tem uma rotina agitada e não consegue levar o seu pet pessoalmente ao petshop. Com essa opção, você pode agendar a busca do seu animal de estimação e um profissional do Hamtaro irá buscá-lo e entregá-lo em casa, limpo e cheiroso. Esse serviço é muito conveniente para pessoas que possuem animais de grande porte, que podem ser difíceis de transportar em veículos ou para quem tem dificuldades de locomoção.</p>
-            <h2>Serviço clínico</h2>
-            <p>O serviço clínico do Hamtaro é realizado por veterinários qualificados e experientes, que oferecem atendimento especializado e personalizado para cada animal. Eles realizam consultas, exames, vacinação, cirurgias e outros procedimentos necessários para garantir a saúde e o bem-estar do seu pet. O atendimento é personalizado e os profissionais estão sempre à disposição para tirar dúvidas e orientar sobre cuidados específicos para cada tipo de animal.</p>
-            <p>No Hamtaro, você pode ter a certeza de que o seu animal de estimação será tratado com o cuidado e o carinho que ele merece. Não deixe de conhecer os serviços oferecidos pelo Hamtaro e proporcionar ao seu pet uma vida mais feliz e saudável.</p>
+            
+            <p>A vacinação é um cuidado essencial para garantir a saúde e o bem-estar dos animais de estimação. Através da vacinação, é possível prevenir diversas doenças que podem colocar em risco a vida do seu pet.</p>
+            <p>Os animais de estimação são suscetíveis a diversas doenças, como a raiva, leptospirose, parvovirose, cinomose, entre outras. Essas doenças podem ser transmitidas através do contato com outros animais ou até mesmo através de objetos contaminados. A vacinação é a melhor maneira de proteger os pets dessas doenças.</p>
+            <p>Os animais devem ser vacinados desde filhotes e seguir um calendário de vacinação, que pode variar de acordo com a região e as necessidades específicas de cada animal. É importante lembrar que a vacinação deve ser realizada por um médico veterinário e que somente ele pode indicar as vacinas necessárias e os prazos para cada uma.</p>
+            <p>Além da proteção para os animais, a vacinação também é importante para a saúde pública. A vacina contra a raiva, por exemplo, é obrigatória e ajuda a prevenir a disseminação da doença para humanos.</p>
+            <p>O custo da vacinação é relativamente baixo em comparação com os gastos que podem surgir com o tratamento de uma doença não prevenida. Por isso, é importante incluir a vacinação como um cuidado de rotina para o seu pet.</p>
+            <p>Em tempos de pandemia, muitas pessoas têm se preocupado com a possibilidade de contágio de COVID-19 em animais de estimação. Até o momento, não há evidências de que os animais possam transmitir o vírus para humanos ou vice-versa. No entanto, é importante manter as medidas de higiene recomendadas e seguir as orientações das autoridades de saúde.</p>
+            <p>Cuide da saúde do seu pet e garanta uma vida longa e saudável para ele. Não deixe de vacinar seu animal de estimação e consultar um médico veterinário para mais informações sobre as vacinas necessárias.</p>
 
 
 

@@ -165,6 +165,9 @@ require_once $funcoesRoute;
 
     </div>
 
+<<<<<<< HEAD
+
+=======
     <section class="container pagamento">
         <div class="botoes">
             <button onclick="formaPagamento()" class="btn-pagamento">Formas de pagamentos</button>
@@ -204,6 +207,7 @@ require_once $funcoesRoute;
 
         </div>
     </section>
+>>>>>>> b6dec21f40cee15fec8e87930638ee05531a8a79
 
 
     <section class="valores-empresa container-fluid fundo-colaboradores">

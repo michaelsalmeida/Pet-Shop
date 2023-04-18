@@ -31,6 +31,7 @@ body{
 
 /* SESSÃO  SOBRE NÓS  */
 
+
 /* COLABORADORES */
 
 .fundo-colaboradores{
@@ -75,10 +76,15 @@ body{
 /* COLABORADORES */
 
 
+
+
+
+
+
 /* FORMAS DE PAGAMENTO */
 
 .pagamento{
-    padding: 100px 0;
+    padding: 80px;
 }
 
 .btn-pagamento{
@@ -116,7 +122,6 @@ body{
     gap: 10px;
 }
 
-/* FORMAS DE PAGAMENTO */
 .valores-empresa{
     padding: 100px 0;
 }
