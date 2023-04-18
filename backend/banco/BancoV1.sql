@@ -117,21 +117,21 @@ select * from Funcionarios;
 
 insert into Funcionarios values 
 (default, 'Michael', 22222222222, 'admin', 
-'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af');
+'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af', 'ativo');
 
 
 insert into Clientes VALUES
 (default, 11122233396, 'Violett', 'Vohor', '11958855005', '05005400', 'limão', '123', 'a', 'limoeiro', 'São Paulo', 'sp', 'scar@example.com',
-'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af');
+'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af', 'ativo');
 
 insert into Animais values
-(default, 1, 'Tobias', '2023-01-01', 'dragao', 'komodo', '45', 'rosa', '2023-04-11');
+(default, 1, 'Tobias', '2023-01-01', 'dragao', 'komodo', '45', 'rosa', '2023-04-11', 'ativo');
 
 insert into Agendamentos values
-(default, 2, 1, '2023-04-11', '16:40', 'Em_Andamento', null, 'Veterinário'),
-(default, 2, 1, '2023-04-11', '16:40', 'Concluido', 'teste de descrição', 'Veterinário'),
-(default, 2, 1, '2023-04-11', '16:40', 'Marcado', null, 'Veterinário'),
-(default, 2, null, '2023-04-11', '16:40', 'Disponivel', null, 'Veterinário');
+(default, 2, 1, '2023-04-11', '16:40', 'Em_Andamento', null, 'Veterinário', 'ativo'),
+(default, 2, 1, '2023-04-11', '16:40', 'Concluido', 'teste de descrição', 'Veterinário', 'ativo'),
+(default, 2, 1, '2023-04-11', '16:40', 'Marcado', null, 'Veterinário', 'ativo'),
+(default, 2, null, '2023-04-11', '16:40', 'Disponivel', null, 'Veterinário', 'ativo');
 
 select * from Animais;
 select * from Clientes;

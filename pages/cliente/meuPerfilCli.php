@@ -15,7 +15,7 @@ require_once $funcoesRoute;
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
 </head>
 
-<body onload="meuPerfil()">
+<body onload="altMeuPerfil()">
     <?php
     if (isset($_SESSION['tipo'])){
         header("Location: " . $agendamentoFunRoute);
@@ -30,53 +30,60 @@ require_once $funcoesRoute;
     }
     ?>
 
-    <form action="" method="post">
+    <form action="<?php echo $proc_altCliRoute;?>" method="post">
         <input type="hidden" name="idCliente" value="<?php echo $_SESSION['idCli']; ?>">
         
         <label for="cpf">CPF</label><br>
-        <input type="text" name="cpf" readonly><br><br>
+        <input type="text" name="cpf" readonly required><br><br>
 
         <label for="nome">Nome</label><br>
-        <input type="text" name="nome" readonly><br><br>
+        <input type="text" name="nome" readonly required><br><br>
 
         <label for="sobrenome">Sobrenome</label><br>
-        <input type="text" name="sobrenome" readonly><br><br>
+        <input type="text" name="sobrenome" readonly required><br><br>
     
         <label for="celular">Celular</label><br>
-        <input type="text" name="celular" readonly><br><br>
+        <input type="text" name="celular" pattern="[0-9]{11}" 
+        readonly required><br><br>
 
         <label for="cep">CEP</label><br>
-        <input type="text" name="cep" readonly><br><br>
+        <input type="text" name="cep" onblur="pesquisacep(this.value)"
+        readonly required><br><br>
     
         <label for="log">Logradouro</label><br>
-        <input type="number" name="log" step=0.01  pattern="[0-9]*" readonly><br><br>
+        <input type="text" name="log" readonly required><br><br>
     
         <label for="num">Número</label><br>
-        <input type="text" name="num" readonly><br><br>
+        <input type="text" name="num" pattern="\d{1,5}"
+        readonly required><br><br>
 
         <label for="comp">Complemento</label><br>
-        <input type="text" name="comp" readonly><br><br>
+        <input type="text" name="comp" readonly required><br><br>
 
-        <label for="bair">Bairro</label><br>
-        <input type="text" name="bair" readonly><br><br>
+        <label for="bairro">Bairro</label><br>
+        <input type="text" name="bairro" readonly required><br><br>
 
-        <label for="mun">Munícipio</label><br>
-        <input type="text" name="mun" readonly><br><br>
+        <label for="cid">Munícipio</label><br>
+        <input type="text" name="cid" readonly required><br><br>
 
         <label for="uf">UF</label><br>
-        <input type="text" name="uf" readonly><br><br>
+        <input type="text" name="uf" readonly required><br><br>
 
         <label for="email">Email</label><br>
-        <input type="email" name="email" readonly><br><br>
+        <input type="email" name="email" readonly required><br><br>
 
-        <input type="submit" value="Confirmar" hidden>
+        <input type="submit" value="Confirmar" name="conf" hidden>
     </form>
+
+    
+    <button onclick="meuPerfil()">Alterar</button>
+    <a href="<?php echo $homeRoute;?>">Voltar</a>
+    <button onclick="executeFunctions('logoff', '')">Sair</button>
+
 
     <script src="<?php echo $dataHojeRoute; ?>"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
-    <button onclick="altPerfil()">Alterar</button>
-    <a href="<?php echo $homeRoute;?>">Voltar</a>
-    <button onclick="executeFunctions('logoff', '')">Sair</button>
+    <script src="<?php echo $viacepRoute; ?>"></script>
 </body>
 
 </html>

@@ -40,4 +40,7 @@
         case 'getDesc':
             echo getDesc();
             break;
+        case 'altMeuPerfil':
+            echo altMeuPerfil();
+            break;
     }

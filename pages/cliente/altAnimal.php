@@ -31,7 +31,7 @@ require_once $funcoesRoute;
     }
     ?>
 
-    <form action="<?php echo $altAnimalCliRoute;?>" method="post">
+    <form action="<?php echo $proc_altAnimalCliRoute;?>" method="post">
         <input type="hidden" name="idAnimal" value="<?php echo $_GET['id']; ?>">
         
         <label for="nome">Nome</label><br>
