@@ -171,44 +171,7 @@ require_once $funcoesRoute;
 
     </div>
 
-    <section class="container pagamento">
-        <div class="botoes">
-            <button class="btn-pagamento">Formas de pagamentos</button>
-            <button class="btn-pagamento btn-valores">Valores</button>
-        </div>
-        <div class="conteudo-pagamento">
 
-            <div class="item-pagamento">
-
-                <img src="../img-estatico/debito.svg" alt="débito">
-                <p>Débito</p>
-
-            </div>
-
-
-            <div class="item-pagamento">
-
-                <img src="../img-estatico/pix.svg" alt="pix">
-                <p>Pix</p>
-
-            </div>
-
-            <div class="item-pagamento">
-
-                <img src="../img-estatico/credito.svg" alt="crédito">
-                <p>Crédito</p>
-
-            </div>
-
-            <div class="item-pagamento">
-
-                <img src="../img-estatico/boleto.svg" alt="crédito">
-                <p>Boleto</p>
-
-            </div>
-
-        </div>
-    </section>
 
 
     <section class="valores-empresa container-fluid fundo-colaboradores">
