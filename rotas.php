@@ -70,3 +70,6 @@ $aaa = $rootBackFunctions . "aaa.js";
 
 $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.php";
 // $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/backend/funcoes/funcoes.php";
+
+//30785213031
+//51805990080
