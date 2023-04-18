@@ -19,6 +19,9 @@ $contatoRoute = $rootCliPages . "contato.php";
 
 //                           FIM Rotas Estáticas
 
+
+
+
 // ----------------------    Rotas do Funcionário    -----------------------------
 
 $loginFunRoute = $rootFunPages . "loginFuncionario.php";
@@ -58,6 +61,7 @@ $proc_altAnimalCliRoute = $rootBackProc . "proc_altAnimal.php";
 $procExcAnimalRoute = $rootBackProc . "proc_excAnimal.php";
 $procCadDataRoute = $rootBackProc . "proc_cadData.php";
 $procCadFunRoute = $rootBackProc . "proc_cadFun.php";
+$procSalvarDetalhesRoute = $rootBackProc . "proc_salvarDetalhes.php";
 
 
 
