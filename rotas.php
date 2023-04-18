@@ -25,6 +25,7 @@ $loginFunRoute = $rootFunPages . "loginFuncionario.php";
 $agendamentoFunRoute = $rootFunPages . "agendamentosFun.php";
 $cadastradaDatasRoute = $rootFunPages . "cadastrarDatas.php";
 $cadastrarFunRoute = $rootFunPages . "cadFun.php";
+$apagarFunRoute = $rootFunPages . "apagarFuncionario.php";
 
 //                           FIM Rotas Funcionário
 

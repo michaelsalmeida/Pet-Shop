@@ -377,3 +377,68 @@
         $retornar = $stmt->get_result();
         return $retornar->fetch_all()[0][0];
     }
+
+
+    function gerarTabelaDeleteFun() {
+        session_start();
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+
+        // String de preparação
+        $stmt = $conn->prepare("SELECT nome, cpf, profissao from Funcionarios
+        where nome like ?
+        and profissao != 'admin'");
+
+        $pesquisar = "%" . $_GET['pesq'] . "%";
+
+        // Substituição da string preparada pelos valores corretos
+        $stmt->bind_param("s", $pesquisar);
+ 
+        // Executa o sql
+        $stmt->execute();
+        // Pega o resultado do banco
+        $resultado = $stmt->get_result();
+
+        // String que será retornada na tabela
+        $tabela =
+        "<tr>
+            <th>Nome</th>
+            <th>Cpf</th>
+            <th>Profissão</th>
+            <th>Excluir</th>
+        </tr>";
+
+        $cont = 1;
+        
+        // Pega cada linha da query e monta as linhas da tabela
+        foreach($resultado->fetch_all() as $row) {
+            $tabela = $tabela .
+            "<tr>
+                <td id='nome$cont'>$row[0]</td>
+                <td>$row[1]</td>
+                <td>$row[2]</td>
+                <td><button onclick='apagarFun(`apagarFun`, `$row[0]`)'>Excluir</td>
+            </tr>";
+            
+            $cont += 1;
+        }
+
+        $retornar = array('tabela', $tabela);
+        return json_encode($retornar);
+    }
+
+    function apagarFuncionario(){
+        session_start();
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+
+        $nome = $_GET['nome'];
+        
+        $stmt = $conn->prepare("DELETE from Funcionarios where nome = ?");
+
+        $stmt->bind_param("s", $nome);
+
+        $stmt->execute();
+
+
+    }
+    

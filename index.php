@@ -1,6 +1,8 @@
 <?php
 include_once("rotas.php");
 require_once $funcoesRoute;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +57,10 @@ require_once $funcoesRoute;
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
           echo "<a href='$cadastroCliRoute'>Cadastro</a>";
         }
+        // if (isset($_SESSION['msgRotaProibidaCli'])){
+        //   echo $_SESSION['msgRotaProibidaCli'];
+        //   unset($_SESSION['msgRotaProibidaCli']);
+        // }
 
         ?>
       </div>

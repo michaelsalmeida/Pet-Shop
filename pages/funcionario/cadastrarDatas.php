@@ -2,6 +2,15 @@
     session_start();
     include_once("../../rotas.php"); // Inclui o arquivo de rotas
     include_once($connRoute); // Inclui o arquivo de conexao
+
+    if ($_SESSION['tipo'] != "admin" && $_SESSION['tipo'] != "Secretaria") {
+        $_SESSION['msgRotaProibida'] = "Você Não possui permissão para entrar nessa página";
+        header("Location: " . $agendamentoFunRoute);
+    }
+    if (!isset($_SESSION['tipo'])) {
+        // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
+        header("Location: " . $homeRoute);
+    }
 ?>
 
 <!DOCTYPE html>
