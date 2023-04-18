@@ -85,14 +85,19 @@ require_once $funcoesRoute;
     <button onclick="queryBanco('gerarTabelaAgenFun')">Pesquisar</button>
   </div>
 
-  
-  
 
   <table id="tabela">
 
   </table>
-  
-  
+
+  <!-- The Modal -->
+  <div id="id01" class="w3-modal">
+      <div class="w3-modal-content">
+          <div class="w3-container" id="container-modal">
+          </div>
+      </div>
+  </div>
+
   
 </body>
 
