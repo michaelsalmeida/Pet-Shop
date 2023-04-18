@@ -193,7 +193,7 @@ function finalizarConsulta(func, id) {
     xhr.send();
 }
 
-function meuPerfil() {
+function meuPerfilCli() {
     document.getElementsByName("nome")[0].removeAttribute("readonly")
     document.getElementsByName("sobrenome")[0].removeAttribute("readonly")
     document.getElementsByName("celular")[0].removeAttribute("readonly")
@@ -204,11 +204,11 @@ function meuPerfil() {
     document.getElementsByName("conf")[0].removeAttribute("hidden")
 }
 
-function altMeuPerfil() {
+function altMeuPerfilCli() {
     var idCli = document.getElementsByName("idCliente")[0].value
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altMeuPerfil&idCli=${idCli}`, true);
-    // xhr.open("GET", location.origin + `/backend/execute.php?function=altMeuPerfil&idCli=${idCli}`, true);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Get the response from the server

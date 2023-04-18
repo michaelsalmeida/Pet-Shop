@@ -15,7 +15,7 @@ require_once $funcoesRoute;
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
 </head>
 
-<body onload="altMeuPerfil()">
+<body onload="altMeuPerfilCli()">
     <?php
     if (isset($_SESSION['tipo'])){
         header("Location: " . $agendamentoFunRoute);
@@ -24,9 +24,9 @@ require_once $funcoesRoute;
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
         header("Location: " . $loginCliRoute);
     }
-    if (isset($_SESSION['msgMeuPerfil'])) {
-        echo $_SESSION['msgMeuPerfil'];
-        unset($_SESSION['msgMeuPerfil']);
+    if (isset($_SESSION['msgMeuPerfilCli'])) {
+        echo $_SESSION['msgMeuPerfilCli'];
+        unset($_SESSION['msgMeuPerfilCli']);
     }
     ?>
 
@@ -58,7 +58,7 @@ require_once $funcoesRoute;
         readonly required><br><br>
 
         <label for="comp">Complemento</label><br>
-        <input type="text" name="comp" readonly required><br><br>
+        <input type="text" name="comp" readonly><br><br>
 
         <label for="bairro">Bairro</label><br>
         <input type="text" name="bairro" readonly required><br><br>
@@ -76,7 +76,7 @@ require_once $funcoesRoute;
     </form>
 
     
-    <button onclick="meuPerfil()">Alterar</button>
+    <button onclick="meuPerfilCli()">Alterar</button>
     <a href="<?php echo $homeRoute;?>">Voltar</a>
     <button onclick="executeFunctions('logoff', '')">Sair</button>
 

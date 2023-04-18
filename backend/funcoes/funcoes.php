@@ -452,7 +452,7 @@
 
     }
 
-    function altMeuPerfil() {
+    function altMeuPerfilCli() {
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
         // String de preparação
