@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Funcionarios` (
   `cpf` CHAR(11) NOT NULL UNIQUE,
   `profissao` ENUM('Veterinario', 'Secretaria', 'Esteticista', 'admin') NOT NULL,
   `senha` VARCHAR(250) NOT NULL,
+  `ativo` ENUM('ativo', 'inativo'),
   PRIMARY KEY (`pk_Funcionario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -50,6 +51,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Clientes` (
   `uf` CHAR(2) NOT NULL,
   `email` VARCHAR(200) NOT NULL UNIQUE,
   `senha` VARCHAR(250) NOT NULL,
+  `ativo` ENUM('ativo', 'inativo'),
   PRIMARY KEY (`pk_Cliente`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -69,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Animais` (
   `peso` FLOAT NOT NULL,
   `cor` VARCHAR(45) NOT NULL,
   `data_cadastro` VARCHAR(45) NOT NULL,
+  `ativo` ENUM('ativo', 'inativo'),
   PRIMARY KEY (`pk_Animal`),
   CONSTRAINT `fk_Animais_Clientes1`
     FOREIGN KEY (`fk_Cliente`)
@@ -92,6 +95,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Agendamentos` (
   `status` ENUM('Disponivel', 'Marcado', 'Em_Andamento', 'Concluido', 'Cancelado') NOT NULL DEFAULT 'Disponivel',
   `descricao` TEXT NULL,
   `tipo` ENUM('Banho', 'Tosa', 'Veterinário', 'Banho e Tosa') NOT NULL,
+  `ativo` ENUM('ativo', 'inativo'),
   PRIMARY KEY (`pk_Agendamento`),
   CONSTRAINT `fk_Agendamentos_Funcionarios`
     FOREIGN KEY (`fk_Funcionario`)
@@ -113,21 +117,21 @@ select * from Funcionarios;
 
 insert into Funcionarios values 
 (default, 'Michael', 22222222222, 'admin', 
-'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af');
+'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af', 'ativo');
 
 
 insert into Clientes VALUES
-(default, 11122233396, 'Violett', 'Vohor', '11958855005', '05005400', 'limão', '123', 'limoeiro', 'São Paulo', 'sp', 'scar@example.com',
-'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af');
+(default, 11122233396, 'Violett', 'Vohor', '11958855005', '05005400', 'limão', '123', 'a', 'limoeiro', 'São Paulo', 'sp', 'scar@example.com',
+'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af', 'ativo');
 
 insert into Animais values
-(default, 1, 'Tobias', '2023-01-01', 'dragao', 'komodo', '45', 'rosa', '2023-04-11');
+(default, 1, 'Tobias', '2023-01-01', 'dragao', 'komodo', '45', 'rosa', '2023-04-11', 'ativo');
 
 insert into Agendamentos values
-(default, 2, 1, '2023-04-11', '16:40', 'Em_Andamento', null, 'Veterinário'),
-(default, 2, 1, '2023-04-11', '16:40', 'Concluido', 'teste de descrição', 'Veterinário'),
-(default, 2, 1, '2023-04-11', '16:40', 'Marcado', null, 'Veterinário'),
-(default, 2, null, '2023-04-11', '16:40', 'Disponivel', null, 'Veterinário');
+(default, 2, 1, '2023-04-11', '16:40', 'Em_Andamento', null, 'Veterinário', 'ativo'),
+(default, 2, 1, '2023-04-11', '16:40', 'Concluido', 'teste de descrição', 'Veterinário', 'ativo'),
+(default, 2, 1, '2023-04-11', '16:40', 'Marcado', null, 'Veterinário', 'ativo'),
+(default, 2, null, '2023-04-11', '16:40', 'Disponivel', null, 'Veterinário', 'ativo');
 
 select * from Animais;
 select * from Clientes;

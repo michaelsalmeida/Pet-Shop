@@ -175,3 +175,78 @@ function inserirDetalhes(func, id) {
     };
     xhr.send();
 }
+
+function activeModalDetalhesFun(id, cliente, animal) {
+    document.getElementById("id01").style.display="block"
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=getDesc&id=${id}`, true);
+    xhr.onload = function() {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            var response = xhr.responseText;
+            if (response == ''){
+                document.getElementById("container-modal").innerHTML = `
+                <h2>Descrição do Agendamento</h2>
+                <h3>Cliente - ${cliente}, Animal - ${animal}</h3>
+                <textarea cols="30" rows="10"></textarea>
+                <span onclick="document.getElementById('id01').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>`;
+
+            }
+        }
+    }
+    xhr.send();
+}
+
+function finalizarConsulta(func, id) {
+
+    extra = `&id=${id}`;
+
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
+    xhr.onload = function() {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            var response = xhr.responseText; // Get the response from the server
+            location.href = response; // Log the response to the console
+        }
+    };
+    xhr.send();
+}
+
+function meuPerfilCli() {
+    document.getElementsByName("nome")[0].removeAttribute("readonly")
+    document.getElementsByName("sobrenome")[0].removeAttribute("readonly")
+    document.getElementsByName("celular")[0].removeAttribute("readonly")
+    document.getElementsByName("cep")[0].removeAttribute("readonly")
+    document.getElementsByName("num")[0].removeAttribute("readonly")
+    document.getElementsByName("comp")[0].removeAttribute("readonly")
+    document.getElementsByName("email")[0].removeAttribute("readonly")
+    document.getElementsByName("conf")[0].removeAttribute("hidden")
+}
+
+function altMeuPerfilCli() {
+    var idCli = document.getElementsByName("idCliente")[0].value
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
+    xhr.onload = function() {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText); // Get the response from the server
+            document.getElementsByName("cpf")[0].value = response[0];
+            document.getElementsByName("nome")[0].value = response[1];
+            document.getElementsByName("sobrenome")[0].value = response[2];
+            document.getElementsByName("celular")[0].value = response[3];
+            document.getElementsByName("cep")[0].value = response[4];
+            document.getElementsByName("log")[0].value = response[5];
+            document.getElementsByName("num")[0].value = response[6];
+            document.getElementsByName("comp")[0].value = response[7];
+            document.getElementsByName("bairro")[0].value = response[8];
+            document.getElementsByName("cid")[0].value = response[9];
+            document.getElementsByName("uf")[0].value = response[10];
+            document.getElementsByName("email")[0].value = response[11];
+        }
+    };
+    xhr.send();
+}

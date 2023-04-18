@@ -43,4 +43,7 @@
         case 'getDesc':
             echo getDesc();
             break;
+        case 'altMeuPerfilCli':
+            echo altMeuPerfilCli();
+            break;
     }

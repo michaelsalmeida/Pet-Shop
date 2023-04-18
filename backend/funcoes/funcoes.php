@@ -464,3 +464,21 @@
         $stmt->execute();
 
     }
+
+    function altMeuPerfilCli() {
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        // String de preparação
+        $stmt = $conn->prepare("SELECT cpf, nome, sobrenome, celular, cep, logradouro, 
+        numero, complemento, bairro, municipio, uf, email FROM Clientes WHERE pk_Cliente = ?");
+        // Substituição da string preparada pelos valores corretos
+        $stmt->bind_param("s", $_GET['idCli']);
+        // Executa o sql
+        $stmt->execute();
+        // Pega o resultado do banco
+        $resultado = $stmt->get_result();
+        $data = $resultado->fetch_all()[0];
+
+        header('Content-Type: application/json');
+        return json_encode($data);
+    }

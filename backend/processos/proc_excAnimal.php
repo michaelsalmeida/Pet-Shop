@@ -19,7 +19,10 @@ try {
     $stmtAni->bind_param("s", $idAni);
     // Executa o sql
     $stmtAni->execute();
+
+    $_SESSION['msgExcAnimal'] = "Animal Excluído com Sucesso.";
     header("Location: ". $animaisCliRoute);
 } catch (Exception $e) {
+    $_SESSION['msgCanAgen'] = "Animal Não Excluído.";
     echo $e->getMessage();
 }
