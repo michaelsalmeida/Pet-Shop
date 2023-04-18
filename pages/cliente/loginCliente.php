@@ -26,7 +26,7 @@ if (isset($_SESSION['tipo'])){
 
 
     <header>
-        <a href="" id="logo">
+        <a href="<?php echo $homeRoute; ?>" id="logo">
             <p>Hamtaro Petshop</p>
         </a>
         

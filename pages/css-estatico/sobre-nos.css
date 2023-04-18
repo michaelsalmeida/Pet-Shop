@@ -76,11 +76,6 @@ body{
 /* COLABORADORES */
 
 
-
-
-
-
-
 /* FORMAS DE PAGAMENTO */
 
 .pagamento{
@@ -122,12 +117,14 @@ body{
     gap: 10px;
 }
 
+
+
+
+
+/* VALORES  */
 .valores-empresa{
     padding: 100px 0;
 }
-
-
-
 
 .titulo-valores{
     color: #000000;

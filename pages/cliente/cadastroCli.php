@@ -14,15 +14,14 @@ include_once($funcoesRoute);
   <link rel="stylesheet" href="../css-dinamico/estilo.css">
   <title>Cadastro - Hantaro PetShop</title>
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <link rel="stylesheet" href="../css-estatico/header.css">
   <link rel="stylesheet" href="../css-dinamico/cadastro-cliente.css">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 
 <body>
   <header>
-    <a href="" id="logo">
+    <a href="<?php echo $homeRoute; ?>" id="logo">
       <p>Hamtaro Petshop</p>
     </a>
 

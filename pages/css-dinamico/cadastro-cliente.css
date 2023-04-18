@@ -22,6 +22,10 @@ header{
   gap: 10px;
 }
 
+.acesso-seguro p{
+  margin: 0;
+}
+
 header .corporativo{
   background-color: #6E29FF;
   padding: 5px 15px;

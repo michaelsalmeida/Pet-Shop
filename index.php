@@ -166,51 +166,6 @@ require_once $funcoesRoute;
     <a href="">Confira</a>
   </section> 
 
-
-  
-
-  <section class="container pagamento">
-
-    <div class="botoes">
-      <button class="btn-pagamento">Formas de pagamentos</button>
-      <button class="btn-pagamento btn-valores">Valores</button>
-    </div>
-
-
-    <div class="conteudo-pagamento">
-
-      <div class="item-pagamento">
-
-        <img src="pages/img-estatico/debito.svg" alt="débito">
-        <p>Débito</p>
-
-      </div>
-
-
-      <div class="item-pagamento">
-
-        <img src="pages/img-estatico/pix.svg" alt="pix">
-        <p>Pix</p>
-
-      </div>
-
-      <div class="item-pagamento">
-
-        <img src="pages/img-estatico/credito.svg" alt="crédito">
-        <p>Crédito</p>
-
-      </div>
-
-      <div class="item-pagamento">
-
-        <img src="pages/img-estatico/boleto.svg" alt="crédito">
-        <p>Boleto</p>
-
-      </div>
-
-    </div>
-  </section>
-
   <footer>
     <a href="#" class="logo">
       <img src="pages/img-estatico/logo.svg" alt="">

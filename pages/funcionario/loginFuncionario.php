@@ -20,7 +20,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
 <body>
 
     <header>
-        <a href="" id="logo">
+        <a href="<?php echo $homeRoute; ?>" id="logo">
             <p>Hamtaro Petshop</p>
         </a>
         <div class="links-login-cliente">
