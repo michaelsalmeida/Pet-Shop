@@ -114,3 +114,7 @@ function apagarFun(func, name) {
     };
     xhr.send();
 }
+
+function altPerfil() {
+    document.getElementsByName[0]("cpf").removeAttribute("readonly")
+}
