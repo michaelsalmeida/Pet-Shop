@@ -319,10 +319,10 @@
         // Pega cada linha da query e monta as linhas da tabela
         foreach($resultado->fetch_all() as $row) {
             // Formata a data
-            $det = "<button onclick='finalizarConsulta(finalizarConsul, $row[6])'>Finalizar</button>";
+            $det = "<button onclick='finalizarConsulta(" . '"finalizarConsul"' . ", $row[6])'>Finalizar</button>";
             
             if ($row[5] == "Concluido"){
-                $det = "<button onclick='activeModalDetalhesFun($row[6], $row[3], $row[4])'>Detalhes</button>";
+                $det = "<button onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
             }
 
             $data = date('d/m/Y', strtotime($row[1]));
@@ -449,5 +449,18 @@
     }
     
     function finalizarConsul(){
+        session_start();
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+
+        $id = $_GET['id'];
+        $a = "Concluido";
+
+        $stmt = $conn->prepare("UPDATE Agendamentos 
+        set `status` = ?
+        where pk_Agendamento = ?");
+
+        $stmt->bind_param("ss", $a, $id);
+
+        $stmt->execute();
 
     }

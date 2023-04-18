@@ -34,6 +34,9 @@
         case 'apagarFun':
             echo apagarFuncionario();
             break;
+        case 'finalizarConsul':
+            echo finalizarConsul();
+            break;
         case 'profissionais':
             echo profissionais();
             break;

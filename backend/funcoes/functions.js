@@ -115,7 +115,7 @@ function apagarFun(func, name) {
     xhr.send();
 }
 
-function activeModalDetalhesFun(id, cliente, animal) {
+function activeModalDetalhesFun(id, tipo) {
     document.getElementById("id01").style.display="block"
     var xhr = new XMLHttpRequest();
     xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
@@ -123,14 +123,21 @@ function activeModalDetalhesFun(id, cliente, animal) {
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText;
-            if (response == ''){
+            if (response == '' && tipo != 'admin'){
                 document.getElementById("container-modal").innerHTML = `
                 <h2>Descrição do Agendamento</h2>
-                <h3>Cliente - ${cliente}, Animal - ${animal}</h3>
-                <textarea cols="30" rows="10"></textarea>
+                <input name="ide" hidden value="${id}"></input>
+                <textarea cols="30" rows="10" name="descricao"></textarea>
+                <span onclick="document.getElementById('id01').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>
+                <input type='submit' value='Salvar'></input>`;
+
+            } else {
+                document.getElementById("container-modal").innerHTML = `
+                <h2>Descrição do Agendamento</h2>
+                <p>Detalhes não definido</p>
                 <span onclick="document.getElementById('id01').style.display='none'"
                 class="w3-button w3-display-topright">&times;</span>`;
-
             }
         }
     }
@@ -141,6 +148,21 @@ function finalizarConsulta(func, id) {
 
     extra = `&id=${id}`;
 
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
+    xhr.onload = function() {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            var response = xhr.responseText; // Get the response from the server
+            location.href = response; // Log the response to the console
+        }
+    };
+    xhr.send();
+}
+
+function inserirDetalhes(func, id) {
+
+    extra = `&id=${id}`;
 
     var xhr = new XMLHttpRequest();
     xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);

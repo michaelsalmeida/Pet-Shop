@@ -33,8 +33,17 @@ require_once $funcoesRoute;
   tr:nth-child(odd) {
     background-color: #dddddd;
   }
+
+  #container-modal{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 30px;
+    gap: 20px;
+  }
   </style>
   <script src="<?php echo $functionsRoute; ?>"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body onresize="checaDispositivo()" onload="queryBanco('gerarTabelaAgenFun')">
@@ -91,12 +100,16 @@ require_once $funcoesRoute;
   </table>
 
   <!-- The Modal -->
-  <div id="id01" class="w3-modal">
-      <div class="w3-modal-content">
-          <div class="w3-container" id="container-modal">
-          </div>
-      </div>
-  </div>
+  <form action="<?php echo $procSalvarDetalhesRoute; ?>" method="post">
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content">
+            <div class="w3-container" id="container-modal">
+
+            </div>
+        </div>
+    </div>
+  </form>
+  
 
   
 </body>
