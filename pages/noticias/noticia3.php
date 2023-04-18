@@ -52,14 +52,13 @@
         <hr>
 
         <div class="texto">
-
             <p>O petshop Hamtaro é um lugar ideal para cuidar do seu animal de estimação, com serviços de alta qualidade e profissionais experientes. Localizado na região central da cidade, o Hamtaro oferece serviços de banho e tosa, entrega do pet em casa e atendimento clínico para cuidar da saúde dos seus bichinhos.</p>
             <h2>Serviço de banho e tosa</h2>
-            <p>O serviço de banho e tosa do Hamtaro é realizado por profissionais experientes e qualificados, que garantem a higiene e o bem-estar do seu animal de estimação. Eles utilizam produtos de alta qualidade e técnicas avançadas para proporcionar um banho e tosa seguro e confortável para o seu pet.</p>
+            <p>O serviço de banho e tosa do Hamtaro é realizado por profissionais experientes e qualificados, que garantem a higiene e o bem-estar do seu animal de estimação. Eles utilizam produtos de alta qualidade e técnicas avançadas para proporcionar um banho e tosa seguro e confortável para o seu pet. Além disso, o Hamtaro oferece uma variedade de serviços, como tosa higiênica, tosa bebê, tosa na tesoura, entre outros. Esses serviços são personalizados de acordo com o tipo de pelagem do animal e suas necessidades específicas. O objetivo é garantir que o seu pet saia do Hamtaro com uma aparência saudável, limpa e muito bonita.</p>
             <h2>Serviço de entrega em casa</h2>
-            <p>O serviço de entrega em casa do Hamtaro é ideal para quem busca comodidade e praticidade. Com essa opção, você não precisa se preocupar em levar o seu pet até o petshop. Basta agendar a entrega e um profissional do Hamtaro irá buscá-lo e entregá-lo de volta, limpo e cheiroso.</p>
+            <p>O serviço de entrega em casa do Hamtaro é ideal para quem tem uma rotina agitada e não consegue levar o seu pet pessoalmente ao petshop. Com essa opção, você pode agendar a busca do seu animal de estimação e um profissional do Hamtaro irá buscá-lo e entregá-lo em casa, limpo e cheiroso. Esse serviço é muito conveniente para pessoas que possuem animais de grande porte, que podem ser difíceis de transportar em veículos ou para quem tem dificuldades de locomoção.</p>
             <h2>Serviço clínico</h2>
-            <p>O serviço clínico do Hamtaro é realizado por veterinários qualificados e experientes, que oferecem atendimento especializado e personalizado para cada animal. Eles realizam consultas, exames, vacinação, cirurgias e outros procedimentos necessários para garantir a saúde e o bem-estar do seu pet.</p>
+            <p>O serviço clínico do Hamtaro é realizado por veterinários qualificados e experientes, que oferecem atendimento especializado e personalizado para cada animal. Eles realizam consultas, exames, vacinação, cirurgias e outros procedimentos necessários para garantir a saúde e o bem-estar do seu pet. O atendimento é personalizado e os profissionais estão sempre à disposição para tirar dúvidas e orientar sobre cuidados específicos para cada tipo de animal.</p>
             <p>No Hamtaro, você pode ter a certeza de que o seu animal de estimação será tratado com o cuidado e o carinho que ele merece. Não deixe de conhecer os serviços oferecidos pelo Hamtaro e proporcionar ao seu pet uma vida mais feliz e saudável.</p>
 
 

@@ -82,7 +82,7 @@ require_once $funcoesRoute;
                     <div class="img-noticia n-1"></div>
 
                     <div class="info">
-                        <h2>Curiosidades sobre a raça Shiba Inu.</h2>
+                        <h2>Pesquisadores descobrem curiosidades sobre a raça Shiba Inu.</h2>
 
                         <img src="../img-estatico/pets.svg" alt="pata do pet">
                     </div>
@@ -104,7 +104,7 @@ require_once $funcoesRoute;
                 </div>
             </a>
             
-            <a href="../noticias/noticia2.php">
+            <a href="../noticias/noticia3.php">
                 <div class="card-noticia">
 
                     <div class="img-noticia n-3"></div>
@@ -119,7 +119,7 @@ require_once $funcoesRoute;
             </a>
 
 
-            <a href="../noticias/noticia3.php">
+            <a href="">
                 <div class="card-noticia">
 
                     <div class="img-noticia n-4"></div>
