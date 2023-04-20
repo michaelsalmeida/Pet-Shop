@@ -18,14 +18,15 @@ require_once $funcoesRoute;
 <body onload="altAnimal()">
     <?php
 
-    if (isset($_SESSION['tipo'])){
+    if (isset($_SESSION['tipo'])){ // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
     }
-    if (!loged()) {
+    if (!loged()) { // Verifica se há um usuário logado
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
+        // Se não tiver manda ele para a página de login
         header("Location: " . $loginCliRoute);
     }
-    if (isset($_SESSION['msgAltAnimaisCli'])) {
+    if (isset($_SESSION['msgAltAnimaisCli'])) { // Verifica se há uma mensagem para mostrar
         echo $_SESSION['msgAltAnimaisCli'];
         unset($_SESSION['msgAltAnimaisCli']);
     }

@@ -25,8 +25,8 @@
 
     function gerarTabelaAni() {
         session_start();
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         // String de preparação
         $stmt = $conn->prepare("SELECT nome, data_nascimento, raca, peso, pk_Animal FROM Animais WHERE fk_Cliente = ? ORDER BY nome");
@@ -66,7 +66,7 @@
                     <td>$row[3] Kg</td>
                     <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/altAnimal.php?id="
                     . $row[4] ."'>Alterar</a></td>
-                    <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/backend/processos/proc_excAnimal.php?id="
+                    <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/backend/processos/proc_excAnimal.php?id="
                     . $row[4] ."'>Excluir</a></td>
                 </tr>";
             }
@@ -77,8 +77,8 @@
     }
 
     function altAnimal() {
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
         // String de preparação
         $stmt = $conn->prepare("SELECT nome, data_nascimento, especie, raca, peso, cor FROM Animais WHERE pk_Animal = ?");
         // Substituição da string preparada pelos valores corretos
@@ -95,8 +95,8 @@
 
     function gerarTabelaAgenCli() {
         session_start();
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         // String de preparação
         $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento,
@@ -165,8 +165,8 @@
 
     function checkAnimais() {
         session_start();
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? ORDER BY nome");
         $stmt->bind_param("s", $_SESSION['idCli']);
@@ -187,8 +187,8 @@
 
     function gerarTabelaFazAgenCli() {
         session_start();
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         // String de preparação
         $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento,
@@ -241,8 +241,8 @@
 
     function fazAgendamentoCli() {
         session_start();
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
         
         if ($_GET['idAni'] != 0) {
             try {
@@ -268,8 +268,8 @@
 
     function gerarTabelaAgenFun() {
         session_start();
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         if ($_SESSION['tipo'] == 'Veterinario' || $_SESSION['tipo'] == 'Esteticista'){
 
@@ -349,8 +349,8 @@
     
     function profissionais(){
         session_start();
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         $prof = $_GET['servico'];
 
@@ -376,8 +376,8 @@
 
     function getDesc() {
         session_start();
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         $id = $_GET['id'];
         $stmt = $conn->prepare("SELECT descricao FROM Agendamentos WHERE pk_Agendamento = ?");
@@ -392,8 +392,8 @@
 
     function gerarTabelaDeleteFun() {
         session_start();
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         // String de preparação
         $stmt = $conn->prepare("SELECT nome, cpf, profissao, pk_Funcionario FROM Funcionarios
@@ -448,7 +448,7 @@
 
     function apagarFuncionario(){
         session_start();
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         $id = $_GET['id'];
         
@@ -464,7 +464,7 @@
     
     function finalizarConsul(){
         session_start();
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         $id = $_GET['id'];
         $a = "Concluido";
@@ -480,8 +480,8 @@
     }
 
     function altMeuPerfilCli() {
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
         // String de preparação
         $stmt = $conn->prepare("SELECT cpf, nome, sobrenome, celular, cep, logradouro, 
         numero, complemento, bairro, municipio, uf, email FROM Clientes WHERE pk_Cliente = ?");

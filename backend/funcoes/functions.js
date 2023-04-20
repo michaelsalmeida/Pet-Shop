@@ -10,8 +10,8 @@ function executeFunctions(func, idAgen) {
 
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
-    // xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Pega a resposta do servidor
@@ -46,8 +46,8 @@ function queryBanco(tipo) {
     
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, true);
-    // xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=${tipo}${extra}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=${tipo}${extra}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
@@ -64,8 +64,8 @@ function altAnimal() {
 
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);
-    // xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
@@ -90,16 +90,16 @@ function activeModal(id, tipo) {
         <span onclick="document.getElementById('id01').style.display='none'"
                 class="w3-button w3-display-topright">&times;</span>
         ${
-        `<a href = "` + location.origin + `/Pet-Shop/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>`
-        // `<a href = "` + location.origin + `/Pet-Shop/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>`
+        `<a href = "` + location.origin + `/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>`
+        // `<a href = "` + location.origin + `/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>`
         }
         <button onclick="document.getElementById('id01').style.display='none'">Não</button>`;
     } else { // se o botão não passar o tipo Cancelar
         // Busca os detalhes no servidor
         var xhr = new XMLHttpRequest();
         // Executa o arquivo que irá iniciar a função
-        xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
-        // xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
+        xhr.open("GET", location.origin + `/backend/execute.php?function=getDesc&id=${id}`, true);
+        // xhr.open("GET", location.origin + `/backend/execute.php?function=getDesc&id=${id}`, true);
         xhr.onload = function() {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
                 var response = xhr.responseText; // Pega a resposta do servidor
@@ -122,8 +122,8 @@ function apagarFun(func, id) {
 
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
-    // xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Get the response from the server
@@ -136,8 +136,8 @@ function apagarFun(func, id) {
 function activeModalDetalhesFun(id, tipo) {
     document.getElementById("id01").style.display="block"
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
-    // xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=getDesc&id=${id}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=getDesc&id=${id}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText;
@@ -167,8 +167,8 @@ function finalizarConsulta(func, id) {
     extra = `&id=${id}`;
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
-    // xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Get the response from the server
@@ -183,8 +183,8 @@ function inserirDetalhes(func, id) {
     extra = `&id=${id}`;
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
-    // xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Get the response from the server
@@ -197,8 +197,8 @@ function inserirDetalhes(func, id) {
 function activeModalDetalhesFun(id, cliente, animal) {
     document.getElementById("id01").style.display="block"
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
-    // xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=getDesc&id=${id}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=getDesc&id=${id}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText;
@@ -222,8 +222,8 @@ function finalizarConsulta(func, id) {
 
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
-    // xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Get the response from the server
@@ -247,8 +247,8 @@ function meuPerfilCli() {
 function altMeuPerfilCli() {
     var idCli = document.getElementsByName("idCliente")[0].value
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
-    // xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
+    // xhr.open("GET", location.origin + `/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
     xhr.onload = function() {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Get the response from the server

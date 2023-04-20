@@ -17,14 +17,15 @@ require_once $funcoesRoute;
 
 <body onload="altMeuPerfilCli()">
     <?php
-    if (isset($_SESSION['tipo'])){
+    if (isset($_SESSION['tipo'])){ // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
     }
-    if (!loged()) {
+    if (!loged()) { // Verifica se há um usuário logado
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
+        // Se não tiver manda ele para a página de login
         header("Location: " . $loginCliRoute);
     }
-    if (isset($_SESSION['msgMeuPerfilCli'])) {
+    if (isset($_SESSION['msgMeuPerfilCli'])) { // Verifica se há uma mensagem para mostrar
         echo $_SESSION['msgMeuPerfilCli'];
         unset($_SESSION['msgMeuPerfilCli']);
     }
@@ -43,7 +44,7 @@ require_once $funcoesRoute;
         <input type="text" name="sobrenome" readonly required><br><br>
     
         <label for="celular">Celular</label><br>
-        <input type="text" name="celular" pattern="[0-9]{11}" 
+        <input type="text" name="celular" pattern="[0-9]{11}"
         readonly required><br><br>
 
         <label for="cep">CEP</label><br>
