@@ -22,7 +22,7 @@ require_once $funcoesRoute;
 <body>
   
   <div class="contatoHeader">
-    <p>(11) 98253-2481</p>
+    <p>Contate-nos: (11) 98253-2481</p>
     <img src="pages/img-estatico/endereço.svg" alt="">
   </div>
 
@@ -168,7 +168,7 @@ require_once $funcoesRoute;
       </div>
     </div>
 
-    <a href="">Confira</a>
+    <a href="./pages/noticias/noticia3.php">Confira</a>
   </section> 
 
   <footer>

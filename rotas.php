@@ -1,5 +1,5 @@
 <?php
-$root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "" . "/Pet-Shop";
+$root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "" . "/Pet-Shop/";
 // $root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/";
 $rootBack = $root . "backend/";
 $rootBackProc = $rootBack . "processos/";
