@@ -68,8 +68,8 @@
         try {
             // String de preparação
             $stmt = $conn->prepare("INSERT INTO Funcionarios
-            (pk_Funcionario, nome, cpf, profissao, senha)
-            VALUES (default, ?, ?, ?, ?)");
+            (pk_Funcionario, nome, cpf, profissao, senha, ativo)
+            VALUES (default, ?, ?, ?, ?, 'ativo')");
             // Substituição da string preparada pelos valores corretos
             $stmt->bind_param("ssss", $nome, $cpf, $profissao, $hash);
             // Executa o sql

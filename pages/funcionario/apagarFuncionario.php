@@ -46,7 +46,14 @@ if(!isset($_SESSION['tipo'])){
     <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
     <button onclick="queryBanco('gerarTabelaDeleteFun')">Pesquisar</button>
   </div>
-
+  
+  <div>
+    <select name="situacoes" id="situacoes" onchange="queryBanco('gerarTabelaDeleteFun')" required>
+        <option value="" disabled selected hidden>Selecione o tipo de serviço</option>
+        <option value="ativo">Ativo</option>
+        <option value="demitido">Demitido</option>
+    </select>
+  </div>
   
   
 

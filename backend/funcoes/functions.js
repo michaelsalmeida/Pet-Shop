@@ -40,7 +40,8 @@ function queryBanco(tipo) {
         
     } else if (tipo == 'gerarTabelaDeleteFun'){ // Listar funcionário
         var pesq = document.getElementById('pesq').value;
-        var extra = `&pesq=${pesq}`;
+        var filtro = document.getElementById('situacoes').value;
+        var extra = `&pesq=${pesq}&situ=${filtro}`;
     }
     
     var xhr = new XMLHttpRequest();
@@ -115,9 +116,9 @@ function activeModal(id, tipo) {
 }
 
 
-function apagarFun(func, name) {
+function apagarFun(func, id) {
 
-    extra = `&nome=${name}`;
+    extra = `&id=${id}`;
 
 
     var xhr = new XMLHttpRequest();

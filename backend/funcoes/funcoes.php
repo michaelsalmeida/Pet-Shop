@@ -391,14 +391,22 @@
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
         // String de preparação
-        $stmt = $conn->prepare("SELECT nome, cpf, profissao from Funcionarios
+        $stmt = $conn->prepare("SELECT nome, cpf, profissao, pk_Funcionario from Funcionarios
         where nome like ?
-        and profissao != 'admin'");
+        and profissao != 'admin'
+        and ativo = ?");
 
         $pesquisar = "%" . $_GET['pesq'] . "%";
 
+        if ($_GET['situ'] == ''){
+            $situacao = 'ativo';
+        } else {
+            $situacao = $_GET['situ'];
+        }
+        
+
         // Substituição da string preparada pelos valores corretos
-        $stmt->bind_param("s", $pesquisar);
+        $stmt->bind_param("ss", $pesquisar, $situacao);
  
         // Executa o sql
         $stmt->execute();
@@ -423,7 +431,7 @@
                 <td id='nome$cont'>$row[0]</td>
                 <td>$row[1]</td>
                 <td>$row[2]</td>
-                <td><button onclick='apagarFun(`apagarFun`, `$row[0]`)'>Excluir</td>
+                <td><button onclick='apagarFun(`apagarFun`, `$row[3]`)'>Excluir</td>
             </tr>";
             
             $cont += 1;
@@ -437,11 +445,12 @@
         session_start();
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
-        $nome = $_GET['nome'];
+        $id = $_GET['id'];
         
-        $stmt = $conn->prepare("DELETE from Funcionarios where nome = ?");
-
-        $stmt->bind_param("s", $nome);
+        $stmt = $conn->prepare("UPDATE Funcionarios 
+        set ativo = 'demitido'
+        where pk_Funcionario = ?");
+        $stmt->bind_param("s", $id);
 
         $stmt->execute();
 
