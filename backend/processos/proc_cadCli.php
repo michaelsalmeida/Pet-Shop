@@ -79,7 +79,7 @@
         try {
             // String de preparação
             $stmt = $conn->prepare("INSERT INTO Clientes
-            VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'ativo')");
             // Substituição da string preparada pelos valores corretos
             $stmt->bind_param("sssssssssssss",
             $cpf, $nome, $sobrenome, $celular, $cep, $rua, $numero, $complemento, $bairro, $cidade, $uf, $email, $senha);

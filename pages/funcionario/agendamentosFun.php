@@ -61,11 +61,13 @@ require_once $funcoesRoute;
   if ($_SESSION['tipo'] == 'Secretaria'){
     echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a><br><br>";
     echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a><br><br>";
+    echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a><br><br>";
   } elseif ($_SESSION['tipo'] == 'admin') {
     echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a><br><br>";
     echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a><br><br>";
     echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a><br><br>";
-    echo "<a href=" . $apagarFunRoute . ">Apagar Funcionário  </a><br><br>";
+    echo "<a href=" . $listarFunRoute . ">Listar Funcionários</a><br><br>";
+    echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a><br><br>";
   }
   
 

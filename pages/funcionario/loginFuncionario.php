@@ -2,6 +2,11 @@
 session_start();
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexao
+
+if(isset($_SESSION['tipo'])){
+    // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
+    header("Location: " . $homeRoute);
+  }
 ?>
 
 <!DOCTYPE html>
