@@ -8,21 +8,21 @@ $idAni = $_GET['id'];
 
 try {
     // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
-    $stmtAgen = $conn->prepare("DELETE FROM Agendamentos WHERE fk_Animal = ?");
+    $stmtAgen = $conn->prepare("UPDATE Agendamentos SET ativo = 'inativo' WHERE fk_Animal = ?");
     // Substituição da string preparada pelos valores corretos
     $stmtAgen->bind_param("s", $idAni);
     // Executa o sql
     $stmtAgen->execute();
 
-    $stmtAni = $conn->prepare("DELETE FROM Animais WHERE pk_Animal = ?");
+    $stmtAni = $conn->prepare("UPDATE Animais SET ativo = 'inativo' WHERE pk_Animal = ?");
     // Substituição da string preparada pelos valores corretos
     $stmtAni->bind_param("s", $idAni);
     // Executa o sql
     $stmtAni->execute();
 
     $_SESSION['msgExcAnimal'] = "Animal Excluído com Sucesso.";
-    header("Location: ". $animaisCliRoute);
 } catch (Exception $e) {
-    $_SESSION['msgCanAgen'] = "Animal Não Excluído.";
+    $_SESSION['msgExcAnimal'] = "Animal Não Excluído.";
     echo $e->getMessage();
 }
+header("Location: ". $animaisCliRoute);

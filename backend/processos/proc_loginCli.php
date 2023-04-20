@@ -11,7 +11,7 @@ $hash = hash("sha512", $senha);
 
 try {
     // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
-    $stmt = $conn->prepare("SELECT pk_Cliente FROM Clientes WHERE email = ? and senha = ?");
+    $stmt = $conn->prepare("SELECT pk_Cliente FROM Clientes WHERE email = ? AND senha = ? AND ativo = 'ativo'");
     // Substituição da string preparada pelos valores corretos
     $stmt->bind_param("ss", $email, $hash);
     // Executa o sql

@@ -141,9 +141,9 @@
                 $botao = "";
 
                 if ($row[5] == "Marcado") {
-                    $botao = "<button onclick='activeModal($row[6],". '"Cancelar"'.")'>Cancelar</Pet-Shop/button>";
+                    $botao = "<button onclick='activeModal($row[6],". '"Cancelar"'.")'>Cancelar</button>";
                 } elseif ($row[5] == "Concluido") {
-                    $botao = "<button onclick='activeModal($row[6],". '"Detalhes"'.")'>Detalhes</Pet-Shop/button>";
+                    $botao = "<button onclick='activeModal($row[6],". '"Detalhes"'.")'>Detalhes</button>";
                 }
 
                 $tabela = $tabela .
@@ -230,7 +230,7 @@
                     <td>$row[0]</td>
                     <td>$data</td>
                     <td>$row[2]</td>
-                    <td><button type='button' onclick='executeFunctions(". '"fazAgendamentoCli",' . $row[3] . ")'>Agendar</Pet-Shop/button></td>
+                    <td><button type='button' onclick='executeFunctions(". '"fazAgendamentoCli",' . $row[3] . ")'>Agendar</button></td>
                 </tr>";
             }
         }
@@ -324,10 +324,10 @@
         // Pega cada linha da query e monta as linhas da tabela
         foreach($resultado->fetch_all() as $row) {
             // Formata a data
-            $det = "<button onclick='finalizarConsulta(" . '"finalizarConsul"' . ", $row[6])'>Finalizar</Pet-Shop/button>";
+            $det = "<button onclick='finalizarConsulta(" . '"finalizarConsul"' . ", $row[6])'>Finalizar</button>";
             
             if ($row[5] == "Concluido"){
-                $det = "<button onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</Pet-Shop/button>";
+                $det = "<button onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
             }
 
             $data = date('d/m/Y', strtotime($row[1]));
