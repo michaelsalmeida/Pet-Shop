@@ -28,8 +28,7 @@ try {
     $stmt->execute();
 
     $_SESSION['msgCadAnimaisCli'] = "Animal Cadastrado";
-    header("Location: ".$cadAnimaisCliRoute);
 } catch (Exception $e) {
     $_SESSION['msgCadAnimaisCli'] = "Animal Não Cadastrado: <br>". $_SESSION['id'] . $e->getMessage();
-    header("Location: ".$cadAnimaisCliRoute);
 }
+header("Location: ".$cadAnimaisCliRoute);

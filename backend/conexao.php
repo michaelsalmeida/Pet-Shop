@@ -1,9 +1,9 @@
 <?php
 $host = "localhost";
-$user = "root";
-$pass = '';
-// $user = "teste";
-// $pass = 'P4$sword';
+// $user = "root";
+// $pass = '';
+$user = "teste";
+$pass = 'P4$sword';
 $dbname = "petshop";
 
 // Criar a conexao com o Banco de Dados

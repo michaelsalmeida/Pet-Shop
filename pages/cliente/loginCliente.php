@@ -3,7 +3,7 @@ session_start();
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexao
 
-if (isset($_SESSION['tipo'])){
+if (isset($_SESSION['tipo'])){ // Verifica se o usuário logado é um funcionário
     header("Location: " . $agendamentoFunRoute);
 }
 
@@ -70,7 +70,7 @@ if (isset($_SESSION['tipo'])){
                 <input type="submit" value="Entrar">
 
                 <?php
-                if (isset($_SESSION['msglogin'])) {
+                if (isset($_SESSION['msglogin'])) { // Verifica se há uma mensagem para mostrar
                     echo "<p>" . $_SESSION['msglogin'] . "</p>";
                     unset($_SESSION['msglogin']);
                 }

@@ -5,7 +5,7 @@ include_once($connRoute); // Inclui o arquivo de conexão
 
 try {
     $idCli = $_POST['idCliente'];
-    // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
+    // Altera os dados do cliente de acordo com o que o usuário alterar.
     $stmtCli = $conn->prepare("UPDATE Clientes SET cpf = ?, nome = ?, sobrenome = ?, celular = ?, cep = ?,
     logradouro = ?, numero = ?, complemento = ?, bairro = ?, municipio = ?, uf = ?, email = ? WHERE pk_Cliente = ?");
     // Substituição da string preparada pelos valores corretos

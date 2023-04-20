@@ -38,15 +38,16 @@ require_once $funcoesRoute;
 <body onload="queryBanco('gerarTabelaAgenCli')">
     <?php
 
-    if (isset($_SESSION['tipo'])) {
+    if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
     }
 
-    if (!loged()) {
+    if (!loged()) { // Verifica se há um usuário logado
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
+        // Se não tiver manda ele para a página de login
         header("Location: " . $loginCliRoute);
     }
-    if (isset($_SESSION['msgAgendamentoCli'])) {
+    if (isset($_SESSION['msgAgendamentoCli'])) { // Verifica se há uma mensagem para mostrar
         echo "<p>" . $_SESSION['msgAgendamentoCli'] . "<?p>";
         unset($_SESSION['msgAgendamentoCli']);
     }

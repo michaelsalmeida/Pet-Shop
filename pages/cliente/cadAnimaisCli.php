@@ -43,14 +43,15 @@ require_once $funcoesRoute;
 
     <?php
 
-    if (isset($_SESSION['tipo'])) {
+    if (isset($_SESSION['tipo'])){ // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
     }
-    if (!loged()) {
+    if (!loged()) { // Verifica se há um usuário logado
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
+        // Se não tiver manda ele para a página de login
         header("Location: " . $loginCliRoute);
     }
-    if (isset($_SESSION['msgCadAnimaisCli'])) {
+    if (isset($_SESSION['msgCadAnimaisCli'])) { // Verifica se há uma mensagem para mostrar
         echo $_SESSION['msgCadAnimaisCli'];
         unset($_SESSION['msgCadAnimaisCli']);
     }

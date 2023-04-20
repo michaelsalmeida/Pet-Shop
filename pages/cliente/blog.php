@@ -36,8 +36,10 @@ require_once $funcoesRoute;
                 <?php
                 if (loged()) {
                     if (isset($_SESSION['tipo'])) {
+                        // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
                         header("Location: " . $agendamentoFunRoute);
                     } else {
+                        // Esses botões só aparecem quando o usuário estive logado
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
@@ -45,6 +47,7 @@ require_once $funcoesRoute;
                         <a href='$meuPerfilCliRoute'>Meu Perfil</a>";
                     }
                 } else {
+                    // Esses botões aparecem se o usuário não estiver logado
                     echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
@@ -159,11 +162,8 @@ require_once $funcoesRoute;
                     </div>
 
                 </div>
-            </a> 
+            </a>
         </section>
-
-
-
     </div>
 
 
@@ -215,9 +215,6 @@ require_once $funcoesRoute;
 
         </div>
 
-
-
-
     </section>
 
     <footer>
@@ -240,13 +237,6 @@ require_once $funcoesRoute;
 
         <p>© Hamtaro Petshop todos direitos reservados</p>
     </footer>
-
-
-
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

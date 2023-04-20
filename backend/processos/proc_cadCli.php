@@ -79,8 +79,7 @@
         try {
             // String de preparação
             $stmt = $conn->prepare("INSERT INTO Clientes
-            (pk_Cliente, cpf, nome, sobrenome, celular, cep, logradouro, numero, complemento, bairro, municipio, uf, email, senha)
-            VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             // Substituição da string preparada pelos valores corretos
             $stmt->bind_param("sssssssssssss",
             $cpf, $nome, $sobrenome, $celular, $cep, $rua, $numero, $complemento, $bairro, $cidade, $uf, $email, $senha);
