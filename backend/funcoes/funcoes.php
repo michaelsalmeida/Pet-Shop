@@ -39,14 +39,14 @@
         $resultado = $stmt->get_result();
 
         // String que será retornada na tabela
-        $tabela = "<tr>
+        $tabela = "<thead><tr>
             <th>Nome</th>
             <th>Data de Nascimento</th>
             <th>Raça</th>
             <th>Peso</th>
             <th>Alterar</th>
             <th>Excluir</th>
-        </tr>";
+        </tr></thead>";
         
         if (mysqli_num_rows($resultado) == 0) {
             $tabela = $tabela . "
@@ -66,9 +66,9 @@
                     <td>$row[2]</td>
                     <td>$row[3] Kg</td>
                     <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/altAnimal.php?id="
-                    . $row[4] ."'>Alterar</a></td>
+                    . $row[4] ."'><i class='bi bi-pencil-square'></i></a></td>
                     <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/backend/processos/proc_excAnimal.php?id="
-                    . $row[4] ."'>Excluir</a></td>
+                    . $row[4] ."'><i class='bi bi-trash'></i></a></td>
                 </tr>";
             }
         }

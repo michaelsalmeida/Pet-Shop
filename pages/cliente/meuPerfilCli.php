@@ -41,7 +41,7 @@ require_once $funcoesRoute;
         </a>
 
         <div class="responsive">
-            <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
@@ -67,10 +67,7 @@ require_once $funcoesRoute;
                     echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
-                // if (isset($_SESSION['msgRotaProibidaCli'])){
-                //   echo $_SESSION['msgRotaProibidaCli'];
-                //   unset($_SESSION['msgRotaProibidaCli']);
-                // }
+               
 
                 ?>
             </div>
