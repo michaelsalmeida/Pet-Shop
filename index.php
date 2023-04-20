@@ -49,14 +49,14 @@ require_once $funcoesRoute;
                     } else {
                         // Esses botões só aparecem quando o usuário estive logado
                         echo "
-              <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
-              <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-              <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
-              <a href='$meuPerfilCliRoute'>Meu Perfil</a>";
+                        <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+                        <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>";
                     }
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
-                    echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
+                    echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
                 // if (isset($_SESSION['msgRotaProibidaCli'])){
