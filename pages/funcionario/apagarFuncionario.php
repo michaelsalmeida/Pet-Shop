@@ -41,6 +41,7 @@ if(!isset($_SESSION['tipo'])){
 
 
     <button onclick="executeFunctions('logoff', '')">Sair</button>
+    <a href = "<?php echo $agendamentoFunRoute; ?>">Voltar</a>
 
   <div>
     <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
@@ -49,7 +50,7 @@ if(!isset($_SESSION['tipo'])){
   
   <div>
     <select name="situacoes" id="situacoes" onchange="queryBanco('gerarTabelaDeleteFun')" required>
-        <option value="" disabled selected hidden>Selecione o tipo de serviço</option>
+        <option value="" disabled selected hidden>Selecione a situação</option>
         <option value="ativo">Ativo</option>
         <option value="demitido">Demitido</option>
     </select>
