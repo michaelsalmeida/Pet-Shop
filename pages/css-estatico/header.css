@@ -102,6 +102,8 @@ header .acesso a, footer .acesso a{
   background-color: #6E29FF;
   padding: 5px 15px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
 }
 
 footer{

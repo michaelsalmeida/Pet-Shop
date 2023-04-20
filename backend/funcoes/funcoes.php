@@ -1,7 +1,7 @@
 <?php
     function loged() {
+        // Verifica se o usuário está logado~
         session_start();
-        // Verifica se o usuário está logado
         if (isset($_SESSION['tipo'])) {
             return isset($_SESSION['loggedinFun']) && $_SESSION['loggedinFun'];
         } else {
@@ -29,7 +29,8 @@
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
         // String de preparação
-        $stmt = $conn->prepare("SELECT nome, data_nascimento, raca, peso, pk_Animal FROM Animais WHERE fk_Cliente = ? ORDER BY nome");
+        $stmt = $conn->prepare("SELECT nome, data_nascimento, raca, peso, pk_Animal 
+        FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome");
         // Substituição da string preparada pelos valores corretos
         $stmt->bind_param("s", $_SESSION['idCli']);
         // Executa o sql
@@ -38,19 +39,19 @@
         $resultado = $stmt->get_result();
 
         // String que será retornada na tabela
-        $tabela = "<tr>
+        $tabela = "<thead><tr>
             <th>Nome</th>
             <th>Data de Nascimento</th>
             <th>Raça</th>
             <th>Peso</th>
             <th>Alterar</th>
             <th>Excluir</th>
-        </tr>";
+        </tr></thead>";
         
         if (mysqli_num_rows($resultado) == 0) {
             $tabela = $tabela . "
             <tr>
-                <td colspan=4>Não há animais cadastrados</td>
+                <td colspan=6>Não há animais cadastrados</td>
             </tr>
             ";
         } else {
@@ -64,10 +65,10 @@
                     <td>$data</td>
                     <td>$row[2]</td>
                     <td>$row[3] Kg</td>
-                    <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/altAnimal.php?id="
-                    . $row[4] ."'>Alterar</a></td>
+                    <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/altAnimal.php?id="
+                    . $row[4] ."'><i class='bi bi-pencil-square'></i></a></td>
                     <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/backend/processos/proc_excAnimal.php?id="
-                    . $row[4] ."'>Excluir</a></td>
+                    . $row[4] ."'><i class='bi bi-trash'></i></a></td>
                 </tr>";
             }
         }
@@ -339,7 +340,7 @@
 
             } elseif ($row[5] == "Concluido" && $row[3] != ''){
 
-                $det = "<button onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</Pet-Shop/button>";
+                $det = "<button onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
             } 
 
             $data = date('d/m/Y', strtotime($row[1]));
