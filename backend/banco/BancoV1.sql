@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Funcionarios` (
   `cpf` CHAR(11) NOT NULL UNIQUE,
   `profissao` ENUM('Veterinario', 'Secretaria', 'Esteticista', 'admin') NOT NULL,
   `senha` VARCHAR(250) NOT NULL,
-  `ativo` ENUM('ativo', 'inativo'),
+  `ativo` ENUM('ativo', 'demitido'),
   PRIMARY KEY (`pk_Funcionario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
