@@ -90,7 +90,17 @@ require_once $funcoesRoute;
   <button onclick="executeFunctions('logoff', '')">Sair</button>
 
   <div>
-    <input type="text" placeholder="Pesquise por um cliente" id="pesq">
+    <select name="status" id="status" onchange="queryBanco('gerarTabelaAgenFun')" required>
+        <option value="" disabled selected hidden>Selecione o status</option>
+        <option value="Disponivel">Disponivel</option>
+        <option value="Marcado">Marcado</option>
+        <option value="Concluido">Concluido</option>
+        <option value="Cancelado">Cancelado</option>
+    </select>
+  </div>
+
+  <div>
+    <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
     <button onclick="queryBanco('gerarTabelaAgenFun')">Pesquisar</button>
   </div>
 

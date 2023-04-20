@@ -36,7 +36,8 @@ function queryBanco(tipo) {
         
     } else if (tipo == 'gerarTabelaAgenFun'){ // Puxar os agendamentos para o funcionário
         var pesq = document.getElementById('pesq').value;
-        var extra = `&pesq=${pesq}`;
+        var filtro = document.getElementById('status').value;
+        var extra = `&pesq=${pesq}&status=${filtro}`;
         
     } else if (tipo == 'gerarTabelaDeleteFun'){ // Listar funcionário
         var pesq = document.getElementById('pesq').value;

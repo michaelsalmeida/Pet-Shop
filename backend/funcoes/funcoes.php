@@ -271,6 +271,12 @@
         require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
 
+        $status = $_GET['status'];
+
+        if ($status == ''){
+            $status = 'Marcado';
+        }
+
         if ($_SESSION['tipo'] == 'Veterinario' || $_SESSION['tipo'] == 'Esteticista'){
 
             // String de preparação
@@ -283,11 +289,12 @@
             ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
             WHERE fk_Funcionario = ?
             AND Funcionarios.nome LIKE ?
+            AND `status` = ?
             ORDER BY data_agendamento, horario_agendamento");
 
             $pesquisar = "%" . $_GET['pesq'] . "%";
              // Substituição da string preparada pelos valores corretos
-            $stmt->bind_param("ss", $_SESSION['idFun'], $pesquisar);
+            $stmt->bind_param("sss", $_SESSION['idFun'], $pesquisar, $status);
 
         } else {
             $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status`, pk_Agendamento from Agendamentos
@@ -298,10 +305,11 @@
             INNER JOIN Funcionarios
             ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
             WHERE Funcionarios.nome LIKE ?
+            AND `status` = ?
             ORDER BY data_agendamento, horario_agendamento");
 
             $pesquisar = "%" . $_GET['pesq'] . "%";
-            $stmt->bind_param("s", $pesquisar);
+            $stmt->bind_param("ss", $pesquisar, $status);
         }
  
         // Executa o sql
@@ -326,9 +334,13 @@
             // Formata a data
             $det = "<button onclick='finalizarConsulta(" . '"finalizarConsul"' . ", $row[6])'>Finalizar</button>";
             
-            if ($row[5] == "Concluido"){
-                $det = "<button onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
-            }
+            if ($row[3] == ''){
+                $det = '';
+
+            } elseif ($row[5] == "Concluido" && $row[3] != ''){
+
+                $det = "<button onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</Pet-Shop/button>";
+            } 
 
             $data = date('d/m/Y', strtotime($row[1]));
             $tabela = $tabela .
