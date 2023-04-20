@@ -93,6 +93,7 @@ require_once $funcoesRoute;
         <label for="dataAgen">Data de Agendamento</label><br>
         <input type="date" id="dataAgen" onchange="queryBanco('gerarTabelaFazAgenCli')"><br><br>
 
+        <input type="reset" value="Limpar">
         <table id="fazAgend"></table>
     </form>
 

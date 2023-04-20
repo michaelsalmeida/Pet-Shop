@@ -128,10 +128,12 @@ insert into Animais values
 (default, 1, 'Tobias', '2023-01-01', 'dragao', 'komodo', '45', 'rosa', '2023-04-11', 'ativo');
 
 insert into Agendamentos values
-(default, 2, 1, '2023-04-11', '16:40', 'Em_Andamento', null, 'Veterinário', 'ativo'),
-(default, 2, 1, '2023-04-11', '16:40', 'Concluido', 'teste de descrição', 'Veterinário', 'ativo'),
-(default, 2, 1, '2023-04-11', '16:40', 'Marcado', null, 'Veterinário', 'ativo'),
-(default, 2, null, '2023-04-11', '16:40', 'Disponivel', null, 'Veterinário', 'ativo');
+(default, 2, 1, '2023-03-11', '11:40', 'Em_Andamento', null, 'Veterinário', 'ativo'),
+(default, 2, 1, '2023-04-12', '15:40', 'Concluido', 'teste de descrição', 'Veterinário', 'ativo'),
+(default, 2, 1, '2023-05-11', '14:40', 'Marcado', null, 'Veterinário', 'ativo');
+
+insert into Agendamentos values
+(default, 2, null, '2022-04-11', '11:40', 'Disponivel', null, 'Veterinário', 'ativo');
 
 select * from Animais;
 select * from Clientes;
