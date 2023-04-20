@@ -79,6 +79,7 @@ require_once $funcoesRoute;
     <button onclick="meuPerfilCli()">Alterar</button>
     <a href="<?php echo $homeRoute;?>">Voltar</a>
     <button onclick="executeFunctions('logoff', '')">Sair</button>
+    <a href="<?php echo $procExcCliRoute . "?id=" . $_SESSION["idCli"];?>">Apagar Conta</a>
 
 
     <script src="<?php echo $dataHojeRoute; ?>"></script>

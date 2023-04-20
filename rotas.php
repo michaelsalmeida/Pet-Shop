@@ -1,5 +1,5 @@
 <?php
-$root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop" . "/";
+$root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "" . "/Pet-Shop";
 // $root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/";
 $rootBack = $root . "backend/";
 $rootBackProc = $rootBack . "processos/";
@@ -7,8 +7,8 @@ $rootBackFunctions = $rootBack . "funcoes/";
 $rootFront = $root . "pages/";
 $rootCliPages = $rootFront . "cliente/";
 $rootFunPages = $rootFront . "funcionario/";
-$connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/Backend/conexao.php';
-// $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php';
+$connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php';
+// $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php';
 
 // ----------------------    Rotas Estáticas    -----------------------------
 
@@ -56,6 +56,7 @@ $procLoginCliRoute = $rootBackProc . "proc_loginCli.php";
 $procLoginFunRoute = $rootBackProc . "proc_loginFun.php";
 $procCadCliRoute = $rootBackProc . "proc_cadCli.php";
 $proc_altCliRoute = $rootBackProc . "proc_altCli.php";
+$procExcCliRoute = $rootBackProc . "proc_excCliente.php";
 $proc_cadAnimalRoute = $rootBackProc . "proc_cadAnimal.php";
 $proc_altAnimalCliRoute = $rootBackProc . "proc_altAnimal.php";
 $procExcAnimalRoute = $rootBackProc . "proc_excAnimal.php";
@@ -75,7 +76,7 @@ $aaa = $rootBackFunctions . "aaa.js";
 
 
 $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.php";
-// $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/backend/funcoes/funcoes.php";
+// $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.php";
 
 //30785213031
 //51805990080
