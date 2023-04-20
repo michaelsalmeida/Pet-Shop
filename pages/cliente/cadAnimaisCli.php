@@ -43,7 +43,7 @@ require_once $funcoesRoute;
 
     <?php
 
-    if (isset($_SESSION['tipo'])){ // Verifica se o usuário logado é um funcionário
+    if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
     }
     if (!loged()) { // Verifica se há um usuário logado
@@ -57,25 +57,41 @@ require_once $funcoesRoute;
     }
     ?>
     <form action="<?php echo $proc_cadAnimalRoute; ?>" method="post">
-        <h1>CADASTRO DE ANIMAIS</h1>
+        <img class="iconCachorro" src="../img-estatico/iconCachorro.svg" alt="">
 
-        <label for="nome">Nome</label><br>
-        <input type="text" name="nome">
+        <h1>CADASTRE SEU PET EM NOSSO SISTEMA!</h1>
 
-        <label for="dataNasc">Data de Nascimento </label><br>
-        <input type="date" name="dataNasc">
+        <fieldset>
+            <div>
+                <label for="nome">Nome</label><br>
+                <input type="text" name="nome">
+            </div>
 
-        <label for="espec">Espécie</label><br>
-        <input type="text" name="espec">
+            <div>
+                <label for="dataNasc">Data de Nascimento </label><br>
+                <input type="date" name="dataNasc">
+            </div>
 
-        <label for="raca">Raça</label><br>
-        <input type="text" name="raca">
+            <div>
+                <label for="espec">Espécie</label><br>
+                <input type="text" name="espec">
+            </div>
 
-        <label for="peso">Peso (Kg)</label><br>
-        <input type="number" name="peso" step=0.01 pattern="[0-9]*">
+            <div>
+                <label for="raca">Raça</label><br>
+                <input type="text" name="raca">
+            </div>
 
-        <label for="cor">Cor</label><br>
-        <input type="text" name="cor">
+            <div>
+                <label for="peso">Peso (Kg)</label><br>
+                <input type="number" name="peso" step=0.01 pattern="[0-9]*">
+            </div>
+
+            <div>
+                <label for="cor">Cor</label><br>
+                <input type="text" name="cor">
+            </div>
+        </fieldset>
 
         <input type="submit" value="Cadastrar">
     </form>

@@ -16,25 +16,7 @@ require_once $funcoesRoute;
 
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/agendamentoCliente.css">
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-            text-align: center;
-        }
-
-        tr:nth-child(odd) {
-            background-color: #dddddd;
-        }
-    </style>
+    
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
@@ -56,13 +38,13 @@ require_once $funcoesRoute;
                 <button onclick="executeFunctions('logoff', '')">Sair</button>
             </div>
         </div>
-        
+
         <img src="../img-estatico/menu.png" class="menu" alt="menu">
     </header>
 
     <?php
 
-    if (isset($_SESSION['tipo'])){ // Verifica se o usuário logado é um funcionário
+    if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
     }
     if (!loged()) { // Verifica se há um usuário logado
@@ -77,23 +59,40 @@ require_once $funcoesRoute;
     ?>
 
     <form>
-        <h1>AGENDAMENTO</h1>
+        <img class="iconAgenda" src="../img-estatico/iconAgenda.svg" alt="">
 
-        <label for="animais">Animal a ser tratado: </label><br>
-        <select name="animais" id="animais" required></select><br><br>
+        <h1>FAÇA O AGENDAMENTO DA CONSULTA DO SEU PET!</h1>
 
-        <label for="nome">Tipo de Agendamento</label><br>
-        <select name="tipoAgen" id="tipoAgen" onchange="queryBanco('gerarTabelaFazAgenCli')">
-            <option value="" disabled selected hidden>Selecione o tipo de Agendamento</option>
-            <option value="Banho">Banho</option>
-            <option value="Tosa">Tosa</option>
-            <option value="Veterinário">Veterinário</option>
-        </select><br><br>
+        <fieldset class="field1">
+            <div>
+                <label for="animais">Animal a ser tratado: </label><br>
+                <select name="animais" id="animais" required></select><br><br>
+            </div>
 
-        <label for="dataAgen">Data de Agendamento</label><br>
-        <input type="date" id="dataAgen" onchange="queryBanco('gerarTabelaFazAgenCli')"><br><br>
+            <div>
+                <label for="nome">Tipo de Agendamento</label><br>
+                <select name="tipoAgen" id="tipoAgen" onchange="queryBanco('gerarTabelaFazAgenCli')">
+                    <option value="" disabled selected hidden>Selecione o tipo de Agendamento</option>
+                    <option value="Banho">Banho</option>
+                    <option value="Tosa">Tosa</option>
+                    <option value="Veterinário">Veterinário</option>
+                </select><br><br>
+            </div>
+        </fieldset>
 
-        <input type="reset" value="Limpar">
+        <fieldset class="field2">
+            <div>
+                <label for="dataAgen">Data de Agendamento</label><br>
+                <input type="date" id="dataAgen" onchange="queryBanco('gerarTabelaFazAgenCli')"><br><br>
+            </div>
+            
+            <div>
+                <button class="btnReset" type="reset">
+                    <img src="../img-estatico/lixo.svg" alt="">
+                </button>
+            </div>
+        </fieldset>
+            
         <table id="fazAgend"></table>
     </form>
 
