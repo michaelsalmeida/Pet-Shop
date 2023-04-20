@@ -366,7 +366,7 @@
 
         $prof = $_GET['servico'];
 
-        $stmt = $conn->prepare("SELECT nome, pk_Funcionario FROM Funcionarios WHERE profissao = ? ORDER BY nome");
+        $stmt = $conn->prepare("SELECT nome, pk_Funcionario FROM Funcionarios WHERE profissao = ? and ativo = 'ativo' ORDER BY nome");
 
         $stmt->bind_param("s", $prof);
 
@@ -408,7 +408,7 @@
         // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
         // String de preparação
-        $stmt = $conn->prepare("SELECT nome, cpf, profissao, pk_Funcionario FROM Funcionarios
+        $stmt = $conn->prepare("SELECT nome, cpf, profissao, pk_Funcionario, ativo FROM Funcionarios
         WHERE nome LIKE ?
         AND profissao != 'admin'
         AND ativo = ?");
@@ -436,19 +436,24 @@
             <th>Nome</th>
             <th>Cpf</th>
             <th>Profissão</th>
-            <th>Excluir</th>
+            <th>Demitir</th>
         </tr>";
 
         $cont = 1;
         
         // Pega cada linha da query e monta as linhas da tabela
         foreach($resultado->fetch_all() as $row) {
+        $button = "<button onclick='apagarFun(`apagarFun`," . $row[3] . ")'>Demitir";
+
+            if ($row[4] == 'demitido'){
+                $button = '<p>demitido</p>';
+            }
             $tabela = $tabela .
             "<tr>
                 <td id='nome$cont'>$row[0]</td>
                 <td>$row[1]</td>
                 <td>$row[2]</td>
-                <td><button onclick='apagarFun(`apagarFun`, `$row[3]`)'>Excluir</td>
+                <td>$button</td>
             </tr>";
             
             $cont += 1;
@@ -457,6 +462,8 @@
         $retornar = array('tabela', $tabela);
         return json_encode($retornar);
     }
+
+
 
     function apagarFuncionario(){
         session_start();
@@ -507,4 +514,34 @@
 
         header('Content-Type: application/json');
         return json_encode($data);
+    }
+
+
+    function animais(){
+        session_start();
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+
+        $prof = $_GET['cpf'];
+
+        $stmt = $conn->prepare("SELECT pk_Cliente from Clientes
+        where cpf = ?");
+
+        $stmt->bind_param("s", $cpf);
+
+        // Executa o sql
+        $stmt->execute();
+
+        // Pega o resultado do banco
+        $resultado = $stmt->get_result();
+
+
+        $tabela = "<option value='' disabled selected hidden>Selecione um animal</option>";
+
+        foreach($resultado->fetch_all() as $row){
+            $tabela = $tabela . "<option value='$row[0]'>$row[0]</option>";
+        }
+
+        $retornar = array('profissionais', $tabela);
+        return json_encode($retornar);
     }

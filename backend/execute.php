@@ -47,4 +47,7 @@ switch ($_GET['function']) {
     case 'altMeuPerfilCli':
         echo altMeuPerfilCli();
         break;
+    case 'animais':
+        echo animais();
+        break;
 }
