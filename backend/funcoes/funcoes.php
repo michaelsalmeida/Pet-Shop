@@ -1,7 +1,6 @@
 <?php
 function loged()
 {
-    session_start();
     // Verifica se o usuário está logado
     if (isset($_SESSION['tipo'])) {
         return isset($_SESSION['loggedinFun']) && $_SESSION['loggedinFun'];
