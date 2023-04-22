@@ -11,7 +11,7 @@ function loged()
 
 function logoff()
 {
-    session_start();
+    
     // Desloga o usuário
     if (isset($_SESSION['tipo'])) {
         unset($_SESSION['loggedinFun']);
@@ -26,7 +26,7 @@ function logoff()
 
 function gerarTabelaAni()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     // String de preparação
@@ -97,7 +97,7 @@ function altAnimal()
 
 function gerarTabelaAgenCli()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     // String de preparação
@@ -167,7 +167,7 @@ function gerarTabelaAgenCli()
 
 function checkAnimais()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? ORDER BY nome");
@@ -195,7 +195,7 @@ function checkAnimais()
 
 function gerarTabelaFazAgenCli()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     // String de preparação
@@ -249,7 +249,7 @@ function gerarTabelaFazAgenCli()
 
 function fazAgendamentoCli()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     if ($_GET['idAni'] != 0) {
@@ -276,7 +276,7 @@ function fazAgendamentoCli()
 
 function gerarTabelaAgenFun()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     $status = $_GET['status'];
@@ -369,7 +369,7 @@ function gerarTabelaAgenFun()
 
 function profissionais()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     $prof = $_GET['servico'];
@@ -396,7 +396,7 @@ function profissionais()
 
 function getDesc()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     $id = $_GET['id'];
@@ -412,7 +412,7 @@ function getDesc()
 
 function gerarTabelaDeleteFun()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     // String de preparação
@@ -473,7 +473,7 @@ function gerarTabelaDeleteFun()
 
 function update($table, $set, $where, $param)
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     $stmt = $conn->prepare("UPDATE $table
@@ -486,7 +486,7 @@ function update($table, $set, $where, $param)
 
 function apagarFuncionario()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     $id = $_GET['id'];
@@ -503,7 +503,7 @@ function apagarFuncionario()
 
 function finalizarConsul()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     $id = $_GET['id'];
@@ -540,7 +540,7 @@ function altMeuPerfilCli()
 
 function animais()
 {
-    session_start();
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     $prof = $_GET['cpf'];
