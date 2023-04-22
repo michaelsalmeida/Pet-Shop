@@ -34,9 +34,7 @@
     color: #8C52FF;
     text-transform: uppercase;
     font-size: 24px;
-    font-weight: 700;
-    text-align: left;
-    
+    font-weight: 700;    
 }
 
 .box-maior-input{
@@ -61,13 +59,25 @@
     width: 100px;
 }
 
-
 .box-input input{
+    border: 2px solid #43C07D;
+    color: #43C07D;
     height: 40px;
     width: 400px;
     padding: 0 10px;
     border-radius: 5px;
-    border: 2px solid #403F3F;
+    outline: #27cb74;
+    
+}
+
+.box-input input[readonly] {
+    height: 40px;
+    width: 400px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 2px solid #8c8c8c;
+    color: #8c8c8c;
+    cursor: not-allowed;
 }
 
 .box-maior-input .box-botao{
@@ -139,6 +149,13 @@
 }
 
 @media (max-width:600px) {
+    .informacoes-pessoais{
+        display: block;
+    }
+
+    h2{
+        text-align: center;
+    }
     .box-input input{
         width: auto;
     }

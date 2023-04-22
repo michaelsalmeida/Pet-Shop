@@ -41,7 +41,9 @@ require_once $funcoesRoute;
         </a>
 
         <div class="responsive">
+
             <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
@@ -89,7 +91,7 @@ require_once $funcoesRoute;
 
         <div class="informacoes-pessoais container">
 
-            <h2 class="text-left">Informações Pessoais</h2>
+            <h2>Informações Pessoais</h2>
 
             <div class="box-maior-input">
 
@@ -154,7 +156,7 @@ require_once $funcoesRoute;
                 </div>
 
                 <div class="box-input">
-                    <label for="log">Logradouro</label>
+                    <label for="log">Logradouro <i class="bi bi-file-lock2"></i></label>
                     <input type="text" name="log" readonly required>
                 </div>
 
@@ -177,19 +179,19 @@ require_once $funcoesRoute;
 
             <div class="box-maior-input">
                 <div class="box-input">
-                    <label for="bairro">Bairro</label>
+                    <label for="bairro">Bairro <i class="bi bi-file-lock2"></i></label>
                     <input type="text" name="bairro" readonly required>
                 </div>
 
                 <div class="box-input">
-                    <label for="cid">Munícipio</label>
+                    <label for="cid">Munícipio <i class="bi bi-file-lock2"></i></label>
                     <input type="text" name="cid" readonly required>
                 </div>
             </div>
 
             <div class="box-maior-input">
                 <div class="box-input">
-                    <label for="uf">UF</label>
+                    <label for="uf">UF <i class="bi bi-file-lock2"></i></label>
                     <input type="text" name="uf" readonly required>
                 </div>
                 <div class="box-input box-botao">
@@ -223,6 +225,7 @@ require_once $funcoesRoute;
     <script src="<?php echo $functionsRoute; ?>"></script>
     <script src="<?php echo $viacepRoute; ?>"></script>
     <script src="../script.js"></script>
+
 </body>
 
 </html>
