@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include_once("../../rotas.php");
 include_once($connRoute);
 require_once $funcoesRoute;

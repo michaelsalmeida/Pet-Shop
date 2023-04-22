@@ -1,7 +1,7 @@
 <?php
 include_once("../../rotas.php");
 include_once($connRoute);
-session_start();
+
 
 if (isset($_SESSION['msgCadFun'])) {
     echo $_SESSION['msgCadFun'];
