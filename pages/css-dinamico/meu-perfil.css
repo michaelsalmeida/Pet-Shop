@@ -67,7 +67,7 @@
     padding: 0 10px;
     border-radius: 5px;
     outline: #27cb74;
-    
+
 }
 
 .box-input input[readonly] {
@@ -156,7 +156,7 @@
     h2{
         text-align: center;
     }
-    .box-input input{
+    .box-input input, .box-input input[readonly]{
         width: auto;
     }
 
