@@ -16,7 +16,7 @@ try {
     );
     // Executa o sql
     $stmtCli->execute();
-    header("Location: " . $meuPerfilCliRoute);
 } catch (Exception $e) {
     echo $e->getMessage();
 }
+header("Location: " . $meuPerfilCliRoute);

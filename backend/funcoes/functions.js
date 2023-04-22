@@ -161,14 +161,18 @@ function activeModalDetalhesFun(id, tipo) {
     xhr.send();
 }
 
-function meuPerfilCli() {
+function meuPerfilCliPes() {
     document.getElementsByName("nome")[0].removeAttribute("readonly")
     document.getElementsByName("sobrenome")[0].removeAttribute("readonly")
     document.getElementsByName("celular")[0].removeAttribute("readonly")
+    document.getElementsByName("email")[0].removeAttribute("readonly")
+    document.getElementsByName("conf")[0].removeAttribute("hidden")
+}
+
+function meuPerfilCliEnd() {
     document.getElementsByName("cep")[0].removeAttribute("readonly")
     document.getElementsByName("num")[0].removeAttribute("readonly")
     document.getElementsByName("comp")[0].removeAttribute("readonly")
-    document.getElementsByName("email")[0].removeAttribute("readonly")
     document.getElementsByName("conf")[0].removeAttribute("hidden")
 }
 

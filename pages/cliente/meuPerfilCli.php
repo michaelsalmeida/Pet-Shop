@@ -68,8 +68,6 @@ require_once $funcoesRoute;
                     echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
-
-
                 ?>
             </div>
         </div>
@@ -79,14 +77,10 @@ require_once $funcoesRoute;
 
 
     <div class="informacoes-superior">
-
-
         <img src="../img-dinamico/icone-meu-perfil.svg" alt="ícone do meu perfil">
 
         <h1>MEU PERFIL</h1>
         <p>Gerencie suas informações</p>
-
-
     </div>
 
     <form action="<?php echo $proc_altCliRoute; ?>" method="post">
@@ -136,7 +130,7 @@ require_once $funcoesRoute;
 
                 <div class="box-input box-botao">
                     <label>Clique para alterar</label>
-                    <button onclick="meuPerfilCli()">Alterar</button>
+                    <button type="button" onclick="meuPerfilCliPes()">Alterar</button>
                 </div>
 
             </div>
@@ -153,7 +147,7 @@ require_once $funcoesRoute;
 
                 <div class="box-input">
                     <label for="cep">CEP</label>
-                    <input type="text" name="cep" onblur="pesquisacep(this.value)" readonly required>
+                    <input type="text" name="cep" onchange="pesquisacep(this.value)" readonly required>
                 </div>
 
                 <div class="box-input">
@@ -197,13 +191,11 @@ require_once $funcoesRoute;
                 </div>
                 <div class="box-input box-botao">
                     <label>Clique para alterar</label>
-                    <button onclick="meuPerfilCli()">Alterar</button>
+                    <button type="button" onclick="meuPerfilCliEnd()">Alterar</button>
                 </div>
             </div>
 
         </div>
-
-
 
         <input type="submit" value="Confirmar" name="conf" hidden>
     </form>
