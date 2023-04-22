@@ -28,6 +28,6 @@ try {
 
     $_SESSION['msgCadAnimaisCli'] = "Animal Cadastrado";
 } catch (Exception $e) {
-    $_SESSION['msgCadAnimaisCli'] = "Animal Não Cadastrado: <br>". $_SESSION['id'] . $e->getMessage();
+    $_SESSION['msgCadAnimaisCli'] = "Animal Não Cadastrado: <br>" . $_SESSION['id'] . $e->getMessage();
 }
-header("Location: ".$cadAnimaisCliRoute);
+header("Location: " . $cadAnimaisCliRoute);

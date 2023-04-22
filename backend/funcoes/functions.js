@@ -12,7 +12,7 @@ function executeFunctions(func, id) {
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
     xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=${func}${extra}`, true);
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Pega a resposta do servidor
             location.href = response; // Segue a url voltada do servidor
@@ -27,7 +27,7 @@ function inserirDetalhes(func, id) {
 
     var xhr = new XMLHttpRequest();
     xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=${func}${extra}`, true);
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Get the response from the server
             location.href = response; // Log the response to the console
@@ -37,7 +37,7 @@ function inserirDetalhes(func, id) {
 }
 
 function queryBanco(tipo) {
-    
+
     // Define as variaveis necessárias no caso da função for acionada...
     extra = "";
     if (tipo == 'profissionais') { // para puxar os funcionários
@@ -48,28 +48,28 @@ function queryBanco(tipo) {
         var tipoAgen = document.getElementById('tipoAgen').value
         var data = document.getElementById('dataAgen').value
         var extra = `&tipo=${tipoAgen}&data=${data}`;
-        
-    } else if (tipo == 'gerarTabelaAgenFun'){ // Puxar os agendamentos para o funcionário
+
+    } else if (tipo == 'gerarTabelaAgenFun') { // Puxar os agendamentos para o funcionário
         var pesq = document.getElementById('pesq').value;
         var filtro = document.getElementById('status').value;
         var extra = `&pesq=${pesq}&status=${filtro}`;
-        
-    } else if (tipo == 'gerarTabelaDeleteFun'){ // Listar funcionário
+
+    } else if (tipo == 'gerarTabelaDeleteFun') { // Listar funcionário
         var pesq = document.getElementById('pesq').value;
         var filtro = document.getElementById('situacoes').value;
         var extra = `&pesq=${pesq}&situ=${filtro}`;
-    } else if (tipo == 'animais'){
+    } else if (tipo == 'animais') {
         var cpf = document.getElementById('cpf');
         var extra = `&cpf=${cpf}`;
     }
-    
+
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
     xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=${tipo}${extra}`, true);
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
-            document.getElementById(response[0]).innerHTML = response[1]; 
+            document.getElementById(response[0]).innerHTML = response[1];
             // Seleciona o elemento de acordo com o primeiro valor do JSON
             // e coloca o segundo valor dentro deste elemento
         }
@@ -83,7 +83,7 @@ function altAnimal() {
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
     xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
             document.getElementsByName("nome")[0].value = response[0];     // Adiciona o primeiro valor do JSON
@@ -98,7 +98,7 @@ function altAnimal() {
 }
 
 function activeModal(id, tipo) {
-    document.getElementById("id01").style.display="block" // Muda a modal para block, para que possa ser vista
+    document.getElementById("id01").style.display = "block" // Muda a modal para block, para que possa ser vista
 
     if (tipo == "Cancelar") { // se o botão passar o tipo Cancelar
         // Monta a modal com os elementos do cancelamento
@@ -109,7 +109,7 @@ function activeModal(id, tipo) {
                 class="w3-button w3-display-topright">&times;</span>
         <a href = "` + location.origin + `/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>
         <button onclick="document.getElementById('id01').style.display='none'">Não</button>`;
-        
+
     } else { // se o botão não passar o tipo Cancelar
         // Busca os detalhes no servidor
 
@@ -117,7 +117,7 @@ function activeModal(id, tipo) {
         // Executa o arquivo que irá iniciar a função
         xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=getDesc&id=${id}`, true);
 
-        xhr.onload = function() {
+        xhr.onload = function () {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
                 var response = xhr.responseText; // Pega a resposta do servidor
                 // e mostrar na tela
@@ -134,13 +134,13 @@ function activeModal(id, tipo) {
 }
 
 function activeModalDetalhesFun(id, tipo) {
-    document.getElementById("id01").style.display="block"
+    document.getElementById("id01").style.display = "block"
     var xhr = new XMLHttpRequest();
     xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=getDesc&id=${id}`, true);
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText;
-            if (response == '' && (tipo != 'admin' || tipo != 'Secretaria')){
+            if (response == '' && (tipo != 'admin' || tipo != 'Secretaria')) {
                 document.getElementById("container-modal").innerHTML = `
                 <h2>Descrição do Agendamento</h2>
                 <input name="ide" hidden value="${id}"></input>
@@ -176,7 +176,7 @@ function altMeuPerfilCli() {
     var idCli = document.getElementsByName("idCliente")[0].value
     var xhr = new XMLHttpRequest();
     xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Get the response from the server
             document.getElementsByName("cpf")[0].value = response[0];

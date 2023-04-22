@@ -1,20 +1,21 @@
 <?php
-    session_start();
-    include_once("../../rotas.php"); // Inclui o arquivo de rotas
-    include_once($connRoute); // Inclui o arquivo de conexao
+session_start();
+include_once("../../rotas.php"); // Inclui o arquivo de rotas
+include_once($connRoute); // Inclui o arquivo de conexao
 
-    if ($_SESSION['tipo'] != "admin" && $_SESSION['tipo'] != "Secretaria") {
-        $_SESSION['msgRotaProibida'] = "Você Não possui permissão para entrar nessa página";
-        header("Location: " . $agendamentoFunRoute);
-    }
-    if (!isset($_SESSION['tipo'])) {
-        // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
-        header("Location: " . $homeRoute);
-    }
+if ($_SESSION['tipo'] != "admin" && $_SESSION['tipo'] != "Secretaria") {
+    $_SESSION['msgRotaProibida'] = "Você Não possui permissão para entrar nessa página";
+    header("Location: " . $agendamentoFunRoute);
+}
+if (!isset($_SESSION['tipo'])) {
+    // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
+    header("Location: " . $homeRoute);
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,12 +23,13 @@
     <script src="<?php echo $functionsRoute; ?>"></script>
     <title>Document</title>
 </head>
+
 <body>
     <?php
-        if (isset($_SESSION['msgTelaCadData'])){
-            echo $_SESSION['msgTelaCadData'];
-            unset($_SESSION['msgTelaCadData']);
-          }
+    if (isset($_SESSION['msgTelaCadData'])) {
+        echo $_SESSION['msgTelaCadData'];
+        unset($_SESSION['msgTelaCadData']);
+    }
     ?>
 
     <div>
@@ -45,7 +47,7 @@
                 <option value="Esteticista">Tosa</option>
                 <option value="Esteticista">Banho e Tosa</option>
             </select>
-            
+
             <select name="profissionais" id="profissionais" required>
                 <option value="" disabled selected hidden>Selecione um tipo de serviço</option>
 
@@ -55,6 +57,7 @@
         </form>
         <a href="<?php echo $agendamentoFunRoute; ?>">Voltar</a>
     </div>
-    
+
 </body>
+
 </html>

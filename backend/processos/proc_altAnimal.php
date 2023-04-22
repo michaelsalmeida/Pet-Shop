@@ -11,7 +11,7 @@ try {
     $stmtAni->bind_param("sssssss", $_POST['nome'], $_POST['dataNasc'], $_POST['espec'], $_POST['raca'], $_POST['peso'], $_POST['cor'], $idAni);
     // Executa o sql
     $stmtAni->execute();
-    header("Location: ". $animaisCliRoute);
+    header("Location: " . $animaisCliRoute);
 } catch (Exception $e) {
     echo $e->getMessage();
 }

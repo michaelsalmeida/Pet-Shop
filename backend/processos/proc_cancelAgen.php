@@ -15,7 +15,7 @@ try {
     $stmtAni->execute();
 
     $_SESSION['msgCanAgen'] = "Agendamento Cancelado.";
-    header("Location: ". $agendamentoCliRoute);
+    header("Location: " . $agendamentoCliRoute);
 } catch (Exception $e) {
     $_SESSION['msgCanAgen'] = "Agendamento Não Cancelado.";
     echo $e->getMessage();

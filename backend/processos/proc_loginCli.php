@@ -22,8 +22,8 @@ try {
     // Verifica se a query deu algum retorno
     if ($row = $resultado->fetch_row()) {
         $_SESSION['loggedinCli'] = true;
-        $_SESSION['idCli'] = $row[0];   // id do cliente
-        header("Location: ". $homeRoute);
+        $_SESSION['idCli'] = $row[0]; // id do cliente
+        header("Location: " . $homeRoute);
     } else {
         $_SESSION['msglogin'] = "USUÁRIO OU SENHA INCORRETO(S).";
         header("Location: " . $loginCliRoute);

@@ -25,4 +25,4 @@ try {
     $_SESSION['msgExcAnimal'] = "Animal Não Excluído.";
     echo $e->getMessage();
 }
-header("Location: ". $animaisCliRoute);
+header("Location: " . $animaisCliRoute);

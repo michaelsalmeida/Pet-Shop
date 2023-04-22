@@ -33,7 +33,7 @@ try {
 
     $_SESSION['msgIndex'] = "Obrigado por sua estadia, esperamos te ver novamente";
     logoff();
-    header("Location: ". $homeRoute);
+    header("Location: " . $homeRoute);
 } catch (Exception $e) {
     $_SESSION['msgMeuPerfilCli'] = "Perfil não foi excluído.";
     echo $e->getMessage();

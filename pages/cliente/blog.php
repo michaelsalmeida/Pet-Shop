@@ -106,7 +106,7 @@ require_once $funcoesRoute;
 
                 </div>
             </a>
-            
+
             <a href="../noticias/noticia3.php">
                 <div class="card-noticia">
 
@@ -135,7 +135,7 @@ require_once $funcoesRoute;
 
                 </div>
             </a>
-            
+
             <a href="../noticias/noticia5.php">
                 <div class="card-noticia">
 

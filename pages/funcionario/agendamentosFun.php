@@ -17,30 +17,31 @@ require_once $funcoesRoute;
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
 
   <style>
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
 
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    text-align: center;
-  }
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      text-align: center;
+    }
 
-  tr:nth-child(odd) {
-    background-color: #dddddd;
-  }
+    tr:nth-child(odd) {
+      background-color: #dddddd;
+    }
 
-  #container-modal{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: 30px;
-    gap: 20px;
-  }
+    #container-modal {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding-bottom: 30px;
+      gap: 20px;
+    }
   </style>
   <script src="<?php echo $functionsRoute; ?>"></script>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -53,12 +54,12 @@ require_once $funcoesRoute;
     header("Location: " . $loginFunRoute);
   }
 
-  if(!isset($_SESSION['tipo'])){
+  if (!isset($_SESSION['tipo'])) {
     // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
     header("Location: " . $homeRoute);
   }
 
-  if ($_SESSION['tipo'] == 'Secretaria'){
+  if ($_SESSION['tipo'] == 'Secretaria') {
     echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a><br><br>";
     echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a><br><br>";
     echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a><br><br>";
@@ -69,22 +70,22 @@ require_once $funcoesRoute;
     echo "<a href=" . $listarFunRoute . ">Listar Funcionários</a><br><br>";
     echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a><br><br>";
   }
-  
 
-  if (isset($_SESSION['msgCadData'])){
+
+  if (isset($_SESSION['msgCadData'])) {
     echo $_SESSION['msgCadData'];
     unset($_SESSION['msgCadData']);
   }
-  
-  if (isset($_SESSION['msgCadFun'])){
+
+  if (isset($_SESSION['msgCadFun'])) {
     echo $_SESSION['msgCadFun'];
     unset($_SESSION['msgCadFun']);
   }
 
-  if (isset($_SESSION['msgRotaProibida'])){
+  if (isset($_SESSION['msgRotaProibida'])) {
     echo $_SESSION['msgRotaProibida'];
     unset($_SESSION['msgRotaProibida']);
-  }   
+  }
 
 
   ?>
@@ -93,11 +94,11 @@ require_once $funcoesRoute;
 
   <div>
     <select name="status" id="status" onchange="queryBanco('gerarTabelaAgenFun')" required>
-        <option value="" disabled selected hidden>Selecione o status</option>
-        <option value="Disponivel">Disponivel</option>
-        <option value="Marcado">Marcado</option>
-        <option value="Concluido">Concluido</option>
-        <option value="Cancelado">Cancelado</option>
+      <option value="" disabled selected hidden>Selecione o status</option>
+      <option value="Disponivel">Disponivel</option>
+      <option value="Marcado">Marcado</option>
+      <option value="Concluido">Concluido</option>
+      <option value="Cancelado">Cancelado</option>
     </select>
   </div>
 
@@ -114,16 +115,16 @@ require_once $funcoesRoute;
   <!-- The Modal -->
   <form action="<?php echo $procSalvarDetalhesRoute; ?>" method="post">
     <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
-            <div class="w3-container" id="container-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container" id="container-modal">
 
-            </div>
         </div>
+      </div>
     </div>
   </form>
-  
 
-  
+
+
 </body>
 
 </html>

@@ -16,7 +16,7 @@ require_once $funcoesRoute;
 
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/agendamentoCliente.css">
-    
+
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
@@ -85,14 +85,14 @@ require_once $funcoesRoute;
                 <label for="dataAgen">Data de Agendamento</label><br>
                 <input type="date" id="dataAgen" onchange="queryBanco('gerarTabelaFazAgenCli')"><br><br>
             </div>
-            
+
             <div>
                 <button class="btnReset" type="reset">
                     <img src="../img-estatico/lixo.svg" alt="">
                 </button>
             </div>
         </fieldset>
-            
+
         <table id="fazAgend"></table>
     </form>
 

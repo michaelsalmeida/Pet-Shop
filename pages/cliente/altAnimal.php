@@ -18,7 +18,7 @@ require_once $funcoesRoute;
 <body onload="altAnimal()">
     <?php
 
-    if (isset($_SESSION['tipo'])){ // Verifica se o usuário logado é um funcionário
+    if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
     }
     if (!loged()) { // Verifica se há um usuário logado
@@ -32,24 +32,24 @@ require_once $funcoesRoute;
     }
     ?>
 
-    <form action="<?php echo $proc_altAnimalCliRoute;?>" method="post">
+    <form action="<?php echo $proc_altAnimalCliRoute; ?>" method="post">
         <input type="hidden" name="idAnimal" value="<?php echo $_GET['id']; ?>">
-        
+
         <label for="nome">Nome</label><br>
         <input type="text" name="nome"><br><br>
-    
+
         <label for="dataNasc">Data de Nascimento </label><br>
         <input type="date" name="dataNasc"><br><br>
-    
+
         <label for="espec">Espécie</label><br>
         <input type="text" name="espec"><br><br>
 
         <label for="raca">Raça</label><br>
         <input type="text" name="raca"><br><br>
-    
+
         <label for="peso">Peso (Kg)</label><br>
-        <input type="number" name="peso" step=0.01  pattern="[0-9]*"><br><br>
-    
+        <input type="number" name="peso" step=0.01 pattern="[0-9]*"><br><br>
+
         <label for="cor">Cor</label><br>
         <input type="text" name="cor"><br><br>
 
