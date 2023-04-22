@@ -37,7 +37,6 @@ require_once $funcoesRoute;
 
 <body onload="queryBanco('gerarTabelaAgenCli')">
     <?php
-
     if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
     }
@@ -54,7 +53,7 @@ require_once $funcoesRoute;
     ?>
 
     <table id="agendamentos">
-    </table>
+    </table>    
 
     <!-- The Modal -->
     <div id="id01" class="w3-modal">
