@@ -1,5 +1,5 @@
 form{
-    margin: 50px 20px;
+    margin: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,6 +9,8 @@ form{
 h1{
     color: #B793FF;
     margin-bottom: 20px;
+    width: 80%;
+    text-align: center;
 }
 
 select, input{
@@ -16,4 +18,67 @@ select, input{
     height: 40px;
     text-align: center;
     border-radius: 5px;
+}
+
+.btnReset{
+    width: fit-content;
+    height: 45px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.btnReset:hover{
+    filter: grayscale(50);
+}
+
+/* tabela */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: 50px 0px;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+/* fim tabela */
+
+.iconAgenda{
+    width: 100px;
+    margin: 50px 0px;
+}
+
+.field1{
+    display: grid;
+    grid-template-columns: auto auto;
+    border: none;
+    margin-top: 50px;
+}
+.field1 div{
+    margin: 10px;
+}
+
+.field2{
+    display: grid;
+    grid-template-columns: auto auto;
+    place-items: center;
+    border: none;
+}
+
+.field2 div{
+    margin: 20px;
+}
+
+.field2 input[type= "date"]{
+    width: 510px;
 }

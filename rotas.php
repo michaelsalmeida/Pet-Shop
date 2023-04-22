@@ -26,7 +26,8 @@ $loginFunRoute = $rootFunPages . "loginFuncionario.php";
 $agendamentoFunRoute = $rootFunPages . "agendamentosFun.php";
 $cadastradaDatasRoute = $rootFunPages . "cadastrarDatas.php";
 $cadastrarFunRoute = $rootFunPages . "cadFun.php";
-$apagarFunRoute = $rootFunPages . "apagarFuncionario.php";
+$listarFunRoute = $rootFunPages . "listarFuncionario.php";
+$agendarParaClienteRoute = $rootFunPages . "agendarParaCliente.php";
 
 //                           FIM Rotas Funcionário
 
@@ -77,3 +78,6 @@ $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.p
 
 //30785213031
 //51805990080
+//47650703010
+//20676872042 esteticista
+//33869223090 veterinario

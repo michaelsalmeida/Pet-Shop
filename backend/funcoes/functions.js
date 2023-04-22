@@ -58,6 +58,9 @@ function queryBanco(tipo) {
         var pesq = document.getElementById('pesq').value;
         var filtro = document.getElementById('situacoes').value;
         var extra = `&pesq=${pesq}&situ=${filtro}`;
+    } else if (tipo == 'animais'){
+        var cpf = document.getElementById('cpf');
+        var extra = `&cpf=${cpf}`;
     }
     
     var xhr = new XMLHttpRequest();

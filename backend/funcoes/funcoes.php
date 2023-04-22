@@ -38,18 +38,18 @@ function gerarTabelaAni()
     // Pega o resultado do banco
     $resultado = $stmt->get_result();
 
-    // String que será retornada na tabela
-    $tabela = "<tr>
+        // String que será retornada na tabela
+        $tabela = "<thead><tr>
             <th>Nome</th>
             <th>Data de Nascimento</th>
             <th>Raça</th>
             <th>Peso</th>
             <th>Alterar</th>
             <th>Excluir</th>
-        </tr>";
-
-    if (mysqli_num_rows($resultado) == 0) {
-        $tabela = $tabela . "
+        </tr></thead>";
+        
+        if (mysqli_num_rows($resultado) == 0) {
+            $tabela = $tabela . "
             <tr>
                 <td colspan=6>Não há animais cadastrados</td>
             </tr>
@@ -66,9 +66,9 @@ function gerarTabelaAni()
                     <td>$row[2]</td>
                     <td>$row[3] Kg</td>
                     <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/altAnimal.php?id="
-                . $row[4] . "'>Alterar</a></td>
-                    <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/backend/processos/proc_excAnimal.php?id="
-                . $row[4] . "'>Excluir</a></td>
+                    . $row[4] ."'><i class='bi bi-pencil-square'></i></a></td>
+                    <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/backend/processos/proc_excAnimal.php?id="
+                    . $row[4] ."'><i class='bi bi-trash'></i></a></td>
                 </tr>";
         }
     }
@@ -367,7 +367,7 @@ function profissionais()
 
     $prof = $_GET['servico'];
 
-    $stmt = $conn->prepare("SELECT nome, pk_Funcionario FROM Funcionarios WHERE profissao = ? ORDER BY nome");
+        $stmt = $conn->prepare("SELECT nome, pk_Funcionario FROM Funcionarios WHERE profissao = ? and ativo = 'ativo' ORDER BY nome");
 
     $stmt->bind_param("s", $prof);
 
@@ -408,8 +408,8 @@ function gerarTabelaDeleteFun()
     session_start();
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
-    // String de preparação
-    $stmt = $conn->prepare("SELECT nome, cpf, profissao, pk_Funcionario FROM Funcionarios
+        // String de preparação
+        $stmt = $conn->prepare("SELECT nome, cpf, profissao, pk_Funcionario, ativo FROM Funcionarios
         WHERE nome LIKE ?
         AND profissao != 'admin'
         AND ativo = ?");
@@ -437,19 +437,24 @@ function gerarTabelaDeleteFun()
             <th>Nome</th>
             <th>Cpf</th>
             <th>Profissão</th>
-            <th>Excluir</th>
+            <th>Demitir</th>
         </tr>";
 
-    $cont = 1;
+        $cont = 1;
+        
+        // Pega cada linha da query e monta as linhas da tabela
+        foreach($resultado->fetch_all() as $row) {
+        $button = "<button onclick='apagarFun(`apagarFun`," . $row[3] . ")'>Demitir";
 
-    // Pega cada linha da query e monta as linhas da tabela
-    foreach ($resultado->fetch_all() as $row) {
-        $tabela = $tabela .
+            if ($row[4] == 'demitido'){
+                $button = '<p>demitido</p>';
+            }
+            $tabela = $tabela .
             "<tr>
                 <td id='nome$cont'>$row[0]</td>
                 <td>$row[1]</td>
                 <td>$row[2]</td>
-                <td><button onclick='executeFunctions(`apagarFun`, `$row[3]`)'>Excluir</td>
+                <td>$button</td>
             </tr>";
 
         $cont += 1;
@@ -519,6 +524,35 @@ function altMeuPerfilCli() {
     $resultado = $stmt->get_result();
     $data = $resultado->fetch_all()[0];
 
-    header('Content-Type: application/json');
-    return json_encode($data);
-}
+        header('Content-Type: application/json');
+        return json_encode($data);
+    }
+
+
+    function animais(){
+        session_start();
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+
+        $prof = $_GET['cpf'];
+
+        $stmt = $conn->prepare("SELECT pk_Cliente from Clientes
+        where cpf = ?");
+
+        $stmt->bind_param("s", $cpf);
+
+        // Executa o sql
+        $stmt->execute();
+
+        // Pega o resultado do banco
+        $resultado = $stmt->get_result();
+
+
+        $tabela = "<option value='' disabled selected hidden>Selecione um animal</option>";
+
+        foreach($resultado->fetch_all() as $row){
+            $tabela = $tabela . "<option value='$row[0]'>$row[0]</option>";
+        }
+
+        $retornar = array('profissionais', $tabela);
+        return json_encode($retornar);
+    }
