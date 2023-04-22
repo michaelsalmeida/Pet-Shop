@@ -177,13 +177,19 @@ function checkAnimais()
     // Pega o resultado do banco
     $resultado = $stmt->get_result();
 
-    $tabela = "<option value='0' disabled selected hidden>Selecione um animal</option>";
+    $opcoes = "<option value='0' disabled selected hidden>Selecione um animal</option>";
 
-    foreach ($resultado->fetch_all() as $row) {
-        $tabela = $tabela . "<option value='$row[0]'>$row[1]</option>";
+    if (mysqli_num_rows($resultado) == 0) {
+        $opcoes = $opcoes . "
+            <option selected disabled>Cadastre um Animal</option>
+            ";
+    } else {
+        foreach ($resultado->fetch_all() as $row) {
+            $opcoes = $opcoes . "<option value='$row[0]'>$row[1]</option>";
+        }
     }
 
-    $retornar = array("animais", $tabela);
+    $retornar = array("animais", $opcoes);
     return json_encode($retornar);
 }
 
