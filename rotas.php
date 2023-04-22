@@ -1,6 +1,5 @@
 <?php
 $root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "" . "/Pet-Shop/";
-// $root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/";
 $rootBack = $root . "backend/";
 $rootBackProc = $rootBack . "processos/";
 $rootBackFunctions = $rootBack . "funcoes/";
@@ -8,7 +7,6 @@ $rootFront = $root . "pages/";
 $rootCliPages = $rootFront . "cliente/";
 $rootFunPages = $rootFront . "funcionario/";
 $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php';
-// $connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php';
 
 // ----------------------    Rotas Estáticas    -----------------------------
 
@@ -76,7 +74,6 @@ $aaa = $rootBackFunctions . "aaa.js";
 
 
 $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.php";
-// $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.php";
 
 //30785213031
 //51805990080

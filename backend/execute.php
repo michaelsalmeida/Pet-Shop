@@ -35,8 +35,8 @@ switch ($_GET['function']) {
     case 'apagarFun':
         echo apagarFuncionario();
         break;
-    case 'finalizarConsul':
-        echo finalizarConsul();
+    case 'update':
+        echo update("Agendamentos", "`status` = 'Concluido'", "pk_Agendamento = ?", ["s", $_GET['id']]);
         break;
     case 'profissionais':
         echo profissionais();
