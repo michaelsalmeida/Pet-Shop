@@ -173,7 +173,7 @@ function meuPerfilCliEnd() {
     document.getElementsByName("cep")[0].removeAttribute("readonly")
     document.getElementsByName("num")[0].removeAttribute("readonly")
     document.getElementsByName("comp")[0].removeAttribute("readonly")
-    document.getElementsByName("conf")[0].removeAttribute("hidden")
+    document.getElementsByName("conf")[1].removeAttribute("hidden")
 }
 
 function altMeuPerfilCli() {

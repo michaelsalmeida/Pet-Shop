@@ -73,19 +73,39 @@
 .box-maior-input .box-botao{
     width: 400px;
     display: flex;
-    flex-direction: column;
+    flex-flow:wrap column;
     align-items: center;
+    
 }
 
-.box-maior-input .box-botao button{
+
+.botoes-alterar{
+    display: flex;
+    gap: 20px;
+    
+}
+
+.box-maior-input .box-botao button, .box-maior-input .box-botao input{
     height: 40px;
-    width: 300px;
+    width: 150px;
     border-radius: 5px;
     background-color: transparent;
     border: 2px solid #8C52FF;
     color: #8C52FF;
     font-weight: bold;
     transition: all 0.5s;
+}
+
+.box-maior-input .box-botao input{
+    border: 2px solid #43C07D;
+    color: #43C07D;
+
+    
+}
+
+.box-maior-input .box-botao input:hover{
+    background-color: #43C07D;
+    color: #ffffff;
 }
 
 
@@ -125,6 +145,10 @@
 
     .box-maior-input .box-botao button{
         width: 150px;
+    }
+
+    .botoes-alterar{
+        flex-direction: column;
     }
 }
 

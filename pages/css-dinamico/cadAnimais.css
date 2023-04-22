@@ -10,7 +10,7 @@ form label{
     margin-top: 20px;
 }
 h1{
-    color: #B793FF;
+    color: #8C52FF;
     margin-bottom: 20px;
     width: 80%;
     text-align: center;
@@ -19,8 +19,9 @@ h1{
  select, input{
     width: 300px;
     height: 40px;
-    text-align: center;
+    padding: 0 10px;
     border-radius: 5px;
+    border: 2px solid #403F3F;;
 }
 
  input[type= "submit"]{
@@ -39,7 +40,7 @@ h1{
 }
 
 form .iconCachorro{
-    width: 100px;
+    width: 164px;
     margin: 40px 0px;
 }
 
