@@ -107,7 +107,7 @@ function activeModal(id, tipo) {
         <p>Você tem certeza que deseja Cancelar este Agendamento?<p>
         <span onclick="document.getElementById('id01').style.display='none'"
                 class="w3-button w3-display-topright">&times;</span>
-        <a href = "` + location.origin + `/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>
+        <a href = "` + location.origin + `/Pet-shop/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>
         <button onclick="document.getElementById('id01').style.display='none'">Não</button>`;
 
     } else { // se o botão não passar o tipo Cancelar
@@ -134,13 +134,17 @@ function activeModal(id, tipo) {
 }
 
 function activeModalDetalhesFun(id, tipo) {
+    // Muda a modal para block, para que possa ser vista
     document.getElementById("id01").style.display = "block"
     var xhr = new XMLHttpRequest();
+    // Executa o arquivo que irá iniciar a função
     xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=getDesc&id=${id}`, true);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
-            var response = xhr.responseText;
+            var response = xhr.responseText; // Pega a resposta do servidor
+            // Verifica se o funcionário não é um admin ou secretaria
             if (response == '' && (tipo != 'admin' || tipo != 'Secretaria')) {
+                // então mostra o campo para adicionar os detalhes
                 document.getElementById("container-modal").innerHTML = `
                 <h2>Descrição do Agendamento</h2>
                 <input name="ide" hidden value="${id}"></input>
@@ -150,6 +154,7 @@ function activeModalDetalhesFun(id, tipo) {
                 <input type='submit' value='Salvar'></input>`;
 
             } else {
+                // Se não só mostra que os detalhes não foram definidos.
                 document.getElementById("container-modal").innerHTML = `
                 <h2>Descrição do Agendamento</h2>
                 <p>Detalhes não definido</p>
@@ -162,17 +167,21 @@ function activeModalDetalhesFun(id, tipo) {
 }
 
 function meuPerfilCliPes() {
+    // ativa os campos para que possam ser mudados
     document.getElementsByName("nome")[0].removeAttribute("readonly")
     document.getElementsByName("sobrenome")[0].removeAttribute("readonly")
     document.getElementsByName("celular")[0].removeAttribute("readonly")
     document.getElementsByName("email")[0].removeAttribute("readonly")
+    // Ativa o botão de confirmação
     document.getElementsByName("conf")[0].removeAttribute("hidden")
 }
 
 function meuPerfilCliEnd() {
+    // ativa os campos para que possam ser mudados
     document.getElementsByName("cep")[0].removeAttribute("readonly")
     document.getElementsByName("num")[0].removeAttribute("readonly")
     document.getElementsByName("comp")[0].removeAttribute("readonly")
+    // Ativa o botão de confirmação
     document.getElementsByName("conf")[1].removeAttribute("hidden")
 }
 
@@ -182,7 +191,8 @@ function altMeuPerfilCli() {
     xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText); // Get the response from the server
+            var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor
+            // Preenche os campos com os devidos valores.
             document.getElementsByName("cpf")[0].value = response[0];
             document.getElementsByName("nome")[0].value = response[1];
             document.getElementsByName("sobrenome")[0].value = response[2];
