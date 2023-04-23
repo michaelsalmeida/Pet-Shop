@@ -93,29 +93,10 @@ require_once $funcoesRoute;
             </div>
         </fieldset>
 
-        <input type="submit" value="Cadastrar">
+
+        <button type="submit" value="Cadastrar">Cadastrar</button>
     </form>
 
-    <footer>
-        <a href="#" class="logo">
-            <img src="../img-estatico/logo.svg" alt="">
-        </a>
-
-        <div class="links">
-            <a href="<?php echo $blogRoute; ?>">BLOG</a>
-            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
-            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
-        </div>
-
-        <div class="redes">
-            <img src="../img-estatico/facebook.svg" alt="">
-            <img src="../img-estatico/youtube.svg" alt="">
-            <img src="../img-estatico/twitter.svg" alt="">
-            <img src="../img-estatico/github.svg" alt="">
-        </div>
-
-        <p>© Hamtaro Petshop todos direitos reservados</p>
-    </footer>
 
     <script src="<?php echo $dataHojeRoute; ?>"></script>
     <script src="../script.js"></script>

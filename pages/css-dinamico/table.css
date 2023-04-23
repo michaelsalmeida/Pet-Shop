@@ -26,6 +26,7 @@ table {
 thead{
     position: sticky;
 }
+
 th {
     background-color: #a578ff;
     color: #ffffff;
@@ -80,3 +81,41 @@ a {
         overflow-y: auto;
     }
 }
+
+
+/* BOTÃO CANCELAR NA TABELA DE MEUS AGENDAMENTOS */
+
+.cancelar{
+    padding: 3px 15px;
+    border: 1px solid #F14848;
+    color: #F14848;
+    font-weight: 700;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.cancelar:hover{
+    background-color: #F14848;
+    color: #ffffff;
+}
+
+/* BOTÃO CANCELAR NA TABELA DE MEUS AGENDAMENTOS FIM */
+
+
+
+
+/* BOTÃO AGENDAR NA TABELA DE FAZER AGENDAMENTO  */
+
+.agendar{
+    border: 2px solid #26e17e;
+    color: #26e17e;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+.agendar:hover{
+    background-color: #26e17e;
+    color: #ffffff;
+}
+
+/* BOTÃO AGENDAR NA TABELA DE FAZER AGENDAMENTO  FIM*/

@@ -13,10 +13,10 @@ require_once $funcoesRoute;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animais</title>
 
-
+    
     <link rel="stylesheet" href="../css-estatico/header.css">
+    <link rel="stylesheet" href="../css-dinamico/table.css">
     <link rel="stylesheet" href="../css-dinamico/agendamentoCliente.css">
-
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
@@ -93,7 +93,7 @@ require_once $funcoesRoute;
             </div>
         </fieldset>
 
-        <table id="fazAgend"></table>
+            <table id="fazAgend"></table>
     </form>
 
     <script src="../script.js"></script>

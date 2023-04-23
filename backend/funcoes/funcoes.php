@@ -119,7 +119,7 @@ function gerarTabelaAgenCli()
     $resultado = $stmt->get_result();
 
     // String que será retornada na tabela
-    $tabela = "<tr>
+    $tabela = "<thead><tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
             <th>Horário do agendamento</th>
@@ -127,7 +127,7 @@ function gerarTabelaAgenCli()
             <th>Tipo</th>
             <th>Detalhes</th>
             <th>Status</th>
-        </tr>";
+        </tr></thead>";
 
     if (mysqli_num_rows($resultado) == 0) {
         $tabela = $tabela . "
@@ -143,7 +143,7 @@ function gerarTabelaAgenCli()
             $botao = "";
 
             if ($row[5] == "Marcado") {
-                $botao = "<button onclick='activeModal($row[6]," . '"Cancelar"' . ")'>Cancelar</button>";
+                $botao = "<button class='cancelar' onclick='activeModal($row[6]," . '"Cancelar"' . ")'>Cancelar</button>";
             } elseif ($row[5] == "Concluido") {
                 $botao = "<button onclick='activeModal($row[6]," . '"Detalhes"' . ")'>Detalhes</button>";
             }
@@ -215,12 +215,12 @@ function gerarTabelaFazAgenCli()
     $resultado = $stmt->get_result();
 
     // String que será retornada na tabela
-    $tabela = "<tr>
+    $tabela = "<thead><tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
             <th>Horário do agendamento</th>
             <th>Agendar</th>
-        </tr>";
+        </tr></thead>";
 
     if (mysqli_num_rows($resultado) == 0) {
         $tabela = $tabela . "
@@ -238,7 +238,7 @@ function gerarTabelaFazAgenCli()
                     <td>$row[0]</td>
                     <td>$data</td>
                     <td>$row[2]</td>
-                    <td><button type='button' onclick='executeFunctions(" . '"fazAgendamentoCli",' . $row[3] . ")'>Agendar</button></td>
+                    <td><button class='cancelar agendar' type='button' onclick='executeFunctions(" . '"fazAgendamentoCli",' . $row[3] . ")'>Agendar</button></td>
                 </tr>";
         }
     }
