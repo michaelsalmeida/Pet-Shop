@@ -46,11 +46,14 @@ function formaValores(){
 
 
 // abre ou fecha menu do perfil
+let perfilAberto = 0
 function menuPerfil(){
-    if(perfil.style.opacity == '0'){
+    if(perfilAberto == 0){
+        perfilAberto = 1
         perfil.style.opacity= '1'
         perfil.style.zIndex= "1"
     }else{
+        perfilAberto = 0
         perfil.style.opacity= '0'
         perfil.style.zIndex= "-1"
     }
