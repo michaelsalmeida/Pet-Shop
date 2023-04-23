@@ -76,6 +76,7 @@ require_once $funcoesRoute;
                     <option value="Banho">Banho</option>
                     <option value="Tosa">Tosa</option>
                     <option value="Veterinário">Veterinário</option>
+                    <option value="Banho e Tosa">Banho e Tosa</option>
                 </select><br><br>
             </div>
         </fieldset>
