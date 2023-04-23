@@ -690,45 +690,49 @@ function animais()
         // Pega o resultado do banco
         $resultado = $stmt->get_result();
 
+        $id = $resultado->fetch_all()[0][0];
+
         if (mysqli_num_rows($resultado) > 0){
+
+            $_SESSION['idCliente'] = $id;
+
             $tabela = "<div>
             <label for='nome'>Nome</label><br>
-            <input type='text' name='nome'>
+            <input type='text' name='nome' required>
         </div>
 
         <div>
-            <label for='dataNasc'>Data de Nascimento </label><br>
-            <input type='date' name='dataNasc'>
+            <label for='dataNasc'>Data de Nascimento</label><br>
+            <input type='date' name='dataNasc' required>
         </div>
 
         <div>
             <label for='espec'>Espécie</label><br>
-            <input type='text' name='espec'>
+            <input type='text' name='espec' required>
         </div>
 
         <div>
             <label for='raca'>Raça</label><br>
-            <input type='text' name='raca'>
+            <input type='text' name='raca' required>
         </div>
 
         <div>
             <label for='peso'>Peso (Kg)</label><br>
-            <input type='number' name='peso' step=0.01 pattern='[0-9]*'>
+            <input type='number' name='peso' step=0.01 pattern='[0-9]*' required>
         </div>
 
         <div>
             <label for='cor'>Cor</label><br>
-            <input type='text' name='cor'>
+            <input type='text' name='cor' required>
+            
         </div>
+        <input type='submit' value='Cadastrar'> 
             ";
-            mysqli_stmt_bind_result($stmt, $pk_cliente);
-            mysqli_stmt_fetch($stmt);
-
-            $_SESSION['idCliente'] = $pk_cliente;
+            
         } else {
             $tabela = "Nada";
         }
 
-        $retornar = array('animal', $tabela);
+        $retornar = array('formanimal', $tabela);
         return json_encode($retornar);
     }

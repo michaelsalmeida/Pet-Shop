@@ -64,6 +64,7 @@ $procExcAnimalRoute = $rootBackProc . "proc_excAnimal.php";
 $procCadDataRoute = $rootBackProc . "proc_cadData.php";
 $procCadFunRoute = $rootBackProc . "proc_cadFun.php";
 $procSalvarDetalhesRoute = $rootBackProc . "proc_salvarDetalhes.php";
+$procCadAnimalFunRoute = $rootBackProc . "proc_cadAnimalFun.php";
 
 
 
