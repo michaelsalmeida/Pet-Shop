@@ -71,10 +71,7 @@ require_once $funcoesRoute;
             </div>
         </div>
 
-        <div class="perfil" onmousedown="menuPerfil()">
-            <i class="bi bi-person-square"></i>
-            <p>></p>
-        </div>
+
 
         <?php
         if (loged()) {
@@ -83,7 +80,12 @@ require_once $funcoesRoute;
                 header("Location: " . $agendamentoFunRoute);
             } else {
                 // Esses botões só aparecem quando o usuário estive logado
-                echo "
+                echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                        <i class='bi bi-person-square'></i>
+                        <p>></p>
+                        </div>
+
+                        
                         <div class='menu-perfil'>
                         <a href='$meuPerfilCliRoute'><img src='pages/img-estatico/account_circle.svg'> Meu Perfil</a>
                         <a href='$animaisCliRoute'>Meus Animais</a>

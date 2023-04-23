@@ -17,10 +17,11 @@ require_once $funcoesRoute;
 
   <script src="<?php echo $functionsRoute; ?>"></script>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="../css-dinamico/table.css">
-  <link rel="stylesheet" href="../css-dinamico/funcionario.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../css-dinamico/table.css">
   <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
+  <link rel="stylesheet" href="../css-dinamico/agendamento-cliente.css">
+
 </head>
 
 <body onresize="checaDispositivo()" onload="queryBanco('gerarTabelaAgenFun')">
@@ -95,11 +96,19 @@ require_once $funcoesRoute;
     </nav>
 
   </header>
+  <button onclick="executeFunctions('logoff', '')">Sair</button> 
 
 
-  <button onclick="executeFunctions('logoff', '')">Sair</button>
 
-    <h1>Agendamentos Marcados</h1>
+  <h1 class="titulo-agendamento">Agendamentos Marcados</h1>
+
+
+
+  
+
+  <div class="container box-total">
+
+
   <div class="box-opcoes">
     <select name="status" id="status" onchange="queryBanco('gerarTabelaAgenFun')" required>
       <option value="" disabled selected hidden>Selecione o status</option>
@@ -110,10 +119,7 @@ require_once $funcoesRoute;
     </select>
   </div>
 
-
-
-
-  <div class="container box-total">
+  
     <table id="tabela">
     </table>
   </div>
