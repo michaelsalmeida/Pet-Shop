@@ -71,7 +71,7 @@ require_once $funcoesRoute;
             </div>
         </div>
 
-        <div class="perfil" onclick="menuPerfil()">
+        <div class="perfil" onmousedown="menuPerfil()">
             <i class="bi bi-person-square"></i>
             <p>></p>
         </div>
