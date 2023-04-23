@@ -14,35 +14,13 @@ require_once $funcoesRoute;
   <title>Agendamentos</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
 
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
 
-    td,
-    th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-      text-align: center;
-    }
-
-    tr:nth-child(odd) {
-      background-color: #dddddd;
-    }
-
-    #container-modal {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      padding-bottom: 30px;
-      gap: 20px;
-    }
-  </style>
   <script src="<?php echo $functionsRoute; ?>"></script>
+  <link rel="stylesheet" href="../css-estatico/header.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="../css-dinamico/table.css">
+  <link rel="stylesheet" href="../css-dinamico/funcionario.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 </head>
 
 <body onresize="checaDispositivo()" onload="queryBanco('gerarTabelaAgenFun')">
@@ -90,25 +68,29 @@ require_once $funcoesRoute;
 
   <button onclick="executeFunctions('logoff', '')">Sair</button>
 
-  <div>
-    <select name="status" id="status" onchange="queryBanco('gerarTabelaAgenFun')" required>
-      <option value="" disabled selected hidden>Selecione o status</option>
-      <option value="Disponivel">Disponivel</option>
-      <option value="Marcado">Marcado</option>
-      <option value="Concluido">Concluido</option>
-      <option value="Cancelado">Cancelado</option>
-    </select>
+  <div class="box-superior">
+
+    <div class="box-opcoes">
+      <select name="status" id="status" onchange="queryBanco('gerarTabelaAgenFun')" required>
+        <option value="" disabled selected hidden>Selecione o status</option>
+        <option value="Disponivel">Disponivel</option>
+        <option value="Marcado">Marcado</option>
+        <option value="Concluido">Concluido</option>
+        <option value="Cancelado">Cancelado</option>
+      </select>
+    </div>
+
+    <div class="box-pesquisar">
+      <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
+      <button onclick="queryBanco('gerarTabelaAgenFun')"><i class="bi bi-search"></i></button>
+    </div>
+
   </div>
 
-  <div>
-    <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
-    <button onclick="queryBanco('gerarTabelaAgenFun')">Pesquisar</button>
+  <div class="container box-total">
+    <table id="tabela">
+    </table>
   </div>
-
-
-  <table id="tabela">
-
-  </table>
 
   <!-- The Modal -->
   <form action="<?php echo $procSalvarDetalhesRoute; ?>" method="post">

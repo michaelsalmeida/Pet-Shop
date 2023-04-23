@@ -36,14 +36,12 @@ require_once $funcoesRoute;
     ?>
 
     <header>
-        <a href="#" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
         <div class="responsive">
-
             <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
-
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
@@ -61,14 +59,21 @@ require_once $funcoesRoute;
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
-                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>";
+                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>";
                     }
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
                     echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
+                // if (isset($_SESSION['msgRotaProibidaCli'])){
+                //   echo $_SESSION['msgRotaProibidaCli'];
+                //   unset($_SESSION['msgRotaProibidaCli']);
+                // }
+
                 ?>
             </div>
         </div>

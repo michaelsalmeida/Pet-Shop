@@ -40,6 +40,12 @@ require_once $funcoesRoute;
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+
+
+                
+
+
+
             </div>
 
             <div class="acesso">

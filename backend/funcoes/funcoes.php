@@ -327,20 +327,20 @@ function gerarTabelaAgenFun()
 
     // String que será retornada na tabela
     $tabela =
-        "<tr>
+        "<thead><tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
             <th>Horário do agendamento</th>
-            <th>Nome do animal</th>
-            <th>Nome do dono</th>
+            <th>Animal</th>
+            <th>Dono</th>
             <th>Detalhes</th>
             <th>Status</th>
-        </tr>";
+        </tr></thead>";
 
     // Pega cada linha da query e monta as linhas da tabela
     foreach ($resultado->fetch_all() as $row) {
         // Formata a data
-        $det = "<button onclick='executeFunctions(" . '"update"' . ", $row[6])'>Finalizar</button>";
+        $det = "<button class='cancelar finalizar' onclick='executeFunctions(" . '"update"' . ", $row[6])'>Finalizar</button>";
 
         if ($row[3] == '') {
             $det = '';

@@ -13,7 +13,7 @@ require_once $funcoesRoute;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animais</title>
 
-    
+
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/table.css">
     <link rel="stylesheet" href="../css-dinamico/agendamentoCliente.css">
@@ -21,13 +21,15 @@ require_once $funcoesRoute;
 </head>
 
 <body onload="queryBanco('checkAnimais')">
+
+
     <header>
-        <a href="../../index.php" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
         <div class="responsive">
-            <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
@@ -35,7 +37,32 @@ require_once $funcoesRoute;
             </div>
 
             <div class="acesso">
-                <button onclick="executeFunctions('logoff', '')">Sair</button>
+                <?php
+                if (loged()) {
+                    if (isset($_SESSION['tipo'])) {
+                        // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                        header("Location: " . $agendamentoFunRoute);
+                    } else {
+                        // Esses botões só aparecem quando o usuário estive logado
+                        echo "
+                        <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+                        <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>";
+                    }
+                } else {
+                    // Esses botões aparecem se o usuário não estiver logado
+                    echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
+                    echo "<a href='$cadastroCliRoute'>Cadastro</a>";
+                }
+                // if (isset($_SESSION['msgRotaProibidaCli'])){
+                //   echo $_SESSION['msgRotaProibidaCli'];
+                //   unset($_SESSION['msgRotaProibidaCli']);
+                // }
+
+                ?>
             </div>
         </div>
 
@@ -94,7 +121,7 @@ require_once $funcoesRoute;
             </div>
         </fieldset>
 
-            <table id="fazAgend"></table>
+        <table id="fazAgend"></table>
     </form>
 
     <script src="../script.js"></script>

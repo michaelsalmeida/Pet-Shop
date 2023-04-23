@@ -56,31 +56,6 @@ a {
 
 /* TABELA  FIM */
 
-.box-total::-webkit-scrollbar {
-    width: 15px;
-}
-
-.box-total::-webkit-scrollbar-thumb {
-    background-color: #ba97ff;
-    border-radius: 100px;
-}
-
-.box-total::-webkit-scrollbar-track {
-    background-color: #d1d1d1;
-    border-radius: 50px;
-}
-
-.box-total::-webkit-scrollbar-thumb:hover {
-    background-color: #9b69ff;
-    border-radius: 100px;
-}
-
-
-@media (max-width:650px) {
-    .box-total{
-        overflow-y: auto;
-    }
-}
 
 
 /* BOTÃO CANCELAR NA TABELA DE MEUS AGENDAMENTOS */
@@ -119,3 +94,51 @@ a {
 }
 
 /* BOTÃO AGENDAR NA TABELA DE FAZER AGENDAMENTO  FIM*/
+
+/* BOTÃO DE FINALIZAR NA TABELA DE CONTROLE DE AGENDAMENTO DOS FUNCIONÁRIOS */
+.finalizar{
+    border: 2px solid #5195FA;
+    color: #5195FA;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+
+.finalizar:hover{
+    background-color: #5195FA;
+    color: #ffffff;
+}
+
+
+/* BOTÃO DE FINALIZAR NA TABELA DE CONTROLE DE AGENDAMENTO DOS FUNCIONÁRIOS  FIM*/
+
+
+/* GOOGLE E SAFARI */
+
+.box-total::-webkit-scrollbar {
+    width: 15px;
+}
+
+.box-total::-webkit-scrollbar-thumb {
+    background-color: #ba97ff;
+    border-radius: 100px;
+}
+
+.box-total::-webkit-scrollbar-track {
+    background-color: #d1d1d1;
+    border-radius: 50px;
+}
+
+.box-total::-webkit-scrollbar-thumb:hover {
+    background-color: #9b69ff;
+    border-radius: 100px;
+}
+
+/* GOOGLE E SAFARI  FIM */
+
+
+@media (max-width:700px) {
+
+    .box-total{
+        overflow-y: auto;
+    }
+}

@@ -36,10 +36,9 @@ require_once $funcoesRoute;
     }
     ?>
 
-<<<<<<< HEAD
 
     <header>
-        <a href="#" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
@@ -93,10 +92,6 @@ require_once $funcoesRoute;
 
     </div>
 
-=======
-    <table id="agendamentos">
-    </table>    
->>>>>>> 6e7a540154e14ce424ec94f78892bfeb6c106390
 
     <!-- The Modal -->
     <div id="id01" class="w3-modal">
