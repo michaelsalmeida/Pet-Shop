@@ -404,9 +404,16 @@ function getDesc()
     $stmt->bind_param("s", $id);
     // Executa o sql
     $stmt->execute();
+    $resultado = $stmt->get_result();
+    $row = $resultado->fetch_all()[0][0];
 
-    $retornar = $stmt->get_result();
-    return $retornar->fetch_all()[0][0];
+    if ($row == "") {
+        $retornar = "Os detalhes não foram adicionados ainda";
+    } else {
+        $retornar = $row;
+    }
+
+    return $retornar;
 }
 
 
