@@ -36,7 +36,7 @@ require_once $funcoesRoute;
     ?>
 
     <header>
-        <a href="#" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
@@ -59,14 +59,21 @@ require_once $funcoesRoute;
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
-                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>";
+                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>";
                     }
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
                     echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
+                if (isset($_SESSION['msgAltCli'])){
+                  echo $_SESSION['msgAltCli'];
+                  unset($_SESSION['msgAltCli']);
+                }
+
                 ?>
             </div>
         </div>
@@ -89,7 +96,7 @@ require_once $funcoesRoute;
 
         <div class="informacoes-pessoais container">
 
-            <h2 class="text-left">Informações Pessoais</h2>
+            <h2>Informações Pessoais</h2>
 
             <div class="box-maior-input">
 
@@ -154,7 +161,7 @@ require_once $funcoesRoute;
                 </div>
 
                 <div class="box-input">
-                    <label for="log">Logradouro</label>
+                    <label for="log">Logradouro <i class="bi bi-file-lock2"></i></label>
                     <input type="text" name="log" readonly required>
                 </div>
 
@@ -177,19 +184,19 @@ require_once $funcoesRoute;
 
             <div class="box-maior-input">
                 <div class="box-input">
-                    <label for="bairro">Bairro</label>
+                    <label for="bairro">Bairro <i class="bi bi-file-lock2"></i></label>
                     <input type="text" name="bairro" readonly required>
                 </div>
 
                 <div class="box-input">
-                    <label for="cid">Munícipio</label>
+                    <label for="cid">Munícipio <i class="bi bi-file-lock2"></i></label>
                     <input type="text" name="cid" readonly required>
                 </div>
             </div>
 
             <div class="box-maior-input">
                 <div class="box-input">
-                    <label for="uf">UF</label>
+                    <label for="uf">UF <i class="bi bi-file-lock2"></i></label>
                     <input type="text" name="uf" readonly required>
                 </div>
                 <div class="box-input box-botao">
@@ -223,6 +230,7 @@ require_once $funcoesRoute;
     <script src="<?php echo $functionsRoute; ?>"></script>
     <script src="<?php echo $viacepRoute; ?>"></script>
     <script src="../script.js"></script>
+
 </body>
 
 </html>

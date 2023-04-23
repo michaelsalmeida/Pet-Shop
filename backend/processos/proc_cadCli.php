@@ -8,6 +8,7 @@ $cpf = htmlspecialchars($_POST['cpf']);
 $nome = htmlspecialchars($_POST['nome']);
 $sobrenome = htmlspecialchars($_POST['sobrenome']);
 $celular = htmlspecialchars($_POST['celular']);
+$celular = str_replace(['(', ')', '-'], '', $celular);
 
 // Endereço
 $cep = htmlspecialchars($_POST['cep']);
@@ -113,7 +114,7 @@ if ($certo1 && $certo2) {
             $_SESSION['msgCadCli'] = "Email já cadastrado";
         } else {
             // Trabalha qualquer outro erro
-            $_SESSION['msgCadCli'] = "Cliente não Cadastrado.";
+            $_SESSION['msgCadCli'] = "Cliente não Cadastrado: " . $e->getMessage();
         }
         header('Location: ' . $cadastroCliRoute);
     }

@@ -43,8 +43,10 @@ require_once $funcoesRoute;
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
-                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>";
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>";
                     }
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado

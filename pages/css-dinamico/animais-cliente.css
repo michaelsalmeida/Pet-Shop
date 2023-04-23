@@ -1,7 +1,0 @@
-.box-total{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    padding: 5em 0;
-}

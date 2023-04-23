@@ -119,7 +119,7 @@ function gerarTabelaAgenCli()
     $resultado = $stmt->get_result();
 
     // String que será retornada na tabela
-    $tabela = "<tr>
+    $tabela = "<thead><tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
             <th>Horário do agendamento</th>
@@ -127,7 +127,7 @@ function gerarTabelaAgenCli()
             <th>Tipo</th>
             <th>Detalhes</th>
             <th>Status</th>
-        </tr>";
+        </tr></thead>";
 
     if (mysqli_num_rows($resultado) == 0) {
         $tabela = $tabela . "
@@ -143,7 +143,7 @@ function gerarTabelaAgenCli()
             $botao = "";
 
             if ($row[5] == "Marcado") {
-                $botao = "<button onclick='activeModal($row[6]," . '"Cancelar"' . ")'>Cancelar</button>";
+                $botao = "<button class='cancelar' onclick='activeModal($row[6]," . '"Cancelar"' . ")'>Cancelar</button>";
             } elseif ($row[5] == "Concluido") {
                 $botao = "<button onclick='activeModal($row[6]," . '"Detalhes"' . ")'>Detalhes</button>";
             }
@@ -177,13 +177,19 @@ function checkAnimais()
     // Pega o resultado do banco
     $resultado = $stmt->get_result();
 
-    $tabela = "<option value='0' disabled selected hidden>Selecione um animal</option>";
+    $opcoes = "<option value='0' disabled selected hidden>Selecione um animal</option>";
 
-    foreach ($resultado->fetch_all() as $row) {
-        $tabela = $tabela . "<option value='$row[0]'>$row[1]</option>";
+    if (mysqli_num_rows($resultado) == 0) {
+        $opcoes = $opcoes . "
+            <option selected disabled>Cadastre um Animal</option>
+            ";
+    } else {
+        foreach ($resultado->fetch_all() as $row) {
+            $opcoes = $opcoes . "<option value='$row[0]'>$row[1]</option>";
+        }
     }
 
-    $retornar = array("animais", $tabela);
+    $retornar = array("animais", $opcoes);
     return json_encode($retornar);
 }
 
@@ -209,12 +215,12 @@ function gerarTabelaFazAgenCli()
     $resultado = $stmt->get_result();
 
     // String que será retornada na tabela
-    $tabela = "<tr>
+    $tabela = "<thead><tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
             <th>Horário do agendamento</th>
             <th>Agendar</th>
-        </tr>";
+        </tr></thead>";
 
     if (mysqli_num_rows($resultado) == 0) {
         $tabela = $tabela . "
@@ -232,7 +238,7 @@ function gerarTabelaFazAgenCli()
                     <td>$row[0]</td>
                     <td>$data</td>
                     <td>$row[2]</td>
-                    <td><button type='button' onclick='executeFunctions(" . '"fazAgendamentoCli",' . $row[3] . ")'>Agendar</button></td>
+                    <td><button class='cancelar agendar' type='button' onclick='executeFunctions(" . '"fazAgendamentoCli",' . $row[3] . ")'>Agendar</button></td>
                 </tr>";
         }
     }
@@ -243,7 +249,7 @@ function gerarTabelaFazAgenCli()
 
 function fazAgendamentoCli()
 {
-
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
     if ($_GET['idAni'] != 0) {
@@ -321,20 +327,20 @@ function gerarTabelaAgenFun()
 
     // String que será retornada na tabela
     $tabela =
-        "<tr>
+        "<thead><tr>
             <th>Profissional</th>
             <th>Data Agendamento</th>
             <th>Horário do agendamento</th>
-            <th>Nome do animal</th>
-            <th>Nome do dono</th>
+            <th>Animal</th>
+            <th>Dono</th>
             <th>Detalhes</th>
             <th>Status</th>
-        </tr>";
+        </tr></thead>";
 
     // Pega cada linha da query e monta as linhas da tabela
     foreach ($resultado->fetch_all() as $row) {
         // Formata a data
-        $det = "<button onclick='executeFunctions(" . '"update"' . ", $row[6])'>Finalizar</button>";
+        $det = "<button class='cancelar finalizar' onclick='executeFunctions(" . '"update"' . ", $row[6])'>Finalizar</button>";
 
         if ($row[3] == '') {
             $det = '';
@@ -398,9 +404,16 @@ function getDesc()
     $stmt->bind_param("s", $id);
     // Executa o sql
     $stmt->execute();
+    $resultado = $stmt->get_result();
+    $row = $resultado->fetch_all()[0][0];
 
-    $retornar = $stmt->get_result();
-    return $retornar->fetch_all()[0][0];
+    if ($row == "") {
+        $retornar = "Os detalhes não foram adicionados ainda";
+    } else {
+        $retornar = $row;
+    }
+
+    return $retornar;
 }
 
 

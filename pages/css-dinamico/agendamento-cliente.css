@@ -1,0 +1,22 @@
+body{
+    background-image: url(../img-dinamico/fundo.svg);
+   
+}
+
+.titulo-agendamento{
+    text-align: center;
+    font-size: 24px;
+}
+
+.box-total{
+    padding: 1em;
+}
+
+.box-opcoes select{
+    width: 250px;
+    padding: 5px  15px;
+    border: 1px solid #828282;
+    color: #828282;
+    border-radius: 3px;
+    outline: #747474;
+}

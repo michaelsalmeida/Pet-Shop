@@ -21,22 +21,27 @@ h1{
     height: 40px;
     padding: 0 10px;
     border-radius: 5px;
-    border: 2px solid #403F3F;;
+    border: 2px solid #403F3F;
+    outline: none;
 }
 
- input[type= "submit"]{
+form button{
     margin: 30px 0px;
     padding: 10px 50px;
     font-size: 15px;
     color: #8C52FF;
     border: solid;
     background-color: transparent;
+    font-weight: 700;
     width: 200px;
     cursor: pointer;
+    border-radius: 5px;
     transition: all 0.5s;
 }
- input[type= "submit"]:hover{
-    color: black;
+
+form button:hover{
+   background-color: #8C52FF;
+   color: #ffffff;
 }
 
 form .iconCachorro{

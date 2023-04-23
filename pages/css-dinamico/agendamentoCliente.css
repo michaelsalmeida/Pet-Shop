@@ -1,9 +1,12 @@
+
+
 form{
     margin: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 2em;
 }
 
 h1{
@@ -16,8 +19,10 @@ h1{
 select, input{
     width: 300px;
     height: 40px;
-    text-align: center;
+    padding: 0 10px;
     border-radius: 5px;
+    outline: none;
+    border: 2px solid #403F3F;
 }
 
 .btnReset{
@@ -32,29 +37,8 @@ select, input{
     filter: grayscale(50);
 }
 
-/* tabela */
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 80%;
-    margin: 50px 0px;
-}
-
-td,
-th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    text-align: center;
-}
-
-tr:nth-child(odd) {
-    background-color: #dddddd;
-}
-/* fim tabela */
-
 .iconAgenda{
-    width: 100px;
+    width: 164px;
     margin: 50px 0px;
 }
 
@@ -64,6 +48,7 @@ tr:nth-child(odd) {
     border: none;
     margin-top: 50px;
 }
+
 .field1 div{
     margin: 10px;
 }
@@ -81,4 +66,6 @@ tr:nth-child(odd) {
 
 .field2 input[type= "date"]{
     width: 510px;
+    
 }
+

@@ -3,6 +3,7 @@ hambur.addEventListener("click", abreMenu)
 let fecha = document.querySelector(".fechaMenu")
 fecha.addEventListener("click", fechaMenu)
 let menu = document.querySelector(".responsive")
+let perfil = document.querySelector(".menu-perfil")
 
 // abre menu hamburguer
 function abreMenu(){
@@ -41,4 +42,19 @@ function formaValores(){
     
     document.querySelector("#quarto img").setAttribute("src", "../img-estatico/Fast delivery.svg")
     document.querySelector("#quarto p").innerHTML= "Delivery <br> R$ 25,80"
+}
+
+
+// abre ou fecha menu do perfil
+let perfilAberto = 0
+function menuPerfil(){
+    if(perfilAberto == 0){
+        perfilAberto = 1
+        perfil.style.opacity= '1'
+        perfil.style.zIndex= "1"
+    }else{
+        perfilAberto = 0
+        perfil.style.opacity= '0'
+        perfil.style.zIndex= "-1"
+    }
 }
