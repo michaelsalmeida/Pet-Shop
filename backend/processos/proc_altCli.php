@@ -19,7 +19,11 @@ try {
     );
     // Executa o sql
     $stmtCli->execute();
+    $_SESSION['msgAltCli'] = "Cliente alterado com sucesso";
 } catch (Exception $e) {
+    if ($e->getCode() === 1062) {
+        $_SESSION['msgAltCli'] = "Este email pertence a outro usuário.";
+    }
     echo $e->getMessage();
 }
 header("Location: " . $meuPerfilCliRoute);

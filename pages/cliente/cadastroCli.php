@@ -67,7 +67,7 @@ include_once($funcoesRoute);
 
                 <div class="input row">
                     <label for="celular">CELULAR *</label>
-                    <input type="text" name="celular" pattern="[0-9]{11}" placeholder="Digite seu telefone"
+                    <input type="text" name="celular" pattern="[(]?[0-9]{2}[)]?[0-9]{5}[-]?[0-9]{4}" placeholder="Digite seu telefone"
                         require><br><br>
 
                 </div>

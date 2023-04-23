@@ -69,10 +69,10 @@ require_once $funcoesRoute;
                     echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
-                // if (isset($_SESSION['msgRotaProibidaCli'])){
-                //   echo $_SESSION['msgRotaProibidaCli'];
-                //   unset($_SESSION['msgRotaProibidaCli']);
-                // }
+                if (isset($_SESSION['msgAltCli'])){
+                  echo $_SESSION['msgAltCli'];
+                  unset($_SESSION['msgAltCli']);
+                }
 
                 ?>
             </div>
