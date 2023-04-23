@@ -14,8 +14,8 @@ require_once $funcoesRoute;
     <link rel="stylesheet" href="pages/css-estatico/header.css">
     <link rel="stylesheet" href="pages/css-estatico/home.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
@@ -35,16 +35,12 @@ require_once $funcoesRoute;
         </a>
 
         <div class="responsive">
+
             <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
-
-
-                
-
-
 
             </div>
 
@@ -59,10 +55,7 @@ require_once $funcoesRoute;
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>
-                        <a href='$animaisCliRoute'>Meus Animais</a>
-                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
-                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>";
+                        ";
                     }
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
@@ -73,10 +66,33 @@ require_once $funcoesRoute;
                 //   echo $_SESSION['msgRotaProibidaCli'];
                 //   unset($_SESSION['msgRotaProibidaCli']);
                 // }
-                
+
                 ?>
             </div>
         </div>
+
+        <div class="perfil" onclick="menuPerfil()">
+            <i class="bi bi-person-square"></i>
+            <p>></p>
+        </div>
+
+        <?php
+        if (loged()) {
+            if (isset($_SESSION['tipo'])) {
+                // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                header("Location: " . $agendamentoFunRoute);
+            } else {
+                // Esses botões só aparecem quando o usuário estive logado
+                echo "
+                        <div class='menu-perfil'>
+                        <a href='$meuPerfilCliRoute'><img src='pages/img-estatico/account_circle.svg'> Meu Perfil</a>
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                        </div>";
+            }
+        }
+        ?>
 
         <img src="pages/img-estatico/menu.png" class="menu" alt="menu">
     </header>
@@ -98,13 +114,11 @@ require_once $funcoesRoute;
                         <img src="pages/img-estatico/carousel03.svg" class="d-block w-100" alt="...">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMainControls"
-                    data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMainControls" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselMainControls"
-                    data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselMainControls" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -221,9 +235,7 @@ require_once $funcoesRoute;
     </footer>
 
     <script src="pages/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 
 </html>
