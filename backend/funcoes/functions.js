@@ -207,17 +207,27 @@ function activeModalDetalhesFun(id, tipo) {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Pega a resposta do servidor
             // Verifica se o funcionário não é um admin ou secretaria
-            console.log(response);
-            if (response == 'Os detalhes não foram adicionados ainda' && (tipo != 'admin' || tipo != 'Secretaria')) {
-                // então mostra o campo para adicionar os detalhes
-                document.getElementById("container-modal").innerHTML = `
-                <h2>Descrição do Agendamento</h2>
-                <input name="ide" hidden value="${id}"></input>
-                <textarea cols="30" rows="10" name="descricao"></textarea>
-                <span onclick="document.getElementById('id01').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>
-                <input type='submit' value='Salvar'></input>`;
+            console.log(tipo);
+            if (response == 'Os detalhes não foram adicionados ainda'){
+                if (tipo == 'Veterinario' || tipo == 'Esteticista') {
+                    // então mostra o campo para adicionar os detalhes
+                    document.getElementById("container-modal").innerHTML = `
+                    <h2>Descrição do Agendamento</h2>
+                    <input name="ide" hidden value="${id}"></input>
+                    <textarea cols="30" rows="10" name="descricao"></textarea>
+                    <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                    <input type='submit' value='Salvar'></input>`;
 
+                } else {
+                    // Se não só mostra que os detalhes não foram definidos.
+                    document.getElementById("container-modal").innerHTML = `
+                    <h2>Descrição do Agendamento</h2>
+                    <p>Os detalhes não foram adicionados ainda</p>
+                    <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>`;
+
+                }
             } else {
                 // Se não só mostra que os detalhes não foram definidos.
                 document.getElementById("container-modal").innerHTML = `

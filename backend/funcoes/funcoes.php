@@ -371,6 +371,10 @@ function profissionais()
 
     $prof = $_GET['servico'];
 
+    if ($prof == 'Banho' || $prof == 'Tosa' || $prof == "Banho e Tosa"){
+        $prof = "Esteticista";
+    }
+
     $stmt = $conn->prepare("SELECT nome, pk_Funcionario FROM Funcionarios WHERE profissao = ? and ativo = 'ativo' ORDER BY nome");
 
     $stmt->bind_param("s", $prof);

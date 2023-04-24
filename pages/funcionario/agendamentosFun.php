@@ -24,7 +24,7 @@ require_once $funcoesRoute;
 
 </head>
 
-<body onresize="checaDispositivo()" onload="queryBanco('gerarTabelaAgenFun')">
+<body onload="queryBanco('gerarTabelaAgenFun')">
 
   <header class="header-corporativo">
     <div class="box-logo-barra-de-pesquisa-perfil">
