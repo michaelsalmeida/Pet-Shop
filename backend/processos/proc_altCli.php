@@ -8,6 +8,8 @@ try {
     $cep = str_replace('-', '', $_POST['cep']);
     $cpf = str_replace('.', '', $_POST['cpf']);
     $cpf = str_replace('-', '', $cpf);
+    
+    $celular = str_replace(['(', ')', '-'], '', $celular);
     // Altera os dados do cliente de acordo com o que o usuário alterar.
     $stmtCli = $conn->prepare("UPDATE Clientes SET cpf = ?, nome = ?, sobrenome = ?, celular = ?, cep = ?,
     logradouro = ?, numero = ?, complemento = ?, bairro = ?, municipio = ?, uf = ?, email = ? WHERE pk_Cliente = ?");

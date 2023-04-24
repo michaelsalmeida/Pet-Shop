@@ -121,7 +121,7 @@ require_once $funcoesRoute;
 
                 <div class="box-input">
                     <label for="celular">Celular</label>
-                    <input type="text" name="celular" pattern="[0-9]{11}" readonly required>
+                    <input type="text" name="celular" pattern="[(]?[0-9]{2}[)]?[0-9]{5}[-]?[0-9]{4}" readonly required>
                 </div>
 
             </div>
