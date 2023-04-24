@@ -164,6 +164,18 @@ header .menu-perfil img{
   margin: 0px 10px;
 }
 
+header .menu-perfil p{
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.perfilHambur{
+  display: flex;
+  align-items: center;
+  gap: 0px 15px;
+}
+
 /* FIM HEADER */
 
 /* FOOTER */

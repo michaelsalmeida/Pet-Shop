@@ -73,30 +73,34 @@ require_once $funcoesRoute;
 
 
 
-        <?php
-        if (loged()) {
-            if (isset($_SESSION['tipo'])) {
-                // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
-                header("Location: " . $agendamentoFunRoute);
-            } else {
-                // Esses botões só aparecem quando o usuário estive logado
-                echo "  <div class='perfil' onmousedown='menuPerfil()'>
-                        <i class='bi bi-person-square'></i>
+        <div class="perfilHambur">
+
+            <?php
+            if (loged()) {
+                if (isset($_SESSION['tipo'])) {
+                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                    header("Location: " . $agendamentoFunRoute);
+                } else {
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                        <img src='pages/img-estatico/account_circle.svg'>
                         <p>></p>
                         </div>
-
+                        
                         
                         <div class='menu-perfil'>
+                        <p>Bem Vindo! ".$_SESSION['nomeCLiente']."</p>
                         <a href='$meuPerfilCliRoute'><img src='pages/img-estatico/account_circle.svg'> Meu Perfil</a>
                         <a href='$animaisCliRoute'>Meus Animais</a>
                         <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
                         <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
                         </div>";
+                }
             }
-        }
-        ?>
+            ?>
 
-        <img src="pages/img-estatico/menu.png" class="menu" alt="menu">
+            <img src="pages/img-estatico/menu.png" class="menu" alt="menu">
+        </div>
     </header>
 
 

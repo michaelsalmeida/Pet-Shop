@@ -11,7 +11,7 @@ $hash = hash("sha512", $senha);
 
 try {
     // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
-    $stmt = $conn->prepare("SELECT pk_Cliente FROM Clientes WHERE email = ? AND senha = ? AND ativo = 'ativo'");
+    $stmt = $conn->prepare("SELECT pk_Cliente, nome FROM Clientes WHERE email = ? AND senha = ? AND ativo = 'ativo'");
     // Substituição da string preparada pelos valores corretos
     $stmt->bind_param("ss", $email, $hash);
     // Executa o sql
@@ -23,6 +23,7 @@ try {
     if ($row = $resultado->fetch_row()) {
         $_SESSION['loggedinCli'] = true;
         $_SESSION['idCli'] = $row[0]; // id do cliente
+        $_SESSION['nomeCLiente']= $row[1];
         header("Location: " . $homeRoute);
     } else {
         $_SESSION['msglogin'] = "USUÁRIO OU SENHA INCORRETO(S).";
