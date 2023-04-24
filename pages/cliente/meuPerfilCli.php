@@ -35,14 +35,14 @@ require_once $funcoesRoute;
     }
     ?>
 
-    <header>
+    <header style="display: flex; ">
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
         <div class="responsive">
 
-            <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
