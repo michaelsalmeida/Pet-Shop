@@ -186,6 +186,17 @@ function activeModal(id, tipo) {
     }
 }
 
+function activeModalApagarConta(id) {
+    document.getElementById("id01").style.display = "block" // Muda a modal para block, para que possa ser vista
+    document.getElementById("container-modal").innerHTML = `
+    <p>Você tem certeza que deseja APAGAR a sua conta?<p>
+    <span onclick="document.getElementById('id01').style.display='none'"
+            class="w3-button w3-display-topright">&times;</span>
+    <a href = "` + location.origin + `/Pet-shop/backend/processos/proc_excCliente.php?id=${id}` + `">Sim</a>
+    <button onclick="document.getElementById('id01').style.display='none'">Não</button>`;
+}
+
+
 function activeModalDetalhesFun(id, tipo) {
     // Muda a modal para block, para que possa ser vista
     document.getElementById("id01").style.display = "block"

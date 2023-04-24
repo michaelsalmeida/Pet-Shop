@@ -2,6 +2,7 @@
 
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexao
+require_once $funcoesRoute;
 
 if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
     header("Location: " . $agendamentoFunRoute);
