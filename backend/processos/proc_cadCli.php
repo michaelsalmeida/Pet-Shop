@@ -102,7 +102,7 @@ if ($certo1 && $certo2) {
         $stmt->execute();
 
         // Se a inserção ocorre normalmente, o usuário é enviado para a página de login
-        $_SESSION['msgCadCli'] = "Cliente Cadastrado com Sucesso";
+        $_SESSION['msglogin'] = "Cliente Cadastrado com Sucesso";
         header('location: ' . $loginCliRoute);
     } catch (mysqli_sql_exception $e) {
         // Pega o código do erro, 1062 é o código de entrada duplicada,

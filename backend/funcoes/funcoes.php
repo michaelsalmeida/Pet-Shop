@@ -444,18 +444,18 @@ function gerarTabelaDeleteFun()
 
     // String que será retornada na tabela
     $tabela =
-        "<tr>
+        "<thead><tr>
             <th>Nome</th>
             <th>Cpf</th>
             <th>Profissão</th>
             <th>Demitir</th>
-        </tr>";
+        </tr></thead>";
 
     $cont = 1;
 
     // Pega cada linha da query e monta as linhas da tabela
     foreach ($resultado->fetch_all() as $row) {
-        $button = "<button onclick='executeFunctions(`apagarFun`," . $row[3] . ")'>Demitir";
+        $button = "<button class='cancelar' onclick='executeFunctions(`apagarFun`," . $row[3] . ")'>Demitir";
 
         if ($row[4] == 'demitido') {
             $button = '<p>demitido</p>';

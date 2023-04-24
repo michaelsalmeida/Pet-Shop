@@ -22,6 +22,13 @@ if (!isset($_SESSION['tipo'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="<?php echo $functionsRoute; ?>"></script>
     <title>Document</title>
+
+    <link rel="stylesheet" href="../css-dinamico/meu-perfil.css">
+    <link rel="stylesheet" href="../css-estatico/header.css">
+    <link rel="stylesheet" href="../css-dinamico/">
+    <link rel="stylesheet" href="../css-dinamico/cadastrar-funcionario.css">
+
+
 </head>
 
 <body>
@@ -33,29 +40,66 @@ if (!isset($_SESSION['tipo'])) {
     ?>
 
     <div>
+
+        <div class="informacoes-superior">
+            <img src="../img-dinamico/icone-relogio.svg" alt="ícone do meu perfil">
+            <h1>CADASTRE UM HORÁRIO NA PLATAFORMA!</h1>
+        </div>
+
         <form action="<?php echo $procCadDataRoute; ?>" method="post">
-            <label for="data">DATA :</label>
-            <input type="date" name="data" required>
 
-            <label for="">HORÁRIO :</label>
-            <input type="time" name="hora" required>
+            <div class="box-maior-input">
 
-            <select name="servicos" id="servicos" onchange="queryBanco('profissionais')" required>
-                <option value="" disabled selected hidden>Selecione o tipo de serviço</option>
-                <option value="Veterinario">Veterinário</option>
-                <option value="Esteticista">Banho</option>
-                <option value="Esteticista">Tosa</option>
-                <option value="Esteticista">Banho e Tosa</option>
-            </select>
+                <div class="box-input">
 
-            <select name="profissionais" id="profissionais" required>
-                <option value="" disabled selected hidden>Selecione um tipo de serviço</option>
+                    <label for="data">DATA</label>
+                    <input type="date" name="data" required>
 
-            </select>
+                </div>
 
-            <input type="submit" value="Cadastrar">
+                <div class="box-input">
+
+                    <label for="">HORÁRIO</label>
+                    <input type="time" name="hora" required>
+
+                </div>
+
+            </div>
+
+            <div class="box-maior-input">
+
+                <div class="box-input">
+
+                    <label for="">Selecione o tipo de serviço</label>
+                    <select name="servicos" id="servicos" onchange="queryBanco('profissionais')" required style="width: 300px;">
+                        <option value="" disabled selected hidden>Selecione o tipo de serviço</option>
+                        <option value="Veterinario">Veterinário</option>
+                        <option value="Esteticista">Banho</option>
+                        <option value="Esteticista">Tosa</option>
+                        <option value="Esteticista">Banho e Tosa</option>
+                    </select>
+
+                </div>
+
+                <div class="box-input">
+
+                    <label for="">Selecione o profissional</label>
+
+                    <select name="profissionais" id="profissionais" required style="width: 300px;">
+                        <option value="" disabled selected hidden>Selecione um profissional</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="box-inferior-botoes">
+
+                <input type="submit" value="Cadastrar">
+                <a href="<?php echo $agendamentoFunRoute; ?>">Voltar</a>
+            </div>
         </form>
-        <a href="<?php echo $agendamentoFunRoute; ?>">Voltar</a>
     </div>
 
 </body>

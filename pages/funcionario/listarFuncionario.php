@@ -18,25 +18,11 @@ if (!isset($_SESSION['tipo'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
+  <link rel="stylesheet" href="../css-estatico/header.css">
+  <link rel="stylesheet" href="../css-dinamico/table.css">
+  <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css">
 
-    td,
-    th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-      text-align: center;
-    }
 
-    tr:nth-child(odd) {
-      background-color: #dddddd;
-    }
-  </style>
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
@@ -51,15 +37,20 @@ if (!isset($_SESSION['tipo'])) {
     <button onclick="queryBanco('gerarTabelaDeleteFun')">Pesquisar</button>
   </div>
 
-  <div>
-    <select name="situacoes" id="situacoes" onchange="queryBanco('gerarTabelaDeleteFun')" required>
-      <option value="" disabled selected hidden>Selecione a situação</option>
-      <option value="ativo">Ativo</option>
-      <option value="demitido">Demitido</option>
-    </select>
-  </div>
 
-  <table id="tabela"></table>
+
+  <div class="container box-total">
+
+    <div class="box-opcoes">
+      <select name="situacoes" id="situacoes" onchange="queryBanco('gerarTabelaDeleteFun')" required>
+        <option value="" disabled selected hidden>Selecione a situação</option>
+        <option value="ativo">Ativo</option>
+        <option value="demitido">Demitido</option>
+      </select>
+    </div>
+
+    <table id="tabela"></table>
+  </div>
 
 </body>
 
