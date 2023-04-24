@@ -170,7 +170,7 @@ function checkAnimais()
     
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
-    $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? ORDER BY nome");
+    $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome");
     $stmt->bind_param("s", $_SESSION['idCli']);
     // Executa o sql
     $stmt->execute();
