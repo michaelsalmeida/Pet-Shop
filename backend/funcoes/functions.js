@@ -196,7 +196,8 @@ function activeModalDetalhesFun(id, tipo) {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Pega a resposta do servidor
             // Verifica se o funcionário não é um admin ou secretaria
-            if (response == '' && (tipo != 'admin' || tipo != 'Secretaria')) {
+            console.log(response);
+            if (response == 'Os detalhes não foram adicionados ainda' && (tipo != 'admin' || tipo != 'Secretaria')) {
                 // então mostra o campo para adicionar os detalhes
                 document.getElementById("container-modal").innerHTML = `
                 <h2>Descrição do Agendamento</h2>
@@ -210,7 +211,7 @@ function activeModalDetalhesFun(id, tipo) {
                 // Se não só mostra que os detalhes não foram definidos.
                 document.getElementById("container-modal").innerHTML = `
                 <h2>Descrição do Agendamento</h2>
-                <p>Detalhes não definido</p>
+                <p>${response}</p>
                 <span onclick="document.getElementById('id01').style.display='none'"
                 class="w3-button w3-display-topright">&times;</span>`;
             }
