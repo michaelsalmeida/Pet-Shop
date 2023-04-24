@@ -170,7 +170,7 @@ function checkAnimais()
     
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
-    $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? ORDER BY nome");
+    $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome");
     $stmt->bind_param("s", $_SESSION['idCli']);
     // Executa o sql
     $stmt->execute();
@@ -404,9 +404,16 @@ function getDesc()
     $stmt->bind_param("s", $id);
     // Executa o sql
     $stmt->execute();
+    $resultado = $stmt->get_result();
+    $row = $resultado->fetch_all()[0][0];
 
-    $retornar = $stmt->get_result();
-    return $retornar->fetch_all()[0][0];
+    if ($row == "") {
+        $retornar = "Os detalhes não foram adicionados ainda";
+    } else {
+        $retornar = $row;
+    }
+
+    return $retornar;
 }
 
 
@@ -548,7 +555,7 @@ function animais()
     $stmt = $conn->prepare("SELECT pk_Cliente from Clientes
         where cpf = ?");
 
-    $stmt->bind_param("s", $cpf);
+    $stmt->bind_param("s", $prof);
 
     // Executa o sql
     $stmt->execute();
@@ -556,13 +563,176 @@ function animais()
     // Pega o resultado do banco
     $resultado = $stmt->get_result();
 
+    if (mysqli_num_rows($resultado) == 0){
+        $tabela = "<option value='' disabled selected hidden>CPF não está no sistema</option>";
+    } else {
 
-    $tabela = "<option value='' disabled selected hidden>Selecione um animal</option>";
+        $idCliente = $resultado -> fetch_all()[0][0];
 
-    foreach ($resultado->fetch_all() as $row) {
-        $tabela = $tabela . "<option value='$row[0]'>$row[0]</option>";
+        $stmt2 = $conn -> prepare("SELECT nome, pk_Animal from Animais where fk_Cliente = ?");
+
+        $stmt2 -> bind_param("s", $idCliente);
+
+        $stmt2 -> execute();
+
+        $resultado2 = $stmt2->get_result();
+
+        if (mysqli_num_rows($resultado2) == 0){
+            $tabela = "<option value='' disabled selected hidden>Nenhum animal encontrado para esse CPF</option>";
+        } else {
+            $tabela = "<option value='' disabled selected hidden>Selecione um animal</option>";
+
+            foreach ($resultado2->fetch_all() as $row) {
+                $tabela = $tabela . "<option value='$row[1]'>$row[0]</option>";
+            }
+
+        }
+
+
     }
-
-    $retornar = array('profissionais', $tabela);
+    
+    $retornar = array('animais', $tabela);
     return json_encode($retornar);
 }
+
+
+    function tabelaFunAgenCli(){
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+
+        $servico = $_GET['servico'];
+
+        $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, pk_Agendamento from Agendamentos
+            LEFT JOIN Animais
+            ON Agendamentos.fk_Animal = Animais.pk_Animal
+            LEFT JOIN Clientes
+            ON Animais.fk_Cliente = Clientes.pk_Cliente
+            INNER JOIN Funcionarios
+            ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
+            WHERE Funcionarios.nome LIKE ?
+            AND `status` = 'Disponivel'
+            AND tipo = ?
+            ORDER BY data_agendamento, horario_agendamento");
+
+        $pesquisar = "%" . $_GET['pesq'] . "%";
+        $stmt->bind_param("ss", $pesquisar, $servico);
+
+        // Executa o sql
+        $stmt->execute();
+        // Pega o resultado do banco
+        $resultado = $stmt->get_result();
+
+        // String que será retornada na tabela
+        $tabela =
+            "<tr>
+                <th>Profissional</th>
+                <th>Data Agendamento</th>
+                <th>Horário do agendamento</th>
+                <th>Marcar</th>
+            </tr>";
+
+        // Pega cada linha da query e monta as linhas da tabela
+        foreach ($resultado->fetch_all() as $row) {
+            // Formata a data
+            $det = "<button onclick='executeFunctions(" . '"fazerAgenParaCli"' . ", $row[3])'>Agendar</button>";
+
+            $data = date('d/m/Y', strtotime($row[1]));
+            $tabela = $tabela .
+                "<tr>
+                    <td>$row[0]</td>
+                    <td>$data</td>
+                    <td>$row[2]</td>
+                    <td>$det</td>
+                </tr>";
+        }
+
+        $retornar = array('tabela', $tabela);
+        return json_encode($retornar);
+    }
+
+    function fazerAgenParaCli(){
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+
+        $fkAnimal = $_GET['idAnimal'];
+        $pkAgen = $_GET['idAgen'];
+
+        if($fkAnimal == ''){
+            $_SESSION['agenCliFun'] = "Selecione um animal por favor";
+        } else {
+            $stmt = $conn->prepare("UPDATE Agendamentos 
+            set fk_Animal = ?, status = 'Marcado'
+            WHERE pk_Agendamento = ?");
+
+            $stmt->bind_param("ss", $fkAnimal, $pkAgen);
+
+            $stmt->execute();
+
+            if (mysqli_affected_rows($conn)){
+                $_SESSION['agenCliFun'] = "Agendamento realizado com sucesso";
+            }
+
+        }
+
+    }
+
+    function verificar(){
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+
+        $cpf = $_GET['cpf'];
+
+        $stmt = $conn->prepare("SELECT pk_Cliente from Clientes
+        where cpf = ?");
+
+        $stmt->bind_param("s", $cpf);
+
+        // Executa o sql
+        $stmt->execute();
+
+        // Pega o resultado do banco
+        $resultado = $stmt->get_result();
+
+        $id = $resultado->fetch_all()[0][0];
+
+        if (mysqli_num_rows($resultado) > 0){
+
+            $_SESSION['idCliente'] = $id;
+
+            $tabela = "<div>
+            <label for='nome'>Nome</label><br>
+            <input type='text' name='nome' required>
+        </div>
+
+        <div>
+            <label for='dataNasc'>Data de Nascimento</label><br>
+            <input type='date' name='dataNasc' required>
+        </div>
+
+        <div>
+            <label for='espec'>Espécie</label><br>
+            <input type='text' name='espec' required>
+        </div>
+
+        <div>
+            <label for='raca'>Raça</label><br>
+            <input type='text' name='raca' required>
+        </div>
+
+        <div>
+            <label for='peso'>Peso (Kg)</label><br>
+            <input type='number' name='peso' step=0.01 pattern='[0-9]*' required>
+        </div>
+
+        <div>
+            <label for='cor'>Cor</label><br>
+            <input type='text' name='cor' required>
+            
+        </div>
+        <input type='submit' value='Cadastrar'> 
+            ";
+            
+        } else {
+            $tabela = "Nada";
+        }
+
+        $retornar = array('formanimal', $tabela);
+        return json_encode($retornar);
+    }

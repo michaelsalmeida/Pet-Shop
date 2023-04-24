@@ -29,6 +29,7 @@ $cadastradaDatasRoute = $rootFunPages . "cadastrarDatas.php";
 $cadastrarFunRoute = $rootFunPages . "cadFun.php";
 $listarFunRoute = $rootFunPages . "listarFuncionario.php";
 $agendarParaClienteRoute = $rootFunPages . "agendarParaCliente.php";
+$cadAnimalParaClienteRoute = $rootFunPages . "cadAnimalParaCliente.php";
 
 //                           FIM Rotas Funcionário
 
@@ -63,6 +64,7 @@ $procExcAnimalRoute = $rootBackProc . "proc_excAnimal.php";
 $procCadDataRoute = $rootBackProc . "proc_cadData.php";
 $procCadFunRoute = $rootBackProc . "proc_cadFun.php";
 $procSalvarDetalhesRoute = $rootBackProc . "proc_salvarDetalhes.php";
+$procCadAnimalFunRoute = $rootBackProc . "proc_cadAnimalFun.php";
 
 
 
@@ -71,14 +73,8 @@ $functionsRoute = $rootBackFunctions . "functions.js";
 $viacepRoute = $rootBackFunctions . "viacep.js";
 $dataHojeRoute = $rootBackFunctions . "dataHoje.js";
 $confSenhaRoute = $rootBackFunctions . "confSenha.js";
-$aaa = $rootBackFunctions . "aaa.js";
 
 
 
 $funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.php";
 
-//30785213031
-//51805990080
-//47650703010
-//20676872042 esteticista
-//33869223090 veterinario

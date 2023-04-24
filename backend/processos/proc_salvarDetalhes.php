@@ -15,8 +15,8 @@ $stmt->execute();
 
 if (mysqli_affected_rows($conn) > 0) {
   $_SESSION['msgDesc'] = 'Descrição adicionada com sucesso';
-  // header('location: ' . $agendamentoFunRoute);
+  header('location: ' . $agendamentoFunRoute);
 } else {
   $_SESSION['msgDesc'] = 'Erro ao adicionar a descrição';
-  // header('location: ' . $agendamentoFunRoute);
+  header('location: ' . $agendamentoFunRoute);
 }

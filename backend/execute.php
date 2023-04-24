@@ -32,6 +32,9 @@ switch ($_GET['function']) {
     case 'gerarTabelaDeleteFun':
         echo gerarTabelaDeleteFun();
         break;
+    case 'tabelaFunAgenCli':
+        echo tabelaFunAgenCli();
+        break;
     case 'apagarFun':
         echo apagarFuncionario();
         break;
@@ -49,5 +52,11 @@ switch ($_GET['function']) {
         break;
     case 'animais':
         echo animais();
+        break;
+    case 'verificar':
+        echo verificar();
+        break;
+    case 'fazerAgenParaCli':
+        echo fazerAgenParaCli();
         break;
 }
