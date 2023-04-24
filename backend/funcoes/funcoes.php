@@ -145,7 +145,7 @@ function gerarTabelaAgenCli()
             if ($row[5] == "Marcado") {
                 $botao = "<button class='cancelar' onclick='activeModal($row[6]," . '"Cancelar"' . ")'>Cancelar</button>";
             } elseif ($row[5] == "Concluido") {
-                $botao = "<button onclick='activeModal($row[6]," . '"Detalhes"' . ")'>Detalhes</button>";
+                $botao = "<button class='finalizar cancelar' onclick='activeModal($row[6]," . '"Detalhes"' . ")'>Detalhes</button>";
             }
 
             $tabela = $tabela .
@@ -170,7 +170,7 @@ function checkAnimais()
     
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
-    $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? ORDER BY nome");
+    $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome");
     $stmt->bind_param("s", $_SESSION['idCli']);
     // Executa o sql
     $stmt->execute();
@@ -260,17 +260,14 @@ function fazAgendamentoCli()
             $stmt->execute();
 
             $_SESSION['msgAgendamentoCli'] = "Agendamento Realizado";
-            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/agendamentosCli.php";
-            // return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/agendamentosCli.php";
+            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/agendamentosCli.php";
         } catch (Exception $e) {
             $_SESSION['msgFazAgendamento'] = "Error: " . $e->getMessage();
-            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/fazerAgendamentoCli.php";
-            // return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/fazerAgendamentoCli.php";
+            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/fazerAgendamentoCli.php";
         }
     } else {
         $_SESSION['msgFazAgendamento'] = "Selecione um animal!";
-        return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/fazerAgendamentoCli.php";
-        // return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/pages/cliente/fazerAgendamentoCli.php";
+        return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/fazerAgendamentoCli.php";
     }
 }
 
@@ -347,7 +344,7 @@ function gerarTabelaAgenFun()
 
         } elseif ($row[5] == "Concluido" && $row[3] != '') {
 
-            $det = "<button onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
+            $det = "<button class='finalizar cancelar' onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
         }
 
         $data = date('d/m/Y', strtotime($row[1]));

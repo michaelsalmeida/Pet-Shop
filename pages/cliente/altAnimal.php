@@ -129,6 +129,8 @@ require_once $funcoesRoute;
         </fieldset>
 
         <button type="submit" value="Alterar">Alterar</button>
+        <a href="<?php echo $homeRoute; ?>">Voltar</a>
+
     </form>
 
     <script src="<?php echo $dataHojeRoute; ?>"></script>
