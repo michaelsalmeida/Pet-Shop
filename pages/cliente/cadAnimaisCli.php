@@ -121,6 +121,8 @@ require_once $funcoesRoute;
 
 
         <button type="submit" value="Cadastrar">Cadastrar</button>
+        <a href="<?php echo $homeRoute; ?>">Voltar</a>
+
     </form>
 
 

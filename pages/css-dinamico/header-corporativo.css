@@ -31,6 +31,10 @@ a{
   padding: 20px 30px;
 }
 
+.box-logo-barra-de-pesquisa-perfil img{
+  width: 200px;
+}
+
 .box-logo-barra-de-pesquisa-perfil .box-pesquisar {
   background-color: #ffffff;
   padding: 10px;

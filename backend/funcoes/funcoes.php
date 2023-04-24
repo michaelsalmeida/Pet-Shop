@@ -145,7 +145,7 @@ function gerarTabelaAgenCli()
             if ($row[5] == "Marcado") {
                 $botao = "<button class='cancelar' onclick='activeModal($row[6]," . '"Cancelar"' . ")'>Cancelar</button>";
             } elseif ($row[5] == "Concluido") {
-                $botao = "<button onclick='activeModal($row[6]," . '"Detalhes"' . ")'>Detalhes</button>";
+                $botao = "<button class='finalizar cancelar' onclick='activeModal($row[6]," . '"Detalhes"' . ")'>Detalhes</button>";
             }
 
             $tabela = $tabela .
@@ -347,7 +347,7 @@ function gerarTabelaAgenFun()
 
         } elseif ($row[5] == "Concluido" && $row[3] != '') {
 
-            $det = "<button onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
+            $det = "<button class='finalizar cancelar' onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
         }
 
         $data = date('d/m/Y', strtotime($row[1]));

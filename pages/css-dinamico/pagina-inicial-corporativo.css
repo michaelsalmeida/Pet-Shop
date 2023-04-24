@@ -1,3 +1,6 @@
+
+
+/* PAGINA INICIAL DO CLIENTE  */
 body{
     background-image: url(../img-dinamico/fundo.svg);
    
@@ -20,3 +23,5 @@ body{
     border-radius: 3px;
     outline: #747474;
 }
+
+/* PAGINA INICIAL DO CLIENTE  FIM */

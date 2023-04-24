@@ -1,3 +1,7 @@
+body{
+    margin-bottom: 20px;
+}
+
 form{
     margin: 0px 20px;
     display: flex;
@@ -31,7 +35,7 @@ form button{
     font-size: 15px;
     color: #8C52FF;
     border: solid;
-    background-color: transparent;
+    background-color: #ffffff;
     font-weight: 700;
     width: 200px;
     cursor: pointer;
