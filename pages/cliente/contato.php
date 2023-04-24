@@ -79,7 +79,7 @@ require_once $funcoesRoute;
                         
                         
                         <div class='menu-perfil'>
-                        <p>Bem Vindo! ".$_SESSION['nomeCLiente']."</p>
+                        <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
                         <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
                         <a href='$animaisCliRoute'>Meus Animais</a>
                         <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
