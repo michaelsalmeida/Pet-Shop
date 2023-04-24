@@ -23,11 +23,12 @@ try {
     if ($row = $resultado->fetch_row()) {
         $_SESSION['loggedinCli'] = true;
         $_SESSION['idCli'] = $row[0]; // id do cliente
-        $_SESSION['nomeCLiente']= $row[1];
+        $_SESSION['nomeCliente'] = $row[1];
         header("Location: " . $homeRoute);
     } else {
         $_SESSION['msglogin'] = "USUÁRIO OU SENHA INCORRETO(S).";
-        header("Location: " . $loginCliRoute);
+        echo $_SESSION['nomeCliente'];
+        // header("Location: " . $loginCliRou   te);
     }
 } catch (Exception $e) {
     echo $e->getMessage();
