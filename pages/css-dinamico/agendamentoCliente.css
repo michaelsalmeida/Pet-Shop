@@ -67,4 +67,14 @@ select, input{
     
 }
 
-
+@media (max-width: 700px) {
+    .field1, .field2{
+        grid-template-columns: auto;
+    }
+    .field2 input[type= "date"]{
+        width: 300px;
+    }
+    .field2 div{
+        margin: 0px;
+    }
+}
