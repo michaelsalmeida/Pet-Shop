@@ -7,6 +7,9 @@ function executeFunctions(func, id) {
         var idAnimal = document.getElementById('animais').value
         // Passa o id do agendamento e do animal para adicionar na url
         extra = `&idAgen=${id}&idAni=${idAnimal}`
+    } else if (func == "fazerAgenParaCli"){
+        var idAnimal = document.getElementById('animais').value;
+        extra = `&idAgen=${id}&idAnimal=${idAnimal}`;
     }
 
     var xhr = new XMLHttpRequest();
@@ -21,24 +24,11 @@ function executeFunctions(func, id) {
     xhr.send();
 }
 
-function inserirDetalhes(func, id) {
-
-    extra = `&id=${id}`;
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=${func}${extra}`, true);
-    xhr.onload = function () {
-        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
-            var response = xhr.responseText; // Get the response from the server
-            location.href = response; // Log the response to the console
-        }
-    };
-    xhr.send();
-}
 
 function queryBanco(tipo) {
 
     // Define as variaveis necessárias no caso da função for acionada...
+
     extra = "";
     if (tipo == 'profissionais') { // para puxar os funcionários
         var servico = document.getElementById('servicos').value;
@@ -59,8 +49,12 @@ function queryBanco(tipo) {
         var filtro = document.getElementById('situacoes').value;
         var extra = `&pesq=${pesq}&situ=${filtro}`;
     } else if (tipo == 'animais') {
-        var cpf = document.getElementById('cpf');
+        var cpf = document.getElementById('cpf').value;
         var extra = `&cpf=${cpf}`;
+    } else if (tipo == 'tabelaFunAgenCli'){
+        var pesq = document.getElementById('pesq').value;
+        var servico = document.getElementById('status').value;
+        var extra = `&servico=${servico}&pesq=${pesq}`;
     }
 
     var xhr = new XMLHttpRequest();
@@ -68,12 +62,71 @@ function queryBanco(tipo) {
     xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=${tipo}${extra}`, true);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
             document.getElementById(response[0]).innerHTML = response[1];
+            
             // Seleciona o elemento de acordo com o primeiro valor do JSON
             // e coloca o segundo valor dentro deste elemento
         }
     };
+    xhr.send();
+}
+
+function queryBanco2(tipo) {
+
+    // Define as variaveis necessárias no caso da função for acionada...
+    extra = "";
+    if (tipo == 'animais') {
+        var cpf = document.getElementById('cpf').value;
+        var extra = `&cpf=${cpf}`;
+    
+
+        var xhr = new XMLHttpRequest();
+        // Executa o arquivo que irá iniciar a função
+        xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=${tipo}${extra}`, true);
+        xhr.onload = function () {
+            if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
+                document.getElementById(response[0]).innerHTML = response[1];
+                if (response[1].length > 74){
+                    document.getElementById('status').style.display = 'block';
+                    document.getElementById('divpesq').style.display = 'block';
+                    document.getElementById('tabela').style.display = 'block';
+                } else {
+                    document.getElementById('status').style.display = 'none';
+                    document.getElementById('divpesq').style.display = 'none';
+                    document.getElementById('tabela').style.display = 'none';
+                }
+                // Seleciona o elemento de acordo com o primeiro valor do JSON
+                // e coloca o segundo valor dentro deste elemento
+            }
+        };
+    } else if (tipo == 'verificar'){
+        var cpf = document.getElementById('cpf').value;
+        var extra = `&cpf=${cpf}`;
+
+        var xhr = new XMLHttpRequest();
+        // Executa o arquivo que irá iniciar a função
+        xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=${tipo}${extra}`, true);
+        xhr.onload = function () {
+            if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
+                document.getElementById(response[0]).innerHTML = response[1];
+                console.log(response[1]);
+                console.log(response[1].length);
+                if (response[1].length > 4){
+                    document.getElementById('animal').style.display = 'block';
+                    document.getElementById('aviso').style.display = 'none';
+                    // document.getElementById('aviso').value = response[1][0];
+
+                } else {
+                    document.getElementById('animal').style.display = 'none';
+                    document.getElementById('aviso').style.display = 'block';
+                }   
+            }
+        };
+    }
     xhr.send();
 }
 
