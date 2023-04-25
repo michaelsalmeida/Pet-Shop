@@ -598,7 +598,6 @@ function gerarTabelaDeleteFun()
             </tr>
             ";
     } else {
-
         // Pega cada linha da query e monta as linhas da tabela
         foreach ($resultado->fetch_all() as $row) {
             $button = "<button class='cancelar' onclick='executeFunctions(`apagarFun`," . $row[3] . ")'>Demitir";
@@ -613,8 +612,8 @@ function gerarTabelaDeleteFun()
                     <td>$row[2]</td>
                     <td>$button</td>
                 </tr>";
-
-        $cont += 1;
+            $cont += 1;
+        }
     }
     
     // Paginação - Somar a quantidade de usuários
@@ -825,15 +824,16 @@ function animais()
                 // Formata a data
                 $det = "<button onclick='executeFunctions(" . '"fazerAgenParaCli"' . ", $row[3])'>Agendar</button>";
 
-            $data = date('d/m/Y', strtotime($row[1]));
-            $tabela = $tabela .
-                "<tr>
-                    <td>$row[0]</td>
-                    <td>$data</td>
-                    <td>$row[2]</td>
-                    <td>$det</td>
-                </tr>";
-            $row_pg = $row[4];
+                $data = date('d/m/Y', strtotime($row[1]));
+                $tabela = $tabela .
+                    "<tr>
+                        <td>$row[0]</td>
+                        <td>$data</td>
+                        <td>$row[2]</td>
+                        <td>$det</td>
+                    </tr>";
+                $row_pg = $row[4];
+            }
         }
         
 
