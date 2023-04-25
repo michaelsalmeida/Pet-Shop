@@ -48,7 +48,7 @@ require_once $funcoesRoute;
 
     </div>
 
-    <nav class="responsive menu-perfil">
+    <nav class="responsive menu-perfil" style="opacity: 0; z-index: -1;">
 
       <?php
       if (!loged()) {
