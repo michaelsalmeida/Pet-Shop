@@ -36,8 +36,13 @@ require_once $funcoesRoute;
         <button onclick="paginacao('gerarTabelaAgenFun')"><i class="bi bi-search"></i></button>
       </div>
 
-      <div class="perfil-corpotativo">
+      <!-- <div class="perfil-corpotativo" onclick="menuPerfil()">
         <i class="bi bi-person-square"></i>
+        <p>></p>
+      </div> -->
+
+      <div class='perfil-corpotativo' onmousedown='menuPerfil()'>
+        <img src='../img-estatico/account_circle.svg'>
         <p>></p>
       </div>
 
@@ -45,7 +50,7 @@ require_once $funcoesRoute;
 
     </div>
 
-    <nav class="responsive">
+    <nav class="responsive menu-perfil">
 
 
       <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
@@ -62,16 +67,16 @@ require_once $funcoesRoute;
       }
 
       if ($_SESSION['tipo'] == 'Secretaria') {
-        echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a><br><br>";
-        echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a><br><br>";
-        echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a><br><br>";
-        echo "<a href=" . $cadAnimalParaClienteRoute . ">Cadastrar animal</a><br><br>";
+        echo "<a target='_blank' href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
+        echo "<a target='_blank' href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
+        echo "<a target='_blank' href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
+        echo "<a target='_blank' href=" . $cadAnimalParaClienteRoute . ">Cadastrar animal</a>";
       } elseif ($_SESSION['tipo'] == 'admin') {
-        echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a><br><br>";
-        echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a><br><br>";
-        echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a><br><br>";
-        echo "<a href=" . $listarFunRoute . ">Listar Funcionários</a><br><br>";
-        echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a><br><br>"; 
+        echo "<a target='_blank' href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a>";
+        echo "<a target='_blank' href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
+        echo "<a target='_blank' href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
+        echo "<a target='_blank' href=" . $listarFunRoute . ">Listar Funcionários</a>";
+        echo "<a target='_blank' href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
       }
 
 
@@ -95,12 +100,12 @@ require_once $funcoesRoute;
         echo "<p id='pag' hidden>1</p>";
       }
       ?>
+      <button onclick="executeFunctions('logoff', '')">Sair</button>
 
 
     </nav>
 
   </header>
-  <button onclick="executeFunctions('logoff', '')">Sair</button> 
 
 
 
@@ -108,7 +113,7 @@ require_once $funcoesRoute;
 
 
 
-  
+
 
   <div class="container box-total">
 
@@ -123,7 +128,7 @@ require_once $funcoesRoute;
     </select>
   </div>
 
-  
+
     <table id="tabela">
     </table>
     <div id="links"></div>

@@ -37,6 +37,10 @@ if (!isset($_SESSION['tipo'])) {
         echo $_SESSION['msgTelaCadData'];
         unset($_SESSION['msgTelaCadData']);
     }
+    if (isset($_SESSION['msgCadDataErro'])) {
+        echo $_SESSION['msgCadDataErro'];
+        unset($_SESSION['msgCadDataErro']);
+    }
     ?>
 
     <div>

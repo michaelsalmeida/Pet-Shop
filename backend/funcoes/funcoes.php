@@ -413,39 +413,48 @@ function gerarTabelaAgenFun()
     $tabela =
         "<thead><tr>
             <th>Profissional</th>
-            <th>Data Agendamento</th>
-            <th>Horário do agendamento</th>
+            <th>Data</th>
+            <th>Horário</th>
             <th>Animal</th>
             <th>Dono</th>
             <th>Detalhes</th>
             <th>Status</th>
         </tr></thead>";
 
-    // Pega cada linha da query e monta as linhas da tabela
-    foreach ($resultado->fetch_all() as $row) {
-        // Formata a data
-        $det = "<button class='cancelar finalizar' onclick='executeFunctions(" . '"update"' . ", $row[6])'>Finalizar</button>";
-
-        if ($row[3] == '') {
-            $det = '';
-
-        } elseif ($row[5] == "Concluido" && $row[3] != '') {
-
-            $det = "<button class='finalizar cancelar' onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
+    if (mysqli_num_rows($resultado) == 0){
+        $tabela = $tabela . "
+            <tr>
+                <td colspan=7>Não há agendamentos cadastrados</td>
+            </tr>
+            ";
+    } else {
+        foreach ($resultado->fetch_all() as $row) {
+            // Formata a data
+            $det = "<button class='cancelar finalizar' onclick='executeFunctions(" . '"update"' . ", $row[6])'>Finalizar</button>";
+    
+            if ($row[3] == '') {
+                $det = '';
+    
+            } elseif ($row[5] == "Concluido" && $row[3] != '') {
+    
+                $det = "<button class='finalizar cancelar' onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
+            }
+    
+            $data = date('d/m/Y', strtotime($row[1]));
+            $tabela = $tabela .
+                "<tr>
+                    <td>$row[0]</td>
+                    <td>$data</td>
+                    <td>$row[2]</td>
+                    <td>$row[3]</td>
+                    <td>$row[4]</td>
+                    <td>$det</td>
+                    <td>$row[5]</td>
+                </tr>";
         }
-
-        $data = date('d/m/Y', strtotime($row[1]));
-        $tabela = $tabela .
-            "<tr>
-                <td>$row[0]</td>
-                <td>$data</td>
-                <td>$row[2]</td>
-                <td>$row[3]</td>
-                <td>$row[4]</td>
-                <td>$det</td>
-                <td>$row[5]</td>
-            </tr>";
     }
+
+    // Pega cada linha da query e monta as linhas da tabela
 
     // Paginação - Somar a quantidade de usuários
     $result_pg = "SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos";
@@ -552,7 +561,8 @@ function gerarTabelaDeleteFun()
     $stmt = $conn->prepare("SELECT nome, cpf, profissao, pk_Funcionario, ativo FROM Funcionarios
         WHERE nome LIKE ?
         AND profissao != 'admin'
-        AND ativo = ?");
+        AND ativo = ?
+        ORDER BY nome ASC");
 
     $pesquisar = "%" . $_GET['pesq'] . "%";
 
@@ -581,21 +591,28 @@ function gerarTabelaDeleteFun()
         </tr></thead>";
 
     $cont = 1;
+    if (mysqli_num_rows($resultado) == 0){
+        $tabela = $tabela . "
+            <tr>
+                <td colspan=7>Não há agendamentos cadastrados</td>
+            </tr>
+            ";
+    } else {
 
-    // Pega cada linha da query e monta as linhas da tabela
-    foreach ($resultado->fetch_all() as $row) {
-        $button = "<button class='cancelar' onclick='executeFunctions(`apagarFun`," . $row[3] . ")'>Demitir";
+        // Pega cada linha da query e monta as linhas da tabela
+        foreach ($resultado->fetch_all() as $row) {
+            $button = "<button class='cancelar' onclick='executeFunctions(`apagarFun`," . $row[3] . ")'>Demitir";
 
-        if ($row[4] == 'demitido') {
-            $button = '<p>demitido</p>';
-        }
-        $tabela = $tabela .
-            "<tr>
-                <td id='nome$cont'>$row[0]</td>
-                <td>$row[1]</td>
-                <td>$row[2]</td>
-                <td>$button</td>
-            </tr>";
+            if ($row[4] == 'demitido') {
+                $button = '<p>demitido</p>';
+            }
+            $tabela = $tabela .
+                "<tr>
+                    <td id='nome$cont'>$row[0]</td>
+                    <td>$row[1]</td>
+                    <td>$row[2]</td>
+                    <td>$button</td>
+                </tr>";
 
         $cont += 1;
     }
@@ -795,10 +812,18 @@ function animais()
                 <th>Marcar</th>
             </tr>";
 
-        // Pega cada linha da query e monta as linhas da tabela
-        foreach ($resultado->fetch_all() as $row) {
-            // Formata a data
-            $det = "<button onclick='executeFunctions(" . '"fazerAgenParaCli"' . ", $row[3])'>Agendar</button>";
+        if (mysqli_num_rows($resultado) == 0){
+            $tabela = $tabela . "
+                <tr>
+                    <td colspan=7>Não há agendamentos cadastrados</td>
+                </tr>
+                ";
+        } else {
+
+            // Pega cada linha da query e monta as linhas da tabela
+            foreach ($resultado->fetch_all() as $row) {
+                // Formata a data
+                $det = "<button onclick='executeFunctions(" . '"fazerAgenParaCli"' . ", $row[3])'>Agendar</button>";
 
             $data = date('d/m/Y', strtotime($row[1]));
             $tabela = $tabela .
@@ -838,7 +863,6 @@ function animais()
         $retornar = array('tabela', $tabela, 'links', $linkPaginas);
         return json_encode($retornar);
     }
-
     function fazerAgenParaCli(){
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
