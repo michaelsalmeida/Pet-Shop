@@ -159,7 +159,7 @@ require_once $funcoesRoute;
             <div class="box-maior-input">
 
                 <div class="box-input">
-                    <label for="email">Email</label>
+                    <label for="email">E-mail</label>
                     <input type="email" name="email" readonly required>
                 </div>
 
