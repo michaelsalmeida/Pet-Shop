@@ -24,7 +24,7 @@ require_once $funcoesRoute;
 
 </head>
 
-<body onload="queryBanco('gerarTabelaAgenFun')">
+<body onload="paginacao('gerarTabelaAgenFun')">
 
   <header class="header-corporativo">
     <div class="box-logo-barra-de-pesquisa-perfil">
@@ -33,7 +33,7 @@ require_once $funcoesRoute;
 
       <div class="box-pesquisar">
         <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
-        <button onclick="queryBanco('gerarTabelaAgenFun')"><i class="bi bi-search"></i></button>
+        <button onclick="paginacao('gerarTabelaAgenFun')"><i class="bi bi-search"></i></button>
       </div>
 
       <div class="perfil-corpotativo">
@@ -89,8 +89,11 @@ require_once $funcoesRoute;
         echo $_SESSION['msgRotaProibida'];
         unset($_SESSION['msgRotaProibida']);
       }
-
-
+      if (isset($_GET['pagina'])) {
+        echo "<p id='pag' hidden>".$_GET['pagina']."</p>";
+      } else {
+        echo "<p id='pag' hidden>1</p>";
+      }
       ?>
 
 
@@ -111,7 +114,7 @@ require_once $funcoesRoute;
 
 
   <div class="box-opcoes">
-    <select name="status" id="status" onchange="queryBanco('gerarTabelaAgenFun')" required>
+    <select name="status" id="status" onchange="paginacao('gerarTabelaAgenFun')" required>
       <option value="" disabled selected hidden>Selecione o status</option>
       <option value="Disponivel">Disponivel</option>
       <option value="Marcado">Marcado</option>
@@ -123,6 +126,7 @@ require_once $funcoesRoute;
   
     <table id="tabela">
     </table>
+    <div id="links"></div>
   </div>
 
   <!-- The Modal -->

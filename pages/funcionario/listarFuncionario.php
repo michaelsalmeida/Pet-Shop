@@ -26,15 +26,21 @@ if (!isset($_SESSION['tipo'])) {
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onload="queryBanco('gerarTabelaDeleteFun')">
-
+<body onload="paginacao('gerarTabelaDeleteFun')">
+  <?php
+  if (isset($_GET['pagina'])) {
+    echo "<p id='pag' hidden>".$_GET['pagina']."</p>";
+  } else {
+    echo "<p id='pag' hidden>1</p>";
+  }
+  ?>
 
   <button onclick="executeFunctions('logoff', '')">Sair</button>
   <a href="<?php echo $agendamentoFunRoute; ?>">Voltar</a>
 
   <div>
     <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
-    <button onclick="queryBanco('gerarTabelaDeleteFun')">Pesquisar</button>
+    <button onclick="paginacao('gerarTabelaDeleteFun')">Pesquisar</button>
   </div>
 
 
@@ -42,7 +48,7 @@ if (!isset($_SESSION['tipo'])) {
   <div class="container box-total">
 
     <div class="box-opcoes">
-      <select name="situacoes" id="situacoes" onchange="queryBanco('gerarTabelaDeleteFun')" required>
+      <select name="situacoes" id="situacoes" onchange="paginacao('gerarTabelaDeleteFun')" required>
         <option value="" disabled selected hidden>Selecione a situação</option>
         <option value="ativo">Ativo</option>
         <option value="demitido">Demitido</option>
@@ -50,6 +56,7 @@ if (!isset($_SESSION['tipo'])) {
     </div>
 
     <table id="tabela"></table>
+    <div id="links"></div>
   </div>
 
 </body>
