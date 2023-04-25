@@ -153,6 +153,7 @@ require_once $funcoesRoute;
     </form>
 
     <script src="../script.js"></script>
+    <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>

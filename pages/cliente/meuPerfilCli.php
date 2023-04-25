@@ -266,6 +266,7 @@ require_once $funcoesRoute;
     <script src="<?php echo $functionsRoute; ?>"></script>
     <script src="<?php echo $viacepRoute; ?>"></script>
     <script src="../script.js"></script>
+    <script src="<?php echo $functionsRoute; ?>"></script>
 
 </body>
 

@@ -156,6 +156,7 @@ require_once $funcoesRoute;
 
     <script src="<?php echo $dataHojeRoute; ?>"></script>
     <script src="../script.js"></script>
+    <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>

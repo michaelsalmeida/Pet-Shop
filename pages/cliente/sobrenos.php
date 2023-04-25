@@ -337,6 +337,7 @@ require_once $funcoesRoute;
         crossorigin="anonymous"></script>
 
     <script src="../script.js"></script>
+    <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>

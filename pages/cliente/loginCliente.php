@@ -93,7 +93,7 @@ if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcioná
                 class="cadastro-cliente">Cadastre-se</a></span>
     </div>
 
-
+    <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>
