@@ -110,7 +110,7 @@ require_once $funcoesRoute;
 
     <div class="container-fluid fundo-noticias">
 
-        <h1>Nóticias</h1>
+        <h1>Notícias</h1>
 
         <section class="noticias">
 
