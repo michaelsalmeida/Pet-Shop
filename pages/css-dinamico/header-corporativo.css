@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* RESET */
+
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+/* FIM RESET */
+
+/* HEADER  */
+.header-corporativo{
+  background-color: #8C52FF;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.box-logo-barra-de-pesquisa-perfil{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 30px;
+}
+
+.box-logo-barra-de-pesquisa-perfil img{
+  width: 200px;
+}
+
+.box-logo-barra-de-pesquisa-perfil .box-pesquisar {
+  background-color: #ffffff;
+  padding: 10px;
+  width: 700px;
+  display: flex;
+  border-radius: 5px;
+}
+
+.box-logo-barra-de-pesquisa-perfil .box-pesquisar input{
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.box-logo-barra-de-pesquisa-perfil .perfil-corpotativo{
+  display: flex;
+  background-color: #6E29FF;
+  gap: 13px;
+  padding: 7px 15px;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.box-logo-barra-de-pesquisa-perfil .perfil-corpotativo:hover{
+  filter: grayscale(20);
+}
+
+.box-logo-barra-de-pesquisa-perfil .perfil-corpotativo p{
+  transform: rotate(90deg);
+}
+
+.box-logo-barra-de-pesquisa-perfil .box-pesquisar button{
+  padding: 1px 3px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header-corporativo .responsive{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #ffffff;
+  padding:5px;
+  transition: all 0.5s;
+}
+
+.header-corporativo nav a{
+  margin: 0 20px;
+}
+
+.header-corporativo nav a:hover{
+  color: #d1d1d1;
+}
+
+
+.menu{
+  width: 50px;
+  cursor: pointer;
+  display: none;
+}
+
+
+.fechaMenu{
+  display: none;
+}
+
+@media (max-width:900px) {
+
+  .header-corporativo{
+
+  }
+  .box-logo-barra-de-pesquisa-perfil{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .responsive{
+    flex-flow: wrap column-reverse;
+    position: fixed;
+    gap: 0;
+    top: 0px;
+    left: -100%;
+    background-color: #9968fa;
+    z-index: 2;
+    width: 100%;
+    transition: all 0.5s;
+  }
+
+  .menu{
+    display: block;
+  }
+
+  .fechaMenu{
+    display: block;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  .fechaMenu:hover{
+    transform: scale(1.05);
+  }
+
+
+  .header-corporativo nav a{
+    margin:0 5px ;
+    background-color: #6E29FF;
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    
+  }
+
+}
+
+
+
+/* FIM HEADER */
+

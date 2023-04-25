@@ -1,5 +1,9 @@
+body{
+    margin-bottom: 20px;
+}
+
 form{
-    margin: 50px 20px;
+    margin: 0px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,26 +14,58 @@ form label{
     margin-top: 20px;
 }
 h1{
-    color: #B793FF;
+    color: #8C52FF;
     margin-bottom: 20px;
+    width: 80%;
+    text-align: center;
 }
 
-select, input{
+ select, input{
     width: 300px;
     height: 40px;
-    text-align: center;
+    padding: 0 10px;
     border-radius: 5px;
+    border: 2px solid #403F3F;
+    outline: none;
 }
 
-input[type= "submit"]{
-    margin-top: 50px;
+form button{
+    margin: 30px 0px;
+    padding: 10px 50px;
+    font-size: 15px;
     color: #8C52FF;
     border: solid;
-    background-color: transparent;
+    background-color: #ffffff;
+    font-weight: 700;
     width: 200px;
     cursor: pointer;
+    border-radius: 5px;
     transition: all 0.5s;
 }
-input[type= "submit"]:hover{
-    color: black;
+
+form button:hover{
+   background-color: #8C52FF;
+   color: #ffffff;
+}
+
+form .iconCachorro{
+    width: 164px;
+    margin: 40px 0px;
+}
+
+fieldset{
+    display: grid;
+    border: none;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+}
+
+fieldset div{
+    margin: 20px;
+}
+
+@media (max-width: 800px) {
+    fieldset{
+        grid-template-columns: auto;
+    }
 }

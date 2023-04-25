@@ -1,19 +1,20 @@
-// Get the input element
+// Pega o input
 var dateInput = document.getElementsByName("dataNasc")[0];
 
-// Get the current date
+// Pega a data atual
 var today = new Date();
 today.setHours(0,0,0,0);
 
-// Add an event listener to the input element
+// Adiciona um event listener ao input
 dateInput.addEventListener("change", function(event) {
-  // Get the selected date from the input element
+  // Pega o valor do input
   var selectedDate = new Date(event.target.value);
   
-  // Check if the selected date is after today
+  // Verifica se o dia do input é maior que a data de hoje
   if (selectedDate > today) {
-    // If it is, set the input value to today's date
+    // Se for a data do input é troca pra data de hoje
     event.target.value = today.toISOString().slice(0,10);
+    // e um alert é mostrado informando o usuário
     alert('Por favor, selecione uma data passada.');
   }
 });

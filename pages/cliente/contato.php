@@ -25,33 +25,72 @@ require_once $funcoesRoute;
         </a>
 
         <div class="responsive">
-            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+
+            <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
-                <a href="#">CONTATO</a>
+                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+
             </div>
 
             <div class="acesso">
                 <?php
                 if (loged()) {
                     if (isset($_SESSION['tipo'])) {
+                        // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
                         header("Location: " . $agendamentoFunRoute);
                     } else {
+                        // Esses botões só aparecem quando o usuário estive logado
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        <button onclick=executeFunctions('logoff', '')>Sair</button>";
+                        ";
                     }
                 } else {
-                    echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
+                    // Esses botões aparecem se o usuário não estiver logado
+                    echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
+                // if (isset($_SESSION['msgRotaProibidaCli'])){
+                //   echo $_SESSION['msgRotaProibidaCli'];
+                //   unset($_SESSION['msgRotaProibidaCli']);
+                // }
+
                 ?>
             </div>
         </div>
 
-        <img src="../img-estatico/menu.png" class="menu" alt="menu">
+
+
+        <div class="perfilHambur">
+
+            <?php
+            if (loged()) {
+                if (isset($_SESSION['tipo'])) {
+                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                    header("Location: " . $agendamentoFunRoute);
+                } else {
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                        <img src='../img-estatico/account_circle.svg'>
+                        <p>></p>
+                        </div>
+                        
+                        
+                        <div class='menu-perfil'>
+                        <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
+                        <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                        </div>";
+                }
+            }
+            ?>
+
+            <img src="../img-estatico/menu.png" class="menu" alt="menu">
+        </div>
     </header>
 
     <section class="container mapa">
@@ -114,7 +153,6 @@ require_once $funcoesRoute;
         <div class="links">
             <a href="<?php echo $blogRoute; ?>">BLOG</a>
             <a href="#">SOBRE NÓS</a>
-            <a href="">CONSULTA</a>
             <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
         </div>
 
@@ -132,6 +170,8 @@ require_once $funcoesRoute;
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+
+        <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>

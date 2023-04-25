@@ -1,0 +1,171 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css");
+
+
+/* IMAGEM E TÍTULOS */
+.informacoes-superior{
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.informacoes-superior h1{
+    margin-top: 40px;
+    font-weight: bold;
+    color: #8C52FF;
+}
+
+.informacoes-superior p{
+    font-size: 24px;
+}
+/* IMAGEM E TÍTULOS FIM */
+
+
+
+.informacoes-pessoais{
+    margin-top: 5em;
+    display: flex;
+    flex-flow:wrap column;
+    align-items: center;    
+}
+
+.informacoes-pessoais h2{
+    color: #8C52FF;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 700;    
+}
+
+.box-maior-input{
+    flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.box-input{
+    display: flex;
+    flex-flow: wrap column;
+    margin-top: 40px;
+    gap: 8px;
+}
+
+.box-input label{
+    font-weight: 700;
+}
+
+.box-input label i{
+    width: 100px;
+}
+
+.box-input input{
+    border: 2px solid #43C07D;
+    color: #43C07D;
+    height: 40px;
+    width: 400px;
+    padding: 0 10px;
+    border-radius: 5px;
+    outline: #27cb74;
+
+}
+
+.box-input input[readonly] {
+    height: 40px;
+    width: 400px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 2px solid #8c8c8c;
+    color: #8c8c8c;
+    cursor: not-allowed;
+}
+
+.box-maior-input .box-botao{
+    width: 400px;
+    display: flex;
+    flex-flow:wrap column;
+    align-items: center;
+    
+}
+
+
+.botoes-alterar{
+    display: flex;
+    gap: 20px;
+    
+}
+
+.box-maior-input .box-botao button, .box-maior-input .box-botao input{
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 2px solid #8C52FF;
+    color: #8C52FF;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+
+.box-maior-input .box-botao input{
+    border: 2px solid #43C07D;
+    color: #43C07D;
+
+    
+}
+
+.box-maior-input .box-botao input:hover{
+    background-color: #43C07D;
+    color: #ffffff;
+}
+
+
+.box-maior-input .box-botao button:hover{
+    background-color: #8C52FF;
+    color: #ffffff;
+}
+
+.box-inferior-botoes{
+    margin: 5em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    
+}
+
+.apagar-conta{
+    border: 2px solid #F14848;
+    color: #F14848;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all 0.5s;
+}
+
+.apagar-conta:hover{
+    background-color: #F14848;
+    color: #ffffff;
+}
+
+@media (max-width:600px) {
+    .informacoes-pessoais{
+        display: block;
+    }
+
+    h2{
+        text-align: center;
+    }
+    .box-input input, .box-input input[readonly]{
+        width: auto;
+    }
+
+    .box-maior-input .box-botao button{
+        width: 150px;
+    }
+
+    .botoes-alterar{
+        flex-direction: column;
+    }
+}
+

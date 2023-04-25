@@ -1,19 +1,80 @@
 form{
-    margin: 50px 20px;
+    margin: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 2em;
 }
 
 h1{
-    color: #B793FF;
+    color: #8C52FF;
     margin-bottom: 20px;
+    width: 80%;
+    text-align: center;
 }
 
 select, input{
     width: 300px;
     height: 40px;
-    text-align: center;
+    padding: 0 10px;
     border-radius: 5px;
+    outline: none;
+    border: 2px solid #403F3F;
+}
+
+.btnReset{
+    width: fit-content;
+    height: 45px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.btnReset:hover{
+    filter: grayscale(50);
+}
+
+.iconAgenda{
+    width: 164px;
+    margin: 50px 0px;
+}
+
+.field1{
+    display: grid;
+    grid-template-columns: auto auto;
+    border: none;
+    margin-top: 50px;
+}
+
+.field1 div{
+    margin: 10px;
+}
+
+.field2{
+    display: grid;
+    grid-template-columns: auto auto;
+    place-items: center;
+    border: none;
+}
+
+.field2 div{
+    margin: 20px;
+}
+
+.field2 input[type= "date"]{
+    width: 510px;
+    
+}
+
+@media (max-width: 700px) {
+    .field1, .field2{
+        grid-template-columns: auto;
+    }
+    .field2 input[type= "date"]{
+        width: 300px;
+    }
+    .field2 div{
+        margin: 0px;
+    }
 }

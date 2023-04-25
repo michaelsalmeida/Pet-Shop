@@ -134,7 +134,21 @@ body{
     gap: 10px;
 }
 
-
+.botoes{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+@media (max-width: 500px) {
+    .botoes{
+        grid-template-columns: auto;
+    }
+    .botoes .btn-pagamento{
+        border-radius: 20px 20px 0px 0px;
+    }
+    .botoes .btn-valores{
+        border-radius: 0px;
+    }
+}
 
 
 

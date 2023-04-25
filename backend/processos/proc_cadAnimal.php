@@ -20,16 +20,14 @@ try {
     // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
     // String de preparação
     $stmt = $conn->prepare("INSERT INTO Animais
-    (pk_Animal, fk_Cliente, nome, data_nascimento, especie, raca, peso, cor, data_cadastro)
-    VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?)");
+    VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, 'ativo')");
     // Substituição da string preparada pelos valores corretos
     $stmt->bind_param("ssssssss", $_SESSION['idCli'], $nome, $dataNasc, $espec, $raca, $peso, $cor, $hoje);
     // Executa o sql
     $stmt->execute();
 
     $_SESSION['msgCadAnimaisCli'] = "Animal Cadastrado";
-    header("Location: ".$cadAnimaisCliRoute);
 } catch (Exception $e) {
-    $_SESSION['msgCadAnimaisCli'] = "Animal Não Cadastrado: <br>". $_SESSION['id'] . $e->getMessage();
-    header("Location: ".$cadAnimaisCliRoute);
+    $_SESSION['msgCadAnimaisCli'] = "Animal Não Cadastrado: <br>" . $_SESSION['id'] . $e->getMessage();
 }
+header("Location: " . $cadAnimaisCliRoute);

@@ -20,88 +20,143 @@ require_once $funcoesRoute;
 </head>
 
 <body>
+    
     <header>
-        <a href="../../index.php" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
         <div class="responsive">
-            <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+
+            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+
             </div>
 
             <div class="acesso">
-                <button onclick="executeFunctions('logoff', '')">Sair</button>
+                <?php
+                if (loged()) {
+                    if (isset($_SESSION['tipo'])) {
+                        // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                        header("Location: " . $agendamentoFunRoute);
+                    } else {
+                        // Esses botões só aparecem quando o usuário estive logado
+                        echo "
+                        <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+                        <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+                        ";
+                    }
+                } else {
+                    // Esses botões aparecem se o usuário não estiver logado
+                    echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
+                    echo "<a href='$cadastroCliRoute'>Cadastro</a>";
+                }
+                // if (isset($_SESSION['msgRotaProibidaCli'])){
+                //   echo $_SESSION['msgRotaProibidaCli'];
+                //   unset($_SESSION['msgRotaProibidaCli']);
+                // }
+
+                ?>
             </div>
         </div>
 
-        <img src="../img-estatico/menu.png" class="menu" alt="menu">
+
+
+        <div class="perfilHambur">
+
+            <?php
+            if (loged()) {
+                if (isset($_SESSION['tipo'])) {
+                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                    header("Location: " . $agendamentoFunRoute);
+                } else {
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                        <img src='../img-estatico/account_circle.svg'>
+                        <p>></p>
+                        </div>
+                        
+                        
+                        <div class='menu-perfil'>
+                        <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
+                        <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                        </div>";
+                }
+            }
+            ?>
+
+            <img src="../img-estatico/menu.png" class="menu" alt="menu">
+        </div>
     </header>
 
     <?php
 
-    if (isset($_SESSION['tipo'])) {
+    if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
     }
-    if (!loged()) {
+    if (!loged()) { // Verifica se há um usuário logado
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
+        // Se não tiver manda ele para a página de login
         header("Location: " . $loginCliRoute);
     }
-    if (isset($_SESSION['msgCadAnimaisCli'])) {
+    if (isset($_SESSION['msgCadAnimaisCli'])) { // Verifica se há uma mensagem para mostrar
         echo $_SESSION['msgCadAnimaisCli'];
         unset($_SESSION['msgCadAnimaisCli']);
     }
     ?>
     <form action="<?php echo $proc_cadAnimalRoute; ?>" method="post">
-        <h1>CADASTRO DE ANIMAIS</h1>
+        <img class="iconCachorro" src="../img-estatico/iconCachorro.svg" alt="">
 
-        <label for="nome">Nome</label><br>
-        <input type="text" name="nome">
+        <h1>CADASTRE SEU PET EM NOSSO SISTEMA!</h1>
 
-        <label for="dataNasc">Data de Nascimento </label><br>
-        <input type="date" name="dataNasc">
+        <fieldset>
+            <div>
+                <label for="nome">Nome</label><br>
+                <input type="text" name="nome">
+            </div>
 
-        <label for="espec">Espécie</label><br>
-        <input type="text" name="espec">
+            <div>
+                <label for="dataNasc">Data de Nascimento </label><br>
+                <input type="date" name="dataNasc">
+            </div>
 
-        <label for="raca">Raça</label><br>
-        <input type="text" name="raca">
+            <div>
+                <label for="espec">Espécie</label><br>
+                <input type="text" name="espec">
+            </div>
 
-        <label for="peso">Peso (Kg)</label><br>
-        <input type="number" name="peso" step=0.01 pattern="[0-9]*">
+            <div>
+                <label for="raca">Raça</label><br>
+                <input type="text" name="raca">
+            </div>
 
-        <label for="cor">Cor</label><br>
-        <input type="text" name="cor">
+            <div>
+                <label for="peso">Peso (Kg)</label><br>
+                <input type="number" name="peso" step=0.01 pattern="[0-9]*">
+            </div>
 
-        <input type="submit" value="Cadastrar">
+            <div>
+                <label for="cor">Cor</label><br>
+                <input type="text" name="cor">
+            </div>
+        </fieldset>
+
+
+        <button type="submit" value="Cadastrar">Cadastrar</button>
+        <a href="<?php echo $homeRoute; ?>">Voltar</a>
+
     </form>
 
-    <footer>
-        <a href="#" class="logo">
-            <img src="../img-estatico/logo.svg" alt="">
-        </a>
-
-        <div class="links">
-            <a href="<?php echo $blogRoute; ?>">BLOG</a>
-            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
-            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
-        </div>
-
-        <div class="redes">
-            <img src="../img-estatico/facebook.svg" alt="">
-            <img src="../img-estatico/youtube.svg" alt="">
-            <img src="../img-estatico/twitter.svg" alt="">
-            <img src="../img-estatico/github.svg" alt="">
-        </div>
-
-        <p>© Hamtaro Petshop todos direitos reservados</p>
-    </footer>
 
     <script src="<?php echo $dataHojeRoute; ?>"></script>
     <script src="../script.js"></script>
+    <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>

@@ -15,109 +15,145 @@ require_once $funcoesRoute;
 
 
     <link rel="stylesheet" href="../css-estatico/header.css">
+    <link rel="stylesheet" href="../css-dinamico/table.css">
     <link rel="stylesheet" href="../css-dinamico/agendamentoCliente.css">
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-            text-align: center;
-        }
-
-        tr:nth-child(odd) {
-            background-color: #dddddd;
-        }
-    </style>
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
 <body onload="queryBanco('checkAnimais')">
+
+
     <header>
-        <a href="../../index.php" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
         <div class="responsive">
-            <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+
+            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+
             </div>
 
             <div class="acesso">
-                <button onclick="executeFunctions('logoff', '')">Sair</button>
+                <?php
+                if (loged()) {
+                    if (isset($_SESSION['tipo'])) {
+                        // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                        header("Location: " . $agendamentoFunRoute);
+                    } else {
+                        // Esses botões só aparecem quando o usuário estive logado
+                        echo "
+                        <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+                        <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+                        ";
+                    }
+                } else {
+                    // Esses botões aparecem se o usuário não estiver logado
+                    echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
+                    echo "<a href='$cadastroCliRoute'>Cadastro</a>";
+                }
+                // if (isset($_SESSION['msgRotaProibidaCli'])){
+                //   echo $_SESSION['msgRotaProibidaCli'];
+                //   unset($_SESSION['msgRotaProibidaCli']);
+                // }
+
+                ?>
             </div>
         </div>
-        
-        <img src="../img-estatico/menu.png" class="menu" alt="menu">
+
+
+
+        <div class="perfilHambur">
+
+            <?php
+            if (loged()) {
+                if (isset($_SESSION['tipo'])) {
+                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                    header("Location: " . $agendamentoFunRoute);
+                } else {
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                        <img src='../img-estatico/account_circle.svg'>
+                        <p>></p>
+                        </div>
+                        
+                        
+                        <div class='menu-perfil'>
+                        <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
+                        <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                        </div>";
+                }
+            }
+            ?>
+
+            <img src="../img-estatico/menu.png" class="menu" alt="menu">
+        </div>
     </header>
 
     <?php
 
-    if (isset($_SESSION['tipo'])) {
+    if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
     }
-
-    if (!loged()) {
+    if (!loged()) { // Verifica se há um usuário logado
         $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
+        // Se não tiver manda ele para a página de login
         header("Location: " . $loginCliRoute);
     }
-    if (isset($_SESSION['msgFazAgendamento'])) {
+    if (isset($_SESSION['msgFazAgendamento'])) { // Verifica se há uma mensagem para mostrar
         echo $_SESSION['msgFazAgendamento'];
         unset($_SESSION['msgFazAgendamento']);
     }
     ?>
 
     <form>
-        <h1>AGENDAMENTO</h1>
+        <img class="iconAgenda" src="../img-estatico/iconAgenda.svg" alt="">
 
-        <label for="animais">Animal a ser tratado: </label><br>
-        <select name="animais" id="animais" required></select><br><br>
+        <h1>FAÇA O AGENDAMENTO DA CONSULTA DO SEU PET!</h1>
 
-        <label for="nome">Tipo de Agendamento</label><br>
-        <select name="tipoAgen" id="tipoAgen" onchange="queryBanco('gerarTabelaFazAgenCli')">
-            <option value="" disabled selected hidden>Selecione o tipo de Agendamento</option>
-            <option value="Banho">Banho</option>
-            <option value="Tosa">Tosa</option>
-            <option value="Veterinário">Veterinário</option>
-        </select><br><br>
+        <fieldset class="field1">
+            <div>
+                <label for="animais">Animal a ser tratado: </label><br>
+                <select name="animais" id="animais" required></select><br><br>
+            </div>
 
-        <label for="dataAgen">Data de Agendamento</label><br>
-        <input type="date" id="dataAgen" onchange="queryBanco('gerarTabelaFazAgenCli')"><br><br>
+            <div>
+                <label for="nome">Tipo de Agendamento</label><br>
+                <select name="tipoAgen" id="tipoAgen" onchange="queryBanco('gerarTabelaFazAgenCli')">
+                    <option value="" disabled selected hidden>Selecione o tipo de Agendamento</option>
+                    <option value="Banho">Banho</option>
+                    <option value="Tosa">Tosa</option>
+                    <option value="Veterinário">Veterinário</option>
+                    <option value="Banho e Tosa">Banho e Tosa</option>
+                </select><br><br>
+            </div>
+        </fieldset>
+
+        <fieldset class="field2">
+            <div>
+                <label for="dataAgen">Data de Agendamento</label><br>
+                <input type="date" id="dataAgen" onchange="queryBanco('gerarTabelaFazAgenCli')"><br><br>
+            </div>
+
+            <div>
+                <button class="btnReset" type="reset">
+                    <img src="../img-estatico/lixo.svg" alt="">
+                </button>
+            </div>
+        </fieldset>
 
         <table id="fazAgend"></table>
     </form>
 
-    <footer>
-        <a href="#" class="logo">
-            <img src="../img-estatico/logo.svg" alt="">
-        </a>
-
-        <div class="links">
-            <a href="<?php echo $blogRoute; ?>">BLOG</a>
-            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
-            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
-        </div>
-
-        <div class="redes">
-            <img src="../img-estatico/facebook.svg" alt="">
-            <img src="../img-estatico/youtube.svg" alt="">
-            <img src="../img-estatico/twitter.svg" alt="">
-            <img src="../img-estatico/github.svg" alt="">
-        </div>
-
-        <p>© Hamtaro Petshop todos direitos reservados</p>
-    </footer>
-
     <script src="../script.js"></script>
+    <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>

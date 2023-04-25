@@ -62,9 +62,9 @@ header .corporativo{
 
 /* formulario */
 
-#pi{
+/* #pi{
   margin: 50px 0;
-}
+} */
 
 form{
   display: flex;
@@ -128,6 +128,7 @@ form input[type ="submit"]:hover{
 
 form input[type ="submit"]:disabled:hover{
   background-color: #8C52FF;
+  cursor: not-allowed;
 }
 
 @media (max-width: 1000px) {

@@ -1,7 +1,12 @@
 <?php
-session_start();
+
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexao
+
+if (isset($_SESSION['tipo'])) {
+    // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
+    header("Location: " . $homeRoute);
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +29,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
             <p>Hamtaro Petshop</p>
         </a>
         <div class="links-login-cliente">
-                <a href="<?php echo $loginCliRoute; ?>" class="corporativo">Cliente</a>
+            <a href="<?php echo $loginCliRoute; ?>" class="corporativo">Cliente</a>
             <div class="acesso-seguro">
                 <p>Ambiente Seguro</p>
                 <img src="../img-dinamico/cadeado.svg" alt="">
@@ -61,7 +66,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
                 <input type="submit" value="Entrar">
 
-                
+
                 <?php
                 if (isset($_SESSION['msgloginFun'])) {
                     echo "<p>" . $_SESSION['msgloginFun'] . "</p>";

@@ -1,9 +1,10 @@
 <?php
-session_start();
+
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexao
+require_once $funcoesRoute;
 
-if (isset($_SESSION['tipo'])){
+if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
     header("Location: " . $agendamentoFunRoute);
 }
 
@@ -23,13 +24,18 @@ if (isset($_SESSION['tipo'])){
 </head>
 
 <body>
-
+    <?php
+    if (loged()) { // Verifica se há um usuário logado
+        // Se não tiver manda ele para a página de login
+        header("Location: " . $homeRoute);
+    }
+    ?>
 
     <header>
         <a href="<?php echo $homeRoute; ?>" id="logo">
             <p>Hamtaro Petshop</p>
         </a>
-        
+
         <div class="links-login-cliente">
             <a href="<?php echo $loginFunRoute; ?>" class="corporativo">Corporativo </a>
 
@@ -42,7 +48,7 @@ if (isset($_SESSION['tipo'])){
 
 
     <div class="container box-conteudo">
-        
+
         <form action="<?php echo $procLoginCliRoute; ?>" method="post">
 
             <div class="titulos">
@@ -70,7 +76,7 @@ if (isset($_SESSION['tipo'])){
                 <input type="submit" value="Entrar">
 
                 <?php
-                if (isset($_SESSION['msglogin'])) {
+                if (isset($_SESSION['msglogin'])) { // Verifica se há uma mensagem para mostrar
                     echo "<p>" . $_SESSION['msglogin'] . "</p>";
                     unset($_SESSION['msglogin']);
                 }
@@ -83,10 +89,11 @@ if (isset($_SESSION['tipo'])){
 
 
     <div class="box-cadastro">
-        <span>Ainda não possui cadastro online na Hamtaro? <a href="<?php echo $cadastroCliRoute; ?>" class="cadastro-cliente">Cadastre-se</a></span>
+        <span>Ainda não possui cadastro online na Hamtaro? <a href="<?php echo $cadastroCliRoute; ?>"
+                class="cadastro-cliente">Cadastre-se</a></span>
     </div>
 
-
+    <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>
