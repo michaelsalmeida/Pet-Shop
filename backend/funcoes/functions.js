@@ -90,9 +90,9 @@ function queryBanco2(tipo) {
                 var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
                 document.getElementById(response[0]).innerHTML = response[1];
                 if (response[1].length > 74){
-                    document.getElementById('status').style.display = 'block';
-                    document.getElementById('divpesq').style.display = 'block';
-                    document.getElementById('tabela').style.display = 'block';
+                    document.getElementById('status').style.display = 'flex';
+                    document.getElementById('divpesq').style.display = 'flex';
+                    document.getElementById('tabela').style.display = 'flex';
                 } else {
                     document.getElementById('status').style.display = 'none';
                     document.getElementById('divpesq').style.display = 'none';

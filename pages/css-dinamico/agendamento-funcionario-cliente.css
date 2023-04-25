@@ -1,0 +1,65 @@
+.linha-campos{
+    display: flex;
+    flex-flow: column wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 10px;
+}
+
+.box-maior-input{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}   
+
+.box-input{
+    display: flex;
+    justify-self: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.box-maior-input .box-input input, .box-maior-input .box-input select{
+    width: 300px;
+    height: 40px;
+    border: 2px solid #403F3F;
+    outline: none;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.box-maior-input .box-input input::placeholder, 
+.box-maior-input .box-input select::placeholder{
+    color: #000000;
+}
+
+.box-input button{
+    width: 150px;
+    height: 40px;
+    background-color: transparent;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #8C52FF;
+    border: 2px solid #8C52FF;
+    font-weight: 700;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.box-input button:hover{
+    background-color: #8C52FF;
+    color:#ffffff ;
+}
+
+.box-informacoes{
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
