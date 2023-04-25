@@ -67,16 +67,16 @@ require_once $funcoesRoute;
       }
 
       if ($_SESSION['tipo'] == 'Secretaria') {
-        echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
-        echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
-        echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
-        echo "<a href=" . $cadAnimalParaClienteRoute . ">Cadastrar animal</a>";
+        echo "<a target='_blank' href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
+        echo "<a target='_blank' href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
+        echo "<a target='_blank' href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
+        echo "<a target='_blank' href=" . $cadAnimalParaClienteRoute . ">Cadastrar animal</a>";
       } elseif ($_SESSION['tipo'] == 'admin') {
-        echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a>";
-        echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
-        echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
-        echo "<a href=" . $listarFunRoute . ">Listar Funcionários</a>";
-        echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
+        echo "<a target='_blank' href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a>";
+        echo "<a target='_blank' href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
+        echo "<a target='_blank' href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
+        echo "<a target='_blank' href=" . $listarFunRoute . ">Listar Funcionários</a>";
+        echo "<a target='_blank' href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
       }
 
 
