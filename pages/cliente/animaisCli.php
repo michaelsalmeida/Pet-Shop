@@ -52,7 +52,7 @@ require_once $funcoesRoute;
 
     <div class="responsive">
 
-            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
@@ -115,7 +115,7 @@ require_once $funcoesRoute;
             }
             ?>
 
-            <img src="../img-estatico/menu.png" class="menu" alt="menu">
+            <img onmousedown="abreMenu()" src="../img-estatico/menu.png" class="menu" alt="menu">
         </div>
   </header>
 

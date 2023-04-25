@@ -87,7 +87,7 @@ a{
   color: #ffffff;
   /* transition: all 0.5s; */
 
-  position: absolute;
+  position: fixed;
   top: 80px;
   right: 20px;
   flex-direction: column;
@@ -155,15 +155,7 @@ a{
   }
 
   .responsive{
-    flex-flow: wrap column-reverse;
-    position: fixed;
-    gap: 0;
-    top: 0px;
-    left: -100%;
-    background-color: #9968fa;
-    z-index: 2;
-    width: 100%;
-    transition: all 0.5s;
+    top: 220px !important;
   }
 
   .menu{
