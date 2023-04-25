@@ -1,9 +1,9 @@
-let hambur = document.querySelector(".menu")
-hambur.addEventListener("click", abreMenu)
-let fecha = document.querySelector(".fechaMenu")
-fecha.addEventListener("click", fechaMenu)
-let menu = document.querySelector(".responsive")
-let perfil = document.querySelector(".menu-perfil")
+var hambur = document.querySelector(".menu")
+// hambur.addEventListener("click", abreMenu)
+var fecha = document.querySelector(".fechaMenu")
+// fecha.addEventListener("click", fechaMenu)
+var menu = document.querySelector(".responsive")
+var perfil = document.querySelector(".menu-perfil")
 
 // abre menu hamburguer
 function abreMenu(){
@@ -46,8 +46,9 @@ function formaValores(){
 
 
 // abre ou fecha menu do perfil
-let perfilAberto = 0
+var perfilAberto = 0
 function menuPerfil(){
+    var perfil = document.querySelector(".menu-perfil")
     if(perfilAberto == 0){
         perfilAberto = 1
         perfil.style.opacity= '1'

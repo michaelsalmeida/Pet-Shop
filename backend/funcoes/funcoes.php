@@ -811,30 +811,35 @@ function animais()
                 <th>Marcar</th>
             </tr>";
 
-        if (mysqli_num_rows($resultado) == 0){
-            $tabela = $tabela . "
+        
+        // Pega cada linha da query e monta as linhas da tabela
+        foreach ($resultado->fetch_all() as $row) {
+            // Formata a data
+            $det = "<button onclick='executeFunctions(" . '"fazerAgenParaCli"' . ", $row[3])'>Agendar</button>";
+
+            $data = date('d/m/Y', strtotime($row[1]));
+            $tabela = $tabela .
+                "<tr>
+                    <td>$row[0]</td>
+                    <td>$data</td>
+                    <td>$row[2]</td>
+                    <td>$det</td>
+                </tr>";
+            $row_pg = $row[4];
+        }
+
+        if ($row_pg == 0){
+            $tabela = "<tr>
+                <th>Profissional</th>
+                <th>Data Agendamento</th>
+                <th>Horário do agendamento</th>
+                <th>Marcar</th>
+            </tr>" . "
                 <tr>
-                    <td colspan=7>Não há agendamentos cadastrados</td>
+                    <td colspan=7>Não há agendamentos disponíveis</td>
                 </tr>
                 ";
-        } else {
-
-            // Pega cada linha da query e monta as linhas da tabela
-            foreach ($resultado->fetch_all() as $row) {
-                // Formata a data
-                $det = "<button onclick='executeFunctions(" . '"fazerAgenParaCli"' . ", $row[3])'>Agendar</button>";
-
-                $data = date('d/m/Y', strtotime($row[1]));
-                $tabela = $tabela .
-                    "<tr>
-                        <td>$row[0]</td>
-                        <td>$data</td>
-                        <td>$row[2]</td>
-                        <td>$det</td>
-                    </tr>";
-                $row_pg = $row[4];
-            }
-        }
+        } 
         
 
         // Quantidade de pagina
