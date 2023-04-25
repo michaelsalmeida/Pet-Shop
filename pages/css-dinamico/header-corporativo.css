@@ -93,7 +93,7 @@ a{
   flex-direction: column;
   background-color: #A175F7;
   width: fit-content;
-  padding: 50px 10px;
+  padding: 30px 10px;
   border-radius: 20px;
   gap: 10px 0px;
   opacity: 0; 
@@ -107,6 +107,12 @@ a{
   width: 90%;
   text-align: center;
   transition: all 0.5s;
+}
+
+.header-corporativo .responsive button{
+  width: fit-content;
+  padding: 10px 40px;
+  text-align: center;
 }
 
 .header-corporativo nav a{
@@ -158,6 +164,8 @@ a{
 
   .responsive{
     top: 220px !important;
+    left: 50%;
+    transform: translate(-50%, 0%);
   }
 
   .menu{
@@ -186,6 +194,11 @@ a{
 
 }
 
+@media (max-width:500px) {
+  .responsive{
+    width: 90% !important;
+  }
+}
 
 
 /* FIM HEADER */
