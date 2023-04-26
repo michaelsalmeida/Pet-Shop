@@ -59,4 +59,7 @@ switch ($_GET['function']) {
     case 'fazerAgenParaCli':
         echo fazerAgenParaCli();
         break;
+    case 'tabelaComentarios':
+        echo tabelaComentarios();
+        break;
 }

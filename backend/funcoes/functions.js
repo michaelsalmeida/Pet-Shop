@@ -75,6 +75,10 @@ function paginacao(tipo) {
         var pesq = document.getElementById('pesq').value;
         var servico = document.getElementById('status').value;
         var extra = `&servico=${servico}&pesq=${pesq}`;
+    } else if (tipo == 'tabelaComentarios'){
+        var pesq = document.getElementById('pesq').value;
+        var data = document.getElementById('data').value;
+        var extra = `&pesq=${pesq}&data=${data}`;
     }
 
     var pag = document.getElementById('pag').innerText
@@ -84,6 +88,7 @@ function paginacao(tipo) {
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) { 
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
+            
             document.getElementById(response[0]).innerHTML = response[1];
             document.getElementById(response[2]).innerHTML = response[3];
             // Seleciona o elemento de acordo com o primeiro valor do JSON
