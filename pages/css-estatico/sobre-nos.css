@@ -177,7 +177,7 @@ body{
     display: grid;
     grid-template-columns: auto auto auto;
     place-items: center;
-    width: 70%;
+    /* width: 70%; */
     margin: 0 auto;
 }
 @media (max-width: 1300px) {

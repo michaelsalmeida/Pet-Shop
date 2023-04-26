@@ -118,12 +118,12 @@ require_once $funcoesRoute;
         <fieldset>
             <div>
                 <label for="nome">Nome</label><br>
-                <input type="text" name="nome">
+                <input type="text" name="nome" placeholder="Digite o nome">
             </div>
 
             <div>
                 <label for="dataNasc">Data de Nascimento </label><br>
-                <input type="date" name="dataNasc">
+                <input type="date" name="dataNasc" placeholder="Digite a data de nascimento">
             </div>
 
             <div>
@@ -138,12 +138,12 @@ require_once $funcoesRoute;
 
             <div>
                 <label for="peso">Peso (Kg)</label><br>
-                <input type="number" name="peso" step=0.01 pattern="[0-9]*">
+                <input type="number" name="peso" step=0.01 pattern="[0-9]*" placeholder="Digite o peso">
             </div>
 
             <div>
                 <label for="cor">Cor</label><br>
-                <input type="text" name="cor">
+                <input type="text" name="cor" placeholder="Digite a cor">
             </div>
         </fieldset>
 

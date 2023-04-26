@@ -221,6 +221,40 @@ function activeModalApagarConta(id) {
     <button onclick="document.getElementById('id01').style.display='none'">Não</button>`;
 }
 
+function activeModalAlterarSenha(id) {
+    document.getElementById("id01").style.display = "block" // Muda a modal para block, para que possa ser vista
+    document.getElementById("container-modal").innerHTML = `
+    <form action="` + location.origin + `/Pet-shop/backend/processos/proc_AlterarSenha.php?id=${id}` + `" method="post">
+        <p>Digite a sua senha<p>
+        <span onclick="document.getElementById('id01').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>
+
+        <label for="senhaAtual">Digite a senha atual:</label>
+        <input pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$" type="password" name="senhaAtual" required><br>
+        <label for="senha">Digite a nova senha:</label>
+        <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="senha" required><br>
+        <label for="confsenha">Confirme a nova senha:</label>
+        <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="confsenha" required><br>
+        <button id="alt" disabled>Confirmar</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'">Cancelar</button>
+    </form>`;
+
+    var confsenha = document.getElementsByName('confsenha')[0] // Pega os inputs de acordo com o name
+    var senha = document.getElementsByName('senha')[0]
+
+    confsenha.addEventListener('input', conferir) // Aciona a função quando o input tiver uma entrada
+    senha.addEventListener('input', conferir)
+
+    function conferir() {
+        if (senha.value == confsenha.value && senha.value != '' && confsenha.value != '') {
+            // document.getElementById('senhanaoigual').innerHTML = 'SENHAS COINCIDEM';
+            document.getElementById('alt').disabled = false; // se as senhas forem diferentes, o botão será desativado
+        } else {
+            // document.getElementById('senhanaoigual').innerHTML = 'SENHAS NÃO COINCIDEM';
+            document.getElementById('alt').disabled = true;
+        }
+    }
+}
 
 function activeModalDetalhesFun(id, tipo) {
     // Muda a modal para block, para que possa ser vista
