@@ -113,7 +113,7 @@
     font-size: 20px;
     border-radius: 5px;
     width: 200px;
-    margin: 0 auto !important;
+    margin: 0 70% !important;
 }
 
 @media (max-width: 700px) {
@@ -127,7 +127,12 @@
     }
 
     .mensagem input[type= "submit"]{
-        margin: 0 20%;
+        margin: 0 20% !important;
+    }
+}
+@media (max-width: 450px) {
+    .mensagem input[type= "submit"]{
+        margin: 0 auto !important;
     }
 }
 
