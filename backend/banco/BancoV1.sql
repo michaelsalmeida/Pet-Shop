@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Animais` (
   `raca` VARCHAR(45) NOT NULL,
   `peso` FLOAT NOT NULL,
   `cor` VARCHAR(45) NOT NULL,
-  `data_cadastro` VARCHAR(45) NOT NULL,
+  `data_cadastro` DATE NOT NULL,
   `ativo` ENUM('ativo', 'inativo') NOT NULL,
   PRIMARY KEY (`pk_Animal`),
   CONSTRAINT `fk_Animais_Clientes1`
