@@ -94,13 +94,13 @@
 
 .mensagem fieldset input{
     border-radius: 5px;
-    border: solid black;
+    border: 2px solid black;
     padding: 3px 10px;
 }
 
 .mensagem fieldset textarea{
     border-radius: 5px;
-    border: solid black;
+    border: 2px solid black;
     padding: 3px 10px;
 
 }

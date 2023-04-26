@@ -83,7 +83,7 @@ require_once $funcoesRoute;
                         
                         
                         <div class='menu-perfil'>
-                        <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
+                        <p>Bem Vindo! " . $_SESSION['nomeCliente'] . "</p>
                         <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
                         <a href='$animaisCliRoute'>Meus Animais</a>
                         <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
@@ -143,14 +143,15 @@ require_once $funcoesRoute;
             </div>
 
             <div>
-                <button class="btnReset" type="reset">
-                    <img src="../img-estatico/lixo.svg" alt="">
-                </button>
+                <button class="limpar" type="reset">Limpar</button>
             </div>
         </fieldset>
 
-        <table id="fazAgend"></table>
     </form>
+
+    <div class="container box-total">
+        <table id="fazAgend"></table>
+    </div>
 
     <script src="../script.js"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>

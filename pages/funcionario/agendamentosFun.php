@@ -19,8 +19,9 @@ require_once $funcoesRoute;
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../css-dinamico/table.css">
-  <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
   <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css">
+ 
+  <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
 
 </head>
 
@@ -102,14 +103,7 @@ require_once $funcoesRoute;
 
   </header>
 
-
-
   <h1 class="titulo-agendamento">Agendamentos Marcados</h1>
-
-
-
-
-
   <div class="container box-total">
 
 

@@ -1,4 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+/* RESET */
+
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
 
 /* PAGINA INICIAL DO CLIENTE  */
 body{
@@ -7,8 +16,10 @@ body{
 }
 
 .titulo-agendamento{
+    margin-top: 2em;
     text-align: center;
     font-size: 24px;
+    font-weight: 700;
 }
 
 .box-total{

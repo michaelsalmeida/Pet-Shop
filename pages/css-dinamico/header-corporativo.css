@@ -107,6 +107,7 @@ a{
   width: 90%;
   text-align: center;
   transition: all 0.5s;
+  color: #ffffff;
 }
 
 .header-corporativo .responsive button{
@@ -136,24 +137,11 @@ a{
 }
 
 .header-corporativo nav a:hover{
-  /* color: #d1d1d1; */
   filter: grayscale(20);
 }
 
 
-.menu{
-  width: 50px;
-  cursor: pointer;
-  display: none;
-}
-
-
-.fechaMenu{
-  display: none;
-}
-
 @media (max-width:900px) {
-
 
   .box-logo-barra-de-pesquisa-perfil{
     flex-wrap: wrap;
@@ -166,20 +154,6 @@ a{
     transform: translate(-50%, 0%);
   }
 
-  .menu{
-    display: block;
-  }
-
-  .fechaMenu{
-    display: block;
-    cursor: pointer;
-    transition: all 0.5s;
-  }
-  .fechaMenu:hover{
-    transform: scale(1.05);
-  }
-
-
   .header-corporativo nav a{
     margin:0 5px ;
     background-color: #6E29FF;
@@ -191,6 +165,8 @@ a{
   }
 
 }
+
+
 
 @media (max-width:500px) {
   .responsive{
