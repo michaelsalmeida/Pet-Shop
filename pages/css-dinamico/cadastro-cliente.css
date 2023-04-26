@@ -63,7 +63,6 @@ header .corporativo{
 /* formulario */
 #pi{
   width: 100%;
-  border: solid;
 }
 
 @media (max-width: 400px) {
