@@ -53,7 +53,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
     <div class="box-maior-input ">
 
     <div>
-        <select name="status" id="status" onchange="queryBanco('tabelaFunAgenCli')" required style="display: none;">
+        <select name="status" id="status" onchange="paginacao('tabelaFunAgenCli')" required style="display: none;">
             <option value="" disabled selected hidden>Selecione o status</option>
             <option value="Veterinario">Veterinário</option>
             <option value="Banho">Banho</option>
@@ -65,7 +65,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
       <div class="box-input box-pesquisa" id="divpesq" style="display: none;">
         <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
-        <button onclick="queryBanco('tabelaFunAgenCli')">Pesquisar</button>
+        <button onclick="paginacao('tabelaFunAgenCli')">Pesquisar</button>
     </div>
 
 
@@ -85,6 +85,16 @@ include_once($connRoute); // Inclui o arquivo de conexao
     <table id="tabela">
 
     </table>
+
+    <div id="links"></div>
+  
+    <?php
+    if (isset($_GET['pagina'])) {
+        echo "<p id='pag' hidden>".$_GET['pagina']."</p>";
+      } else {
+        echo "<p id='pag' hidden>1</p>";
+      }
+    ?>
 
 
   <a href="<?php echo $agendamentoFunRoute; ?>">Voltar</a>
