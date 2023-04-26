@@ -366,7 +366,7 @@ function gerarTabelaAgenFun()
     $status = $_GET['status'];
 
     if ($status == '') {
-        $status = 'Marcado';
+        $status = 'Disponivel';
     }
 
     if ($_SESSION['tipo'] == 'Veterinario' || $_SESSION['tipo'] == 'Esteticista') {
