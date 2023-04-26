@@ -27,7 +27,6 @@ try {
         header("Location: " . $homeRoute);
     } else {
         $_SESSION['msglogin'] = "USUÁRIO OU SENHA INCORRETO(S).";
-        echo $_SESSION['nomeCliente'];
         header("Location: " . $loginCliRoute);
     }
 } catch (Exception $e) {

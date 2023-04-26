@@ -69,10 +69,10 @@ require_once $funcoesRoute;
                     echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
-                // if (isset($_SESSION['msgRotaProibidaCli'])){
-                //   echo $_SESSION['msgRotaProibidaCli'];
-                //   unset($_SESSION['msgRotaProibidaCli']);
-                // }
+                if (isset($_SESSION['msgAltCli'])){
+                  echo $_SESSION['msgAltCli'];
+                  unset($_SESSION['msgAltCli']);
+                }
 
                 ?>
             </div>
@@ -243,10 +243,8 @@ require_once $funcoesRoute;
 
     </form>
 
-
-
-
     <div class="box-inferior-botoes">
+        <a onclick="activeModalAlterarSenha(<?php echo $_SESSION['idCli'];?>)" class="alterar-senha">Alterar Senha</a>
         <a onclick="activeModalApagarConta(<?php echo $_SESSION['idCli'];?>)" class="apagar-conta">Apagar Conta</a>
         <a href="<?php echo $homeRoute; ?>">Voltar</a>
     </div>
@@ -267,7 +265,6 @@ require_once $funcoesRoute;
     <script src="<?php echo $viacepRoute; ?>"></script>
     <script src="../script.js"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
-
 </body>
 
 </html>
