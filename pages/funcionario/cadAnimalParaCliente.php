@@ -36,9 +36,15 @@
             echo $_SESSION['cli'];
             unset($_SESSION['cli']);
         }
-            if(isset($_SESSION['msgCadAnimaisFunParaCli']))
-            echo $_SESSION['msgCadAnimaisFunParaCli'];
-            unset($_SESSION['msgCadAnimaisFunParaCli']);
+            if(isset($_SESSION['msgCadAnimaisFunParaCli'])){
+                echo $_SESSION['msgCadAnimaisFunParaCli'];
+                unset($_SESSION['msgCadAnimaisFunParaCli']);
+            }
+
+        if(isset($_SESSION['msgCadAnimalErro'])){
+            echo $_SESSION['msgCadAnimalErro'];
+            unset($_SESSION['msgCadAnimalErro']);
+        }
 
     ?>
 
@@ -58,5 +64,6 @@
     
 
     <script src="<?php echo $functionsRoute ?>"></script>
+    <script src="<?php echo $dataHojeRoute; ?>"></script>
 </body>
 </html>

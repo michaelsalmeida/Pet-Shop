@@ -8,6 +8,7 @@ try {
     $nome = htmlspecialchars($_POST['nome']);
 
     // Trata data que vem do front
+    $data_atual = date("Y-m-d");
     $dataRecebida = new DateTime($_POST['dataNasc']);
     $dataNasc = $dataRecebida->format('Y-m-d');
 
