@@ -62,9 +62,7 @@ header .corporativo{
 
 /* formulario */
 
-/* #pi{
-  margin: 50px 0;
-} */
+
 
 form{
   display: flex;
@@ -72,6 +70,7 @@ form{
   gap: 20px;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .titulo{

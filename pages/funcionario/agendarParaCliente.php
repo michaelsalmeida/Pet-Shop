@@ -16,9 +16,9 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
 
   <link rel="stylesheet" href="../css-estatico/header.css">
-  <link rel="stylesheet" href="../css-dinamico/agendamento-funcionario-cliente.css">
-  <link rel="stylesheet" href="../css-dinamico/table.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../css-dinamico/table.css">
+  <link rel="stylesheet" href="../css-dinamico/agendamento-funcionario-cliente.css">
 
 
 </head>
@@ -53,7 +53,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
     <div class="box-maior-input ">
 
       <div class="box-input">
-        <select name="status" id="status" onchange="queryBanco('tabelaFunAgenCli')" required style="display: none;">
+        <select name="status" id="status" onchange="paginacao('tabelaFunAgenCli')" required style="display: none;">
           <option value="" disabled selected hidden>Selecione o status</option>
           <option value="Veterinario">Veterinário</option>
           <option value="Banho">Banho</option>

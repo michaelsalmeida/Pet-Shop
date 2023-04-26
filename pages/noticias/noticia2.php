@@ -24,7 +24,6 @@
             <div class="links">
                 <a href="">BLOG</a>
                 <a href="">SOBRE NÓS</a>
-                <a href="">CONSULTA</a>
                 <a href="">CONTATO</a>
             </div>
 
@@ -89,7 +88,6 @@
         <div class="links">
             <a href="">BLOG</a>
             <a href="">SOBRE NÓS</a>
-            <a href="">CONSULTA</a>
             <a href="">CONTATO</a>
         </div>
 

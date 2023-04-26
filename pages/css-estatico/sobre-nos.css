@@ -12,8 +12,13 @@ body{
 .sobre-nos{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
+
+.sobre-nos img{
+    width: 300px;
+}
 .titulo{
     color: #8C52FF;
     font-weight: 700;
