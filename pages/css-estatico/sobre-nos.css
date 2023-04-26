@@ -194,6 +194,12 @@ body{
     width: 350px;
 }
 
+@media (max-width: 450px) {
+    .item-valor{
+        width: 100%;
+    }
+}
+
 .item-valor h4{
     font-weight: 700;
 }
