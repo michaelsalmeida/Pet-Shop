@@ -26,7 +26,7 @@ require_once $funcoesRoute;
 
         <div class="responsive">
 
-            <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
@@ -49,7 +49,7 @@ require_once $funcoesRoute;
                     }
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
-                    echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
+                    echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
                 // if (isset($_SESSION['msgRotaProibidaCli'])){
@@ -89,7 +89,7 @@ require_once $funcoesRoute;
             }
             ?>
 
-            <img src="../img-estatico/menu.png" class="menu" alt="menu">
+            <img onmousedown="abreMenu()" src="../img-estatico/menu.png" class="menu" alt="menu">
         </div>
     </header>
 
@@ -106,7 +106,7 @@ require_once $funcoesRoute;
         <a target="_blank"
             href="https://www.google.com/maps/place/Escola+Senai+Suíço-Brasileira+Paulo+Ernesto+Tolle/@-23.6482243,-46.7241806,17z/data=!4m6!3m5!1s0x94ce510e8d3746ed:0x3e9f3a76e1ebfb69!8m2!3d-23.648051!4d-46.7217358!16s%2Fg%2F1wk7rz_s">
             <img src="../img-estatico/setaMapa.svg" alt="">
-            Localização: Avenida interlagos, 2034 - Jardim Marajoara
+            Localização: R. Bento Branco de Andrade Filho, 379 - Santo Amaro
         </a>
     </section>
 

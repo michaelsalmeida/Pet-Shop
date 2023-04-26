@@ -24,7 +24,7 @@ require_once $funcoesRoute;
 
 </head>
 
-<body onload="queryBanco('gerarTabelaAgenFun')">
+<body onload="paginacao('gerarTabelaAgenFun')">
 
   <header class="header-corporativo">
     <div class="box-logo-barra-de-pesquisa-perfil">
@@ -33,22 +33,22 @@ require_once $funcoesRoute;
 
       <div class="box-pesquisar">
         <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
-        <button onclick="queryBanco('gerarTabelaAgenFun')"><i class="bi bi-search"></i></button>
+        <button onclick="paginacao('gerarTabelaAgenFun')"><i class="bi bi-search"></i></button>
       </div>
 
-      <div class="perfil-corpotativo">
+      <!-- <div class="perfil-corpotativo" onclick="menuPerfil()">
         <i class="bi bi-person-square"></i>
+        <p>></p>
+      </div> -->
+
+      <div class='perfil-corpotativo' onmousedown='menuPerfil()'>
+        <img src='../img-estatico/account_circle.svg'>
         <p>></p>
       </div>
 
-      <img src="../img-estatico/menu.png" class="menu" alt="menu">
-
     </div>
 
-    <nav class="responsive">
-
-
-      <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+    <nav class="responsive menu-perfil" style="opacity: 0; z-index: -1;">
 
       <?php
       if (!loged()) {
@@ -62,16 +62,16 @@ require_once $funcoesRoute;
       }
 
       if ($_SESSION['tipo'] == 'Secretaria') {
-        echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a><br><br>";
-        echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a><br><br>";
-        echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a><br><br>";
-        echo "<a href=" . $cadAnimalParaClienteRoute . ">Cadastrar animal</a><br><br>";
+        echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
+        echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
+        echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
+        echo "<a href=" . $cadAnimalParaClienteRoute . ">Cadastrar animal</a>";
       } elseif ($_SESSION['tipo'] == 'admin') {
-        echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a><br><br>";
-        echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a><br><br>";
-        echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a><br><br>";
-        echo "<a href=" . $listarFunRoute . ">Listar Funcionários</a><br><br>";
-        echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a><br><br>"; 
+        echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a>";
+        echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
+        echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
+        echo "<a href=" . $listarFunRoute . ">Listar Funcionários</a>";
+        echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
       }
 
 
@@ -89,15 +89,18 @@ require_once $funcoesRoute;
         echo $_SESSION['msgRotaProibida'];
         unset($_SESSION['msgRotaProibida']);
       }
-
-
+      if (isset($_GET['pagina'])) {
+        echo "<p id='pag' hidden>".$_GET['pagina']."</p>";
+      } else {
+        echo "<p id='pag' hidden>1</p>";
+      }
       ?>
+      <button onclick="executeFunctions('logoff', '')">Sair</button>
 
 
     </nav>
 
   </header>
-  <button onclick="executeFunctions('logoff', '')">Sair</button> 
 
 
 
@@ -105,13 +108,13 @@ require_once $funcoesRoute;
 
 
 
-  
+
 
   <div class="container box-total">
 
 
   <div class="box-opcoes">
-    <select name="status" id="status" onchange="queryBanco('gerarTabelaAgenFun')" required>
+    <select name="status" id="status" onchange="paginacao('gerarTabelaAgenFun')" required>
       <option value="" disabled selected hidden>Selecione o status</option>
       <option value="Disponivel">Disponivel</option>
       <option value="Marcado">Marcado</option>
@@ -120,9 +123,10 @@ require_once $funcoesRoute;
     </select>
   </div>
 
-  
+
     <table id="tabela">
     </table>
+    <div id="links"></div>
   </div>
 
   <!-- The Modal -->

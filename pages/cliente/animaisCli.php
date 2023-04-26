@@ -25,7 +25,7 @@ require_once $funcoesRoute;
 
 </head>
 
-<body onload="queryBanco('gerarTabelaAni')">
+<body onload="paginacao('gerarTabelaAni')">
 
 
   <?php
@@ -38,8 +38,13 @@ require_once $funcoesRoute;
     // Se não tiver manda ele para a página de login
     header("Location: " . $loginCliRoute);
   }
-  ?>
 
+  if (isset($_GET['pagina'])) {
+    echo "<p id='pag' hidden>".$_GET['pagina']."</p>";
+  } else {
+    echo "<p id='pag' hidden>1</p>";
+  }
+  ?>
   <header>
     <a href="<?php echo $homeRoute; ?>" class="logo">
       <img src="../img-estatico/logo.svg" alt="">
@@ -47,7 +52,7 @@ require_once $funcoesRoute;
 
     <div class="responsive">
 
-            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
@@ -110,7 +115,7 @@ require_once $funcoesRoute;
             }
             ?>
 
-            <img src="../img-estatico/menu.png" class="menu" alt="menu">
+            <img onmousedown="abreMenu()" src="../img-estatico/menu.png" class="menu" alt="menu">
         </div>
   </header>
 
@@ -120,6 +125,7 @@ require_once $funcoesRoute;
     <h1>Veja seus animais cadastrados na plataforma</h1>
 
     <table id="animais"></table>
+    <div id="links"></div>
   </div>
 
   <script src="../script.js"></script>

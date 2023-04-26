@@ -52,13 +52,13 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
     <div class="box-maior-input ">
 
-      <div class="box-input">
+    <div>
         <select name="status" id="status" onchange="queryBanco('tabelaFunAgenCli')" required style="display: none;">
-          <option value="" disabled selected hidden>Selecione o status</option>
-          <option value="Veterinario">Veterinário</option>
-          <option value="Banho">Banho</option>
-          <option value="Tosa">Tosa</option>
-          <option value="Banho e Tosa">Banho e Tosa</option>
+            <option value="" disabled selected hidden>Selecione o status</option>
+            <option value="Veterinario">Veterinário</option>
+            <option value="Banho">Banho</option>
+            <option value="Tosa">Tosa</option>
+            <option value="Banho e Tosa">Banho e Tosa</option>
         </select>
       </div>
 
@@ -66,16 +66,16 @@ include_once($connRoute); // Inclui o arquivo de conexao
       <div class="box-input box-pesquisa" id="divpesq" style="display: none;">
         <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
         <button onclick="queryBanco('tabelaFunAgenCli')">Pesquisar</button>
-      </div>
+    </div>
 
 
     </div>
 
     <?php
-    if (isset($_SESSION['agenCliFun'])) {
-      echo $_SESSION['agenCliFun'];
-      unset($_SESSION['agenCliFun']);
-    }
+        if(isset($_SESSION['agenCliFun'])){
+            echo $_SESSION['agenCliFun'];
+            unset($_SESSION['agenCliFun']);
+        }
     ?>
 
   </div>
@@ -83,8 +83,8 @@ include_once($connRoute); // Inclui o arquivo de conexao
   <div class="container box-total">
 
     <table id="tabela">
+
     </table>
-  </div>
 
 
   <a href="<?php echo $agendamentoFunRoute; ?>">Voltar</a>

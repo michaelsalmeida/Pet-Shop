@@ -24,14 +24,23 @@ function logoff()
     }
 }
 
-function gerarTabelaAni()
-{
-    
+function gerarTabelaAni() {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+    $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/pages/clientes/animaisCli.php';
+
+    // Receber o número da página
+    $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
+    $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+
+    // Setar a quantidade de items por pagina
+    $qnt_result_pg = 5;
+
+    // Calcular o inicio visualização
+    $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
     // String de preparação
     $stmt = $conn->prepare("SELECT nome, data_nascimento, raca, peso, pk_Animal
-        FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome");
+        FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome LIMIT $inicio, $qnt_result_pg");
     // Substituição da string preparada pelos valores corretos
     $stmt->bind_param("s", $_SESSION['idCli']);
     // Executa o sql
@@ -74,7 +83,35 @@ function gerarTabelaAni()
         }
     }
 
-    $retornar = array('animais', $tabela);
+    // Paginação - Somar a quantidade de usuários
+    $result_pg = "SELECT COUNT(PK_Animal) AS num_result FROM Animais";
+    $resultado_pg = mysqli_query($conn, $result_pg);
+    $row_pg = mysqli_fetch_assoc($resultado_pg);
+
+    // Quantidade de pagina
+    $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
+
+    // Limitar os link antes depois
+    $max_links = 2;
+    $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+
+    for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+        if ($pag_ant >= 1) {
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant'>$pag_ant</a> ";
+        }
+    }
+
+    $linkPaginas =  $linkPaginas . $pagina;
+
+    for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
+        if ($pag_dep <= $quantidade_pg) {
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep'>$pag_dep</a> ";
+        }
+    }
+
+    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+
+    $retornar = array('animais', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
 }
 
@@ -99,6 +136,17 @@ function gerarTabelaAgenCli()
 {
     
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+    $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/pages/clientes/agendamentosCli.php';
+
+    // Receber o número da página
+    $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
+    $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+
+    // Setar a quantidade de items por pagina
+    $qnt_result_pg = 5;
+
+    // Calcular o inicio visualização
+    $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
     // String de preparação
     $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento,
@@ -161,7 +209,35 @@ function gerarTabelaAgenCli()
         }
     }
 
-    $retornar = array("agendamentos", $tabela);
+    // Paginação - Somar a quantidade de usuários
+    $result_pg = "SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos";
+    $resultado_pg = mysqli_query($conn, $result_pg);
+    $row_pg = mysqli_fetch_assoc($resultado_pg);
+
+    // Quantidade de pagina
+    $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
+
+    // Limitar os link antes depois
+    $max_links = 2;
+    $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+
+    for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+        if ($pag_ant >= 1) {
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant'>$pag_ant</a> ";
+        }
+    }
+
+    $linkPaginas =  $linkPaginas . $pagina;
+
+    for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
+        if ($pag_dep <= $quantidade_pg) {
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep'>$pag_dep</a> ";
+        }
+    }
+
+    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+
+    $retornar = array("agendamentos", $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
 }
 
@@ -275,6 +351,17 @@ function gerarTabelaAgenFun()
 {
     
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+    $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/pages/funcionario/agendamentosFun.php';
+
+    // Receber o número da página
+    $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
+    $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+
+    // Setar a quantidade de items por pagina
+    $qnt_result_pg = 5;
+
+    // Calcular o inicio visualização
+    $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
     $status = $_GET['status'];
 
@@ -326,41 +413,78 @@ function gerarTabelaAgenFun()
     $tabela =
         "<thead><tr>
             <th>Profissional</th>
-            <th>Data Agendamento</th>
-            <th>Horário do agendamento</th>
+            <th>Data</th>
+            <th>Horário</th>
             <th>Animal</th>
             <th>Dono</th>
             <th>Detalhes</th>
             <th>Status</th>
         </tr></thead>";
 
-    // Pega cada linha da query e monta as linhas da tabela
-    foreach ($resultado->fetch_all() as $row) {
-        // Formata a data
-        $det = "<button class='cancelar finalizar' onclick='executeFunctions(" . '"update"' . ", $row[6])'>Finalizar</button>";
-
-        if ($row[3] == '') {
-            $det = '';
-
-        } elseif ($row[5] == "Concluido" && $row[3] != '') {
-
-            $det = "<button class='finalizar cancelar' onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
+    if (mysqli_num_rows($resultado) == 0){
+        $tabela = $tabela . "
+            <tr>
+                <td colspan=7>Não há agendamentos cadastrados</td>
+            </tr>
+            ";
+    } else {
+        foreach ($resultado->fetch_all() as $row) {
+            // Formata a data
+            $det = "<button class='cancelar finalizar' onclick='executeFunctions(" . '"update"' . ", $row[6])'>Finalizar</button>";
+    
+            if ($row[3] == '') {
+                $det = '';
+    
+            } elseif ($row[5] == "Concluido" && $row[3] != '') {
+    
+                $det = "<button class='finalizar cancelar' onclick='activeModalDetalhesFun($row[6]," . '"' . $_SESSION['tipo'] . '"' . ")'>Detalhes</button>";
+            }
+    
+            $data = date('d/m/Y', strtotime($row[1]));
+            $tabela = $tabela .
+                "<tr>
+                    <td>$row[0]</td>
+                    <td>$data</td>
+                    <td>$row[2]</td>
+                    <td>$row[3]</td>
+                    <td>$row[4]</td>
+                    <td>$det</td>
+                    <td>$row[5]</td>
+                </tr>";
         }
-
-        $data = date('d/m/Y', strtotime($row[1]));
-        $tabela = $tabela .
-            "<tr>
-                <td>$row[0]</td>
-                <td>$data</td>
-                <td>$row[2]</td>
-                <td>$row[3]</td>
-                <td>$row[4]</td>
-                <td>$det</td>
-                <td>$row[5]</td>
-            </tr>";
     }
 
-    $retornar = array('tabela', $tabela);
+    // Pega cada linha da query e monta as linhas da tabela
+
+    // Paginação - Somar a quantidade de usuários
+    $result_pg = "SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos";
+    $resultado_pg = mysqli_query($conn, $result_pg);
+    $row_pg = mysqli_fetch_assoc($resultado_pg);
+
+    // Quantidade de pagina
+    $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
+
+    // Limitar os link antes depois
+    $max_links = 2;
+    $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+
+    for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+        if ($pag_ant >= 1) {
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant'>$pag_ant</a> ";
+        }
+    }
+
+    $linkPaginas =  $linkPaginas . $pagina;
+
+    for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
+        if ($pag_dep <= $quantidade_pg) {
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep'>$pag_dep</a> ";
+        }
+    }
+
+    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+
+    $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
 }
 
@@ -420,14 +544,25 @@ function getDesc()
 
 function gerarTabelaDeleteFun()
 {
-    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+    $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/funcionario/clientes/listarFuncionario.php';
+
+    // Receber o número da página
+    $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
+    $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+
+    // Setar a quantidade de items por pagina
+    $qnt_result_pg = 5;
+
+    // Calcular o inicio visualização
+    $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
     // String de preparação
     $stmt = $conn->prepare("SELECT nome, cpf, profissao, pk_Funcionario, ativo FROM Funcionarios
         WHERE nome LIKE ?
         AND profissao != 'admin'
-        AND ativo = ?");
+        AND ativo = ?
+        ORDER BY nome ASC");
 
     $pesquisar = "%" . $_GET['pesq'] . "%";
 
@@ -456,26 +591,60 @@ function gerarTabelaDeleteFun()
         </tr></thead>";
 
     $cont = 1;
+    if (mysqli_num_rows($resultado) == 0){
+        $tabela = $tabela . "
+            <tr>
+                <td colspan=7>Não há agendamentos cadastrados</td>
+            </tr>
+            ";
+    } else {
+        // Pega cada linha da query e monta as linhas da tabela
+        foreach ($resultado->fetch_all() as $row) {
+            $button = "<button class='cancelar' onclick='executeFunctions(`apagarFun`," . $row[3] . ")'>Demitir";
 
-    // Pega cada linha da query e monta as linhas da tabela
-    foreach ($resultado->fetch_all() as $row) {
-        $button = "<button class='cancelar' onclick='executeFunctions(`apagarFun`," . $row[3] . ")'>Demitir";
-
-        if ($row[4] == 'demitido') {
-            $button = '<p>demitido</p>';
+            if ($row[4] == 'demitido') {
+                $button = '<p>demitido</p>';
+            }
+            $tabela = $tabela .
+                "<tr>
+                    <td id='nome$cont'>$row[0]</td>
+                    <td>$row[1]</td>
+                    <td>$row[2]</td>
+                    <td>$button</td>
+                </tr>";
+            $cont += 1;
         }
-        $tabela = $tabela .
-            "<tr>
-                <td id='nome$cont'>$row[0]</td>
-                <td>$row[1]</td>
-                <td>$row[2]</td>
-                <td>$button</td>
-            </tr>";
+    }
+    
+    // Paginação - Somar a quantidade de usuários
+    $result_pg = "SELECT COUNT(PK_Funcionario) AS num_result FROM Funcionarios";
+    $resultado_pg = mysqli_query($conn, $result_pg);
+    $row_pg = mysqli_fetch_assoc($resultado_pg);
 
-        $cont += 1;
+    // Quantidade de pagina
+    $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
+
+    // Limitar os link antes depois
+    $max_links = 2;
+    $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+
+    for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+        if ($pag_ant >= 1) {
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant'>$pag_ant</a> ";
+        }
     }
 
-    $retornar = array('tabela', $tabela);
+    $linkPaginas =  $linkPaginas . $pagina;
+
+    for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
+        if ($pag_dep <= $quantidade_pg) {
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep'>$pag_dep</a> ";
+        }
+    }
+
+    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+
+    $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
 }
 
@@ -599,10 +768,21 @@ function animais()
 
     function tabelaFunAgenCli(){
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/pages/clientes/animaisCli.php';
+
+        // Receber o número da página
+        $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
+        $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+    
+        // Setar a quantidade de items por pagina
+        $qnt_result_pg = 5;
+    
+        // Calcular o inicio visualização
+        $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
         $servico = $_GET['servico'];
 
-        $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, pk_Agendamento from Agendamentos
+        $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, pk_Agendamento, COUNT(PK_Agendamento) AS num_result from Agendamentos
             LEFT JOIN Animais
             ON Agendamentos.fk_Animal = Animais.pk_Animal
             LEFT JOIN Clientes
@@ -631,6 +811,7 @@ function animais()
                 <th>Marcar</th>
             </tr>";
 
+        
         // Pega cada linha da query e monta as linhas da tabela
         foreach ($resultado->fetch_all() as $row) {
             // Formata a data
@@ -644,12 +825,49 @@ function animais()
                     <td>$row[2]</td>
                     <td>$det</td>
                 </tr>";
+            $row_pg = $row[4];
         }
 
-        $retornar = array('tabela', $tabela);
+        if ($row_pg == 0){
+            $tabela = "<tr>
+                <th>Profissional</th>
+                <th>Data Agendamento</th>
+                <th>Horário do agendamento</th>
+                <th>Marcar</th>
+            </tr>" . "
+                <tr>
+                    <td colspan=7>Não há agendamentos disponíveis</td>
+                </tr>
+                ";
+        } 
+        
+
+        // Quantidade de pagina
+        $quantidade_pg = ceil($row_pg / $qnt_result_pg);
+
+        // Limitar os link antes depois
+        $max_links = 2;
+        $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+
+        for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+            if ($pag_ant >= 1) {
+                $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant'>$pag_ant</a> ";
+            }
+        }
+
+        $linkPaginas =  $linkPaginas . $pagina;
+
+        for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
+            if ($pag_dep <= $quantidade_pg) {
+                $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep'>$pag_dep</a> ";
+            }
+        }
+
+        $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+
+        $retornar = array('tabela', $tabela, 'links', $linkPaginas);
         return json_encode($retornar);
     }
-
     function fazerAgenParaCli(){
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 

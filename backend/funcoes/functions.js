@@ -39,22 +39,9 @@ function queryBanco(tipo) {
         var data = document.getElementById('dataAgen').value
         var extra = `&tipo=${tipoAgen}&data=${data}`;
 
-    } else if (tipo == 'gerarTabelaAgenFun') { // Puxar os agendamentos para o funcionário
-        var pesq = document.getElementById('pesq').value;
-        var filtro = document.getElementById('status').value;
-        var extra = `&pesq=${pesq}&status=${filtro}`;
-
-    } else if (tipo == 'gerarTabelaDeleteFun') { // Listar funcionário
-        var pesq = document.getElementById('pesq').value;
-        var filtro = document.getElementById('situacoes').value;
-        var extra = `&pesq=${pesq}&situ=${filtro}`;
     } else if (tipo == 'animais') {
         var cpf = document.getElementById('cpf').value;
         var extra = `&cpf=${cpf}`;
-    } else if (tipo == 'tabelaFunAgenCli'){
-        var pesq = document.getElementById('pesq').value;
-        var servico = document.getElementById('status').value;
-        var extra = `&servico=${servico}&pesq=${pesq}`;
     }
 
     var xhr = new XMLHttpRequest();
@@ -66,6 +53,40 @@ function queryBanco(tipo) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
             document.getElementById(response[0]).innerHTML = response[1];
             
+            // Seleciona o elemento de acordo com o primeiro valor do JSON
+            // e coloca o segundo valor dentro deste elemento
+        }
+    };
+    xhr.send();
+}
+
+function paginacao(tipo) {
+    if (tipo == 'gerarTabelaDeleteFun') { // Listar funcionário
+        var pesq = document.getElementById('pesq').value;
+        var filtro = document.getElementById('situacoes').value;
+        var extra = `&pesq=${pesq}&situ=${filtro}`;
+        
+    } else if (tipo == 'gerarTabelaAgenFun') { // Puxar os agendamentos para o funcionário
+        var pesq = document.getElementById('pesq').value;
+        var filtro = document.getElementById('status').value;
+        var extra = `&pesq=${pesq}&status=${filtro}`;
+
+    } else if (tipo == 'tabelaFunAgenCli'){
+        var pesq = document.getElementById('pesq').value;
+        var servico = document.getElementById('status').value;
+        var extra = `&servico=${servico}&pesq=${pesq}`;
+    }
+
+    var pag = document.getElementById('pag').innerText
+    var xhr = new XMLHttpRequest();
+    // Executa o arquivo que irá iniciar a função
+    xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=${tipo}&pag=${pag}${extra}`, true);
+    xhr.onload = function () {
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+            
+            var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
+            document.getElementById(response[0]).innerHTML = response[1];
+            document.getElementById(response[2]).innerHTML = response[3];
             // Seleciona o elemento de acordo com o primeiro valor do JSON
             // e coloca o segundo valor dentro deste elemento
         }

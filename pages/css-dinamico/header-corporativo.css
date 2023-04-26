@@ -61,6 +61,10 @@ a{
   transition: all 0.5s;
 }
 
+.box-logo-barra-de-pesquisa-perfil .perfil-corpotativo img{
+  width: 30px;
+}
+
 .box-logo-barra-de-pesquisa-perfil .perfil-corpotativo:hover{
   filter: grayscale(20);
 }
@@ -80,18 +84,60 @@ a{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   color: #ffffff;
-  padding:5px;
+  /* transition: all 0.5s; */
+
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  flex-direction: column;
+  background-color: #A175F7;
+  width: fit-content;
+  padding: 30px 10px;
+  border-radius: 20px;
+  gap: 10px 0px;
+  opacity: 0; 
+  z-index: -1;
+}
+
+.header-corporativo .responsive a{
+  background-color: #AA80FF;
+  border-radius: 10px;
+  padding: 10px;
+  width: 90%;
+  text-align: center;
   transition: all 0.5s;
+}
+
+.header-corporativo .responsive button{
+  width: fit-content;
+  padding: 10px 40px;
+  text-align: center;
 }
 
 .header-corporativo nav a{
   margin: 0 20px;
 }
 
+.header-corporativo nav button{
+  width: 90%;
+  padding: 7px 0px;
+  background-color: transparent;
+  border: solid white;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.header-corporativo nav button:hover{
+  color: black;
+  border: solid black;
+}
+
 .header-corporativo nav a:hover{
-  color: #d1d1d1;
+  /* color: #d1d1d1; */
+  filter: grayscale(20);
 }
 
 
@@ -108,24 +154,16 @@ a{
 
 @media (max-width:900px) {
 
-  .header-corporativo{
 
-  }
   .box-logo-barra-de-pesquisa-perfil{
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .responsive{
-    flex-flow: wrap column-reverse;
-    position: fixed;
-    gap: 0;
-    top: 0px;
-    left: -100%;
-    background-color: #9968fa;
-    z-index: 2;
-    width: 100%;
-    transition: all 0.5s;
+    top: 220px !important;
+    left: 50%;
+    transform: translate(-50%, 0%);
   }
 
   .menu{
@@ -154,6 +192,11 @@ a{
 
 }
 
+@media (max-width:500px) {
+  .responsive{
+    width: 90% !important;
+  }
+}
 
 
 /* FIM HEADER */
