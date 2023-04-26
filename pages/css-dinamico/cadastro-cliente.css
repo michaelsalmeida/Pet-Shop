@@ -61,8 +61,17 @@ header .corporativo{
 /* fim header  */
 
 /* formulario */
+#pi{
+  width: 100%;
+  border: solid;
+}
 
+@media (max-width: 400px) {
+  #cadastrar{
+    width: 150%;
+  }
 
+}
 
 form{
   display: flex;
@@ -88,6 +97,7 @@ form{
 .input{
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .input label{
   padding: 0;
@@ -134,6 +144,10 @@ form input[type ="submit"]:disabled:hover{
   form input[type= "submit"]{
     margin: 0 10%;
   }
+}
+
+#base .input, #endereco .input{
+
 }
 
 #base{
