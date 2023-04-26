@@ -1,3 +1,14 @@
+.box-informacoes{
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+}
+
 .linha-campos{
     display: flex;
     flex-flow: column wrap;
@@ -17,7 +28,8 @@
 
 .box-input{
     display: flex;
-    justify-self: center;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     flex-wrap: wrap;
 }
@@ -54,12 +66,29 @@
     color:#ffffff ;
 }
 
-.box-informacoes{
-    margin-top: 5em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+@media (max-width:700px) {
+    .box-maior-input{
+        justify-content: start;
+    }
+
+    
+    .box-maior-input .box-input input, .box-maior-input .box-input select{
+        width: 400px;
+    }
+    
+}
+
+@media (max-width:600px) {
+    
+    .box-input{
+        width: 300px;
+        gap: 20px;
+        justify-content: center;
+
+    }
+
+    .box-input button {
+        width: 15em;
+    }
 }
 
