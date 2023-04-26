@@ -82,9 +82,9 @@ function paginacao(tipo) {
     // Executa o arquivo que irá iniciar a função
     xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=${tipo}&pag=${pag}${extra}`, true);
     xhr.onload = function () {
-        if (xhr.readyState === xhr.DONE && xhr.status === 200) {
-            
+        if (xhr.readyState === xhr.DONE && xhr.status === 200) { 
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
+            console.log(response[3]); 
             document.getElementById(response[0]).innerHTML = response[1];
             document.getElementById(response[2]).innerHTML = response[3];
             // Seleciona o elemento de acordo com o primeiro valor do JSON
