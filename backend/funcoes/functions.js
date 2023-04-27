@@ -219,12 +219,14 @@ function activeModalApagarConta(id) {
     <div class='box-apagar-conta-modal'>
 
     <h3>Você tem certeza que deseja APAGAR a sua conta?</h3>
-    <span onclick="document.getElementById('id01').style.display='none'"
-    class="w3-button w3-display-topright">&times;</span>
 
-    <a href = "` + location.origin + `/Pet-shop/backend/processos/proc_excCliente.php?id=${id}` + `">Sim</a>
-    <button onclick="document.getElementById('id01').style.display='none'">Não</button> 
-    
+
+    <div class='box-botoes-modal'>
+
+        <a class='sim' href = "` + location.origin + `/Pet-shop/backend/processos/proc_excCliente.php?id=${id}` + `">Sim</a>
+        <button class='nao' onclick="document.getElementById('id01').style.display='none'">Não</button> 
+
+    </div>    
     </div>`;
 }
 

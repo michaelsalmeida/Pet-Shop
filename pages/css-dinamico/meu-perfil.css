@@ -113,14 +113,14 @@
 
 
 /* BOTOES */
-.box-maior-input .box-botao input {
+.box-maior-input .box-botao input, .sim {
     border: 2px solid #43C07D;
     color: #43C07D;
 
 
 }
 
-.box-maior-input .box-botao input:hover {
+.box-maior-input .box-botao input:hover, .sim:hover {
     background-color: #43C07D;
     color: #ffffff;
 }
@@ -140,7 +140,7 @@
     gap: 40px;
 }
 
-.apagar-conta {
+.apagar-conta, .nao {
     border: 2px solid #F14848;
     color: #F14848;
     font-weight: 700;
@@ -151,7 +151,17 @@
     background-color: transparent;
 }
 
-.apagar-conta:hover {
+
+.sim{
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: 700;
+}
+.apagar-conta:hover , .nao:hover{
     background-color: #F14848;
     color: #ffffff;
 }
@@ -178,6 +188,7 @@
 
 
 /* POSICIONANDO O MODAL */
+
 .modal{
     background-color: rgba(0, 0, 0, 0.5);
     width: 300px;
@@ -186,6 +197,7 @@
     justify-content: center;
     align-items: center;
 }
+
 /* POSICIONANDO O MODAL FIM */
 
 
@@ -218,7 +230,7 @@
     justify-content: space-evenly;
 }
 
-#container-modal  .box-superior-modal span{
+#container-modal  .box-superior-modal span, .botao-x{
     color: #F14848;
     font-size: 20px;
     padding: 2px 10px;
@@ -226,7 +238,7 @@
     transition: all 0.5s;
 }
 
-#container-modal  .box-superior-modal span:hover{
+#container-modal  .box-superior-modal span:hover, .botao-x:hover{
     background-color: #F14848;
     color: #ffffff;
     border-radius: 100px;
@@ -321,6 +333,8 @@
 
 
 /* MODAL DE APAGAR A CONTA */
+
+
 @media (max-width:600px) {
     .informacoes-pessoais {
         display: block;
@@ -342,4 +356,11 @@
     .botoes-alterar {
         flex-direction: column;
     }
+
+    #container-modal{
+        width: 100vw;
+        height: 100vh;
+    }
 }
+
+
