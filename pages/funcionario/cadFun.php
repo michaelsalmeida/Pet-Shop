@@ -39,6 +39,7 @@ if (!isset($_SESSION['tipo'])) {
 
 <body>
     
+    
     <div>
 
         <div class="informacoes-superior">

@@ -20,7 +20,7 @@ require_once $funcoesRoute;
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../css-dinamico/table.css">
   <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css">
- 
+
   <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
 
 </head>
@@ -37,10 +37,6 @@ require_once $funcoesRoute;
         <button onclick="paginacao('gerarTabelaAgenFun')"><i class="bi bi-search"></i></button>
       </div>
 
-      <!-- <div class="perfil-corpotativo" onclick="menuPerfil()">
-        <i class="bi bi-person-square"></i>
-        <p>></p>
-      </div> -->
 
       <div class='perfil-corpotativo' onmousedown='menuPerfil()'>
         <img src='../img-estatico/account_circle.svg'>
@@ -91,11 +87,12 @@ require_once $funcoesRoute;
         unset($_SESSION['msgRotaProibida']);
       }
       if (isset($_GET['pagina'])) {
-        echo "<p id='pag' hidden>".$_GET['pagina']."</p>";
+        echo "<p id='pag' hidden>" . $_GET['pagina'] . "</p>";
       } else {
         echo "<p id='pag' hidden>1</p>";
       }
       ?>
+
       <button onclick="executeFunctions('logoff', '')">Sair</button>
 
 
@@ -107,15 +104,15 @@ require_once $funcoesRoute;
   <div class="container box-total">
 
 
-  <div class="box-opcoes">
-    <select name="status" id="status" onchange="paginacao('gerarTabelaAgenFun')" required>
-      <option value="" disabled selected hidden>Selecione o status</option>
-      <option value="Disponivel">Disponivel</option>
-      <option value="Marcado">Marcado</option>
-      <option value="Concluido">Concluido</option>
-      <option value="Cancelado">Cancelado</option>
-    </select>
-  </div>
+    <div class="box-opcoes">
+      <select name="status" id="status" onchange="paginacao('gerarTabelaAgenFun')" required>
+        <option value="" disabled selected hidden>Selecione o status</option>
+        <option value="Disponivel">Disponivel</option>
+        <option value="Marcado">Marcado</option>
+        <option value="Concluido">Concluido</option>
+        <option value="Cancelado">Cancelado</option>
+      </select>
+    </div>
 
 
     <table id="tabela">

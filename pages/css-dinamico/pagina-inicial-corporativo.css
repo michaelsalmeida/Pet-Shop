@@ -16,6 +16,7 @@ body{
 }
 
 .titulo-agendamento{
+    font-family: 'Poppins';
     margin-top: 2em;
     text-align: center;
     font-size: 24px;

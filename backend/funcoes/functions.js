@@ -207,31 +207,60 @@ function activeModal(id, tipo) {
 }
 
 function activeModalApagarConta(id) {
-    document.getElementById("id01").style.display = "block" // Muda a modal para block, para que possa ser vista
+    document.getElementById("id01").style.display = "flex" // Muda a modal para block, para que possa ser vista
     document.getElementById("container-modal").innerHTML = `
-    <p>Você tem certeza que deseja APAGAR a sua conta?<p>
+
+
+    <div class='box-apagar-conta-modal'>
+
+    <h3>Você tem certeza que deseja APAGAR a sua conta?</h3>
     <span onclick="document.getElementById('id01').style.display='none'"
             class="w3-button w3-display-topright">&times;</span>
     <a href = "` + location.origin + `/Pet-shop/backend/processos/proc_excCliente.php?id=${id}` + `">Sim</a>
-    <button onclick="document.getElementById('id01').style.display='none'">Não</button>`;
+    <button onclick="document.getElementById('id01').style.display='none'">Não</button> 
+    
+    </div>`;
 }
 
 function activeModalAlterarSenha(id) {
-    document.getElementById("id01").style.display = "block" // Muda a modal para block, para que possa ser vista
-    document.getElementById("container-modal").innerHTML = `
-    <form action="` + location.origin + `/Pet-shop/backend/processos/proc_AlterarSenha.php?id=${id}` + `" method="post">
-        <p>Digite a sua senha<p>
-        <span onclick="document.getElementById('id01').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>
 
-        <label for="senhaAtual">Digite a senha atual:</label>
-        <input pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$" type="password" name="senhaAtual" required><br>
-        <label for="senha">Digite a nova senha:</label>
-        <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="senha" required><br>
-        <label for="confsenha">Confirme a nova senha:</label>
-        <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="confsenha" required><br>
-        <button id="alt" disabled>Confirmar</button>
-        <button type="button" onclick="document.getElementById('id01').style.display='none'">Cancelar</button>
+    document.getElementById("id01").style.display = "flex" // Muda a modal para block, para que possa ser vista
+    document.getElementById("container-modal").innerHTML = `
+
+    <form action="` + location.origin + `/Pet-shop/backend/processos/proc_AlterarSenha.php?id=${id}` + `" method="post" class='box-modal'>
+        <h3>Altere sua senha</h3>
+        
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+
+
+        <div class='box-input-modal'>
+            <label for="senhaAtual">Senha atual:</label>
+            <input pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$" type="password" name="senhaAtual" required placeholder='Digite a senha atual:'>
+        </div>
+
+        <div class='box-input-modal'>
+
+            <label for="senha">Nova senha:</label>
+            <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="senha" required placeholder='Digite a nova senha:'>
+
+        </div>
+
+
+        <div class='box-input-modal'>
+
+            <label for="confsenha">Confirme a nova senha:</label>
+
+            <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="confsenha" required placeholder='Confirme a nova senha:'>
+        </div>
+
+
+        <div class='box-botoes-modal'>
+
+            <button id="alt" disabled class='confirmar-modal'>Confirmar</button>
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class='apagar-conta'>Cancelar</button>
+
+        </div>
+
     </form>`;
 
     var confsenha = document.getElementsByName('confsenha')[0] // Pega os inputs de acordo com o name
