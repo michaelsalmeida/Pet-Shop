@@ -63,13 +63,14 @@ require_once $funcoesRoute;
         echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
         echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
         echo "<a href=" . $cadAnimalParaClienteRoute . ">Cadastrar animal</a>";
+        echo "<a href=" . $comentariosRoute . ">Comentarios dos Clientes</a>";
       } elseif ($_SESSION['tipo'] == 'admin') {
         echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a>";
         echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
         echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
         echo "<a href=" . $listarFunRoute . ">Listar Funcionários</a>";
         echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
-      }
+        echo "<a href=" . $comentariosRoute . ">Comentarios dos Clientes</a>";      }
 
 
       if (isset($_SESSION['msgCadData'])) {

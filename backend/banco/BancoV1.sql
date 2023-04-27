@@ -111,6 +111,19 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 
+CREATE TABLE IF NOT EXISTS `petshop`.`Comentarios` (
+  `pk_Comentario` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `telefone` CHAR(11) NOT NULL,
+  `email` VARCHAR(200) NOT NULL,
+  `mensagem` TEXT,
+  `data` DATE NOT NULL,
+  PRIMARY KEY (`pk_Comentario`)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_general_ci;
+
 desc Funcionarios;
 
 select * from Funcionarios;

@@ -955,3 +955,101 @@ function animais()
         $retornar = array('formanimal', $tabela);
         return json_encode($retornar);
     }
+
+    function tabelaComentarios() {
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+        $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/pages/clientes/animaisCli.php';
+        
+        
+        $filtroData = $_GET['data'];
+
+        if ($filtroData == ''){
+            $filtroData = date("Y-m-d");
+        }
+
+        $filtroMensagem = "%" . $_GET['pesq'] . "%";
+
+        // Receber o número da página
+        $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
+        $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+    
+        // Setar a quantidade de items por pagina
+        $qnt_result_pg = 5;
+    
+        // Calcular o inicio visualização
+        $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
+    
+        // String de preparação
+        $stmt = $conn->prepare("SELECT nome, telefone, email, mensagem, `data`, 
+        pk_Comentario FROM Comentarios
+        WHERE `data` = ?
+        AND mensagem LIKE ?
+        ORDER BY nome LIMIT $inicio, $qnt_result_pg");
+
+        $stmt->bind_param("ss", $filtroData, $filtroMensagem);
+
+        // Executa o sql
+        $stmt->execute();
+        // Pega o resultado do banco
+        $resultado = $stmt->get_result();
+    
+        // String que será retornada na tabela
+        $tabela = "";
+    
+        if (mysqli_num_rows($resultado) == 0) {
+            $tabela = $tabela . "
+                <label>Não há mensagems no sistema</label>
+                ";
+        } else {
+            // Pega cada linha da query e monta as linhas da tabela
+            foreach ($resultado->fetch_all() as $row) {
+                // Formata a data
+                $data = date('d/m/Y', strtotime($row[4]));
+                $tabela = $tabela .
+                    "   <label>Data</label>
+                        <p>$data</p>
+                        <label>Nome</label>
+                        <p>$row[0]</p>
+                        <label>Telefone</label>
+                        <p>$row[1]</p>
+                        <label>E-mail</label>
+                        <p>$row[2]</p>
+                        <label>Mensagem</label>
+                        <p>$row[3]</p>
+                        <label>Responder</label>
+                        <p><a href='mailto:" . $row[2] . "'>Enviar email</a></p>
+                    <hr>";
+            }
+        }
+    
+        // Paginação - Somar a quantidade de usuários
+        $result_pg = "SELECT COUNT(PK_Comentario) AS num_result FROM Comentarios";
+        $resultado_pg = mysqli_query($conn, $result_pg);
+        $row_pg = mysqli_fetch_assoc($resultado_pg);
+    
+        // Quantidade de pagina
+        $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
+    
+        // Limitar os link antes depois
+        $max_links = 2;
+        $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+    
+        for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+            if ($pag_ant >= 1) {
+                $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant'>$pag_ant</a> ";
+            }
+        }
+    
+        $linkPaginas =  $linkPaginas . $pagina;
+    
+        for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
+            if ($pag_dep <= $quantidade_pg) {
+                $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep'>$pag_dep</a> ";
+            }
+        }
+    
+        $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+    
+        $retornar = array('tabela', $tabela, 'links', $linkPaginas);
+        return json_encode($retornar);
+    }

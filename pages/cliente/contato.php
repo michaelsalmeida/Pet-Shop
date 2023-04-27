@@ -52,10 +52,11 @@ require_once $funcoesRoute;
                     echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
-                // if (isset($_SESSION['msgRotaProibidaCli'])){
-                //   echo $_SESSION['msgRotaProibidaCli'];
-                //   unset($_SESSION['msgRotaProibidaCli']);
-                // }
+
+                if (isset($_SESSION['msgComent'])){
+                  echo $_SESSION['msgComent'];
+                  unset($_SESSION['msgComent']);
+                }
 
                 ?>
             </div>
@@ -113,22 +114,22 @@ require_once $funcoesRoute;
     <section class="container-fluid mensagem">
         <h2>Precisa de ajuda? Envie uma mensagem</h2>
 
-        <form action="">
+        <form action="<?php echo $procComentarioRoute; ?>" method="post">
             <fieldset id="nome">
                 <label for="">Nome</label>
-                <input type="text" name="nome">
+                <input type="text" name="nome" required>
             </fieldset>
             <fieldset id="tell">
                 <label for="">Telefone</label>
-                <input type="text" name="tell">
+                <input type="text" name="tell" required>
             </fieldset>
             <fieldset id="email">
-                <label for="">Email</label>
-                <input type="email" name="email">
+                <label for="">Email</label> 
+                <input type="email" name="email" required>
             </fieldset>
             <fieldset id="msg">
                 <label for="">Sua mensagem</label>
-                <textarea name="msg" id="" cols="30" rows="10"></textarea>
+                <textarea name="msg" id="" cols="30" rows="10" required></textarea>
             </fieldset>
 
             <input type="submit">
