@@ -135,7 +135,7 @@ require_once $funcoesRoute;
                 melhor amigo.
             </h2>
 
-            <a href="<?php echo $agendamentoCliRoute; ?>">Agendamento</a>
+            <a href="<?php echo $fazAgendamentoCliRoute; ?>">Agendamento</a>
         </div>
 
         <img class="col-md-4" src="pages/img-estatico/agendar.svg" alt="">

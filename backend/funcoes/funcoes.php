@@ -26,7 +26,7 @@ function logoff()
 
 function gerarTabelaAni() {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-    $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/pages/clientes/animaisCli.php';
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/clientes/animaisCli.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
@@ -93,7 +93,7 @@ function gerarTabelaAni() {
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+    $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
@@ -109,7 +109,7 @@ function gerarTabelaAni() {
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
 
     $retornar = array('animais', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -136,7 +136,7 @@ function gerarTabelaAgenCli()
 {
     
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-    $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/pages/clientes/agendamentosCli.php';
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/clientes/agendamentosCli.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
@@ -219,7 +219,7 @@ function gerarTabelaAgenCli()
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+    $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
@@ -235,7 +235,7 @@ function gerarTabelaAgenCli()
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
 
     $retornar = array("agendamentos", $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -283,6 +283,9 @@ function gerarTabelaFazAgenCli()
             ORDER BY data_agendamento, horario_agendamento");
 
     // Substituição da string preparada pelos valores corretos
+    $data_atual = date("Y-m-d");
+    $hora_atual = date("H:i");
+
     $data = "%" . $_GET['data'] . "%";
     $stmt->bind_param("ss", $data, $_GET['tipo']);
     // Executa o sql
@@ -307,15 +310,25 @@ function gerarTabelaFazAgenCli()
     } else {
         // Pega cada linha da query e monta as linhas da tabela
         foreach ($resultado->fetch_all() as $row) {
-            // Formata a data
-            $data = date('d/m/Y', strtotime($row[1]));
-            $tabela = $tabela .
-                "<tr>
-                    <td>$row[0]</td>
-                    <td>$data</td>
-                    <td>$row[2]</td>
-                    <td><button class='cancelar agendar' type='button' onclick='executeFunctions(" . '"fazAgendamentoCli",' . $row[3] . ")'>Agendar</button></td>
-                </tr>";
+
+            if (strtotime($data_atual) > strtotime($row[1]) || (strtotime($data_atual) == strtotime($row[1]) && strtotime($hora_atual) > strtotime($row[2]))){
+                $stmt2 = $conn -> prepare("UPDATE Agendamentos set `status` = 'Cancelado'
+                where pk_Agendamento = ?");
+
+                $stmt2 -> bind_param("s", $row[3]);
+
+                $stmt2-> execute();
+            } else {
+                // Formata a data
+                $data = date('d/m/Y', strtotime($row[1]));
+                $tabela = $tabela .
+                    "<tr>
+                        <td>$row[0]</td>
+                        <td>$data</td>
+                        <td>$row[2]</td>
+                        <td><button class='cancelar agendar' type='button' onclick='executeFunctions(" . '"fazAgendamentoCli",' . $row[3] . ")'>Agendar</button></td>
+                    </tr>";
+            }
         }
     }
 
@@ -351,7 +364,7 @@ function gerarTabelaAgenFun()
 {
     
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-    $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/pages/funcionario/agendamentosFun.php';
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/funcionario/agendamentosFun.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
@@ -466,7 +479,7 @@ function gerarTabelaAgenFun()
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+    $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
@@ -482,7 +495,7 @@ function gerarTabelaAgenFun()
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -545,7 +558,7 @@ function getDesc()
 function gerarTabelaDeleteFun()
 {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-    $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/funcionario/clientes/listarFuncionario.php';
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/funcionario/clientes/listarFuncionario.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
@@ -626,7 +639,7 @@ function gerarTabelaDeleteFun()
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+    $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
@@ -642,7 +655,7 @@ function gerarTabelaDeleteFun()
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -768,7 +781,7 @@ function animais()
 
     function tabelaFunAgenCli(){
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/pages/clientes/animaisCli.php';
+        $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/funcionario/agendarParaCliente.php';
 
         // Receber o número da página
         $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
@@ -847,7 +860,7 @@ function animais()
 
         // Limitar os link antes depois
         $max_links = 2;
-        $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+        $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
 
         for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
             if ($pag_ant >= 1) {
@@ -863,7 +876,7 @@ function animais()
             }
         }
 
-        $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+        $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
 
         $retornar = array('tabela', $tabela, 'links', $linkPaginas);
         return json_encode($retornar);
@@ -958,12 +971,12 @@ function animais()
 
     function tabelaComentarios() {
         require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-        $header = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/pages/clientes/animaisCli.php';
+        $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/funcionario/comentarios.php';
         
         
         $filtroData = $_GET['data'];
 
-        if ($filtroData == ''){
+        if ($filtroData == ''){ 
             $filtroData = date("Y-m-d");
         }
 
@@ -1032,7 +1045,7 @@ function animais()
     
         // Limitar os link antes depois
         $max_links = 2;
-        $linkPaginas = "<a href='$header?pagina=1'>Primeira</a> ";
+        $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
     
         for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
             if ($pag_ant >= 1) {
@@ -1048,7 +1061,7 @@ function animais()
             }
         }
     
-        $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>Ultima</a>";
+        $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
     
         $retornar = array('tabela', $tabela, 'links', $linkPaginas);
         return json_encode($retornar);

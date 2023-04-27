@@ -24,6 +24,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
 </head>
 
 <body>
+  
 
   <div class="box-informacoes">
     <img src="../img-estatico/iconCachorro.svg" alt="ícone de imagens">
@@ -95,6 +96,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
       }
     ?>
 
+  <a href="<?php echo $agendamentoFunRoute; ?>">Voltar</a>
 
 
   <script src="<?php echo $functionsRoute ?>"></script>
