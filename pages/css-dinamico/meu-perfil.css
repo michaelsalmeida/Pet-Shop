@@ -192,9 +192,13 @@
 /* MODAL DE RECUPERAR A SENHA */
 
 #container-modal {
-    
+    background-image: url(../img-dinamico/fundo.svg);
+    background-position: center 0;
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 50px;
     border-radius: 5px;
+    
 }
 
 #container-modal form {
@@ -206,9 +210,32 @@
 
 }
 
-#container-modal form h3, .box-apagar-conta-modal h3{
+#container-modal  .box-superior-modal{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+#container-modal  .box-superior-modal span{
+    color: #F14848;
+    font-size: 20px;
+    padding: 2px 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#container-modal  .box-superior-modal span:hover{
+    background-color: #F14848;
+    color: #ffffff;
+    border-radius: 100px;
+}
+
+#container-modal  .box-superior-modal form h3, .box-apagar-conta-modal h3{
     font-family: 'poppins';
     text-align: center;
+
 }
 
 
@@ -219,14 +246,17 @@
 
 #container-modal form input {
     height: 35px;
+    width: 300px;
     padding: 0 10px;
     border-radius: 5px;
     outline: none;
     border: 2px solid #403F3F;
+    background-color: transparent;
 }
 
 #container-modal form input::placeholder{
-    color: #000000;
+    color: #403F3F;
+    font-size: 14px;
 }
 
 .box-botoes-modal{
@@ -237,22 +267,23 @@
 }
 
 .box-botoes-modal button{
-    padding: 5px 30px;
+    padding: 5px 20px;
     border-radius: 5px;
+    font-size: 12px;
 
 }
 
 .box-botoes-modal .confirmar-modal:disabled{
-    border: 2px solid #888;
+    border: 2px solid #403F3F;
     cursor: not-allowed;
     transition: all 0.5s;
     background-color: transparent;
-    color: #888;
+    color: #403F3F;
 }
 
 .box-botoes-modal .confirmar-modal:disabled:hover{
     background-color: transparent;
-    color: #888;
+    color: #403F3F;
 }
 .box-botoes-modal .confirmar-modal{
     border: 2px solid #27cb74;

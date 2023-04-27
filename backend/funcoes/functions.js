@@ -220,7 +220,8 @@ function activeModalApagarConta(id) {
 
     <h3>Você tem certeza que deseja APAGAR a sua conta?</h3>
     <span onclick="document.getElementById('id01').style.display='none'"
-            class="w3-button w3-display-topright">&times;</span>
+    class="w3-button w3-display-topright">&times;</span>
+
     <a href = "` + location.origin + `/Pet-shop/backend/processos/proc_excCliente.php?id=${id}` + `">Sim</a>
     <button onclick="document.getElementById('id01').style.display='none'">Não</button> 
     
@@ -233,10 +234,12 @@ function activeModalAlterarSenha(id) {
     document.getElementById("container-modal").innerHTML = `
 
     <form action="` + location.origin + `/Pet-shop/backend/processos/proc_AlterarSenha.php?id=${id}` + `" method="post" class='box-modal'>
-        <h3>Altere sua senha</h3>
-        
-        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 
+
+        <div class='box-superior-modal'>
+            <h3>Altere sua senha</h3>
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button   w3-display-topright">&times;</span>
+        </div>
 
         <div class='box-input-modal'>
             <label for="senhaAtual">Senha atual:</label>
