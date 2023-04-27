@@ -47,7 +47,7 @@ include_once($funcoesRoute);
 
         <form action="<?php echo $procCadCliRoute; ?>" method="post" id="pai">
 
-            <div id="base" class="col-lg-5">
+            <div id="base" class="col-lg-5 m-4">
                 <div class="input row">
                     <label for="nome">NOME *</label>
                     <input type="text" name="nome" placeholder="Digite o seu nome" required autofocus><br><br>
@@ -94,7 +94,7 @@ include_once($funcoesRoute);
 
             </div>
 
-            <div id="endereco" class="col-lg-5">
+            <div id="endereco" class="col-lg-5 m-4">
 
                 <div class="input row">
                     <label>CEP *</label>
