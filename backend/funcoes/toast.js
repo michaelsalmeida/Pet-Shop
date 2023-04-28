@@ -1,6 +1,5 @@
-function activateToast(param, tela){
+function activateToast(param){ //toast da tela da data cadastrada errada (funcionário).
     if (param == true){
-      if (tela == 'msgCadDataErro'){
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -15,5 +14,3 @@ function activateToast(param, tela){
           })
       }
     }
-    
-}
