@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexão
 
@@ -21,7 +20,6 @@ try {
     );
     // Executa o sql
     $stmtCli->execute();
-    
     $_SESSION['msgAltCli'] = "Cliente alterado com sucesso";
 } catch (Exception $e) {
     if ($e->getCode() === 1062) {

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once('../../rotas.php');
 include_once($connRoute);
 
@@ -55,4 +54,3 @@ if (strtotime($data) < strtotime($data_atual)){
         header("location: " . $cadastradaDatasRoute);
     }
 }
-
