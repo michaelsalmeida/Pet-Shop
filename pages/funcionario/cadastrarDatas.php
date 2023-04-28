@@ -1,7 +1,9 @@
 <?php
-
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexao
+if (!isset($_SESSION['msgCadDataErro'])){
+    $_SESSION['msgCadDataErro'] = false;
+}
 
 if ($_SESSION['tipo'] != "admin" && $_SESSION['tipo'] != "Secretaria") {
     $_SESSION['msgRotaProibida'] = "Você Não possui permissão para entrar nessa página";
@@ -31,14 +33,13 @@ if (!isset($_SESSION['tipo'])) {
 
 </head>
 
-<body>
+<body onload="activateToast(<?php echo $_SESSION['msgCadDataErro']; ?>)">
     <?php
     if (isset($_SESSION['msgTelaCadData'])) {
         echo $_SESSION['msgTelaCadData'];
         unset($_SESSION['msgTelaCadData']);
     }
     if (isset($_SESSION['msgCadDataErro'])) {
-        echo $_SESSION['msgCadDataErro'];
         unset($_SESSION['msgCadDataErro']);
     }
     ?>
@@ -105,7 +106,8 @@ if (!isset($_SESSION['tipo'])) {
             </div>
         </form>
     </div>
-
+    <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
