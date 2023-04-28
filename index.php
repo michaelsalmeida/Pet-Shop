@@ -1,3 +1,13 @@
+<?php
+try {
+    include_once("rotas.php");
+    require_once $funcoesRoute;
+} catch (Exception $e) {
+    echo 'Caught exception: ', $e->getMessage(), "<br>";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
