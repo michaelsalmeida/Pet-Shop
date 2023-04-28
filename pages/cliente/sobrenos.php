@@ -48,7 +48,7 @@ require_once $funcoesRoute;
                     }
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
-                    echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
+                    echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
                 // if (isset($_SESSION['msgRotaProibidaCli'])){
