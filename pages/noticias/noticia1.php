@@ -1,3 +1,7 @@
+<?php
+include_once("../../rotas.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,9 +27,9 @@
         <div class="responsive">
             <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
-                <a href="">BLOG</a>
-                <a href="">SOBRE NÓS</a>
-                <a href="">CONTATO</a>
+                <a href="<?php echo $blogRoute; ?>">BLOG</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
             </div>
 
             <div class="acesso">
@@ -92,9 +96,9 @@
         </a>
 
         <div class="links">
-            <a href="">BLOG</a>
-            <a href="">SOBRE NÓS</a>
-            <a href="">CONTATO</a>
+            <a href="<?php echo $blogRoute; ?>">BLOG</a>
+            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
         </div>
 
         <div class="redes">
