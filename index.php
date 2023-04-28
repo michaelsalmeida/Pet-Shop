@@ -17,6 +17,8 @@ require_once $funcoesRoute;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
@@ -36,7 +38,8 @@ require_once $funcoesRoute;
 
         <div class="responsive">
 
-            <img src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <img onmousedown="fechaMenu()" src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
@@ -73,61 +76,52 @@ require_once $funcoesRoute;
 
 
 
-        <?php
-        if (loged()) {
-            if (isset($_SESSION['tipo'])) {
-                // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
-                header("Location: " . $agendamentoFunRoute);
-            } else {
-                // Esses botões só aparecem quando o usuário estive logado
-                echo "  <div class='perfil' onmousedown='menuPerfil()'>
-                        <i class='bi bi-person-square'></i>
+        <div class="perfilHambur">
+
+            <?php
+            if (loged()) {
+                if (isset($_SESSION['tipo'])) {
+                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                    header("Location: " . $agendamentoFunRoute);
+                } else {
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                        <img src='pages/img-estatico/account_circle.svg'>
                         <p>></p>
                         </div>
-
+                        
                         
                         <div class='menu-perfil'>
+                        <p>Bem Vindo! " . $_SESSION['nomeCliente'] . "</p>
                         <a href='$meuPerfilCliRoute'><img src='pages/img-estatico/account_circle.svg'> Meu Perfil</a>
                         <a href='$animaisCliRoute'>Meus Animais</a>
                         <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
                         <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
                         </div>";
+                }
             }
-        }
-        ?>
+            ?>
 
-        <img src="pages/img-estatico/menu.png" class="menu" alt="menu">
+            <img src="pages/img-estatico/menu.png" onmousedown="abreMenu()" class="menu" alt="menu">
+        </div>
     </header>
 
 
-
-
     <section class="container carrossel">
-        <div class="container" id="slider-container">
-            <div id="carouselMainControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="pages/img-estatico/carousel01.svg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="pages/img-estatico/carousel02.svg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="pages/img-estatico/carousel03.svg" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMainControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselMainControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+        <div class="carousel" data-flickity='{ 
+                "wrapAround": true,
+                "autoPlay": true}'>
+            <div class="carousel-cell">
+                <img src="pages/img-estatico/carousel01.svg" class="d-block w-100" alt="...">
             </div>
+            <div class="carousel-cell">
+                <img src="pages/img-estatico/carousel02.svg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-cell">
+                <img src="pages/img-estatico/carousel03.svg" class="d-block w-100" alt="...">
+            </div>
+        </div>
     </section>
-
-
 
 
 
@@ -141,7 +135,7 @@ require_once $funcoesRoute;
                 melhor amigo.
             </h2>
 
-            <a href="<?php echo $agendamentoCliRoute; ?>">Agendamento</a>
+            <a href="<?php echo $fazAgendamentoCliRoute; ?>">Agendamento</a>
         </div>
 
         <img class="col-md-4" src="pages/img-estatico/agendar.svg" alt="">
@@ -235,6 +229,8 @@ require_once $funcoesRoute;
 
         <p>© Hamtaro Petshop todos direitos reservados</p>
     </footer>
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <script src="pages/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

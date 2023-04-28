@@ -16,7 +16,6 @@ require_once $funcoesRoute;
     <link rel="stylesheet" href="../css-dinamico/meu-perfil.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body onload="altMeuPerfilCli()">
@@ -35,17 +34,19 @@ require_once $funcoesRoute;
     }
     ?>
 
-    <header>
+    <header style="display: flex; ">
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
         <div class="responsive">
-            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+
+            <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+
             </div>
 
             <div class="acesso">
@@ -59,26 +60,52 @@ require_once $funcoesRoute;
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>
-                        <a href='$animaisCliRoute'>Meus Animais</a>
-                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
-                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>";
+                        ";
                     }
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
                     echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
-                if (isset($_SESSION['msgAltCli'])){
-                  echo $_SESSION['msgAltCli'];
-                  unset($_SESSION['msgAltCli']);
+                if (isset($_SESSION['msgAltCli'])) {
+                    echo $_SESSION['msgAltCli'];
+                    unset($_SESSION['msgAltCli']);
                 }
 
                 ?>
             </div>
         </div>
 
-        <img src="../img-estatico/menu.png" class="menu" alt="menu">
+
+
+        <div class="perfilHambur">
+
+            <?php
+            if (loged()) {
+                if (isset($_SESSION['tipo'])) {
+                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                    header("Location: " . $agendamentoFunRoute);
+                } else {
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                        <img src='../img-estatico/account_circle.svg'>
+                        <p>></p>
+                        </div>
+                        
+                        
+                        <div class='menu-perfil'>
+                        <p>Bem Vindo! " . $_SESSION['nomeCliente'] . "</p>
+                        <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                        </div>";
+                }
+            }
+            ?>
+
+            <img onmousedown="abreMenu()" src="../img-estatico/menu.png" class="menu" alt="menu">
+        </div>
     </header>
 
 
@@ -130,7 +157,7 @@ require_once $funcoesRoute;
             <div class="box-maior-input">
 
                 <div class="box-input">
-                    <label for="email">Email</label>
+                    <label for="email">E-mail</label>
                     <input type="email" name="email" readonly required>
                 </div>
 
@@ -217,27 +244,39 @@ require_once $funcoesRoute;
 
 
 
+
+
+
+
     <div class="box-inferior-botoes">
-        <a onclick="activeModalApagarConta(<?php echo $_SESSION['idCli'];?>)" class="apagar-conta">Apagar Conta</a>
+
+        <div class="box-botao">
+            <a onclick="activeModalAlterarSenha(<?php echo $_SESSION['idCli']; ?>)" class="alterar-senha apagar-conta">Alterar Senha</a>
+
+
+            <a onclick="activeModalApagarConta(<?php echo $_SESSION['idCli']; ?>)" class="apagar-conta">Apagar Conta</a>
+        </div>
+        
         <a href="<?php echo $homeRoute; ?>">Voltar</a>
     </div>
 
 
-    <!-- <a href="<?php //echo $procExcCliRoute . "?id=" . $_SESSION["idCli"]; ?>" class="apagar-conta"> -->
-    <!-- The Modal -->
-    <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
+
+
+    <div id="id01" class="modal">
             <div class="w3-container" id="container-modal">
             </div>
-        </div>
     </div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
     <script src="<?php echo $dataHojeRoute; ?>"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
     <script src="<?php echo $viacepRoute; ?>"></script>
     <script src="../script.js"></script>
-
+    <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>

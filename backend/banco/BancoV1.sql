@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Animais` (
   `raca` VARCHAR(45) NOT NULL,
   `peso` FLOAT NOT NULL,
   `cor` VARCHAR(45) NOT NULL,
-  `data_cadastro` VARCHAR(45) NOT NULL,
+  `data_cadastro` DATE NOT NULL,
   `ativo` ENUM('ativo', 'inativo') NOT NULL,
   PRIMARY KEY (`pk_Animal`),
   CONSTRAINT `fk_Animais_Clientes1`
@@ -107,6 +107,19 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Agendamentos` (
     REFERENCES `petshop`.`Animais` (`pk_Animal`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `petshop`.`Comentarios` (
+  `pk_Comentario` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `telefone` CHAR(11) NOT NULL,
+  `email` VARCHAR(200) NOT NULL,
+  `mensagem` TEXT,
+  `data` DATE NOT NULL,
+  PRIMARY KEY (`pk_Comentario`)
+)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;

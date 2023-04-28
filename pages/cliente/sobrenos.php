@@ -12,8 +12,7 @@ require_once $funcoesRoute;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre nós - Hamtaro Petshop</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css-estatico/sobre-nos.css">
     <link rel="stylesheet" href="../css-estatico/header.css">
 </head>
@@ -25,11 +24,13 @@ require_once $funcoesRoute;
         </a>
 
         <div class="responsive">
-            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+
+            <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="#">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+
             </div>
 
             <div class="acesso">
@@ -43,21 +44,52 @@ require_once $funcoesRoute;
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        <a href='$animaisCliRoute'>Meus Animais</a>
-                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
-                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>
-                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>";
+                        ";
                     }
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
-                    echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
+                    echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
+                // if (isset($_SESSION['msgRotaProibidaCli'])){
+                //   echo $_SESSION['msgRotaProibidaCli'];
+                //   unset($_SESSION['msgRotaProibidaCli']);
+                // }
+
                 ?>
             </div>
         </div>
 
-        <img src="../img-estatico/menu.png" class="menu" alt="menu">
+
+
+        <div class="perfilHambur">
+
+            <?php
+            if (loged()) {
+                if (isset($_SESSION['tipo'])) {
+                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                    header("Location: " . $agendamentoFunRoute);
+                } else {
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                        <img src='../img-estatico/account_circle.svg'>
+                        <p>></p>
+                        </div>
+                        
+                        
+                        <div class='menu-perfil'>
+                        <p>Bem Vindo! " . $_SESSION['nomeCliente'] . "</p>
+                        <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                        </div>";
+                }
+            }
+            ?>
+
+            <img onmousedown="abreMenu()" src="../img-estatico/menu.png" class="menu" alt="menu">
+        </div>
     </header>
     <img src="../img-estatico/efeito-sobrenos.svg" alt="efeito de onda" class="efeito-onda">
 
@@ -69,15 +101,10 @@ require_once $funcoesRoute;
 
             <div class="texto col-md-8">
                 <h1 class="titulo">SOBRE NÓS</h1>
-                <p>Hamtaro, o pet shop mais famoso da cidade, tem uma história interessante de criação. Tudo começou
-                    quando a fundadora, Sofia, uma amante de animais desde a infância, decidiu que queria transformar
-                    sua paixão em um negócio. Ela começou a trabalhar em um abrigo para animais abandonados, onde
-                    aprendeu tudo sobre cuidados com animais e decidiu que queria oferecer um serviço de alta qualidade
-                    para donos de pets em sua própria loja. Com muito trabalho duro e dedicação, Sofia abriu o Hamtaro
-                    em um pequeno espaço no centro da cidade, oferecendo desde alimentos e acessórios até serviços de
-                    banho e tosa. Hoje, Hamtaro é um pet shop conhecido em toda a cidade, e é famoso por sua equipe de
-                    funcionários dedicados e apaixonados por animais, que garantem que todos os pets que visitam a loja
-                    são tratados com o amor e o cuidado que eles merecem.</p>
+                <p>
+                    Bem-vindo ao Hamtaro Pet Shop - O lugar perfeito para cuidar do seu melhor amigo!
+                    Somos um pet shop dedicado a proporcionar aos animais de estimação e seus donos uma experiência excepcional. Nossa equipe é formada por amantes de animais apaixonados que estão comprometidos em cuidar dos seus animais de estimação como se fossem os nossos próprios.
+                    No Hamtaro Pet Shop, acreditamos que todos os animais merecem amor, cuidado e atenção especial.</p>
             </div>
         </section>
 
@@ -106,11 +133,9 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/michael.svg" alt="imagem do colaborador michael" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/michaelsalmeida"><img src="../img-estatico/github-sobrenos.svg"
-                                alt="link do github do aluno michael"></a>
+                        <a href="https://github.com/michaelsalmeida"><img src="../img-estatico/github-sobrenos.svg" alt="link do github do aluno michael"></a>
 
-                        <a href="https://www.linkedin.com/in/michael-almeida-34a97b22a/"><img
-                                src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno michael"></a>
+                        <a href="https://www.linkedin.com/in/michael-almeida-34a97b22a/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno michael"></a>
                     </div>
                 </div>
 
@@ -122,11 +147,9 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/gustavo.svg" alt="imagem do colaborador michael" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/luizbrito6"><img src="../img-estatico/github-sobrenos.svg"
-                                alt="link do github do aluno luiz"></a>
+                        <a href="https://github.com/luizbrito6"><img src="../img-estatico/github-sobrenos.svg" alt="link do github do aluno luiz"></a>
 
-                        <a href="https://www.linkedin.com/in/luiz-gustavo-gon%C3%A7alves-brito/"><img
-                                src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno luiz"></a>
+                        <a href="https://www.linkedin.com/in/luiz-gustavo-gon%C3%A7alves-brito/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno luiz"></a>
                     </div>
                 </div>
 
@@ -140,11 +163,9 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/matheus.svg" alt="imagem do colaborador matheus" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/MatthewsTomts"><img src="../img-estatico/github-sobrenos.svg"
-                                alt="link do github do aluno matheus"></a>
+                        <a href="https://github.com/MatthewsTomts"><img src="../img-estatico/github-sobrenos.svg" alt="link do github do aluno matheus"></a>
 
-                        <a href="https://www.linkedin.com/in/matheus-farias-524942206/"><img
-                                src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno matheus"></a>
+                        <a href="https://www.linkedin.com/in/matheus-farias-524942206/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno matheus"></a>
                     </div>
                 </div>
 
@@ -158,11 +179,9 @@ require_once $funcoesRoute;
                     <img src="../img-estatico/mayck.svg" alt="imagem do colaborador mayck" class="perfil">
 
                     <div class="redes">
-                        <a href="https://github.com/MayckL2"><img src="../img-estatico/github-sobrenos.svg"
-                                alt="link do github do aluno mayck"></a>
+                        <a href="https://github.com/MayckL2"><img src="../img-estatico/github-sobrenos.svg" alt="link do github do aluno mayck"></a>
 
-                        <a href="https://www.linkedin.com/in/mayck-luciano/"><img src="../img-estatico/linkedin.svg"
-                                alt="link do linkedin do aluno mayck"></a>
+                        <a href="https://www.linkedin.com/in/mayck-luciano/"><img src="../img-estatico/linkedin.svg" alt="link do linkedin do aluno mayck"></a>
                     </div>
                 </div>
 
@@ -299,11 +318,10 @@ require_once $funcoesRoute;
         <p>© Hamtaro Petshop todos direitos reservados</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
     <script src="../script.js"></script>
+    <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>

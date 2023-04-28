@@ -37,6 +37,10 @@ if (!isset($_SESSION['tipo'])) {
         echo $_SESSION['msgTelaCadData'];
         unset($_SESSION['msgTelaCadData']);
     }
+    if (isset($_SESSION['msgCadDataErro'])) {
+        echo $_SESSION['msgCadDataErro'];
+        unset($_SESSION['msgCadDataErro']);
+    }
     ?>
 
     <div>
@@ -74,9 +78,9 @@ if (!isset($_SESSION['tipo'])) {
                     <select name="servicos" id="servicos" onchange="queryBanco('profissionais')" required style="width: 300px;">
                         <option value="" disabled selected hidden>Selecione o tipo de serviço</option>
                         <option value="Veterinario">Veterinário</option>
-                        <option value="Esteticista">Banho</option>
-                        <option value="Esteticista">Tosa</option>
-                        <option value="Esteticista">Banho e Tosa</option>
+                        <option value="Banho">Banho</option>
+                        <option value="Tosa">Tosa</option>
+                        <option value="Banho e Tosa">Banho e Tosa</option>
                     </select>
 
                 </div>

@@ -47,7 +47,7 @@ include_once($funcoesRoute);
 
         <form action="<?php echo $procCadCliRoute; ?>" method="post" id="pai">
 
-            <div id="base" class="col-lg-5">
+            <div id="base" class="col-lg-5 m-4">
                 <div class="input row">
                     <label for="nome">NOME *</label>
                     <input type="text" name="nome" placeholder="Digite o seu nome" required autofocus><br><br>
@@ -61,7 +61,7 @@ include_once($funcoesRoute);
                 <div class="input row">
                     <label for="cpf">CPF *</label>
                     <input type="text" name="cpf" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}"
-                        placeholder="Digite seu email" required><br><br>
+                        placeholder="Digite seu CPF" required><br><br>
 
                 </div>
 
@@ -94,7 +94,7 @@ include_once($funcoesRoute);
 
             </div>
 
-            <div id="endereco" class="col-lg-5">
+            <div id="endereco" class="col-lg-5 m-4">
 
                 <div class="input row">
                     <label>CEP *</label>
@@ -172,6 +172,7 @@ include_once($funcoesRoute);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+    <script src="<?php echo $functionsRoute; ?>"></script>
     <script src="<?php echo $confSenhaRoute; ?>"></script>
 </body>
 

@@ -1,7 +1,6 @@
 <?php
 include_once("../../rotas.php");
 include_once($connRoute);
-session_start();
 
 $nome = htmlspecialchars($_POST['nome']);
 $cpf = htmlspecialchars($_POST['cpf']);

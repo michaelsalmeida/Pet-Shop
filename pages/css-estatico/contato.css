@@ -53,6 +53,10 @@
     align-items: center;
 }
 
+.mensagem h2{
+    text-align: center;
+}
+
 #nome{
     grid-area: nome;
 }
@@ -90,13 +94,13 @@
 
 .mensagem fieldset input{
     border-radius: 5px;
-    border: solid black;
+    border: 2px solid black;
     padding: 3px 10px;
 }
 
 .mensagem fieldset textarea{
     border-radius: 5px;
-    border: solid black;
+    border: 2px solid black;
     padding: 3px 10px;
 
 }
@@ -109,7 +113,7 @@
     font-size: 20px;
     border-radius: 5px;
     width: 200px;
-    margin: 0 70%;
+    margin: 0 70% !important;
 }
 
 @media (max-width: 700px) {
@@ -123,7 +127,12 @@
     }
 
     .mensagem input[type= "submit"]{
-        margin: 0 20%;
+        margin: 0 20% !important;
+    }
+}
+@media (max-width: 450px) {
+    .mensagem input[type= "submit"]{
+        margin: 0 auto !important;
     }
 }
 

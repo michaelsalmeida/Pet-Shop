@@ -2,7 +2,7 @@
 
 
 /* IMAGEM E TÍTULOS */
-.informacoes-superior{
+.informacoes-superior {
     margin-top: 5em;
     display: flex;
     flex-direction: column;
@@ -10,56 +10,57 @@
     justify-content: center;
 }
 
-.informacoes-superior h1{
+.informacoes-superior h1 {
     margin-top: 40px;
     font-weight: bold;
     color: #8C52FF;
 }
 
-.informacoes-superior p{
+.informacoes-superior p {
     font-size: 24px;
 }
+
 /* IMAGEM E TÍTULOS FIM */
 
 
-
-.informacoes-pessoais{
+/* FORMULÁRIOS */
+.informacoes-pessoais {
     margin-top: 5em;
     display: flex;
-    flex-flow:wrap column;
-    align-items: center;    
+    flex-flow: wrap column;
+    align-items: center;
 }
 
-.informacoes-pessoais h2{
+.informacoes-pessoais h2 {
     color: #8C52FF;
     text-transform: uppercase;
     font-size: 24px;
-    font-weight: 700;    
+    font-weight: 700;
 }
 
-.box-maior-input{
+.box-maior-input {
     flex-wrap: wrap;
     display: flex;
     gap: 20px;
     justify-content: center;
 }
 
-.box-input{
+.box-input {
     display: flex;
     flex-flow: wrap column;
     margin-top: 40px;
     gap: 8px;
 }
 
-.box-input label{
+.box-input label {
     font-weight: 700;
 }
 
-.box-input label i{
+.box-input label i {
     width: 100px;
 }
 
-.box-input input{
+.box-input input {
     border: 2px solid #43C07D;
     color: #43C07D;
     height: 40px;
@@ -80,22 +81,23 @@
     cursor: not-allowed;
 }
 
-.box-maior-input .box-botao{
+.box-maior-input .box-botao {
     width: 400px;
     display: flex;
-    flex-flow:wrap column;
+    flex-flow: wrap column;
     align-items: center;
-    
+
 }
 
 
-.botoes-alterar{
+.botoes-alterar {
     display: flex;
     gap: 20px;
-    
+
 }
 
-.box-maior-input .box-botao button, .box-maior-input .box-botao input{
+.box-maior-input .box-botao button,
+.box-maior-input .box-botao input {
     height: 40px;
     width: 150px;
     border-radius: 5px;
@@ -106,66 +108,262 @@
     transition: all 0.5s;
 }
 
-.box-maior-input .box-botao input{
+
+/* FORMULÁRIOS */
+
+
+/* BOTOES */
+.box-maior-input .box-botao input, .sim {
     border: 2px solid #43C07D;
     color: #43C07D;
 
-    
+
 }
 
-.box-maior-input .box-botao input:hover{
+.box-maior-input .box-botao input:hover, .sim:hover {
     background-color: #43C07D;
     color: #ffffff;
 }
 
 
-.box-maior-input .box-botao button:hover{
+.box-maior-input .box-botao button:hover {
     background-color: #8C52FF;
     color: #ffffff;
 }
 
-.box-inferior-botoes{
+.box-inferior-botoes {
     margin: 5em 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 40px;
-    
 }
 
-.apagar-conta{
+.apagar-conta, .nao {
     border: 2px solid #F14848;
     color: #F14848;
     font-weight: 700;
     border-radius: 5px;
     padding: 10px 20px;
     transition: all 0.5s;
+    cursor: pointer;
+    background-color: transparent;
 }
 
-.apagar-conta:hover{
+
+.sim{
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: 700;
+}
+.apagar-conta:hover , .nao:hover{
     background-color: #F14848;
     color: #ffffff;
 }
 
+.box-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.alterar-senha {
+    border: 2px solid #8C52FF;
+    color: #8C52FF;
+}
+
+.alterar-senha:hover {
+    background-color: #8C52FF;
+    color: #ffffff;
+}
+
+/* BOTOES */
+
+
+/* POSICIONANDO O MODAL */
+
+.modal{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* POSICIONANDO O MODAL FIM */
+
+
+/* MODAL DE RECUPERAR A SENHA */
+
+#container-modal {
+    background-image: url(../img-dinamico/fundo.svg);
+    background-position: center 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 50px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#container-modal form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+#container-modal  .box-superior-modal{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+#container-modal  .box-superior-modal span, .botao-x{
+    color: #F14848;
+    font-size: 20px;
+    padding: 2px 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#container-modal  .box-superior-modal span:hover, .botao-x:hover{
+    background-color: #F14848;
+    color: #ffffff;
+    border-radius: 100px;
+}
+
+#container-modal  .box-superior-modal form h3, .box-apagar-conta-modal h3{
+    font-family: 'poppins';
+    text-align: center;
+
+}
+
+
+#container-modal form label{
+    font-size: 16px;
+}
+
+
+#container-modal form input {
+    height: 35px;
+    width: 300px;
+    padding: 0 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid #403F3F;
+    background-color: transparent;
+}
+
+#container-modal form input::placeholder{
+    color: #403F3F;
+    font-size: 14px;
+}
+
+.box-botoes-modal{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.box-botoes-modal button{
+    padding: 5px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+
+}
+
+.box-botoes-modal .confirmar-modal:disabled{
+    border: 2px solid #403F3F;
+    cursor: not-allowed;
+    transition: all 0.5s;
+    background-color: transparent;
+    color: #403F3F;
+}
+
+.box-botoes-modal .confirmar-modal:disabled:hover{
+    background-color: transparent;
+    color: #403F3F;
+}
+.box-botoes-modal .confirmar-modal{
+    border: 2px solid #27cb74;
+    color: #27cb74;
+    background-color: transparent;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+
+
+.box-botoes-modal .confirmar-modal:hover{
+    background-color: #27cb74;
+    color: #ffffff;
+}
+#container-modal form .box-input-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+
+/* MODAL DE RECUPERAR A SENHA  FIM */
+
+
+
+/* MODAL DE APAGAR A CONTA */
+
+.box-apagar-conta-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+/* MODAL DE APAGAR A CONTA */
+
+
 @media (max-width:600px) {
-    .informacoes-pessoais{
+    .informacoes-pessoais {
         display: block;
     }
 
-    h2{
+    h2 {
         text-align: center;
     }
-    .box-input input, .box-input input[readonly]{
+
+    .box-input input,
+    .box-input input[readonly] {
         width: auto;
     }
 
-    .box-maior-input .box-botao button{
+    .box-maior-input .box-botao button {
         width: 150px;
     }
 
-    .botoes-alterar{
+    .botoes-alterar {
         flex-direction: column;
     }
+
+    #container-modal{
+        width: 100vw;
+        height: 100vh;
+    }
 }
+
 

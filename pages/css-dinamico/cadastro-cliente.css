@@ -61,10 +61,16 @@ header .corporativo{
 /* fim header  */
 
 /* formulario */
+#pi{
+  width: 100%;
+}
 
-/* #pi{
-  margin: 50px 0;
-} */
+@media (max-width: 400px) {
+  #cadastrar{
+    width: 150%;
+  }
+
+}
 
 form{
   display: flex;
@@ -72,6 +78,7 @@ form{
   gap: 20px;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .titulo{
@@ -89,6 +96,7 @@ form{
 .input{
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .input label{
   padding: 0;
@@ -135,6 +143,9 @@ form input[type ="submit"]:disabled:hover{
   form input[type= "submit"]{
     margin: 0 10%;
   }
+}
+
+#base .input, #endereco .input{
 }
 
 #base{

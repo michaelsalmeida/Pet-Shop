@@ -25,11 +25,13 @@ require_once $funcoesRoute;
         </a>
 
         <div class="responsive">
-            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+
+            <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
-                <a href="#">CONTATO</a>
+                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+
             </div>
 
             <div class="acesso">
@@ -43,21 +45,53 @@ require_once $funcoesRoute;
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        <a href='$animaisCliRoute'>Meus Animais</a>
-                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
-                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>
-                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>";
+                        ";
                     }
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
                     echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
+
+                if (isset($_SESSION['msgComent'])){
+                  echo $_SESSION['msgComent'];
+                  unset($_SESSION['msgComent']);
+                }
+
                 ?>
             </div>
         </div>
 
-        <img src="../img-estatico/menu.png" class="menu" alt="menu">
+
+
+        <div class="perfilHambur">
+
+            <?php
+            if (loged()) {
+                if (isset($_SESSION['tipo'])) {
+                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                    header("Location: " . $agendamentoFunRoute);
+                } else {
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                        <img src='../img-estatico/account_circle.svg'>
+                        <p>></p>
+                        </div>
+                        
+                        
+                        <div class='menu-perfil'>
+                        <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
+                        <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                        </div>";
+                }
+            }
+            ?>
+
+            <img onmousedown="abreMenu()" src="../img-estatico/menu.png" class="menu" alt="menu">
+        </div>
     </header>
 
     <section class="container mapa">
@@ -73,29 +107,29 @@ require_once $funcoesRoute;
         <a target="_blank"
             href="https://www.google.com/maps/place/Escola+Senai+Suíço-Brasileira+Paulo+Ernesto+Tolle/@-23.6482243,-46.7241806,17z/data=!4m6!3m5!1s0x94ce510e8d3746ed:0x3e9f3a76e1ebfb69!8m2!3d-23.648051!4d-46.7217358!16s%2Fg%2F1wk7rz_s">
             <img src="../img-estatico/setaMapa.svg" alt="">
-            Localização: Avenida interlagos, 2034 - Jardim Marajoara
+            Localização: R. Bento Branco de Andrade Filho, 379 - Santo Amaro
         </a>
     </section>
 
     <section class="container-fluid mensagem">
         <h2>Precisa de ajuda? Envie uma mensagem</h2>
 
-        <form action="">
+        <form action="<?php echo $procComentarioRoute; ?>" method="post">
             <fieldset id="nome">
                 <label for="">Nome</label>
-                <input type="text" name="nome">
+                <input type="text" name="nome" required>
             </fieldset>
             <fieldset id="tell">
                 <label for="">Telefone</label>
-                <input type="text" name="tell">
+                <input type="text" name="tell" required>
             </fieldset>
             <fieldset id="email">
-                <label for="">Email</label>
-                <input type="email" name="email">
+                <label for="">Email</label> 
+                <input type="email" name="email" required>
             </fieldset>
             <fieldset id="msg">
                 <label for="">Sua mensagem</label>
-                <textarea name="msg" id="" cols="30" rows="10"></textarea>
+                <textarea name="msg" id="" cols="30" rows="10" required></textarea>
             </fieldset>
 
             <input type="submit">
@@ -137,6 +171,8 @@ require_once $funcoesRoute;
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+
+        <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>

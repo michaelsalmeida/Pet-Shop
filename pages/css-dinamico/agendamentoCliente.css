@@ -23,16 +23,20 @@ select, input{
     border: 2px solid #403F3F;
 }
 
-.btnReset{
-    width: fit-content;
-    height: 45px;
-    border: none;
-    cursor: pointer;
+div button.limpar{
+    border: 2px solid #8C52FF;
+    background-color: transparent;
+    color: #8C52FF;
+    font-weight: 700;
+    padding: 5px 13px; 
     transition: all 0.5s;
+    cursor: pointer;
+    border-radius: 5px; 
 }
 
-.btnReset:hover{
-    filter: grayscale(50);
+div button.limpar:hover{
+    background-color: #8C52FF;
+    color: #ffffff;
 }
 
 .iconAgenda{
@@ -67,4 +71,14 @@ select, input{
     
 }
 
-
+@media (max-width: 700px) {
+    .field1, .field2{
+        grid-template-columns: auto;
+    }
+    .field2 input[type= "date"]{
+        width: 300px;
+    }
+    .field2 div{
+        margin: 0px;
+    }
+}

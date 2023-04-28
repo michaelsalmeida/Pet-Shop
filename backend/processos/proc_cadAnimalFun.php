@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexão
 
@@ -8,7 +7,9 @@ try {
     $nome = htmlspecialchars($_POST['nome']);
 
     // Trata data que vem do front
+    $data_atual = date("Y-m-d");
     $dataRecebida = new DateTime($_POST['dataNasc']);
+    $date = $dataRecebida->format("Y-m-d");
     $dataNasc = $dataRecebida->format('Y-m-d');
 
     $espec = htmlspecialchars($_POST['espec']);
@@ -17,16 +18,22 @@ try {
     $cor = htmlspecialchars($_POST['cor']);
     $hoje = date('Y-m-d');
 
-    // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
-    // String de preparação
-    $stmt = $conn->prepare("INSERT INTO Animais
-    VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, 'ativo')");
-    // Substituição da string preparada pelos valores corretos
-    $stmt->bind_param("ssssssss", $_SESSION['idCliente'], $nome, $dataNasc, $espec, $raca, $peso, $cor, $hoje);
-    // Executa o sql
-    $stmt->execute();
+    if (strtotime($date) > strtotime($data_atual)){
+        $_SESSION['msgCadAnimalErro'] = "<script>alert('DATA DE NASCIMENTO INVÁLIDA')</script>";
+        header("Location: " . $cadAnimalParaClienteRoute);
+    } else {
+        // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
+        // String de preparação
+        $stmt = $conn->prepare("INSERT INTO Animais
+        VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, 'ativo')");
+        // Substituição da string preparada pelos valores corretos
+        $stmt->bind_param("ssssssss", $_SESSION['idCliente'], $nome, $dataNasc, $espec, $raca, $peso, $cor, $hoje);
+        // Executa o sql
+        $stmt->execute();
+    
+        $_SESSION['msgCadAnimaisFunParaCli'] = "Animal Cadastrado";
+    }
 
-    $_SESSION['msgCadAnimaisFunParaCli'] = "Animal Cadastrado";
 } catch (Exception $e) {
     $_SESSION['msgCadAnimaisFunParaCli'] = "Animal Não Cadastrado: <br>" . $e->getMessage();
     header("Location: " . $cadAnimalParaClienteRoute);

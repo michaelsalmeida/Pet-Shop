@@ -12,8 +12,13 @@ body{
 .sobre-nos{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
+
+.sobre-nos img{
+    width: 300px;
+}
 .titulo{
     color: #8C52FF;
     font-weight: 700;
@@ -82,6 +87,23 @@ body{
     padding: 80px;
 }
 
+.botoes{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+@media (max-width: 400px){
+  .botoes{
+    grid-template-columns: auto;
+  
+  }
+  .botoes .btn-pagamento{
+    border-radius: 20px 20px 0px 0px;
+  }
+  .botoes .btn-valores{
+    border-radius: 0px;
+  }
+}
+
 .btn-pagamento{
     border: none;
     border-radius: 20px 0px 0px 0px;
@@ -147,13 +169,35 @@ body{
 }
 
 .box-valores{
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     gap: 50px;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    place-items: center;
+    /* width: 70%; */
+    margin: 0 auto;
+}
+@media (max-width: 1300px) {
+  .box-valores{
+    grid-template-columns: auto auto;
+  }
+}
+@media (max-width: 900px) {
+  .box-valores{
+    grid-template-columns: auto;
+  }
 }
 .item-valor{
     width: 350px;
+}
+
+@media (max-width: 450px) {
+    .item-valor{
+        width: 100%;
+    }
 }
 
 .item-valor h4{

@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 20px;
     padding: 5em 1em;
 }
@@ -13,6 +14,7 @@
 .box-total h1 {
     font-size: 24px;
     text-align: center;
+    font-family: 'poppins';
 }
 
 /* TABELA */
@@ -112,6 +114,7 @@ tr:nth-child(odd) {
 
 .box-total::-webkit-scrollbar {
     width: 15px;
+    height: 10px;
 }
 
 .box-total::-webkit-scrollbar-thumb {
@@ -136,5 +139,16 @@ tr:nth-child(odd) {
 
     .box-total{
         overflow-y: auto;
+        padding: 20px;
     }
+
+    table{
+        display: block;
+        justify-content: start;
+    }
+
 }
+
+
+
+

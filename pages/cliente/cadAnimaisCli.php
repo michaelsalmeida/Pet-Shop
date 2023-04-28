@@ -27,11 +27,13 @@ require_once $funcoesRoute;
         </a>
 
         <div class="responsive">
-            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+
+            <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+
             </div>
 
             <div class="acesso">
@@ -45,10 +47,7 @@ require_once $funcoesRoute;
                         echo "
                         <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
                         <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        <a href='$meuPerfilCliRoute'>Meu Perfil</a>
-                        <a href='$animaisCliRoute'>Meus Animais</a>
-                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
-                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>";
+                        ";
                     }
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
@@ -64,7 +63,36 @@ require_once $funcoesRoute;
             </div>
         </div>
 
-        <img src="../img-estatico/menu.png" class="menu" alt="menu">
+
+
+        <div class="perfilHambur">
+
+            <?php
+            if (loged()) {
+                if (isset($_SESSION['tipo'])) {
+                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+                    header("Location: " . $agendamentoFunRoute);
+                } else {
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                        <img src='../img-estatico/account_circle.svg'>
+                        <p>></p>
+                        </div>
+                        
+                        
+                        <div class='menu-perfil'>
+                        <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
+                        <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
+                        <a href='$animaisCliRoute'>Meus Animais</a>
+                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                        </div>";
+                }
+            }
+            ?>
+
+            <img onmousedown="abreMenu()" src="../img-estatico/menu.png" class="menu" alt="menu">
+        </div>
     </header>
 
     <?php
@@ -90,12 +118,12 @@ require_once $funcoesRoute;
         <fieldset>
             <div>
                 <label for="nome">Nome</label><br>
-                <input type="text" name="nome">
+                <input type="text" name="nome" placeholder="Digite o nome">
             </div>
 
             <div>
                 <label for="dataNasc">Data de Nascimento </label><br>
-                <input type="date" name="dataNasc">
+                <input type="date" name="dataNasc" placeholder="Digite a data de nascimento">
             </div>
 
             <div>
@@ -110,12 +138,12 @@ require_once $funcoesRoute;
 
             <div>
                 <label for="peso">Peso (Kg)</label><br>
-                <input type="number" name="peso" step=0.01 pattern="[0-9]*">
+                <input type="number" name="peso" step=0.01 pattern="[0-9]*" placeholder="Digite o peso">
             </div>
 
             <div>
                 <label for="cor">Cor</label><br>
-                <input type="text" name="cor">
+                <input type="text" name="cor" placeholder="Digite a cor">
             </div>
         </fieldset>
 
@@ -128,6 +156,7 @@ require_once $funcoesRoute;
 
     <script src="<?php echo $dataHojeRoute; ?>"></script>
     <script src="../script.js"></script>
+    <script src="<?php echo $functionsRoute; ?>"></script>
 </body>
 
 </html>
