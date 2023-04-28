@@ -37,3 +37,47 @@ body{
 }
 
 /* PAGINA INICIAL DO CLIENTE  FIM */
+
+
+/* MODAL DE DETALHES */
+
+.box-modal-detalhes{
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+    flex-flow: column wrap;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    
+}
+
+.box-modal-detalhes span{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 10px;
+    color: #000000;
+    font-size: 20px;
+    padding: 2px 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.box-modal-detalhes span:hover{
+    color: #F14848;
+}
+
+
+.box-modal-detalhes h2{
+    font-family: 'poppins';
+}
+
+/* MODAL DE DETALHES FIM*/
+

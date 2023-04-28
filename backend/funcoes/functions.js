@@ -292,7 +292,7 @@ function activeModalAlterarSenha(id) {
 
 function activeModalDetalhesFun(id, tipo) {
     // Muda a modal para block, para que possa ser vista
-    document.getElementById("id01").style.display = "block"
+    document.getElementById("id01").style.display = "flex"
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
     xhr.open("GET", location.origin + `/Pet-shop/backend/execute.php?function=getDesc&id=${id}`, true);
@@ -302,6 +302,7 @@ function activeModalDetalhesFun(id, tipo) {
             // Verifica se o funcionário não é um admin ou secretaria
             console.log(tipo);
             if (response == 'Os detalhes não foram adicionados ainda'){
+
                 if (tipo == 'Veterinario' || tipo == 'Esteticista') {
                     // então mostra o campo para adicionar os detalhes
                     document.getElementById("container-modal").innerHTML = `
@@ -324,10 +325,12 @@ function activeModalDetalhesFun(id, tipo) {
             } else {
                 // Se não só mostra que os detalhes não foram definidos.
                 document.getElementById("container-modal").innerHTML = `
-                <h2>Descrição do Agendamento</h2>
-                <p>${response}</p>
-                <span onclick="document.getElementById('id01').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>`;
+                
+                <div class='box-modal-detalhes'>
+                    <h2>Descrição do Agendamento</h2>
+                    <p>${response}</p>
+                    <span onclick="document.getElementById('id01').style.display='none'">&times;</span>
+                </div>`;
             }
         }
     }

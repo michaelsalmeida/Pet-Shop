@@ -210,6 +210,9 @@
     background-repeat: no-repeat;
     padding: 50px;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 

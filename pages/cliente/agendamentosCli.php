@@ -16,7 +16,12 @@ require_once $funcoesRoute;
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="../css-estatico/header.css">
+
     <link rel="stylesheet" href="../css-dinamico/table.css">
+    
+    <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css
+    ">
+
 </head>
 
 <body onload="paginacao('gerarTabelaAgenCli')">

@@ -23,6 +23,7 @@ require_once $funcoesRoute;
 
   <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
 
+
 </head>
 
 <body onload="paginacao('gerarTabelaAgenFun')">
@@ -123,10 +124,10 @@ require_once $funcoesRoute;
 
   <!-- The Modal -->
   <form action="<?php echo $procSalvarDetalhesRoute; ?>" method="post">
-    <div id="id01" class="w3-modal">
-      <div class="w3-modal-content">
+  
+    <div id="id01" class="w3-modal modal-detalhes">
+      <div class="teste">
         <div class="w3-container" id="container-modal">
-
         </div>
       </div>
     </div>
