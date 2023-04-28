@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'petshopHamtaro'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7FE61E336D024C919668304D97AC3D5E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FCAE656930BA4B89AEDF0D2D83A7EEE6 }}
           package: .
