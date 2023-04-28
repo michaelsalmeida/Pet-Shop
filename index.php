@@ -1,11 +1,5 @@
 <?php
-try {
-    include_once("rotas.php");
-    require_once $funcoesRoute;
-} catch (Exception $e) {
-    echo 'Caught exception: ', $e->getMessage(), "<br>";
-}
-
+include_once("rotas.php");
 ?>
 
 <!DOCTYPE html>
