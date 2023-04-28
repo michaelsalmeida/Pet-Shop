@@ -337,6 +337,7 @@ function meuPerfilCliPes() {
     document.getElementsByName("email")[0].removeAttribute("readonly")
     // Ativa o botão de confirmação
     document.getElementsByName("conf")[0].removeAttribute("hidden")
+    document.getElementById("alterarDados").style.display = "none";
 }
 
 function meuPerfilCliEnd() {
