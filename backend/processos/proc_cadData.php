@@ -2,6 +2,8 @@
 include_once('../../rotas.php');
 include_once($connRoute);
 
+$_SESSION['msgCadDataErro'] = false;
+
 $data_atual = date("Y-m-d");
 $data = $_POST['data'];
 
@@ -22,11 +24,12 @@ $result = $stmt1->get_result();
 $idFun = $result->fetch_row();
 
 if (strtotime($data) < strtotime($data_atual)){
-    $_SESSION['msgCadDataErro'] = "<p style='color: red;'>DATA NÃO DISPONÍVEL</p>";
+    $_SESSION['msgCadDataErro'] = true;
     header("location: " . $cadastradaDatasRoute);
 } elseif (strtotime($data) == strtotime($data_atual)){
     if (strtotime($hora) < strtotime($hora_atual)){
         $_SESSION['msgCadDataErro'] = "<p style='color: red;'>HORÁRIO NÃO DISPONÍVEL</p>";
+        $_SESSION['tela'] = 'msgCadDataErro';
     header("location: " . $cadastradaDatasRoute);
     } else {
         $stmt = $conn->prepare("INSERT into Agendamentos (pk_Agendamento, fk_Funcionario, data_agendamento, horario_agendamento, tipo) VALUES (default, ?, ?, ?, ?)");
