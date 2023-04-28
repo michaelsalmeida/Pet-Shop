@@ -1,8 +1,8 @@
 <?php
-$host = "teste1232-server.mysql.database.azure.com";
-$user = "tgtrcuwqye";
-$pass = '571W5M4O7S23FJA0$';
-$dbname = "teste1232-database";
+$host = "pet-shop.mysql.database.azure.com";
+$user = "admin1";
+$pass = 'S#nai@115';
+$dbname = "petshop";
 
 // Criar a conexao com o Banco de Dados
 try {
