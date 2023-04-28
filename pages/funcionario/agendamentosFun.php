@@ -26,7 +26,7 @@ require_once $funcoesRoute;
 
 </head>
 
-<body onload="paginacao('gerarTabelaAgenFun'), activateToast(<?php echo $_SESSION['msgCadDataErro']; ?>)">
+<body onload="paginacao('gerarTabelaAgenFun')">
 
   <header class="header-corporativo">
     <div class="box-logo-barra-de-pesquisa-perfil">
