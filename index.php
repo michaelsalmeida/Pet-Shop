@@ -1,5 +1,6 @@
 <?php
 include_once("rotas.php");
+require_once $funcoesRoute;
 ?>
 
 <!DOCTYPE html>
