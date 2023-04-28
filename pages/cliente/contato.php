@@ -30,7 +30,7 @@ require_once $funcoesRoute;
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
-                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+                <a href="#">CONTATO</a>
 
             </div>
 
@@ -153,8 +153,8 @@ require_once $funcoesRoute;
 
         <div class="links">
             <a href="<?php echo $blogRoute; ?>">BLOG</a>
-            <a href="#">SOBRE NÓS</a>
-            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+            <a href="#">CONTATO</a>
         </div>
 
         <div class="redes">
