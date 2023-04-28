@@ -73,10 +73,10 @@ function menuPerfil() {
 }
 
 // sumir tela de carregamento
-// function delay(){
-//   setTimeout(fechaCarregando, 2000)
-// }
+function delay(){
+  setTimeout(fechaCarregando, 2000)
+}
 
-// function fechaCarregando(){
-//   document.querySelector(".loading").style.display= "none"
-// }
+function fechaCarregando(){
+  document.querySelector(".loading").style.display= "none"
+}
