@@ -18,9 +18,11 @@ require_once $funcoesRoute;
     <link rel="stylesheet" href="../css-estatico/header.css">
 
     <link rel="stylesheet" href="../css-dinamico/table.css">
-    
+
     <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css
     ">
+
+  
 
 </head>
 
@@ -40,7 +42,7 @@ require_once $funcoesRoute;
         unset($_SESSION['msgAgendamentoCli']);
     }
     if (isset($_GET['pagina'])) {
-        echo "<p id='pag' hidden>".$_GET['pagina']."</p>";
+        echo "<p id='pag' hidden>" . $_GET['pagina'] . "</p>";
     } else {
         echo "<p id='pag' hidden>1</p>";
     }
@@ -107,7 +109,7 @@ require_once $funcoesRoute;
                         
                         
                         <div class='menu-perfil'>
-                        <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
+                        <p>Bem Vindo! " . $_SESSION['nomeCliente'] . "</p>
                         <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
                         <a href='$animaisCliRoute'>Meus Animais</a>
                         <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
@@ -131,13 +133,12 @@ require_once $funcoesRoute;
     </div>
 
 
-    <!-- The Modal -->
     <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
-            <div class="w3-container" id="container-modal">
-            </div>
+        <div class="w3-container" id="container-modal">
         </div>
     </div>
+
+
     <script src="../script.js"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
 </body>

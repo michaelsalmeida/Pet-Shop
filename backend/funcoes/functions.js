@@ -176,17 +176,22 @@ function altAnimal() {
 }
 
 function activeModal(id, tipo) {
-    document.getElementById("id01").style.display = "block" // Muda a modal para block, para que possa ser vista
+    document.getElementById("id01").style.display = "flex" // Muda a modal para block, para que possa ser vista
 
     if (tipo == "Cancelar") { // se o botão passar o tipo Cancelar
         // Monta a modal com os elementos do cancelamento
 
         document.getElementById("container-modal").innerHTML = `
-        <p>Você tem certeza que deseja Cancelar este Agendamento?<p>
-        <span onclick="document.getElementById('id01').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>
-        <a href = "` + location.origin + `/Pet-shop/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>
-        <button onclick="document.getElementById('id01').style.display='none'">Não</button>`;
+        <div class='box-modal-detalhes'>
+        <p>Você tem certeza que deseja Cancelar este Agendamento?</p>
+        <span onclick="document.getElementById('id01').style.display='none'">&times;</span>
+        <div class="box-botao">
+
+            <a class='sim' href = "` + location.origin + `/Pet-shop/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>
+            <button class='nao' onclick="document.getElementById('id01').style.display='none'">Não</button> 
+        </div> 
+
+        </div>`;
 
     } else { // se o botão não passar o tipo Cancelar
         // Busca os detalhes no servidor
@@ -201,10 +206,11 @@ function activeModal(id, tipo) {
                 // e mostrar na tela
 
                 document.getElementById("container-modal").innerHTML = `
-                <h2>Descrição do Agendamento</h2>
-                <p>${response}<p>
-                <span onclick="document.getElementById('id01').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>`;
+                <div class='box-modal-detalhes'>
+                    <h2>Descrição do Agendamento</h2>
+                    <p>${response}</p>
+                    <span onclick="document.getElementById('id01').style.display='none'">&times;</span> 
+                </div>`;
             }
         }
         xhr.send();
@@ -316,10 +322,11 @@ function activeModalDetalhesFun(id, tipo) {
                 } else {
                     // Se não só mostra que os detalhes não foram definidos.
                     document.getElementById("container-modal").innerHTML = `
-                    <h2>Descrição do Agendamento</h2>
-                    <p>Os detalhes não foram adicionados ainda</p>
-                    <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-display-topright">&times;</span>`;
+                    <div class='box-modal-detalhes'>
+                        <h2>Descrição do Agendamento</h2>
+                        <p>Os detalhes não foram adicionados ainda</p>
+                        <span onclick="document.getElementById('id01').style.display='none'">&times;</span> 
+                    </div>`;
 
                 }
             } else {
