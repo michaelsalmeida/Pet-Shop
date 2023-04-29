@@ -305,12 +305,15 @@ function activeModalDetalhesFun(id, tipo) {
                 if (tipo == 'Veterinario' || tipo == 'Esteticista') {
                     // então mostra o campo para adicionar os detalhes
                     document.getElementById("container-modal").innerHTML = `
-                    <h2>Descrição do Agendamento</h2>
-                    <input name="ide" hidden value="${id}"></input>
-                    <textarea cols="30" rows="10" name="descricao"></textarea>
-                    <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-display-topright">&times;</span>
-                    <input type='submit' value='Salvar'></input>`;
+
+                    <div class='box-modal-detalhes'>
+
+                        <h2>Descrição do Agendamento</h2>
+                        <input name="ide" hidden value="${id}"></input>
+                        <textarea name="descricao"></textarea>
+                        <span onclick="document.getElementById('id01').style.display='none'">&times;</span>
+                        <input class='botao-salvar' type='submit' value='Salvar'></input> 
+                    </div>`;    
 
                 } else {
                     // Se não só mostra que os detalhes não foram definidos.
@@ -327,7 +330,7 @@ function activeModalDetalhesFun(id, tipo) {
                 document.getElementById("container-modal").innerHTML = `
                 <div class='box-modal-detalhes'>
                     <h2>Descrição do Agendamento</h2>
-                    <p>${response}</p>
+                    <p class='descricao-resposta'>${response}</p>
                     <span onclick="document.getElementById('id01').style.display='none'">&times;</span>
                 </div>`;
             }
