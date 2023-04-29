@@ -10,6 +10,10 @@ require_once $funcoesRoute;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- description -->
+    <meta name="description" content="No Petshop Hamtaro, oferecemos uma equipe de veterinários altamente qualificados, prontos para atender seu pet com cuidado e dedicação, além de consultas personalizadas para garantir a saúde e bem-estar do seu melhor amigo.">
+    
     <title>Hamtaro Petshop</title>
     <link rel="stylesheet" href="pages/css-estatico/header.css">
     <link rel="stylesheet" href="pages/css-estatico/home.css">
@@ -19,10 +23,17 @@ require_once $funcoesRoute;
 
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
-    <script src="<?php echo $functionsRoute; ?>"></script>
+    <script defer src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body>
+<body onload="delay()">
+  <div class="loading">
+    <div>
+      <img src="pages/img-estatico/fundoLoading.svg" alt="gato tela de carregamento">
+      <br>
+      <p>Carregando</p>
+    </div>
+  </div>
 
     <div class="contatoHeader">
         <p>Contate-nos: (11) 98253-2481</p>
@@ -230,9 +241,9 @@ require_once $funcoesRoute;
         <p>© Hamtaro Petshop todos direitos reservados</p>
     </footer>
 
+    <script defer src="pages/script.js"></script>
+    
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
-    <script src="pages/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 

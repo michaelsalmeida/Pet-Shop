@@ -5,7 +5,6 @@ confsenha.addEventListener('input', conferir) // Aciona a função quando o inpu
 senha.addEventListener('input', conferir)
 
 function conferir() {
-
     if (senha.value == confsenha.value && senha.value != '' && confsenha.value != '') {
         document.getElementById('senhanaoigual').innerHTML = 'SENHAS COINCIDEM';
         document.getElementById('cadastrar').disabled = false; // se as senhas forem diferentes, o botão será desativado

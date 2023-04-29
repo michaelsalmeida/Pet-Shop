@@ -2,7 +2,13 @@
 include_once("../../rotas.php");
 include_once($connRoute);
 require_once $funcoesRoute;
+
+if (!isset($_SESSION['msgAltCli'])){
+    $_SESSION['msgAltCli'] = ''; 
+}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,7 +24,7 @@ require_once $funcoesRoute;
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 </head>
 
-<body onload="altMeuPerfilCli()">
+<body onload="altMeuPerfilCli(), perfilCliToast(<?php echo $_SESSION['msgAltCli']; ?>)">
     <?php
     if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
@@ -68,7 +74,6 @@ require_once $funcoesRoute;
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
                 if (isset($_SESSION['msgAltCli'])) {
-                    echo $_SESSION['msgAltCli'];
                     unset($_SESSION['msgAltCli']);
                 }
 
@@ -165,7 +170,7 @@ require_once $funcoesRoute;
                     <label>Clique para alterar</label>
 
                     <div class="botoes-alterar">
-                        <button type="button" onclick="meuPerfilCliPes()">Alterar</button>
+                        <button type="button" onclick="meuPerfilCliPes()" id="alterarDados">Alterar</button>
                         <input type="submit" value="Confirmar" name="conf" hidden>
                     </div>
                 </div>
@@ -277,6 +282,9 @@ require_once $funcoesRoute;
     <script src="<?php echo $viacepRoute; ?>"></script>
     <script src="../script.js"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
+    <script src="<?php echo $toastRoute; ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>
