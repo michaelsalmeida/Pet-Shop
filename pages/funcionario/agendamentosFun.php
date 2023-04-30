@@ -27,7 +27,8 @@ require_once $funcoesRoute;
 </head>
 
 <body
-    onload="paginacao('gerarTabelaAgenFun'), activateToast(<?php echo verificarSession(['msgCadData', 'msgCadFun', 'msgRotaProibida']); ?>)">
+    onload="agenFun(), paginacao('gerarTabelaAgenFun'), 
+    activateToast(<?php echo verificarSession(['msgCadData', 'msgCadFun', 'msgRotaProibida']); ?>)">
 
     <header class="header-corporativo">
         <div class="box-logo-barra-de-pesquisa-perfil">
@@ -116,7 +117,6 @@ require_once $funcoesRoute;
                 <option value="Cancelado">Cancelado</option>
             </select>
         </div>
-
 
         <table id="tabela">
         </table>

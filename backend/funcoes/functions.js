@@ -57,6 +57,15 @@ function queryBanco(tipo) {
     xhr.send();
 }
 
+function agenFun() {
+    var params = new URLSearchParams(location.search);
+    var status = params.get('status');
+    document.getElementById('status').value = status;
+
+    var pesq = params.get('pesq');
+    document.getElementById('pesq').value = pesq;
+}
+
 function paginacao(tipo) {
     if (tipo == 'gerarTabelaDeleteFun') { // Listar funcionário
         var pesq = document.getElementById('pesq').value;
@@ -183,7 +192,7 @@ function activeModal(id, tipo) {
         <span onclick="document.getElementById('id01').style.display='none'">&times;</span>
         <div class="box-botao">
 
-            <a class='sim' href = "` + location.origin + `/Pet-shop/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>
+            <a class='sim' href = "` + location.origin + `/Pet-Shop/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>
             <button class='nao' onclick="document.getElementById('id01').style.display='none'">Não</button> 
         </div> 
 

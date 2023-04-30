@@ -476,11 +476,12 @@ function gerarTabelaAgenFun() {
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1&pesq=${pesq}&status=${filtro}'><<</a> ";
+    $linkPaginas = "<a href='$header?pagina=1&status=$status&pesq=".$_GET['pesq']."'><<</a>";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant'&pesq=${pesq}&status=${filtro}>$pag_ant</a> ";
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant
+            &status=$status&pesq=".$_GET['pesq']."'>$pag_ant</a> ";
         }
     }
 
@@ -488,11 +489,13 @@ function gerarTabelaAgenFun() {
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep'&pesq=${pesq}&status=${filtro}>$pag_dep</a> ";
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep
+            &status=$status&pesq=".$_GET['pesq']."'>$pag_dep</a> ";
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'&pesq=${pesq}&status=${filtro}>>></a>";
+    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg
+    &status=$status&pesq=".$_GET['pesq']."'>>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
