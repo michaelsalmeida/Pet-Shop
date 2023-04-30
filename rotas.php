@@ -1,6 +1,6 @@
 <?php
 session_start();
-$root = "https://nome.azurewebsites.net/";
+$root = "https://petto-shoppo-hamtaro.azurewebsites.net/";
 $rootBack = $root . "backend/";
 $rootBackProc = $rootBack . "processos/";
 $rootBackFunctions = $rootBack . "funcoes/";
