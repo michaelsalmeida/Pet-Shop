@@ -2,6 +2,8 @@
 include_once('../../rotas.php');
 include_once($connRoute);
 
+$_SESSION['msgCadDataErro'] = false;
+
 $data_atual = date("Y-m-d");
 $data = $_POST['data'];
 
@@ -22,11 +24,12 @@ $result = $stmt1->get_result();
 $idFun = $result->fetch_row();
 
 if (strtotime($data) < strtotime($data_atual)){
-    $_SESSION['msgCadDataErro'] = "<p style='color: red;'>DATA NÃO DISPONÍVEL</p>";
+    $_SESSION['msgCadDataErro'] = "Data Indisponível";
     header("location: " . $cadastradaDatasRoute);
 } elseif (strtotime($data) == strtotime($data_atual)){
     if (strtotime($hora) < strtotime($hora_atual)){
-        $_SESSION['msgCadDataErro'] = "<p style='color: red;'>HORÁRIO NÃO DISPONÍVEL</p>";
+        $_SESSION['msgCadDataErro'] = "Horário Indisponível";
+        $_SESSION['tela'] = 'msgCadDataErro';
     header("location: " . $cadastradaDatasRoute);
     } else {
         $stmt = $conn->prepare("INSERT into Agendamentos (pk_Agendamento, fk_Funcionario, data_agendamento, horario_agendamento, tipo) VALUES (default, ?, ?, ?, ?)");
@@ -34,10 +37,10 @@ if (strtotime($data) < strtotime($data_atual)){
         $stmt->execute();
         
         if ($stmt->affected_rows > 0) {
-            $_SESSION['msgCadData'] = "<p style='color: green;'>DATA CADASTRADA COM SUCESSO</p>";
+            $_SESSION['msgCadData'] = "Data cadastrada com sucesso";
             header("location: " . $agendamentoFunRoute);
         } else {
-            $_SESSION['msgTelaCadData'] = "<p style='color: red;'>DATA NÃO CADASTRADA</p>";
+            $_SESSION['msgCadDataErro'] = "Data não cadastrada";
             header("location: " . $cadastradaDatasRoute);
         }
     }
@@ -47,10 +50,10 @@ if (strtotime($data) < strtotime($data_atual)){
     $stmt->execute();
     
     if ($stmt->affected_rows > 0) {
-        $_SESSION['msgCadData'] = "<p style='color: green;'>DATA CADASTRADA COM SUCESSO</p>";
+        $_SESSION['msgCadData'] = "Data cadastrada com sucesso";
         header("location: " . $agendamentoFunRoute);
     } else {
-        $_SESSION['msgTelaCadData'] = "<p style='color: red;'>DATA NÃO CADASTRADA</p>";
+        $_SESSION['msgCadDataErro'] = "Data não cadastrada";
         header("location: " . $cadastradaDatasRoute);
     }
 }

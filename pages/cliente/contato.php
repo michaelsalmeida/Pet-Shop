@@ -18,7 +18,7 @@ require_once $funcoesRoute;
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="activateToast(<?php echo verificarSession(['msgComent']); ?>)">
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
@@ -30,7 +30,7 @@ require_once $funcoesRoute;
             <div class="links">
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
-                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+                <a href="#">CONTATO</a>
 
             </div>
 
@@ -54,7 +54,6 @@ require_once $funcoesRoute;
                 }
 
                 if (isset($_SESSION['msgComent'])){
-                  echo $_SESSION['msgComent'];
                   unset($_SESSION['msgComent']);
                 }
 
@@ -153,8 +152,8 @@ require_once $funcoesRoute;
 
         <div class="links">
             <a href="<?php echo $blogRoute; ?>">BLOG</a>
-            <a href="#">SOBRE NÓS</a>
-            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+            <a href="#">CONTATO</a>
         </div>
 
         <div class="redes">
@@ -173,6 +172,8 @@ require_once $funcoesRoute;
         crossorigin="anonymous"></script>
 
         <script src="<?php echo $functionsRoute; ?>"></script>
+        <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

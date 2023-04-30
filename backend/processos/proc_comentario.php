@@ -17,10 +17,10 @@
     $stmt->execute();
 
     if ($stmt->affected_rows > 0) {
-        $_SESSION['msgComent'] = "<p style='color: green;'>COMENTÁRIO ENVIADO COM SUCESSO</p>";
+        $_SESSION['msgComent'] = "COMENTÁRIO ENVIADO COM SUCESSO";
         header("location: " . $contatoRoute);
     } else {
-        $_SESSION['msgComent'] = "<p style='color: red;'>ERRO AO ENVIAR O COMENTÁRIO</p>";
+        $_SESSION['msgComent'] = "ERRO AO ENVIAR O COMENTÁRIO";
         header("location: " . $contatoRoute);
     }
 ?>

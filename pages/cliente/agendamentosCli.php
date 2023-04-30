@@ -18,13 +18,15 @@ require_once $funcoesRoute;
     <link rel="stylesheet" href="../css-estatico/header.css">
 
     <link rel="stylesheet" href="../css-dinamico/table.css">
-    
+
     <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css
     ">
 
+  
+
 </head>
 
-<body onload="paginacao('gerarTabelaAgenCli')">
+<body onload="paginacao('gerarTabelaAgenCli'), activateToast(<?php echo verificarSession(['msgAgendamentoCli']); ?>)">
     <?php
     if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
@@ -36,11 +38,10 @@ require_once $funcoesRoute;
         header("Location: " . $loginCliRoute);
     }
     if (isset($_SESSION['msgAgendamentoCli'])) { // Verifica se há uma mensagem para mostrar
-        echo "<p>" . $_SESSION['msgAgendamentoCli'] . "<?p>";
         unset($_SESSION['msgAgendamentoCli']);
     }
     if (isset($_GET['pagina'])) {
-        echo "<p id='pag' hidden>".$_GET['pagina']."</p>";
+        echo "<p id='pag' hidden>" . $_GET['pagina'] . "</p>";
     } else {
         echo "<p id='pag' hidden>1</p>";
     }
@@ -80,10 +81,7 @@ require_once $funcoesRoute;
                     echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
                     echo "<a href='$cadastroCliRoute'>Cadastro</a>";
                 }
-                // if (isset($_SESSION['msgRotaProibidaCli'])){
-                //   echo $_SESSION['msgRotaProibidaCli'];
-                //   unset($_SESSION['msgRotaProibidaCli']);
-                // }
+            
 
                 ?>
             </div>
@@ -107,7 +105,7 @@ require_once $funcoesRoute;
                         
                         
                         <div class='menu-perfil'>
-                        <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
+                        <p>Bem Vindo! " . $_SESSION['nomeCliente'] . "</p>
                         <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
                         <a href='$animaisCliRoute'>Meus Animais</a>
                         <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
@@ -131,15 +129,16 @@ require_once $funcoesRoute;
     </div>
 
 
-    <!-- The Modal -->
     <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
-            <div class="w3-container" id="container-modal">
-            </div>
+        <div class="w3-container" id="container-modal">
         </div>
     </div>
+
+
     <script src="../script.js"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

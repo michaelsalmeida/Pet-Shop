@@ -23,7 +23,7 @@ if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcioná
 
 </head>
 
-<body>
+<body onload="activateToast(<?php echo verificarSession(['msglogin']); ?>)">
     <?php
     if (loged()) { // Verifica se há um usuário logado
         // Se não tiver manda ele para a página de login
@@ -77,7 +77,6 @@ if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcioná
 
                 <?php
                 if (isset($_SESSION['msglogin'])) { // Verifica se há uma mensagem para mostrar
-                    echo "<p>" . $_SESSION['msglogin'] . "</p>";
                     unset($_SESSION['msglogin']);
                 }
                 ?>
@@ -94,6 +93,8 @@ if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcioná
     </div>
 
     <script src="<?php echo $functionsRoute; ?>"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

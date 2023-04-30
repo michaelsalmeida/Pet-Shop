@@ -60,7 +60,7 @@ tr:nth-child(odd) {
 
 .cancelar{
     padding: 3px 15px;
-    border: 1px solid #F14848;
+    border: 2px solid #F14848;
     color: #F14848;
     font-weight: 700;
     border-radius: 3px;

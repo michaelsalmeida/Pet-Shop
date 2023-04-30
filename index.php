@@ -26,7 +26,14 @@ require_once $funcoesRoute;
     <script defer src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body>
+<body onload="delay()">
+  <div class="loading">
+    <div>
+      <img src="pages/img-estatico/fundoLoading.svg" alt="gato tela de carregamento">
+      <br>
+      <p>Carregando</p>
+    </div>
+  </div>
 
     <div class="contatoHeader">
         <p>Contate-nos: (11) 98253-2481</p>

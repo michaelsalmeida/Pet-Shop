@@ -75,6 +75,7 @@ $functionsRoute = $rootBackFunctions . "functions.js";
 $viacepRoute = $rootBackFunctions . "viacep.js";
 $dataHojeRoute = $rootBackFunctions . "dataHoje.js";
 $confSenhaRoute = $rootBackFunctions . "confSenha.js";
+$toastRoute = $rootBackFunctions . "toast.js";
 
 
 

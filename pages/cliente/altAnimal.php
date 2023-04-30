@@ -106,7 +106,6 @@ require_once $funcoesRoute;
         header("Location: " . $loginCliRoute);
     }
     if (isset($_SESSION['msgAltAnimaisCli'])) { // Verifica se há uma mensagem para mostrar
-        echo $_SESSION['msgAltAnimaisCli'];
         unset($_SESSION['msgAltAnimaisCli']);
     }
     ?>

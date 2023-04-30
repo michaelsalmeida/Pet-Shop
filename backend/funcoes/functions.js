@@ -57,6 +57,15 @@ function queryBanco(tipo) {
     xhr.send();
 }
 
+function agenFun() {
+    var params = new URLSearchParams(location.search);
+    var status = params.get('status');
+    document.getElementById('status').value = status;
+
+    var pesq = params.get('pesq');
+    document.getElementById('pesq').value = pesq;
+}
+
 function paginacao(tipo) {
     if (tipo == 'gerarTabelaDeleteFun') { // Listar funcionário
         var pesq = document.getElementById('pesq').value;
@@ -172,18 +181,22 @@ function altAnimal() {
 }
 
 function activeModal(id, tipo) {
-    document.getElementById("id01").style.display = "block" // Muda a modal para block, para que possa ser vista
+    document.getElementById("id01").style.display = "flex" // Muda a modal para block, para que possa ser vista
 
     if (tipo == "Cancelar") { // se o botão passar o tipo Cancelar
         // Monta a modal com os elementos do cancelamento
 
         document.getElementById("container-modal").innerHTML = `
-        <p>Você tem certeza que deseja Cancelar este Agendamento?<p>
-        <span onclick="document.getElementById('id01').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>
-        <a href = "` + location.origin + `/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>
-        <button onclick="document.getElementById('id01').style.display='none'">Não</button>`;
+        <div class='box-modal-detalhes'>
+        <p>Você tem certeza que deseja Cancelar este Agendamento?</p>
+        <span onclick="document.getElementById('id01').style.display='none'">&times;</span>
+        <div class="box-botao">
 
+            <a class='sim' href = "` + location.origin + `/Pet-Shop/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>
+            <button class='nao' onclick="document.getElementById('id01').style.display='none'">Não</button> 
+        </div> 
+
+        </div>`;
     } else { // se o botão não passar o tipo Cancelar
         // Busca os detalhes no servidor
 
@@ -197,10 +210,11 @@ function activeModal(id, tipo) {
                 // e mostrar na tela
 
                 document.getElementById("container-modal").innerHTML = `
-                <h2>Descrição do Agendamento</h2>
-                <p>${response}<p>
-                <span onclick="document.getElementById('id01').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>`;
+                <div class='box-modal-detalhes'>
+                    <h2>Descrição do Agendamento</h2>
+                    <p>${response}</p>
+                    <span onclick="document.getElementById('id01').style.display='none'">&times;</span> 
+                </div>`;
             }
         }
         xhr.send();
@@ -299,20 +313,24 @@ function activeModalDetalhesFun(id, tipo) {
                 if (tipo == 'Veterinario' || tipo == 'Esteticista') {
                     // então mostra o campo para adicionar os detalhes
                     document.getElementById("container-modal").innerHTML = `
-                    <h2>Descrição do Agendamento</h2>
-                    <input name="ide" hidden value="${id}"></input>
-                    <textarea cols="30" rows="10" name="descricao"></textarea>
-                    <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-display-topright">&times;</span>
-                    <input type='submit' value='Salvar'></input>`;
+
+                    <div class='box-modal-detalhes'>
+
+                        <h2>Descrição do Agendamento</h2>
+                        <input name="ide" hidden value="${id}"></input>
+                        <textarea name="descricao"></textarea>
+                        <span onclick="document.getElementById('id01').style.display='none'">&times;</span>
+                        <input class='botao-salvar' type='submit' value='Salvar'></input> 
+                    </div>`;    
 
                 } else {
                     // Se não só mostra que os detalhes não foram definidos.
                     document.getElementById("container-modal").innerHTML = `
-                    <h2>Descrição do Agendamento</h2>
-                    <p>Os detalhes não foram adicionados ainda</p>
-                    <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-display-topright">&times;</span>`;
+                    <div class='box-modal-detalhes'>
+                        <h2>Descrição do Agendamento</h2>
+                        <p>Os detalhes não foram adicionados ainda</p>
+                        <span onclick="document.getElementById('id01').style.display='none'">&times;</span> 
+                    </div>`;
 
                 }
             } else {
@@ -320,7 +338,7 @@ function activeModalDetalhesFun(id, tipo) {
                 document.getElementById("container-modal").innerHTML = `
                 <div class='box-modal-detalhes'>
                     <h2>Descrição do Agendamento</h2>
-                    <p>${response}</p>
+                    <p class='descricao-resposta'>${response}</p>
                     <span onclick="document.getElementById('id01').style.display='none'">&times;</span>
                 </div>`;
             }
@@ -337,6 +355,7 @@ function meuPerfilCliPes() {
     document.getElementsByName("email")[0].removeAttribute("readonly")
     // Ativa o botão de confirmação
     document.getElementsByName("conf")[0].removeAttribute("hidden")
+    document.getElementById("alterarDados").style.display = "none";
 }
 
 function meuPerfilCliEnd() {

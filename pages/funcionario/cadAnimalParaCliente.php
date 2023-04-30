@@ -30,19 +30,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body onload="activateToast(<?php echo verificarSession(['msgCadAnimaisFunParaCli', 'msgCadAnimalErro']); ?>)">
     <?php
         if(isset($_SESSION['cli'])){
             echo $_SESSION['cli'];
             unset($_SESSION['cli']);
         }
             if(isset($_SESSION['msgCadAnimaisFunParaCli'])){
-                echo $_SESSION['msgCadAnimaisFunParaCli'];
                 unset($_SESSION['msgCadAnimaisFunParaCli']);
             }
 
         if(isset($_SESSION['msgCadAnimalErro'])){
-            echo $_SESSION['msgCadAnimalErro'];
             unset($_SESSION['msgCadAnimalErro']);
         }
 
@@ -65,5 +63,7 @@
 
     <script src="<?php echo $functionsRoute ?>"></script>
     <script src="<?php echo $dataHojeRoute; ?>"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

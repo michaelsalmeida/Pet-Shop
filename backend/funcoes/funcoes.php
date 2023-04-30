@@ -387,6 +387,11 @@ function gerarTabelaAgenFun() {
         // Substituição da string preparada pelos valores corretos
         $stmt->bind_param("sss", $_SESSION['idFun'], $pesquisar, $status);
 
+        $stmtPg = $conn->prepare("SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos
+        INNER JOIN Funcionarios ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
+        WHERE fk_Funcionario = ? AND Funcionarios.nome LIKE ? AND `status` = ?");
+        $stmtPg->bind_param("sss", $_SESSION['idFun'], $pesquisar, $status);
+
     } else {
         $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento, horario_agendamento, Animais.nome, Clientes.nome, `status`, pk_Agendamento from Agendamentos
             LEFT JOIN Animais
@@ -401,6 +406,11 @@ function gerarTabelaAgenFun() {
 
         $pesquisar = "%" . $_GET['pesq'] . "%";
         $stmt->bind_param("ss", $pesquisar, $status);
+
+        $stmtPg = $conn->prepare("SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos
+        INNER JOIN Funcionarios ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
+        WHERE Funcionarios.nome LIKE ? AND `status` = ?");
+        $stmtPg->bind_param("ss", $pesquisar, $status);
     }
 
     // Executa o sql
@@ -456,20 +466,22 @@ function gerarTabelaAgenFun() {
     // Pega cada linha da query e monta as linhas da tabela
 
     // Paginação - Somar a quantidade de usuários
-    $result_pg = "SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos";
-    $resultado_pg = mysqli_query($conn, $result_pg);
-    $row_pg = mysqli_fetch_assoc($resultado_pg);
+    
+    $stmtPg->execute();
+    $resultado = $stmtPg->get_result();
+    $row_pg = $resultado->fetch_all();
 
     // Quantidade de pagina
-    $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
+    $quantidade_pg = ceil($row_pg[0][0] / $qnt_result_pg);
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
+    $linkPaginas = "<a href='$header?pagina=1&status=$status&pesq=".$_GET['pesq']."'><<</a>";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant'>$pag_ant</a> ";
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant
+            &status=$status&pesq=".$_GET['pesq']."'>$pag_ant</a> ";
         }
     }
 
@@ -477,11 +489,13 @@ function gerarTabelaAgenFun() {
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep'>$pag_dep</a> ";
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep
+            &status=$status&pesq=".$_GET['pesq']."'>$pag_dep</a> ";
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
+    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg
+    &status=$status&pesq=".$_GET['pesq']."'>>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -665,6 +679,12 @@ function apagarFuncionario() {
 
     $stmt->execute();
 
+    if (mysqli_affected_rows($conn) > 0) {
+        $_SESSION['deleteFun'] = "Funcionário demitido com sucesso";
+    } else {
+        $_SESSION['deleteFun'] = "Erro ao demitir funcionário";
+    }
+
 
 }
 
@@ -720,6 +740,7 @@ function animais() {
 
     if (mysqli_num_rows($resultado) == 0){
         $tabela = "<option value='' disabled selected hidden>CPF não está no sistema</option>";
+        $_SESSION['agenCliFun'] = "CPF não está no sistema";
     } else {
 
         $idCliente = $resultado -> fetch_all()[0][0];
@@ -1036,4 +1057,14 @@ function tabelaComentarios() {
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
+}
+function verificarSession($lista){
+    foreach ($lista as $item){
+        if (!isset($_SESSION[$item])){
+            $_SESSION[$item] = false;
+        }
+        if ($_SESSION[$item] != false){
+            return "'" . $_SESSION[$item] . "'";
+        }
+    }
 }

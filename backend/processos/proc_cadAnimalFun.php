@@ -19,7 +19,7 @@ try {
     $hoje = date('Y-m-d');
 
     if (strtotime($date) > strtotime($data_atual)){
-        $_SESSION['msgCadAnimalErro'] = "<script>alert('DATA DE NASCIMENTO INVÁLIDA')</script>";
+        $_SESSION['msgCadAnimalErro'] = "Data de nascimento inválida";
         header("Location: " . $cadAnimalParaClienteRoute);
     } else {
         // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
@@ -31,11 +31,11 @@ try {
         // Executa o sql
         $stmt->execute();
     
-        $_SESSION['msgCadAnimaisFunParaCli'] = "Animal Cadastrado";
+        $_SESSION['msgCadAnimaisFunParaCli'] = "Animal Cadastrado com successo";
     }
 
 } catch (Exception $e) {
-    $_SESSION['msgCadAnimaisFunParaCli'] = "Animal Não Cadastrado: <br>" . $e->getMessage();
+    $_SESSION['msgCadAnimaisFunParaCli'] = "Animal Não Cadastrado";
     header("Location: " . $cadAnimalParaClienteRoute);
 }
 header("Location: " . $cadAnimalParaClienteRoute);
