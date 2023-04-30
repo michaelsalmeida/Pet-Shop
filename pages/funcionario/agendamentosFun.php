@@ -26,7 +26,7 @@ require_once $funcoesRoute;
 
 </head>
 
-<body onload="paginacao('gerarTabelaAgenFun')">
+<body onload="paginacao('gerarTabelaAgenFun'), activateToast(<?php echo verificarSession(['msgCadData', 'msgCadFun', 'msgRotaProibida']); ?>)">
 
   <header class="header-corporativo">
     <div class="box-logo-barra-de-pesquisa-perfil">
@@ -75,7 +75,6 @@ require_once $funcoesRoute;
 
 
       if (isset($_SESSION['msgCadData'])) {
-        echo $_SESSION['msgCadData'];
         unset($_SESSION['msgCadData']);
       }
 

@@ -24,7 +24,7 @@ if (!isset($_SESSION['msgAltCli'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 </head>
 
-<body onload="altMeuPerfilCli(), perfilCliToast(<?php echo $_SESSION['msgAltCli']; ?>)">
+<body onload="altMeuPerfilCli(), activateToast(<?php echo verificarSession(['msgAltCli', 'msgMeuPerfilCli']); ?>)">
     <?php
     if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
         header("Location: " . $agendamentoFunRoute);
@@ -35,7 +35,6 @@ if (!isset($_SESSION['msgAltCli'])){
         header("Location: " . $loginCliRoute);
     }
     if (isset($_SESSION['msgMeuPerfilCli'])) { // Verifica se há uma mensagem para mostrar
-        echo $_SESSION['msgMeuPerfilCli'];
         unset($_SESSION['msgMeuPerfilCli']);
     }
     ?>

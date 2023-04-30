@@ -20,7 +20,7 @@ require_once $funcoesRoute;
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onload="queryBanco('checkAnimais')">
+<body onload="queryBanco('checkAnimais'), activateToast(<?php echo verificarSession(['msgFazAgendamento']); ?>)">
 
 
     <header>
@@ -108,7 +108,6 @@ require_once $funcoesRoute;
         header("Location: " . $loginCliRoute);
     }
     if (isset($_SESSION['msgFazAgendamento'])) { // Verifica se há uma mensagem para mostrar
-        echo $_SESSION['msgFazAgendamento'];
         unset($_SESSION['msgFazAgendamento']);
     }
     ?>
@@ -155,6 +154,8 @@ require_once $funcoesRoute;
 
     <script src="../script.js"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

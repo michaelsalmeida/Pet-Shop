@@ -19,9 +19,9 @@ try {
     // Executa o sql
     $stmtAni->execute();
 
-    $_SESSION['msgExcAnimal'] = "Animal Excluído com Sucesso.";
+    $_SESSION['msgExcAnimal'] = "Animal Excluído com Sucesso";
 } catch (Exception $e) {
-    $_SESSION['msgExcAnimal'] = "Animal Não Excluído.";
+    $_SESSION['msgExcAnimal'] = "Animal Não Excluído";
     echo $e->getMessage();
 }
 header("Location: " . $animaisCliRoute);

@@ -19,7 +19,7 @@ require_once $funcoesRoute;
     <link rel="stylesheet" href="../css-dinamico/cadAnimais.css">
 </head>
 
-<body>
+<body onload="activateToast(<?php echo verificarSession(['msgCadAnimaisCli']); ?>)">
     
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
@@ -106,7 +106,6 @@ require_once $funcoesRoute;
         header("Location: " . $loginCliRoute);
     }
     if (isset($_SESSION['msgCadAnimaisCli'])) { // Verifica se há uma mensagem para mostrar
-        echo $_SESSION['msgCadAnimaisCli'];
         unset($_SESSION['msgCadAnimaisCli']);
     }
     ?>
@@ -157,6 +156,8 @@ require_once $funcoesRoute;
     <script src="<?php echo $dataHojeRoute; ?>"></script>
     <script src="../script.js"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

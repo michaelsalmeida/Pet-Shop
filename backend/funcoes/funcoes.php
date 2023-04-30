@@ -339,11 +339,11 @@ function fazAgendamentoCli() {
             $_SESSION['msgAgendamentoCli'] = "Agendamento Realizado";
             return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/agendamentosCli.php";
         } catch (Exception $e) {
-            $_SESSION['msgFazAgendamento'] = "Error: " . $e->getMessage();
+            $_SESSION['msgFazAgendamento'] = "Error";
             return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/fazerAgendamentoCli.php";
         }
     } else {
-        $_SESSION['msgFazAgendamento'] = "Selecione um animal!";
+        $_SESSION['msgFazAgendamento'] = "Selecione um animal por favor";
         return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/fazerAgendamentoCli.php";
     }
 }
@@ -665,6 +665,12 @@ function apagarFuncionario() {
 
     $stmt->execute();
 
+    if (mysqli_affected_rows($conn) > 0) {
+        $_SESSION['deleteFun'] = "Funcionário demitido com sucesso";
+    } else {
+        $_SESSION['deleteFun'] = "Erro ao demitir funcionário";
+    }
+
 
 }
 
@@ -720,6 +726,7 @@ function animais() {
 
     if (mysqli_num_rows($resultado) == 0){
         $tabela = "<option value='' disabled selected hidden>CPF não está no sistema</option>";
+        $_SESSION['agenCliFun'] = "CPF não está no sistema";
     } else {
 
         $idCliente = $resultado -> fetch_all()[0][0];
@@ -1036,4 +1043,16 @@ function tabelaComentarios() {
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
+}
+
+
+function verificarSession($lista){
+    foreach ($lista as $item){
+        if (!isset($_SESSION[$item])){
+            $_SESSION[$item] = false;
+        }
+        if ($_SESSION[$item] != false){
+            return "'" . $_SESSION[$item] . "'";
+        }
+    }
 }

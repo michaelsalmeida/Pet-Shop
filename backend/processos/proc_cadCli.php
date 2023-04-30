@@ -113,7 +113,7 @@ if ($certo1 && $certo2) {
             $_SESSION['msgCadCli'] = "Email já cadastrado";
         } else {
             // Trabalha qualquer outro erro
-            $_SESSION['msgCadCli'] = "Cliente não Cadastrado: " . $e->getMessage();
+            $_SESSION['msgCadCli'] = "Cliente não Cadastrado";
         }
         header('Location: ' . $cadastroCliRoute);
     }

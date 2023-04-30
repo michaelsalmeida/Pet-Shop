@@ -25,7 +25,7 @@ require_once $funcoesRoute;
 
 </head>
 
-<body onload="paginacao('gerarTabelaAni')">
+<body onload="paginacao('gerarTabelaAni'), activateToast(<?php echo verificarSession(['msgAltAnimaisCli', 'msgExcAnimal']); ?>)">
 
 
   <?php
@@ -38,6 +38,14 @@ require_once $funcoesRoute;
     // Se não tiver manda ele para a página de login
     header("Location: " . $loginCliRoute);
   }
+
+  if (isset($_SESSION['msgAltAnimaisCli'])) { // Verifica se há uma mensagem para mostrar
+    unset($_SESSION['msgAltAnimaisCli']);
+} 
+  if (isset($_SESSION['msgExcAnimal'])) { // Verifica se há uma mensagem para mostrar
+    unset($_SESSION['msgExcAnimal']);
+  }
+
 
   if (isset($_GET['pagina'])) {
     echo "<p id='pag' hidden>".$_GET['pagina']."</p>";
@@ -131,6 +139,8 @@ require_once $funcoesRoute;
   <script src="../script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <script src="<?php echo $functionsRoute; ?>"></script>
+  <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

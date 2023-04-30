@@ -21,7 +21,7 @@ try {
         $_SESSION['nome'] = $row[2];
         header("Location: " . $agendamentoFunRoute);
     } else {
-        $_SESSION['msgloginFun'] = "<p>USUÁRIO OU SENHA INCORRETO(S).</p>";
+        $_SESSION['msgloginFun'] = "USUÁRIO OU SENHA INCORRETO(S)";
         header("Location: " . $loginFunRoute);
     }
 } catch (Exception $e) {
