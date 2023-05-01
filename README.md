@@ -14,7 +14,7 @@
 - [ ] Front-end funcionário 
 - [ ] Teste de software
 - [x] Deploy 000webhost
-- [ ] Deploy Azure
+- [x] Deploy Azure
 - [ ] Teste de software pós deploy
 - [ ] Firulas 
 - [ ] Treino apresentação 
@@ -24,6 +24,9 @@
 ## Links e documentos
 
 >  Análise e documentação do professor Sergio Gal - [sistema agendamento PETSHOP2023.pdf](https://github.com/michaelsalmeida/Pet-Shop/files/11353732/sistema.agendamento.PETSHOP2023.pdf)
+
+> Flow chatbot whatsapp [flow.txt](https://github.com/michaelsalmeida/Pet-Shop/files/11363856/flow.txt)
+
 
 
 
