@@ -89,6 +89,6 @@ if ($certo1 && $certo2) {
         header('Location: ' . $cadastrarFunRoute);
     }
 } else {
-    $_SESSION['msgCadFun'] = "CPF inválido.";
+    $_SESSION['msgCadFun'] = "CPF inválido";
     header("Location: " . $cadastrarFunRoute);
 }

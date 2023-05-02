@@ -1,12 +1,8 @@
 <?php
 include_once("../../rotas.php");
 include_once($connRoute);
+require_once $funcoesRoute;
 
-
-if (isset($_SESSION['msgCadFun'])) {
-    echo $_SESSION['msgCadFun'];
-    unset($_SESSION['msgCadFun']);
-}
 
 if ($_SESSION['tipo'] != "admin") {
     // $_SESSION['msgRotaProibida'] = "Você Não possui permissão para entrar nessa página";
@@ -37,9 +33,13 @@ if (!isset($_SESSION['tipo'])) {
 
 </head>
 
-<body>
+<body onload="activateToast(<?php echo verificarSession(['msgCadFun']); ?>)">
     
-    
+    <?php
+        if (isset($_SESSION['msgCadFun'])) {
+            unset($_SESSION['msgCadFun']);
+        }
+    ?>
     <div>
 
         <div class="informacoes-superior">
@@ -119,6 +119,8 @@ if (!isset($_SESSION['tipo'])) {
 
     </div>
     <script src="<?php echo $confSenhaRoute; ?>"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

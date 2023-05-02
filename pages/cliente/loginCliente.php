@@ -26,7 +26,7 @@ if (loged()) { // Verifica se há um usuário logado
 
 </head>
 
-<body>
+<body onload="activateToast(<?php echo verificarSession(['msglogin']); ?>)">
     <header>
         <a href="<?php echo $homeRoute; ?>" id="logo">
             <p>Hamtaro Petshop</p>
@@ -73,7 +73,6 @@ if (loged()) { // Verifica se há um usuário logado
 
                 <?php
                 if (isset($_SESSION['msglogin'])) { // Verifica se há uma mensagem para mostrar
-                    echo "<p>" . $_SESSION['msglogin'] . "</p>";
                     unset($_SESSION['msglogin']);
                 }
                 ?>
@@ -90,6 +89,8 @@ if (loged()) { // Verifica se há um usuário logado
     </div>
 
     <script src="<?php echo $functionsRoute; ?>"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

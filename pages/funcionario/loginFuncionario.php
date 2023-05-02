@@ -1,6 +1,8 @@
 <?php
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexao
+require_once $funcoesRoute;
+
 
 if (isset($_SESSION['tipo'])) {
     // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
@@ -21,7 +23,7 @@ if (isset($_SESSION['tipo'])) {
     <link rel="stylesheet" href="../css-dinamico/login-funcionario.css">
 </head>
 
-<body>
+<body onload="activateToast(<?php echo verificarSession(['msgloginFun']); ?>)">
 
     <header>
         <a href="<?php echo $homeRoute; ?>" id="logo">
@@ -68,7 +70,6 @@ if (isset($_SESSION['tipo'])) {
 
                 <?php
                 if (isset($_SESSION['msgloginFun'])) {
-                    echo "<p>" . $_SESSION['msgloginFun'] . "</p>";
                     unset($_SESSION['msgloginFun']);
                 }
                 ?>
@@ -84,6 +85,8 @@ if (isset($_SESSION['tipo'])) {
     <div class="box-cadastro">
         <span>Ainda não possui cadastro corporativo? <a href=""> Informe seu gestor.</a></span>
     </div>
+    <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

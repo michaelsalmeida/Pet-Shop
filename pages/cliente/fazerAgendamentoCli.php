@@ -30,7 +30,7 @@ if (isset($_SESSION['tipo'])) {
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onload="queryBanco('checkAnimais')">
+<body onload="queryBanco('checkAnimais'), activateToast(<?php echo verificarSession(['msgFazAgendamento']); ?>)">
 
 
     <header>
@@ -99,7 +99,6 @@ if (isset($_SESSION['tipo'])) {
 
     <?php
     if (isset($_SESSION['msgFazAgendamento'])) { // Verifica se há uma mensagem para mostrar
-        echo $_SESSION['msgFazAgendamento'];
         unset($_SESSION['msgFazAgendamento']);
     }
     ?>
@@ -146,6 +145,8 @@ if (isset($_SESSION['tipo'])) {
 
     <script src="../script.js"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

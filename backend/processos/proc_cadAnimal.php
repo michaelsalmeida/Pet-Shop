@@ -25,7 +25,7 @@ try {
     // Executa o sql
     $stmt->execute();
 
-    $_SESSION['msgCadAnimaisCli'] = "Animal Cadastrado";
+    $_SESSION['msgCadAnimaisCli'] = "Animal Cadastrado com successo";
 } catch (Exception $e) {
     $_SESSION['msgCadAnimaisCli'] = "Animal Não Cadastrado: <br>" . $_SESSION['id'] . $e->getMessage();
 }

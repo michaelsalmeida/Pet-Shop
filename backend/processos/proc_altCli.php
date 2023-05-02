@@ -20,10 +20,10 @@ try {
     );
     // Executa o sql
     $stmtCli->execute();
-    $_SESSION['msgAltCli'] = true ;
+    $_SESSION['msgAltCli'] = "Alteração feita com sucesso" ;
 } catch (Exception $e) {
     if ($e->getCode() === 1062) {
-        $_SESSION['msgAltCli'] = "'false'";
+        $_SESSION['msgAltCli'] = "Erro ao alterar usuário";
     }
     echo $e->getMessage();
 }

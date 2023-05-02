@@ -96,7 +96,6 @@ if (!loged()) { // Verifica se há um usuário logado
 
     <?php
     if (isset($_SESSION['msgAltAnimaisCli'])) { // Verifica se há uma mensagem para mostrar
-        echo $_SESSION['msgAltAnimaisCli'];
         unset($_SESSION['msgAltAnimaisCli']);
     }
     ?>

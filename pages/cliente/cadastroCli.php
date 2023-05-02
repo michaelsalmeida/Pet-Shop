@@ -20,7 +20,7 @@ include_once($funcoesRoute);
     <link rel="stylesheet" href="../css-dinamico/cadastro-cliente.css">
 </head>
 
-<body>
+<body onload="activateToast(<?php echo verificarSession(['msgCadCli']); ?>)">
     <header>
         <a href="<?php echo $homeRoute; ?>" id="logo">
             <p>Hamtaro Petshop</p>
@@ -34,7 +34,6 @@ include_once($funcoesRoute);
 
     <?php
     if (isset($_SESSION['msgCadCli'])) { // Verifica se há uma mensagem para mostrar
-        echo $_SESSION['msgCadCli'];
         unset($_SESSION['msgCadCli']);
     }
     ?>
@@ -174,6 +173,8 @@ include_once($funcoesRoute);
         crossorigin="anonymous"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
     <script src="<?php echo $confSenhaRoute; ?>"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

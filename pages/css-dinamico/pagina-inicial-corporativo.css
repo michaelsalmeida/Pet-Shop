@@ -2,20 +2,20 @@
 
 /* RESET */
 
-*{
-  margin: 0px;
-  padding: 0px;
-  font-family: 'Poppins', sans-serif;
-  box-sizing: border-box;
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
 /* PAGINA INICIAL DO CLIENTE  */
-body{
+body {
     background-image: url(../img-dinamico/fundo.svg);
-   
+
 }
 
-.titulo-agendamento{
+.titulo-agendamento {
     font-family: 'Poppins';
     margin-top: 2em;
     text-align: center;
@@ -23,13 +23,13 @@ body{
     font-weight: 700;
 }
 
-.box-total{
+.box-total {
     padding: 1em;
 }
 
-.box-opcoes select{
+.box-opcoes select {
     width: 250px;
-    padding: 5px  15px;
+    padding: 5px 15px;
     border: 1px solid #828282;
     color: #828282;
     border-radius: 3px;
@@ -41,7 +41,7 @@ body{
 
 /* MODAL DE DETALHES */
 
-.box-modal-detalhes{
+.box-modal-detalhes {
     background-color: #ffffff;
     display: flex;
     align-items: center;
@@ -55,10 +55,10 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
-    
+
 }
 
-.box-modal-detalhes span{
+.box-modal-detalhes span {
     position: absolute;
     right: 0;
     top: 0;
@@ -70,14 +70,71 @@ body{
     transition: all 0.5s;
 }
 
-.box-modal-detalhes span:hover{
+.box-modal-detalhes span:hover {
     color: #F14848;
 }
 
 
-.box-modal-detalhes h2{
+.box-modal-detalhes h2 {
     font-family: 'poppins';
+    font-size: 18px;
 }
 
-/* MODAL DE DETALHES FIM*/
+.box-modal-detalhes .box-botao {
+    display: flex;
+    gap: 20px;
+}
 
+.box-modal-detalhes .box-botao a,
+.box-modal-detalhes .box-botao button {
+    padding: 2px 10px;
+    border: 2px solid #F14848;
+    color: #F14848;
+    font-weight: 700;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.5s;
+    background-color: transparent;
+}
+
+
+.box-modal-detalhes .box-botao button:hover{
+    background-color: #F14848;
+    color: #ffffff;
+}
+
+.botao-salvar{
+    transition: all 0.5s;
+    background-color: transparent;
+    padding: 2px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.box-modal-detalhes .box-botao a, .botao-salvar{
+    border: 2px solid #43C07D;
+    color: #43C07D;
+
+}
+
+.box-modal-detalhes .box-botao a:hover, .botao-salvar:hover{
+    background-color: #43C07D;
+    color: #ffffff;
+
+}
+
+
+.box-modal-detalhes textarea{
+    outline: #000000;
+    padding: 0 5px ;
+    font-weight: 100;
+    height: 150px;
+    color: #4c4b4b;
+    font-size: 14px;
+}
+
+.box-modal-detalhes .descricao-resposta{
+    word-break: break-word;
+}
+/* MODAL DE DETALHES FIM*/

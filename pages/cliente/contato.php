@@ -23,7 +23,7 @@ if (isset($_SESSION['tipo'])) {
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="activateToast(<?php echo verificarSession(['msgComent']); ?>)">
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
@@ -54,7 +54,6 @@ if (isset($_SESSION['tipo'])) {
                 }
 
                 if (isset($_SESSION['msgComent'])){
-                  echo $_SESSION['msgComent'];
                   unset($_SESSION['msgComent']);
                 }
 
@@ -168,6 +167,8 @@ if (isset($_SESSION['tipo'])) {
         crossorigin="anonymous"></script>
 
         <script src="<?php echo $functionsRoute; ?>"></script>
+        <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

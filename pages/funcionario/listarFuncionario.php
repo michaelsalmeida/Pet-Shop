@@ -26,7 +26,7 @@ if (!isset($_SESSION['tipo'])) {
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onload="paginacao('gerarTabelaDeleteFun')">
+<body onload="paginacao('gerarTabelaDeleteFun'), activateToast(<?php echo verificarSession(['deleteFun']); ?>)">
   <?php
   if (isset($_GET['pagina'])) {
     echo "<p id='pag' hidden>" . $_GET['pagina'] . "</p>";
@@ -82,20 +82,10 @@ if (!isset($_SESSION['tipo'])) {
       }
 
 
-      if (isset($_SESSION['msgCadData'])) {
-        echo $_SESSION['msgCadData'];
-        unset($_SESSION['msgCadData']);
+      if (isset($_SESSION['deleteFun'])) {
+        unset($_SESSION['deleteFun']);
       }
 
-      if (isset($_SESSION['msgCadFun'])) {
-        echo $_SESSION['msgCadFun'];
-        unset($_SESSION['msgCadFun']);
-      }
-
-      if (isset($_SESSION['msgRotaProibida'])) {
-        echo $_SESSION['msgRotaProibida'];
-        unset($_SESSION['msgRotaProibida']);
-      }
       if (isset($_GET['pagina'])) {
         echo "<p id='pag' hidden>" . $_GET['pagina'] . "</p>";
       } else {
@@ -108,13 +98,6 @@ if (!isset($_SESSION['tipo'])) {
     </nav>
 
   </header>
-
-
-
-
-
-
-
 
 
   <h1 class="titulo-agendamento">Lista de funcionários</h1>
@@ -133,6 +116,8 @@ if (!isset($_SESSION['tipo'])) {
     <div id="links"></div>
   </div>
       <script src="../script.js"></script>
+      <script src="../../backend/funcoes/toast.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

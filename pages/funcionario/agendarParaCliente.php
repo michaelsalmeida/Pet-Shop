@@ -1,7 +1,7 @@
 <?php
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexao
-
+require_once $funcoesRoute;
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
 </head>
 
-<body>
+<body onload="activateToast(<?php echo verificarSession(['agenCliFun']); ?>)">
   
 
   <div class="box-informacoes">
@@ -74,7 +74,6 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
     <?php
     if (isset($_SESSION['agenCliFun'])) {
-      echo $_SESSION['agenCliFun'];
       unset($_SESSION['agenCliFun']);
     }
     ?>
@@ -100,6 +99,8 @@ include_once($connRoute); // Inclui o arquivo de conexao
 
 
   <script src="<?php echo $functionsRoute ?>"></script>
+  <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
