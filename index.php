@@ -32,13 +32,11 @@ if (isset($_SESSION['tipo'])) {
 </head>
 
 <body onload="delay()">
-  <!-- <div class="loading">
+  <div class="loading">
     <div>
-      <img src="pages/img-estatico/fundoLoading.svg" alt="gato tela de carregamento">
-      <br>
       <p>Carregando</p>
     </div>
-  </div> -->
+  </div>
 
     <div class="contatoHeader">
         <p>Contate-nos: (11) 98253-2481</p>

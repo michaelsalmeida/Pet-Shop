@@ -271,6 +271,7 @@ footer p{
   background-repeat: no-repeat;
   z-index: 5;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 .loading div {
@@ -320,7 +321,7 @@ footer p{
   }
 }
 
-/* efeito de link */
+/* efeito de link header */
 
 header .responsive .links a{
   display: inline-block;
