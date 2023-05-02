@@ -67,24 +67,26 @@ function agenFun() {
 }
 
 function paginacao(tipo) {
+    var extra = "";
+
     if (tipo == 'gerarTabelaDeleteFun') { // Listar funcionário
         var pesq = document.getElementById('pesq').value;
         var filtro = document.getElementById('situacoes').value;
-        var extra = `&pesq=${pesq}&situ=${filtro}`;
+        extra = `&pesq=${pesq}&situ=${filtro}`;
         
     } else if (tipo == 'gerarTabelaAgenFun') { // Puxar os agendamentos para o funcionário
         var pesq = document.getElementById('pesq').value;
         var filtro = document.getElementById('status').value;
-        var extra = `&pesq=${pesq}&status=${filtro}`;
+        extra = `&pesq=${pesq}&status=${filtro}`;
 
     } else if (tipo == 'tabelaFunAgenCli'){
         var pesq = document.getElementById('pesq').value;
         var servico = document.getElementById('status').value;
-        var extra = `&servico=${servico}&pesq=${pesq}`;
+        extra = `&servico=${servico}&pesq=${pesq}`;
     } else if (tipo == 'tabelaComentarios'){
         var pesq = document.getElementById('pesq').value;
         var data = document.getElementById('data').value;
-        var extra = `&pesq=${pesq}&data=${data}`;
+        extra = `&pesq=${pesq}&data=${data}`;
     }
 
     var pag = document.getElementById('pag').innerText

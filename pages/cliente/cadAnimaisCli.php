@@ -121,6 +121,15 @@ if (!loged()) { // Verifica se há um usuário logado
             </div>
 
             <div>
+                <label for="sexo">Sexo</label><br>
+                <select name="sexo" id="sexo">
+                    <option value="F">Feminino</option>
+                    <option value="M">Masculino</option>
+                    <option value="M">Masculino</option>
+                </select>
+            </div>
+
+            <div>
                 <label for="raca">Raça</label><br>
                 <input type="text" name="raca">
             </div>
