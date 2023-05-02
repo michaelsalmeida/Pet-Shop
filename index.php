@@ -1,6 +1,11 @@
 <?php
 include_once("rotas.php");
 require_once $funcoesRoute;
+
+if (isset($_SESSION['tipo'])) {
+    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+    header("Location: " . $agendamentoFunRoute);
+}
 ?>
 
 <!DOCTYPE html>
@@ -61,16 +66,11 @@ require_once $funcoesRoute;
             <div class="acesso">
                 <?php
                 if (loged()) {
-                    if (isset($_SESSION['tipo'])) {
-                        // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
-                        header("Location: " . $agendamentoFunRoute);
-                    } else {
-                        // Esses botões só aparecem quando o usuário estive logado
-                        echo "
-                        <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
-                        <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        ";
-                    }
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "
+                    <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+                    <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+                    ";
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
                     echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
@@ -91,25 +91,20 @@ require_once $funcoesRoute;
 
             <?php
             if (loged()) {
-                if (isset($_SESSION['tipo'])) {
-                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
-                    header("Location: " . $agendamentoFunRoute);
-                } else {
-                    // Esses botões só aparecem quando o usuário estive logado
-                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
-                        <img src='pages/img-estatico/account_circle.svg'>
-                        <p>></p>
-                        </div>
-                        
-                        
-                        <div class='menu-perfil'>
-                        <p>Bem Vindo! " . $_SESSION['nomeCliente'] . "</p>
-                        <a href='$meuPerfilCliRoute'><img src='pages/img-estatico/account_circle.svg'> Meu Perfil</a>
-                        <a href='$animaisCliRoute'>Meus Animais</a>
-                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
-                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
-                        </div>";
-                }
+                // Esses botões só aparecem quando o usuário estive logado
+                echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                    <img src='pages/img-estatico/account_circle.svg'>
+                    <p>></p>
+                    </div>
+                    
+                    
+                    <div class='menu-perfil'>
+                    <p>Bem Vindo! " . $_SESSION['nomeCliente'] . "</p>
+                    <a href='$meuPerfilCliRoute'><img src='pages/img-estatico/account_circle.svg'> Meu Perfil</a>
+                    <a href='$animaisCliRoute'>Meus Animais</a>
+                    <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                    <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                    </div>";
             }
             ?>
 
