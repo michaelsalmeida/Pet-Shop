@@ -6,6 +6,14 @@ require_once $funcoesRoute;
 if (!isset($_SESSION['msgAltCli'])){
     $_SESSION['msgAltCli'] = ''; 
 }
+if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
+    header("Location: " . $agendamentoFunRoute);
+}
+if (!loged()) { // Verifica se há um usuário logado
+    $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
+    // Se não tiver manda ele para a página de login
+    header("Location: " . $loginCliRoute);
+}
 ?>
 
 
@@ -26,14 +34,6 @@ if (!isset($_SESSION['msgAltCli'])){
 
 <body onload="altMeuPerfilCli(), perfilCliToast(<?php echo $_SESSION['msgAltCli']; ?>)">
     <?php
-    if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
-        header("Location: " . $agendamentoFunRoute);
-    }
-    if (!loged()) { // Verifica se há um usuário logado
-        $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
-        // Se não tiver manda ele para a página de login
-        header("Location: " . $loginCliRoute);
-    }
     if (isset($_SESSION['msgMeuPerfilCli'])) { // Verifica se há uma mensagem para mostrar
         echo $_SESSION['msgMeuPerfilCli'];
         unset($_SESSION['msgMeuPerfilCli']);
@@ -58,16 +58,11 @@ if (!isset($_SESSION['msgAltCli'])){
             <div class="acesso">
                 <?php
                 if (loged()) {
-                    if (isset($_SESSION['tipo'])) {
-                        // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
-                        header("Location: " . $agendamentoFunRoute);
-                    } else {
-                        // Esses botões só aparecem quando o usuário estive logado
-                        echo "
-                        <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
-                        <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        ";
-                    }
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "
+                    <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+                    <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+                    ";
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
                     echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
@@ -87,25 +82,20 @@ if (!isset($_SESSION['msgAltCli'])){
 
             <?php
             if (loged()) {
-                if (isset($_SESSION['tipo'])) {
-                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
-                    header("Location: " . $agendamentoFunRoute);
-                } else {
-                    // Esses botões só aparecem quando o usuário estive logado
-                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
-                        <img src='../img-estatico/account_circle.svg'>
-                        <p>></p>
-                        </div>
-                        
-                        
-                        <div class='menu-perfil'>
-                        <p>Bem Vindo! " . $_SESSION['nomeCliente'] . "</p>
-                        <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
-                        <a href='$animaisCliRoute'>Meus Animais</a>
-                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
-                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
-                        </div>";
-                }
+                // Esses botões só aparecem quando o usuário estive logado
+                echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                    <img src='../img-estatico/account_circle.svg'>
+                    <p>></p>
+                    </div>
+                    
+                    
+                    <div class='menu-perfil'>
+                    <p>Bem Vindo! " . $_SESSION['nomeCliente'] . "</p>
+                    <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
+                    <a href='$animaisCliRoute'>Meus Animais</a>
+                    <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                    <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                    </div>";
             }
             ?>
 

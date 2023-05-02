@@ -2,6 +2,15 @@
 include_once("../../rotas.php");
 include_once($connRoute);
 require_once $funcoesRoute;
+
+if (!loged()) {
+  $_SESSION['msgloginFun'] = "Por favor, faça o login primeiro.";
+  header("Location: " . $loginFunRoute);
+}
+if (!isset($_SESSION['tipo'])) {
+  // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
+  header("Location: " . $homeRoute);
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,16 +58,6 @@ require_once $funcoesRoute;
     <nav class="responsive menu-perfil" style="opacity: 0; z-index: -1;">
 
       <?php
-      if (!loged()) {
-        $_SESSION['msgloginFun'] = "Por favor, faça o login primeiro.";
-        header("Location: " . $loginFunRoute);
-      }
-
-      if (!isset($_SESSION['tipo'])) {
-        // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
-        header("Location: " . $homeRoute);
-      }
-
       if ($_SESSION['tipo'] == 'Secretaria') {
         echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
         echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";

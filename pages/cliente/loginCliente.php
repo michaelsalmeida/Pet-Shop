@@ -7,7 +7,10 @@ require_once $funcoesRoute;
 if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
     header("Location: " . $agendamentoFunRoute);
 }
-
+if (loged()) { // Verifica se há um usuário logado
+    // Se tiver manda ele para a página principal
+    header("Location: " . $homeRoute);
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +27,6 @@ if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcioná
 </head>
 
 <body>
-    <?php
-    if (loged()) { // Verifica se há um usuário logado
-        // Se não tiver manda ele para a página de login
-        header("Location: " . $homeRoute);
-    }
-    ?>
-
     <header>
         <a href="<?php echo $homeRoute; ?>" id="logo">
             <p>Hamtaro Petshop</p>
