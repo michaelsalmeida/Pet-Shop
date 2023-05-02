@@ -168,6 +168,7 @@
     padding: 10px 30px;
     border-radius: 5px;
     transition: all 0.5s;
+    cursor: default;
 }
 .contato div button:hover{
     background-color: rgba(128, 128, 128, 0.329);

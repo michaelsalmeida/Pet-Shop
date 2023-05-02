@@ -146,6 +146,8 @@ form input[type ="submit"]:disabled:hover{
 }
 
 #base .input, #endereco .input{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #base{

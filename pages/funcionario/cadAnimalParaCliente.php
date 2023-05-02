@@ -1,23 +1,23 @@
 <?php
-    include_once("../../rotas.php");
-    include_once($connRoute);
-    require_once $funcoesRoute;
+include_once("../../rotas.php");
+include_once($connRoute);
+require_once $funcoesRoute;
 
 
-    if (!loged()) {
-        $_SESSION['msgloginFun'] = "Por favor, faça o login primeiro.";
-        header("Location: " . $loginFunRoute);
-    }
+if (!loged()) {
+    $_SESSION['msgloginFun'] = "Por favor, faça o login primeiro.";
+    header("Location: " . $loginFunRoute);
+}
 
-  if (!isset($_SESSION['tipo'])) {
-    // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
-    header("Location: " . $homeRoute);
-  } else {
+if (!isset($_SESSION['tipo'])) {
+// $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
+header("Location: " . $homeRoute);
+} else {
     if ($_SESSION['tipo'] != 'Secretaria'){
         $_SESSION['msgRotaProibida'] = "Você Não possui permissão para entrar nessa página";
         header("Location: " . $agendamentoFunRoute);
     }
-  }
+}
 ?>
 
 

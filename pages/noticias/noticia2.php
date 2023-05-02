@@ -1,3 +1,7 @@
+<?php
+include_once("../../rotas.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

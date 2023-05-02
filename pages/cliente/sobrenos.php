@@ -18,6 +18,9 @@ require_once $funcoesRoute;
 </head>
 
 <body>
+  <a href="" class="zap">
+    <img src="../img-estatico/whatsapp.png" alt="whatsapp">
+  </a>
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
@@ -27,8 +30,9 @@ require_once $funcoesRoute;
 
             <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
+                <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
 
             </div>
@@ -262,9 +266,9 @@ require_once $funcoesRoute;
             <div class="item-valor">
                 <img src="../img-estatico/compromisso.svg" alt="ícone do compromisso">
 
-                <h4>Compromisso com a saúde e bem-estar </h4>
+                <h4>Compromisso com a saúde </h4>
                 <p>A empresa deve oferecer serviços e produtos de qualidade para garantir a saúde e o bem-estar dos
-                    animais, desde alimentação saudável até tratamentos médicos.</p>
+                    animais, desde alimentação saudável até tratamentos.</p>
             </div>
 
             <div class="item-valor">

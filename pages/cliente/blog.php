@@ -1,6 +1,11 @@
 <?php
 include_once("../../rotas.php");
 require_once $funcoesRoute;
+
+if (isset($_SESSION['tipo'])) {
+    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
+    header("Location: " . $agendamentoFunRoute);
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +24,9 @@ require_once $funcoesRoute;
 </head>
 
 <body>
+  <a href="" class="zap">
+    <img src="../img-estatico/whatsapp.png" alt="whatsapp">
+  </a>
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
@@ -28,8 +36,9 @@ require_once $funcoesRoute;
 
             <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
+                <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
 
             </div>
@@ -37,16 +46,11 @@ require_once $funcoesRoute;
             <div class="acesso">
                 <?php
                 if (loged()) {
-                    if (isset($_SESSION['tipo'])) {
-                        // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
-                        header("Location: " . $agendamentoFunRoute);
-                    } else {
-                        // Esses botões só aparecem quando o usuário estive logado
-                        echo "
-                        <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
-                        <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
-                        ";
-                    }
+                    // Esses botões só aparecem quando o usuário estive logado
+                    echo "
+                    <a href='$fazAgendamentoCliRoute'>Fazer Agendamento</a>
+                    <a href='$cadAnimaisCliRoute'>Cadastrar Animais</a>
+                    ";
                 } else {
                     // Esses botões aparecem se o usuário não estiver logado
                     echo "<a href='$loginCliRoute'><img src='../img-estatico/login.svg' alt=''> Login</a>";
@@ -67,25 +71,20 @@ require_once $funcoesRoute;
 
             <?php
             if (loged()) {
-                if (isset($_SESSION['tipo'])) {
-                    // Se o usuário logado for um funcionário, ele é levado para a pág de agendamento
-                    header("Location: " . $agendamentoFunRoute);
-                } else {
-                    // Esses botões só aparecem quando o usuário estive logado
-                    echo "  <div class='perfil' onmousedown='menuPerfil()'>
-                        <img src='../img-estatico/account_circle.svg'>
-                        <p>></p>
-                        </div>
-                        
-                        
-                        <div class='menu-perfil'>
-                        <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
-                        <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
-                        <a href='$animaisCliRoute'>Meus Animais</a>
-                        <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
-                        <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
-                        </div>";
-                }
+                // Esses botões só aparecem quando o usuário estive logado
+                echo "  <div class='perfil' onmousedown='menuPerfil()'>
+                    <img src='../img-estatico/account_circle.svg'>
+                    <p>></p>
+                    </div>
+                    
+                    
+                    <div class='menu-perfil'>
+                    <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
+                    <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
+                    <a href='$animaisCliRoute'>Meus Animais</a>
+                    <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
+                    <button onclick='executeFunctions(" . '"logoff" , ""' . ")'>Sair</button>
+                    </div>";
             }
             ?>
 
@@ -213,7 +212,7 @@ require_once $funcoesRoute;
 
                 <div class="comentario">
                     <h3>Lucas Santos Silva</h3>
-                    <p>Gostei muito da consulta meu gato ficou 100%.</p>
+                    <p>Gostei muito da consulta, meu gato ficou (100%).</p>
                 </div>
             </div>
 
@@ -222,7 +221,7 @@ require_once $funcoesRoute;
 
                 <div class="comentario">
                     <h3>Luiza Soares</h3>
-                    <p>Preços bons e funcionários apaixonados pelo animais.</p>
+                    <p>Preços bons e funcionários apaixonados pelos animais.</p>
                 </div>
             </div>
 
@@ -235,7 +234,7 @@ require_once $funcoesRoute;
 
                 <div class="comentario">
                     <h3>Luiz Carlos Sampaio</h3>
-                    <p>A pata do meu pet está saudável graças ao veterináro Daniel.</p>
+                    <p>A pata do meu pet está saudável graças ao veterinário Daniel.</p>
                 </div>
             </div>
 

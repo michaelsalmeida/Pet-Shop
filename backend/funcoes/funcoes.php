@@ -81,7 +81,8 @@ function gerarTabelaAni() {
     }
 
     // Paginação - Somar a quantidade de usuários
-    $result_pg = "SELECT COUNT(PK_Animal) AS num_result FROM Animais";
+    $result_pg = "SELECT COUNT(PK_Animal) AS num_result FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo'";
+    $stmt->bind_param("s", $_SESSION['idCli']);
     $resultado_pg = mysqli_query($conn, $result_pg);
     $row_pg = mysqli_fetch_assoc($resultado_pg);
 
@@ -204,7 +205,15 @@ function gerarTabelaAgenCli() {
     }
 
     // Paginação - Somar a quantidade de usuários
-    $result_pg = "SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos";
+    $result_pg = "SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos
+            INNER JOIN Animais
+            ON Agendamentos.fk_Animal = Animais.pk_Animal
+            INNER JOIN Clientes
+            ON Animais.fk_Cliente = Clientes.pk_Cliente
+            INNER JOIN Funcionarios
+            ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
+            WHERE pk_Cliente = ?";
+    $stmt->bind_param("s", $_SESSION['idCli']);
     $resultado_pg = mysqli_query($conn, $result_pg);
     $row_pg = mysqli_fetch_assoc($resultado_pg);
 
@@ -625,7 +634,11 @@ function gerarTabelaDeleteFun() {
     }
     
     // Paginação - Somar a quantidade de usuários
-    $result_pg = "SELECT COUNT(PK_Funcionario) AS num_result FROM Funcionarios";
+    $result_pg = "SELECT COUNT(PK_Funcionario) AS num_result FROM Funcionarios
+        WHERE nome LIKE ?
+        AND profissao != 'admin'
+        AND ativo = ?";
+    $stmt->bind_param("ss", $pesquisar, $situacao);
     $resultado_pg = mysqli_query($conn, $result_pg);
     $row_pg = mysqli_fetch_assoc($resultado_pg);
 
@@ -1028,7 +1041,10 @@ function tabelaComentarios() {
     }
 
     // Paginação - Somar a quantidade de usuários
-    $result_pg = "SELECT COUNT(PK_Comentario) AS num_result FROM Comentarios";
+    $result_pg = "SELECT COUNT(PK_Comentario) AS num_result FROM Comentarios
+        WHERE `data` = ?
+        AND mensagem LIKE ?";
+    $stmt->bind_param("ss", $filtroData, $filtroMensagem);
     $resultado_pg = mysqli_query($conn, $result_pg);
     $row_pg = mysqli_fetch_assoc($resultado_pg);
 
