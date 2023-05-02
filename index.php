@@ -34,6 +34,7 @@ if (isset($_SESSION['tipo'])) {
 <body onload="delay()">
   <div class="loading">
     <div>
+      <img src="pages/img-estatico/fundoLoading.png" alt="">
       <p>Carregando</p>
     </div>
   </div>
