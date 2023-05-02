@@ -29,6 +29,7 @@ a{
   justify-content: space-between;
   gap: 20px;
   padding: 20px 30px;
+  width: 100%;
 }
 
 .box-logo-barra-de-pesquisa-perfil img{

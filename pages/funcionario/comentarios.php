@@ -24,9 +24,8 @@ if (!isset($_SESSION['tipo'])) {
     <title>Document</title>
     <script src="<?php echo $functionsRoute; ?>"></script>
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css-dinamico/table.css">
+   
+ 
     <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css">
 
     <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
@@ -54,8 +53,9 @@ if (!isset($_SESSION['tipo'])) {
             <a href="<?php echo $homeRoute; ?>"><img src="../img-dinamico/logo-corporativo.svg" alt="logo hamtaro petshop corporativo"></a>
 
             <div class="box-pesquisar">
-                <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
-                <button onclick="paginacao('gerarTabelaAgenFun')"><i class="bi bi-search"></i></button>
+                <input type="text" placeholder="Pesquise por palavras chaves" id="pesq">
+                <button onclick="paginacao('tabelaComentarios')"><i class="bi bi-search"></i></button>
+
             </div>
 
 
@@ -113,11 +113,7 @@ if (!isset($_SESSION['tipo'])) {
     </header>
 
 
-    <div>
-        <input type="text" placeholder="Pesquise por palavras chaves" id="pesq">
-        <button onclick="paginacao('tabelaComentarios')">Pesquisar</button>
-    </div>
-
+            
     <div>
         <input type="date" id="data">
         <button onclick="paginacao('tabelaComentarios')">Pesquisar</button>
