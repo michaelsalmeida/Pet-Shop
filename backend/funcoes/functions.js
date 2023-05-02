@@ -1,3 +1,4 @@
+
 function executeFunctions(func, id) {
     // Define as variaveis necessárias no caso da função for acionada pelo botão de agendar
     extra = `&id=${id}`
@@ -253,14 +254,14 @@ function activeModalAlterarSenha(id) {
         </div>
 
         <div class='box-input-modal'>
-            <label for="senhaAtual">Senha atual:</label>
-            <input pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$" type="password" name="senhaAtual" required placeholder='Digite a senha atual:'>
+            <label for="senhaAtual">Senha atual: <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha()"></button></label>
+            <input pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$" type="password" name="senhaAtual" id="password" required placeholder='Digite a senha atual:'>
         </div>
 
         <div class='box-input-modal'>
 
-            <label for="senha">Nova senha:</label>
-            <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="senha" required placeholder='Digite a nova senha:'>
+            <label for="senha">Nova senha: </label>
+            <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="senha"  required placeholder='Digite a nova senha:'>
 
         </div>
 

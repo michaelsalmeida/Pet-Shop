@@ -40,7 +40,7 @@ if (!isset($_SESSION['tipo'])) {
   <header class="header-corporativo">
     <div class="box-logo-barra-de-pesquisa-perfil">
 
-      <a href="<?php echo $homeRoute; ?>"><img src="../img-dinamico/logo-corporativo.svg" alt="logo hamtaro petshop corporativo"></a>
+      <a href="<?php echo $agendamentoFunRoute; ?>"><img src="../img-dinamico/logo-corporativo.svg" alt="logo hamtaro petshop corporativo"></a>
 
       <div class="box-pesquisar">
         <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">

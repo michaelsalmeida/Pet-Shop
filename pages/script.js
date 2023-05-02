@@ -80,3 +80,18 @@ function delay(){
 function fechaCarregando(){
   document.querySelector(".loading").style.display= "none"
 }
+
+// inicio lógica do olho para mostrar a senha
+function mostrarSenha(){
+  const passwordInput = document.getElementById("password");
+  const toggleButton = document.getElementById("toggleButton");
+  
+  if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      toggleButton.className = "bi-eye-slash-fill";
+  } else {
+      passwordInput.type = "password";
+      toggleButton.className = "bi-eye-fill";
+  }
+
+}

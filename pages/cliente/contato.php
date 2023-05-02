@@ -120,7 +120,7 @@ require_once $funcoesRoute;
             </fieldset>
             <fieldset id="tell">
                 <label for="">Telefone</label>
-                <input type="text" name="tell" required>
+                <input type="text" name="tell" pattern="[(]?[0-9]{2}[)]?[0-9]{5}[-]?[0-9]{4}" required>
             </fieldset>
             <fieldset id="email">
                 <label for="">Email</label> 
