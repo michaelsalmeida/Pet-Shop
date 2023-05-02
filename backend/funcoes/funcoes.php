@@ -81,7 +81,8 @@ function gerarTabelaAni() {
     }
 
     // Paginação - Somar a quantidade de usuários
-    $result_pg = "SELECT COUNT(PK_Animal) AS num_result FROM Animais";
+    $result_pg = "SELECT COUNT(PK_Animal) AS num_result FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo'";
+    $stmt->bind_param("s", $_SESSION['idCli']);
     $resultado_pg = mysqli_query($conn, $result_pg);
     $row_pg = mysqli_fetch_assoc($resultado_pg);
 
