@@ -38,6 +38,10 @@ if (isset($_SESSION['tipo'])) {
     </div>
   </div>
 
+  <a href="" class="zap">
+    <img src="pages/img-estatico/whatsapp.png" alt="whatsapp">
+  </a>
+
     <div class="contatoHeader">
         <p>Contate-nos: (11) 98253-2481</p>
         <img src="pages/img-estatico/endereço.svg" alt="">

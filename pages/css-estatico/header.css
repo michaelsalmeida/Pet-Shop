@@ -358,3 +358,15 @@ header .responsive .links a:hover::after{
   transform: scaleX(1);
   transform: bottom left;
 }
+
+/* contato whatsapp */
+
+.zap{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.zap img{
+  width: 70px;
+}

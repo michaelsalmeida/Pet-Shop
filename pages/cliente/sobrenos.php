@@ -18,6 +18,9 @@ require_once $funcoesRoute;
 </head>
 
 <body>
+  <a href="" class="zap">
+    <img src="../img-estatico/whatsapp.png" alt="whatsapp">
+  </a>
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">

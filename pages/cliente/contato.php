@@ -24,6 +24,9 @@ if (isset($_SESSION['tipo'])) {
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgComent']); ?>)">
+  <a href="" class="zap">
+    <img src="../img-estatico/whatsapp.png" alt="whatsapp">
+  </a>
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
