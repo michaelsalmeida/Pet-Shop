@@ -348,7 +348,8 @@ header .responsive .links a::after{
   height: 2px;
   bottom: -5px;
   left: 0px;
-  background-color: #0051ff;
+  /* background-color: #0051ff; */
+  background-color: #7da4fa;
   transform-origin: bottom right;
   transition: transform 0.5s ease-in-out;
 }
