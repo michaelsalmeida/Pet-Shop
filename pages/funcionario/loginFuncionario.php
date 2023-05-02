@@ -83,7 +83,7 @@ if (isset($_SESSION['tipo'])) {
 
 
     <div class="box-cadastro">
-        <span>Ainda não possui cadastro corporativo? <a href=""> Informe seu gestor.</a></span>
+        <span>Ainda não possui cadastro corporativo? <a href="" id="link-gestor"> Informe seu gestor.</a></span>
     </div>
     <script src="../../backend/funcoes/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

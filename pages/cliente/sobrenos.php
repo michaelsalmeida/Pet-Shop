@@ -266,9 +266,9 @@ require_once $funcoesRoute;
             <div class="item-valor">
                 <img src="../img-estatico/compromisso.svg" alt="ícone do compromisso">
 
-                <h4>Compromisso com a saúde e bem-estar </h4>
+                <h4>Compromisso com a saúde </h4>
                 <p>A empresa deve oferecer serviços e produtos de qualidade para garantir a saúde e o bem-estar dos
-                    animais, desde alimentação saudável até tratamentos médicos.</p>
+                    animais, desde alimentação saudável até tratamentos.</p>
             </div>
 
             <div class="item-valor">

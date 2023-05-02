@@ -49,45 +49,45 @@ include_once($funcoesRoute);
             <div id="base" class="col-lg-5 m-4">
                 <div class="input row">
                     <label for="nome">NOME *</label>
-                    <input type="text" name="nome" placeholder="Digite o seu nome" required autofocus><br><br>
+                    <input type="text" name="nome" placeholder="Digite o seu nome" required autofocus>
                 </div>
 
                 <div class="input row">
                     <label for="sobrenome">SOBRENOME *</label>
-                    <input type="text" name="sobrenome" placeholder="Digite o seu sobrenome" required><br><br>
+                    <input type="text" name="sobrenome" placeholder="Digite o seu sobrenome" required>
                 </div>
 
                 <div class="input row">
                     <label for="cpf">CPF *</label>
                     <input type="text" name="cpf" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}"
-                        placeholder="Digite seu CPF" required><br><br>
+                        placeholder="Digite seu CPF" required>
 
                 </div>
 
                 <div class="input row">
                     <label for="celular">CELULAR *</label>
                     <input type="text" name="celular" pattern="[(]?[0-9]{2}[)]?[0-9]{5}[-]?[0-9]{4}" placeholder="Digite seu telefone"
-                        require><br><br>
+                        require>
 
                 </div>
 
                 <div class="input row">
                     <label for="email">EMAIL *</label>
-                    <input type="email" name="email" placeholder="Digite seu email para login" required><br><br>
+                    <input type="email" name="email" placeholder="Digite seu email para login" required>
 
                 </div>
 
                 <div class="input row">
                     <label for="senha">SENHA *</label>
                     <input type="password" name="senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
-                        placeholder="Digite sua senha" required><br><br>
+                        placeholder="Digite sua senha" required>
 
                 </div>
 
                 <div class="input row">
                     <label for="senha">CONFIRMAR SENHA *</label>
                     <input type="password" name="confsenha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
-                        placeholder="Digite sua senha" required><br><br>
+                        placeholder="Digite sua senha" required>
 
                 </div>
 
@@ -98,47 +98,47 @@ include_once($funcoesRoute);
                 <div class="input row">
                     <label>CEP *</label>
                     <input type="text" name="cep" pattern="[0-9]{5}[-]?[0-9]{3}" id="cep" placeholder="Digite o CEP"
-                        onblur="pesquisacep(this.value)" required><br><br>
+                        onblur="pesquisacep(this.value)" required>
 
                 </div>
 
                 <div class="input row">
                     <label>RUA *</label>
-                    <input type="text" name="log" id="log" placeholder="Digite sua rua" required readonly><br><br>
+                    <input type="text" name="log" id="log" placeholder="Digite sua rua" required readonly>
 
                 </div>
 
                 <div class="input row">
                     <label>NÚMERO *</label>
                     <input type="text" name="numero" id="numero" placeholder="Digite o número da casa" pattern="\d{1,5}"
-                        required><br><br>
+                        required>
 
                 </div>
 
                 <div class="input row">
                     <label>COMPLEMENTO</label>
                     <input type="text" name="complemento" id="complemento" placeholder="Digite o complemento"
-                        value=""><br><br>
+                        value="">
 
                 </div>
 
                 <div class="input row">
                     <label>BAIRRO *</label>
                     <input type="text" name="bairro" id="bairro" placeholder="Digite o bairro" required
-                        readonly><br><br>
+                        readonly>
 
                 </div>
 
                 <div class="input row">
                     <label>CIDADE *</label>
-                    <input type="text" name="cid" id="cid" placeholder="Digite a cidade" required readonly><br><br>
+                    <input type="text" name="cid" id="cid" placeholder="Digite a cidade" required readonly>
 
                 </div>
 
                 <div class="input row">
                     <label>UF *</label>
                     <input type="text" name="uf" pattern="[a-zA-Z]{2}" id="uf" placeholder="Digite a uf" required
-                        readonly><br><br>
+                        readonly>
 
                 </div>
 

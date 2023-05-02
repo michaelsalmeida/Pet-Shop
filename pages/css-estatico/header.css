@@ -11,8 +11,13 @@
 
 a{
   text-decoration: none !important;
+  cursor: pointer;
 }
 
+
+#link-gestor{
+  cursor: auto;
+}
 /* FIM RESET */
 
 /* CONTATOS HEADER */
