@@ -57,6 +57,7 @@ if (isset($_SESSION['tipo'])) {
             <img onmousedown="fechaMenu()" src="pages/img-estatico/fechar.png" class="fechaMenu" alt="fecha">
 
             <div class="links">
+                <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>

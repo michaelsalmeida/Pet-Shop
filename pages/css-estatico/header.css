@@ -319,3 +319,40 @@ footer p{
     content: "...";
   }
 }
+
+/* efeito de link */
+
+header .responsive .links a{
+  display: inline-block;
+  position: relative;
+  color: #ffffff;
+  font-family: sans-serif;
+  /* font-size: 20px; */
+  cursor: pointer;
+  transition: 0.4s all ease;
+  font-weight: 600;
+  height: 20px;
+}
+
+header .responsive .links a:hover{
+  color: #cdcdcd;
+  transition: 0.4s all ease;
+}
+
+header .responsive .links a::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -5px;
+  left: 0px;
+  background-color: #0051ff;
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-in-out;
+}
+
+header .responsive .links a:hover::after{
+  transform: scaleX(1);
+  transform: bottom left;
+}
