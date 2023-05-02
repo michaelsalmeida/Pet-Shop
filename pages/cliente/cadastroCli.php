@@ -97,7 +97,7 @@ include_once($funcoesRoute);
 
                 <div class="input row">
                     <label>CEP *</label>
-                    <input type="text" name="cep" pattern="[0-9]{8}" id="cep" placeholder="Digite o CEP"
+                    <input type="text" name="cep" pattern="[0-9]{5}[-]?[0-9]{3}" id="cep" placeholder="Digite o CEP"
                         onblur="pesquisacep(this.value)" required><br><br>
 
                 </div>

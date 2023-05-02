@@ -212,7 +212,7 @@ if (isset($_SESSION['tipo'])) {
 
                 <div class="comentario">
                     <h3>Lucas Santos Silva</h3>
-                    <p>Gostei muito da consulta meu gato ficou 100%.</p>
+                    <p>Gostei muito da consulta, meu gato ficou 100%.</p>
                 </div>
             </div>
 
@@ -221,7 +221,7 @@ if (isset($_SESSION['tipo'])) {
 
                 <div class="comentario">
                     <h3>Luiza Soares</h3>
-                    <p>Preços bons e funcionários apaixonados pelo animais.</p>
+                    <p>Preços bons e funcionários apaixonados pelos animais.</p>
                 </div>
             </div>
 
