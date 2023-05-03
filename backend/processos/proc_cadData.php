@@ -32,6 +32,71 @@ if (strtotime($data) < strtotime($data_atual)){
         $_SESSION['tela'] = 'msgCadDataErro';
     header("location: " . $cadastradaDatasRoute);
     } else {
+        $hora_formatada = date("H:i:s", strtotime($hora));
+        $stmt2 = $conn -> prepare ("SELECT pk_Funcionario, data_agendamento, horario_agendamento
+        from Funcionarios 
+        inner join Agendamentos
+        on Funcionarios.pk_Funcionario = Agendamentos.fk_Funcionario
+        where nome = ? ");
+
+        $stmt2 -> bind_param("s", $profissional);
+
+        $stmt2 -> execute();
+
+        $result2 = $stmt2 -> get_result();
+
+        $correto = 0;
+
+        foreach ($result2->fetch_all() as $row){
+            if($row[0] == $idFun[0] && $row[1] == $data && $row[2] == $hora_formatada){
+                $correto = 1;
+            }
+        }
+
+        if ($correto == 1){
+            $_SESSION['msgCadDataErro'] = "Data já cadastrada";
+            header("location: " . $cadastradaDatasRoute);
+        } else {
+
+            $stmt = $conn->prepare("INSERT into Agendamentos (pk_Agendamento, fk_Funcionario, data_agendamento, horario_agendamento, tipo) VALUES (default, ?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $idFun[0], $data, $hora, $servico);
+            $stmt->execute();
+            
+            if ($stmt->affected_rows > 0) {
+                $_SESSION['msgCadData'] = "Data cadastrada com sucesso";
+                header("location: " . $agendamentoFunRoute);
+            } else {
+                $_SESSION['msgCadDataErro'] = "Data não cadastrada";
+                header("location: " . $cadastradaDatasRoute);
+            }
+        }
+    }
+} else {
+    $hora_formatada = date("H:i:s", strtotime($hora));
+    $stmt2 = $conn -> prepare ("SELECT pk_Funcionario, data_agendamento, horario_agendamento
+    from Funcionarios 
+    inner join Agendamentos
+    on Funcionarios.pk_Funcionario = Agendamentos.fk_Funcionario
+    where nome = ? ");
+
+    $stmt2 -> bind_param("s", $profissional);
+
+    $stmt2 -> execute();
+
+    $result2 = $stmt2 -> get_result();
+
+    $correto = 0;
+
+    foreach ($result2->fetch_all() as $row){
+        if($row[0] == $idFun[0] && $row[1] == $data && $row[2] == $hora_formatada){
+            $correto = 1;
+            break;
+        }
+    }
+    if ($correto == 1){
+        $_SESSION['msgCadDataErro'] = "Data já cadastrada";
+        header("location: " . $cadastradaDatasRoute);
+    } else {
         $stmt = $conn->prepare("INSERT into Agendamentos (pk_Agendamento, fk_Funcionario, data_agendamento, horario_agendamento, tipo) VALUES (default, ?, ?, ?, ?)");
         $stmt->bind_param("ssss", $idFun[0], $data, $hora, $servico);
         $stmt->execute();
@@ -43,17 +108,5 @@ if (strtotime($data) < strtotime($data_atual)){
             $_SESSION['msgCadDataErro'] = "Data não cadastrada";
             header("location: " . $cadastradaDatasRoute);
         }
-    }
-} else {
-    $stmt = $conn->prepare("INSERT into Agendamentos (pk_Agendamento, fk_Funcionario, data_agendamento, horario_agendamento, tipo) VALUES (default, ?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $idFun[0], $data, $hora, $servico);
-    $stmt->execute();
-    
-    if ($stmt->affected_rows > 0) {
-        $_SESSION['msgCadData'] = "Data cadastrada com sucesso";
-        header("location: " . $agendamentoFunRoute);
-    } else {
-        $_SESSION['msgCadDataErro'] = "Data não cadastrada";
-        header("location: " . $cadastradaDatasRoute);
     }
 }

@@ -197,6 +197,13 @@ function activateToast(param) {
       });
       break; 
 
+    case "Data já cadastrada":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
     
   } 
 
