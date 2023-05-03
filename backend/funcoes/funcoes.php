@@ -1083,6 +1083,7 @@ function verificarSession($lista){
         }
         if ($_SESSION[$item] != false){
             return "'" . $_SESSION[$item] . "'";
+            unset($_SESSION[$item]);
         }
     }
 }
