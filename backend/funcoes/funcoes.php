@@ -1037,6 +1037,8 @@ function tabelaComentarios() {
             // Formata a data
             $data = date('d/m/Y', strtotime($row[4]));
             $tabela = $tabela .
+
+            
                 "   <label>Data</label>
                     <p>$data</p>
                     <label>Nome</label>

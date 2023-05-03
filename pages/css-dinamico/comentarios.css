@@ -1,0 +1,34 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+.pesquisa-data{
+    padding: 30px;
+    
+}
+
+.pesquisa-data .borda-input{
+    border: 2px solid #000000;
+    border-radius: 10px;
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-items: center;
+    
+}
+
+.pesquisa-data .borda-input input, .pesquisa-data .borda-input button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.5s;
+    border-radius: 5px;
+}
+
+.pesquisa-data .borda-input button:hover, i:hover{
+    background-color: #8C52FF;
+    padding: 5px;
+    color: #000000;
+}
+

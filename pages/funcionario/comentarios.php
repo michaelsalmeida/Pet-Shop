@@ -18,17 +18,16 @@ if (!isset($_SESSION['tipo'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css-estatico/header.css">
-    <link rel="stylesheet" href="../css-dinamico/table.css">
-    <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css">
+    
     <title>Document</title>
     <script src="<?php echo $functionsRoute; ?>"></script>
-
-   
- 
+    
+    
+    <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css">
-
     <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
+    <link rel="stylesheet" href="../css-dinamico/comentarios.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 
 
@@ -114,16 +113,20 @@ if (!isset($_SESSION['tipo'])) {
 
 
             
-    <div>
-        <input type="date" id="data">
-        <button onclick="paginacao('tabelaComentarios')">Pesquisar</button>
+    <div class='pesquisa-data'>
+        <div class="borda-input">
+            <input type="date" id="data">
+            <button onclick="paginacao('tabelaComentarios')"><i class="bi bi-search"></i></button>
+        </div>
     </div>
 
 
     <div id="tabela"></div>
     <div id="links"></div>
     </div>
+    
 
+    
 
 
     <script src="../script.js"></script>
