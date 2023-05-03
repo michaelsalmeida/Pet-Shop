@@ -23,7 +23,7 @@ function logoff() {
 
 function gerarTabelaAni() {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/clientes/animaisCli.php';
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/cliente/animaisCli.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
@@ -83,8 +83,11 @@ function gerarTabelaAni() {
     // Paginação - Somar a quantidade de usuários
     $result_pg = "SELECT COUNT(PK_Animal) AS num_result FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo'";
     $stmt->bind_param("s", $_SESSION['idCli']);
-    $resultado_pg = mysqli_query($conn, $result_pg);
-    $row_pg = mysqli_fetch_assoc($resultado_pg);
+    // Executa o sql
+    $stmt->execute();
+    // Pega o resultado do banco
+    $resultado = $stmt->get_result();
+    $row_pg = mysqli_fetch_assoc($resultado);
 
     // Quantidade de pagina
     $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
@@ -116,7 +119,8 @@ function gerarTabelaAni() {
 function altAnimal() {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
     // String de preparação
-    $stmt = $conn->prepare("SELECT nome, data_nascimento, especie, raca, peso, cor FROM Animais WHERE pk_Animal = ?");
+    $stmt = $conn->prepare("SELECT nome, data_nascimento, sexo, especie, raca, peso, cor 
+    FROM Animais WHERE pk_Animal = ?");
     // Substituição da string preparada pelos valores corretos
     $stmt->bind_param("s", $_GET['idAni']);
     // Executa o sql
@@ -131,7 +135,7 @@ function altAnimal() {
 
 function gerarTabelaAgenCli() {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/clientes/agendamentosCli.php';
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/cliente/agendamentosCli.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
@@ -214,8 +218,11 @@ function gerarTabelaAgenCli() {
             ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
             WHERE pk_Cliente = ?";
     $stmt->bind_param("s", $_SESSION['idCli']);
-    $resultado_pg = mysqli_query($conn, $result_pg);
-    $row_pg = mysqli_fetch_assoc($resultado_pg);
+    // Executa o sql
+    $stmt->execute();
+    // Pega o resultado do banco
+    $resultado = $stmt->get_result();
+    $row_pg = mysqli_fetch_assoc($resultado);
 
     // Quantidade de pagina
     $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
@@ -503,8 +510,8 @@ function gerarTabelaAgenFun() {
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg
-    &status=$status&pesq=".$_GET['pesq']."'>>></a>";
+    $linkPaginas = $linkPaginas .
+    "<a href='$header?pagina=$quantidade_pg&status=$status&pesq=".$_GET['pesq']."'>>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -562,7 +569,7 @@ function getDesc() {
 
 function gerarTabelaDeleteFun() {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/Jfuncionario/listarFuncionario.php';
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/funcionario/listarFuncionario.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
@@ -639,19 +646,23 @@ function gerarTabelaDeleteFun() {
         AND profissao != 'admin'
         AND ativo = ?";
     $stmt->bind_param("ss", $pesquisar, $situacao);
-    $resultado_pg = mysqli_query($conn, $result_pg);
-    $row_pg = mysqli_fetch_assoc($resultado_pg);
+    // Executa o sql
+    $stmt->execute();
+    // Pega o resultado do banco
+    $resultado = $stmt->get_result();
+    $row_pg = mysqli_fetch_assoc($resultado);
 
     // Quantidade de pagina
     $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
+    $linkPaginas = "<a href='$header?pagina=1&situ=$situacao&pesq=".$_GET['pesq']."'><<</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant'>$pag_ant</a> ";
+            $linkPaginas =  
+            $linkPaginas . "<a href='$header?pagina=$pag_ant&situ=$situacao&pesq=".$_GET['pesq']."'>$pag_ant</a> ";
         }
     }
 
@@ -659,11 +670,13 @@ function gerarTabelaDeleteFun() {
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep'>$pag_dep</a> ";
+            $linkPaginas =  
+            $linkPaginas . "<a href='$header?pagina=$pag_dep&situ=$situacao&pesq=".$_GET['pesq']."'>$pag_dep</a> ";
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
+    $linkPaginas = 
+    $linkPaginas . " <a href='$header?pagina=$quantidade_pg&situ=$situacao&pesq=".$_GET['pesq']."'>>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -1082,8 +1095,9 @@ function verificarSession($lista){
             $_SESSION[$item] = false;
         }
         if ($_SESSION[$item] != false){
-            return "'" . $_SESSION[$item] . "'";
+            $retorno = $_SESSION[$item];
             unset($_SESSION[$item]);
+            return "'" . $retorno . "'";
         }
     }
 }

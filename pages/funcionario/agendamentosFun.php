@@ -46,7 +46,8 @@ if (!isset($_SESSION['tipo'])) {
                     alt="logo hamtaro petshop corporativo"></a>
 
             <div class="box-pesquisar">
-                <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
+                <input type="text" placeholder="Pesquise por um Funcionário" id="pesq"
+                onkeydown="if(event.keyCode==13){paginacao('gerarTabelaAgenFun');}">
                 <button onclick="paginacao('gerarTabelaAgenFun')"><i class="bi bi-search"></i></button>
             </div>
 

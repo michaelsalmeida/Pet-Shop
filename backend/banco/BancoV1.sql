@@ -66,13 +66,13 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Animais` (
   `fk_Cliente` INT UNSIGNED NOT NULL,
   `nome` VARCHAR(100) NOT NULL,
   `data_nascimento` DATE NOT NULL,
+  `sexo` ENUM('F', 'M', 'I'),
   `especie` VARCHAR(45) NOT NULL,
   `raca` VARCHAR(45) NOT NULL,
   `peso` FLOAT NOT NULL,
   `cor` VARCHAR(45) NOT NULL,
   `data_cadastro` DATE NOT NULL,
   `ativo` ENUM('ativo', 'inativo') NOT NULL,
-  `sexo` ENUM('F', 'M'),
   PRIMARY KEY (`pk_Animal`),
   CONSTRAINT `fk_Animais_Clientes1`
     FOREIGN KEY (`fk_Cliente`)
@@ -139,7 +139,7 @@ insert into Clientes VALUES
 'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af', 'ativo');
 
 insert into Animais values
-(default, 1, 'Tobias', '2023-01-01', 'dragao', 'komodo', '45', 'rosa', '2023-04-11', 'ativo');
+(default, 1, 'Tobias', '2023-01-01', 'I', 'dragao', 'komodo', '45', 'rosa', '2023-04-11', 'ativo');
 
 insert into Agendamentos values
 (default, 2, 1, '2023-03-11', '11:40', 'Em_Andamento', null, 'Veterinário', 'ativo'),
@@ -153,7 +153,6 @@ select * from Animais;
 select * from Clientes;
 select * from Agendamentos;
 select * from Funcionarios;
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

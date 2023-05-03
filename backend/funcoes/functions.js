@@ -61,6 +61,11 @@ function queryBanco(tipo) {
 function agenFun() {
     var params = new URLSearchParams(location.search);
     var status = params.get('status');
+    console.log(status)
+    if (status == null) {
+        status = 'Disponivel';
+    }
+
     document.getElementById('status').value = status;
 
     var pesq = params.get('pesq');
@@ -174,10 +179,11 @@ function altAnimal() {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
             document.getElementsByName("nome")[0].value = response[0];     // Adiciona o primeiro valor do JSON
             document.getElementsByName("dataNasc")[0].value = response[1]; // Adiciona o segundo valor do JSON
-            document.getElementsByName("espec")[0].value = response[2];    // Adiciona o terceiro valor do JSON
-            document.getElementsByName("raca")[0].value = response[3];     // Adiciona o quarto valor do JSON
-            document.getElementsByName("peso")[0].value = response[4];     // Adiciona o quinto valor do JSON
-            document.getElementsByName("cor")[0].value = response[5];      // Adiciona o sexto valor do JSON
+            document.getElementsByName("sexo")[0].value = response[2];    // Adiciona o terceiro valor do JSON
+            document.getElementsByName("espec")[0].value = response[3];    // Adiciona o terceiro valor do JSON
+            document.getElementsByName("raca")[0].value = response[4];     // Adiciona o quarto valor do JSON
+            document.getElementsByName("peso")[0].value = response[5];     // Adiciona o quinto valor do JSON
+            document.getElementsByName("cor")[0].value = response[6];      // Adiciona o sexto valor do JSON
         }
     };
     xhr.send();
@@ -394,4 +400,127 @@ function altMeuPerfilCli() {
         }
     };
     xhr.send();
+}
+
+
+function datalistRacas() {
+    racas = {
+        "CÃO": `<option value="Beagle">
+        <option value="Bulldog Francês">
+        <option value="Chihuahua">
+        <option value="Cocker Spaniel">
+        <option value="Dálmata">
+        <option value="Golden Retriever">
+        <option value="Labrador Retriever">
+        <option value="Maltês">
+        <option value="Poodle">
+        <option value="Pug">
+        <option value="Rottweiler">
+        <option value="Schnauzer">
+        <option value="Shar Pei">
+        <option value="Shih Tzu">
+        <option value="Yorkshire Terrier">
+        <option value="Vira-lata">`,
+
+        "GATO": `<option value="Siamês">
+        <option value="Persa">
+        <option value="Sphynx">
+        <option value="Bengal">
+        <option value="Ragdoll">
+        <option value="British Shorthair">
+        <option value="Maine Coon">
+        <option value="Abissínio">
+        <option value="American Shorthair">
+        <option value="Devon Rex">
+        <option value="Himalaio">
+        <option value="Manx">
+        <option value="Scottish Fold">
+        <option value="Somali">
+        <option value="Tonquinês">
+        <option value="Vira-lata">`,
+
+        "PEIXE": `<option value="Acará-disco">
+        <option value="Betta">
+        <option value="Corydora">
+        <option value="Guppy">
+        <option value="Platy">
+        <option value="Molly">
+        <option value="Neon">
+        <option value="Tetra-neon">
+        <option value="Tetra-cardinal">
+        <option value="Tetra-bandeira">
+        <option value="Tetra-preto">
+        <option value="Bolinha-de-vidro">
+        <option value="Kinguio">
+        <option value="Carpas-koi">
+        <option value="Pacu">`,
+
+        "PÁSSARO": `<option value="Agapornis">
+        <option value="Calopsita">
+        <option value="Canário Belga">
+        <option value="Caturrita">
+        <option value="Cockatiel">
+        <option value="Diamante Mandarim">
+        <option value="Gloster">
+        <option value="Periquito Australiano">
+        <option value="Periquito-de-Asa-Negra">
+        <option value="Periquito-de-Cauda-Longa">
+        <option value="Periquito-de-Encontro-Amarelo">
+        <option value="Periquito-de-Mascarilha">
+        <option value="Periquito-Rei">
+        <option value="Rosela">
+        <option value="Sabiá Laranjeira">`,
+
+        "HAMSTER": `<option value="Anão russo">
+        <option value="Sírio">
+        <option value="Roborovski">
+        <option value="Chinês">
+        <option value="Campbell">
+        <option value="Siberiano">
+        <option value="Djungarian">
+        <option value="Angorá">
+        <option value="Panda">
+        <option value="Winter White">
+        <option value="Golden">
+        <option value="Turco">
+        <option value="Rex">
+        <option value="Teddy bear">
+        <option value="Bumblebee">`,
+
+        "COELHO": `<option value="Coelho Mini Rex">
+        <option value="Coelho Netherland Dwarf">
+        <option value="Coelho Angorá">
+        <option value="Coelho Lionhead">
+        <option value="Coelho Flemish Giant">
+        <option value="Coelho Californiano">
+        <option value="Coelho Havana">
+        <option value="Coelho Polonês">
+        <option value="Coelho Holandês">
+        <option value="Coelho Chinchila">
+        <option value="Coelho Hotot">
+        <option value="Coelho Cabeça de Leão">
+        <option value="Coelho Himalaio">
+        <option value="Coelho Harlequin">
+        <option value="Coelho Rex">`,
+
+        "TARTARUGA": `<option value="Tartaruga-de-pescoço-longo">
+        <option value="Tartaruga-verde">
+        <option value="Tartaruga-de-orelha-vermelha">
+        <option value="Tartaruga-sulcata">
+        <option value="Tartaruga-terrestre-russa">
+        <option value="Tartaruga-terrestre-africana">
+        <option value="Tartaruga-de-pente">
+        <option value="Tartaruga-das-galápagos">
+        <option value="Tartaruga-hermann">
+        <option value="Tartaruga-de-hermann">
+        <option value="Tartaruga-mordedora">
+        <option value="Tartaruga-mediterrânea">
+        <option value="Tartaruga-marinha">
+        <option value="Tartaruga-pintada">
+        <option value="Tartaruga-aligator">`
+    }
+    espec = document.getElementById("espec").value.toUpperCase()
+    console.log(racas[espec])
+
+    document.getElementById("racas").innerHTML = racas[espec]
 }

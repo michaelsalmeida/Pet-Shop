@@ -42,7 +42,8 @@ if (!isset($_SESSION['tipo'])) {
       <a href="<?php echo $agendamentoFunRoute; ?>"><img src="../img-dinamico/logo-corporativo.svg" alt="logo hamtaro petshop corporativo"></a>
 
       <div class="box-pesquisar">
-        <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
+        <input type="text" placeholder="Pesquise por um Funcionário" id="pesq"
+        onkeydown="if(event.keyCode==13){paginacao('gerarTabelaDeleteFun');}">
         <button onclick="paginacao('gerarTabelaDeleteFun')"><i class="bi bi-search"></i></button>
       </div>
 
