@@ -19,7 +19,7 @@ include_once("../../rotas.php");
 <body>
 
     <header>
-        <a href="" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
@@ -77,7 +77,7 @@ include_once("../../rotas.php");
 
 
     <footer>
-        <a href="" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 

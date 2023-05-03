@@ -81,16 +81,16 @@ function gerarTabelaAni() {
     }
 
     // Paginação - Somar a quantidade de usuários
-    $result_pg = "SELECT COUNT(PK_Animal) AS num_result FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo'";
-    $stmt->bind_param("s", $_SESSION['idCli']);
+    $stmtCount = $conn->prepare("SELECT COUNT(PK_Animal) AS num_result FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo'");
+    $stmtCount->bind_param("s", $_SESSION['idCli']);
     // Executa o sql
-    $stmt->execute();
+    $stmtCount->execute();
     // Pega o resultado do banco
-    $resultado = $stmt->get_result();
-    $row_pg = mysqli_fetch_assoc($resultado);
+    $resultado = $stmtCount->get_result();
+    $row_pg = $resultado->fetch_all();
 
     // Quantidade de pagina
-    $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
+    $quantidade_pg = ceil($row_pg[0][0] / $qnt_result_pg);
 
     // Limitar os link antes depois
     $max_links = 2;
@@ -209,19 +209,19 @@ function gerarTabelaAgenCli() {
     }
 
     // Paginação - Somar a quantidade de usuários
-    $result_pg = "SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos
+    $stmtCount = $conn->prepare("SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos
             INNER JOIN Animais
             ON Agendamentos.fk_Animal = Animais.pk_Animal
             INNER JOIN Clientes
             ON Animais.fk_Cliente = Clientes.pk_Cliente
             INNER JOIN Funcionarios
             ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
-            WHERE pk_Cliente = ?";
-    $stmt->bind_param("s", $_SESSION['idCli']);
+            WHERE pk_Cliente = ?");
+    $stmtCount->bind_param("s", $_SESSION['idCli']);
     // Executa o sql
-    $stmt->execute();
+    $stmtCount->execute();
     // Pega o resultado do banco
-    $resultado = $stmt->get_result();
+    $resultado = $stmtCount->get_result();
     $row_pg = mysqli_fetch_assoc($resultado);
 
     // Quantidade de pagina
@@ -641,15 +641,15 @@ function gerarTabelaDeleteFun() {
     }
     
     // Paginação - Somar a quantidade de usuários
-    $result_pg = "SELECT COUNT(PK_Funcionario) AS num_result FROM Funcionarios
+    $stmtCount = $conn->prepare("SELECT COUNT(PK_Funcionario) AS num_result FROM Funcionarios
         WHERE nome LIKE ?
         AND profissao != 'admin'
-        AND ativo = ?";
-    $stmt->bind_param("ss", $pesquisar, $situacao);
+        AND ativo = ?");
+    $stmtCount->bind_param("ss", $pesquisar, $situacao);
     // Executa o sql
-    $stmt->execute();
+    $stmtCount->execute();
     // Pega o resultado do banco
-    $resultado = $stmt->get_result();
+    $resultado = $stmtCount->get_result();
     $row_pg = mysqli_fetch_assoc($resultado);
 
     // Quantidade de pagina
@@ -1054,12 +1054,15 @@ function tabelaComentarios() {
     }
 
     // Paginação - Somar a quantidade de usuários
-    $result_pg = "SELECT COUNT(PK_Comentario) AS num_result FROM Comentarios
+    $stmtCount = $conn->prepare("SELECT COUNT(PK_Comentario) AS num_result FROM Comentarios
         WHERE `data` = ?
-        AND mensagem LIKE ?";
-    $stmt->bind_param("ss", $filtroData, $filtroMensagem);
-    $resultado_pg = mysqli_query($conn, $result_pg);
-    $row_pg = mysqli_fetch_assoc($resultado_pg);
+        AND mensagem LIKE ?");
+    $stmtCount->bind_param("ss", $filtroData, $filtroMensagem);
+    // Executa o sql
+    $stmtCount->execute();
+    // Pega o resultado do banco
+    $resultado = $stmtCount->get_result();
+    $row_pg = mysqli_fetch_assoc($resultado);
 
     // Quantidade de pagina
     $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
