@@ -224,4 +224,13 @@ form input[type ="submit"]:disabled:hover{
   background-color: transparent;
   border: none;
   margin: 0px 5px;
+  display: inline;
+  cursor: pointer;
+  padding: 0px 10px;
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+
+.btnSenha:hover{
+  background-color: rgba(128, 128, 128, 0.249);
 }
