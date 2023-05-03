@@ -57,8 +57,8 @@ if (isset($_SESSION['tipo'])) {
                 </div>
 
                 <div class="senha">
-                    <label for="senha">Senha</label><br>
-                    <input type="password" name="senha" required>
+                    <label for="senha">Senha <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha()"></button></label><br>
+                    <input type="password" name="senha" id="password" required>
                 </div>
 
             </div>
@@ -87,6 +87,7 @@ if (isset($_SESSION['tipo'])) {
     </div>
     <script src="../../backend/funcoes/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../script.js"></script>
 </body>
 
 </html>

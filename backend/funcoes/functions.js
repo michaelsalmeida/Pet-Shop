@@ -262,23 +262,23 @@ function activeModalAlterarSenha(id) {
         </div>
 
         <div class='box-input-modal'>
-            <label for="senhaAtual">Senha atual: <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha()"></button></label>
+            <label for="senhaAtual">Senha atual: <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button></label>
             <input pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$" type="password" name="senhaAtual" id="password" required placeholder='Digite a senha atual:'>
         </div>
 
         <div class='box-input-modal'>
 
-            <label for="senha">Nova senha: </label>
-            <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="senha"  required placeholder='Digite a nova senha:'>
+            <label for="senha">Nova senha: <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2', 'password2')"></button></label>
+            <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="senha" id = "password2" required placeholder='Digite a nova senha:'>
 
         </div>
 
 
         <div class='box-input-modal'>
 
-            <label for="confsenha">Confirme a nova senha:</label>
+            <label for="confsenha">Confirme a nova senha: <button type="button" id="toggleButton3" class="bi-eye-fill" onclick="mostrarSenha('toggleButton3', 'password3')"></button></label>
 
-            <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="confsenha" required placeholder='Confirme a nova senha:'>
+            <input pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$' type="password" name="confsenha" id = "password3" required placeholder='Confirme a nova senha:'>
         </div>
 
 

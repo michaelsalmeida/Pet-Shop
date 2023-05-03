@@ -62,7 +62,7 @@ if (loged()) { // Verifica se há um usuário logado
                 </div>
 
                 <div class="senha">
-                    <label for="senha">Senha <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha()"></button></label><br>
+                    <label for="senha">Senha <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button></label><br>
                     <input type="password" name="senha" id="password">
                 </div>
 

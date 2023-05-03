@@ -82,9 +82,9 @@ function fechaCarregando(){
 }
 
 // inicio lógica do olho para mostrar a senha
-function mostrarSenha(){
-  const passwordInput = document.getElementById("password");
-  const toggleButton = document.getElementById("toggleButton");
+function mostrarSenha(botao, input){
+  const passwordInput = document.getElementById(`${input}`);
+  const toggleButton = document.getElementById(`${botao}`);
   
   if (passwordInput.type === "password") {
       passwordInput.type = "text";

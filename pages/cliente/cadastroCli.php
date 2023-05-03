@@ -18,6 +18,8 @@ include_once($funcoesRoute);
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/cadastro-cliente.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgCadCli']); ?>)">
@@ -78,15 +80,15 @@ include_once($funcoesRoute);
                 </div>
 
                 <div class="input row">
-                    <label for="senha">SENHA *</label>
-                    <input type="password" name="senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
+                    <label for="senha">SENHA * <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button></label>
+                    <input type="password" name="senha" id="password" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
                         placeholder="Digite sua senha" required>
 
                 </div>
 
                 <div class="input row">
-                    <label for="senha">CONFIRMAR SENHA *</label>
-                    <input type="password" name="confsenha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
+                    <label for="senha">CONFIRMAR SENHA * <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2', 'password2')"></button></label>
+                    <input type="password" name="confsenha" id="password2" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
                         placeholder="Digite sua senha" required>
 
                 </div>
@@ -175,6 +177,8 @@ include_once($funcoesRoute);
     <script src="<?php echo $confSenhaRoute; ?>"></script>
     <script src="../../backend/funcoes/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../script.js"></script>
+
 </body>
 
 </html>

@@ -29,6 +29,8 @@ if (!isset($_SESSION['tipo'])) {
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
     <link rel="stylesheet" href="../css-dinamico/cadastrar-funcionario.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 
 
 </head>
@@ -71,7 +73,7 @@ if (!isset($_SESSION['tipo'])) {
 
                 <div class="box-input">
 
-                    <label for="profissao">PROFISSÃO</label>
+                    <label for="profissao">PROFISSÃO: </label>
                     <select name="profissao" id="profissao" required>
                         <option value="" disabled selected hidden>Selecione a profissão do funcionário</option>
                         <option value="Veterinario">Veterinário</option>
@@ -87,8 +89,8 @@ if (!isset($_SESSION['tipo'])) {
 
                 <div class="box-input">
 
-                    <label for="senha">SENHA: </label>
-                    <input type="password" name="senha" placeholder="Digite a senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" required>
+                    <label for="senha">SENHA:  <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button></label>
+                    <input type="password" name="senha" id="password" placeholder="Digite a senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" required>
 
                 </div>
 
@@ -96,8 +98,8 @@ if (!isset($_SESSION['tipo'])) {
 
                 <div class="box-input">
 
-                    <label for="confsenha">CONFIRME A SENHA: </label>
-                    <input type="password" name="confsenha" placeholder="Digite a senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" required>
+                    <label for="confsenha">CONFIRME A SENHA: <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2' , 'password2')"></button></label>
+                    <input type="password" name="confsenha" id="password2" placeholder="Digite a senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" required>
 
                 </div>
 
@@ -121,6 +123,8 @@ if (!isset($_SESSION['tipo'])) {
     <script src="<?php echo $confSenhaRoute; ?>"></script>
     <script src="../../backend/funcoes/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../script.js"></script>
+
 </body>
 
 </html>
