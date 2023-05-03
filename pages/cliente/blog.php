@@ -24,7 +24,7 @@ if (isset($_SESSION['tipo'])) {
 </head>
 
 <body>
-  <a href="" class="zap">
+  <a href="https://wa.me/5511982532481?text=Ol%C3%A1%21+Poderia+me+ajudar%3F" class="zap">
     <img src="../img-estatico/whatsapp.png" alt="whatsapp">
   </a>
     <header>
