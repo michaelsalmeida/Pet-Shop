@@ -278,8 +278,8 @@ function checkAnimais() {
 }
 
 function gerarTabelaFazAgenCli() {
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
-    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/pages/funcionario/agendamentosFun.php';
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/funcionario/agendamentosFun.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
