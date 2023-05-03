@@ -2,6 +2,7 @@ let hambur = document.querySelector(".menu");
 let fecha = document.querySelector(".fechaMenu");
 let menu = document.querySelector(".responsive");
 var perfil = document.querySelector(".menu-perfil");
+let req = document.querySelector(".requisitos")
 
 // abre menu hamburguer
 function abreMenu() {
@@ -96,4 +97,14 @@ function mostrarSenha(botao, input){
       toggleButton.className = "bi-eye-fill";
   }
 
+}
+
+// fecha modal senha
+function fechaReq(){
+  req.style.display = "none"
+}
+
+// abre modal senha
+function reqSenha(){
+  req.style.display = "flex"
 }

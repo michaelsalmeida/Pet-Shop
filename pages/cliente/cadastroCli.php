@@ -80,15 +80,27 @@ include_once($funcoesRoute);
 
                 </div>
 
+                <div class="requisitos">
+                    <p class="tituloSenha">REQUISITOS DE SENHA</p>
+                    <button onmousedown="fechaReq()">x</button>
+                    <p>Mínimo 8 caracteres, sendo eles 1 letra maiúscula, 1 letra minuscula, 1 numero e um caractere especial</p>
+                </div>
+
                 <div class="input row">
-                    <label for="senha">SENHA * <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button></label>
+                    <label for="senha">SENHA * 
+                        <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button>
+                        <button class="btnSenha" onmousedown="reqSenha()">?</button>
+                    </label>
                     <input type="password" name="senha" id="password" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
                         placeholder="Digite sua senha" required>
 
                 </div>
 
                 <div class="input row">
-                    <label for="senha">CONFIRMAR SENHA * <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2', 'password2')"></button></label>
+                    <label for="senha">CONFIRMAR SENHA * 
+                        <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2', 'password2')"></button>
+                        <button class="btnSenha" onmousedown="reqSenha()">?</button>
+                    </label>
                     <input type="password" name="confsenha" id="password2" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
                         placeholder="Digite sua senha" required>
 
