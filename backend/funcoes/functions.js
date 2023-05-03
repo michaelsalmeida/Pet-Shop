@@ -174,7 +174,7 @@ function altAnimal() {
 
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altAnimal&idAni=${idAni}`, false);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
@@ -406,150 +406,213 @@ function altMeuPerfilCli() {
 
 function datalistRacas() {
     racas = {
-        "CACHORRO": `<option value="Akita">
-        <option value="Basset Hound">
-        <option value="Beagle">
-        <option value="Boxer">
-        <option value="Bull Terrier">
-        <option value="Bulldog Francês">
-        <option value="Chihuahua">
-        <option value="Cocker Spaniel">
-        <option value="Dálmata">
-        <option value="Doberman">
-        <option value="Golden Retriever">
-        <option value="Husky Siberiano">
-        <option value="Labrador Retriever">
-        <option value="Maltês">
-        <option value="Mastiff">
-        <option value="Pastor Alemão">
-        <option value="Pequinês">
-        <option value="Pointer">
-        <option value="Poodle">
-        <option value="Pug">
-        <option value="Rottweiler">
-        <option value="Schnauzer">
-        <option value="Schnauzer Gigante">
-        <option value="São Bernardo">
-        <option value="Setter Irlandês">
-        <option value="Shar Pei">
-        <option value="Shiba Inu">
-        <option value="Shih Tzu">
-        <option value="Weimaraner">
-        <option value="Yorkshire Terrier">
-        <option value="Vira-lata">`,
+        "CACHORRO": `<option value="Akita">Akita</option>
+        <option value="Basset Hound">Basset Hound</option>
+        <option value="Beagle">Beagle</option>
+        <option value="Boxer">Boxer</option>
+        <option value="Bull Terrier">Bull Terrier</option>
+        <option value="Bulldog Francês">Bulldog Francês</option>
+        <option value="Chihuahua">Chihuahua</option>
+        <option value="Cocker Spaniel">Cocker Spaniel</option>
+        <option value="Dálmata">Dálmata</option>
+        <option value="Doberman">Doberman</option>
+        <option value="Golden Retriever">Golden Retriever</option>
+        <option value="Husky Siberiano">Husky Siberiano</option>
+        <option value="Labrador Retriever">Labrador Retriever</option>
+        <option value="Maltês">Maltês</option>
+        <option value="Mastiff">Mastiff</option>
+        <option value="Pastor Alemão">Pastor Alemão</option>
+        <option value="Pequinês">Pequinês</option>
+        <option value="Pointer">Pointer</option>
+        <option value="Poodle">Poodle</option>
+        <option value="Pug">Pug</option>
+        <option value="Rottweiler">Rottweiler</option>
+        <option value="Schnauzer">Schnauzer</option>
+        <option value="Schnauzer Gigante">Schnauzer Gigante</option>
+        <option value="São Bernardo">São Bernardo</option>
+        <option value="Setter Irlandês">Setter Irlandês</option>
+        <option value="Shar Pei">Shar Pei</option>
+        <option value="Shiba Inu">Shiba Inu</option>
+        <option value="Shih Tzu">Shih Tzu</option>
+        <option value="Weimaraner">Weimaraner</option>
+        <option value="Yorkshire Terrier">Yorkshire Terrier</option>
+        <option value="Vira-lata">Vira-lata</option>
+        <option value="Outros">Outros</option>`,
 
-        "GATO": `<option value="Abissínio">
-        <option value="American Shorthair">
-        <option value="Azul Russo">
-        <option value="Bengal">
-        <option value="Burmese">
-        <option value="British Shorthair">
-        <option value="Cornish Rex">
-        <option value="Devon Rex">
-        <option value="Exótico">
-        <option value="Gato Siberiano">
-        <option value="Himalaio">
-        <option value="Maine Coon">
-        <option value="Manx">
-        <option value="Munchkin">
-        <option value="Norueguês da Floresta">
-        <option value="Ocicat">
-        <option value="Peterbald">
-        <option value="Persa">
-        <option value="Pixie Bob">
-        <option value="Ragdoll">
-        <option value="Sagrado da Birmânia">
-        <option value="Scottish Fold">
-        <option value="Siamês">
-        <option value="Snowshoe">
-        <option value="Sokoke">
-        <option value="Sphynx">
-        <option value="Tonquinês">
-        <option value="Van Turco">
-        <option value="Vira-lata">`,
+        "GATO": `<option value="Abissínio">Abissínio</option>
+        <option value="American Shorthair">American Shorthair</option>
+        <option value="Azul Russo">Azul Russo</option>
+        <option value="Bengal">Bengal</option>
+        <option value="Burmese">Burmese</option>
+        <option value="British Shorthair">British Shorthair</option>
+        <option value="Cornish Rex">Cornish Rex</option>
+        <option value="Devon Rex">Devon Rex</option>
+        <option value="Exótico">Exótico</option>
+        <option value="Gato Siberiano">Gato Siberiano</option>
+        <option value="Himalaio">Himalaio</option>
+        <option value="Maine Coon">Maine Coon</option>
+        <option value="Manx">Manx</option>
+        <option value="Munchkin">Munchkin</option>
+        <option value="Norueguês da Floresta">Norueguês da Floresta</option>
+        <option value="Ocicat">Ocicat</option>
+        <option value="Peterbald">Peterbald</option>
+        <option value="Persa">Persa</option>
+        <option value="Pixie Bob">Pixie Bob</option>
+        <option value="Ragdoll">Ragdoll</option>
+        <option value="Sagrado da Birmânia">Sagrado da Birmânia</option>
+        <option value="Scottish Fold">Scottish Fold</option>
+        <option value="Siamês">Siamês</option>
+        <option value="Snowshoe">Snowshoe</option>
+        <option value="Sokoke">Sokoke</option>
+        <option value="Sphynx">Sphynx</option>
+        <option value="Tonquinês">Tonquinês</option>
+        <option value="Van Turco">Van Turco</option>
+        <option value="Vira-lata">Vira-lata</option>
+        <option value="Outros">Outros</option>`,
 
-        "PEIXE": `<option value="Acará-disco">
-        <option value="Betta">
-        <option value="Bolinha-de-vidro">
-        <option value="Carpas-koi">
-        <option value="Corydora">
-        <option value="Guppy">
-        <option value="Kinguio">
-        <option value="Molly">
-        <option value="Neon">
-        <option value="Pacu">
-        <option value="Platy">
-        <option value="Tetra-bandeira">
-        <option value="Tetra-cardinal">
-        <option value="Tetra-neon">
-        <option value="Tetra-preto">`,
+        "PEIXE": `<option value="Acará-disco">Acará-disco</option>
+        <option value="Betta">Betta</option>
+        <option value="Bolinha-de-vidro">Bolinha-de-vidro</option>
+        <option value="Carpas-koi">Carpas-koi</option>
+        <option value="Corydora">Corydora</option>
+        <option value="Guppy">Guppy</option>
+        <option value="Kinguio">Kinguio</option>
+        <option value="Molly">Molly</option>
+        <option value="Neon">Neon</option>
+        <option value="Pacu">Pacu</option>
+        <option value="Platy">Platy</option>
+        <option value="Tetra-bandeira">Tetra-bandeira</option>
+        <option value="Tetra-cardinal">Tetra-cardinal</option>
+        <option value="Tetra-neon">Tetra-neon</option>
+        <option value="Tetra-preto">Tetra-preto</option>
+        <option value="Outros">Outros</option>`,
 
-        "PÁSSARO": `<option value="Agapornis">
-        <option value="Calopsita">
-        <option value="Canário Belga">
-        <option value="Caturrita">
-        <option value="Cockatiel">
-        <option value="Diamante Mandarim">
-        <option value="Gloster">
-        <option value="Periquito Australiano">
-        <option value="Periquito-de-Asa-Negra">
-        <option value="Periquito-de-Cauda-Longa">
-        <option value="Periquito-de-Encontro-Amarelo">
-        <option value="Periquito-de-Mascarilha">
-        <option value="Periquito-Rei">
-        <option value="Rosela">
-        <option value="Sabiá Laranjeira">`,
+        "PÁSSARO": `<option value="Agapornis">Agapornis</option>
+        <option value="Calopsita">Calopsita</option>
+        <option value="Canário Belga">Canário Belga</option>
+        <option value="Caturrita">Caturrita</option>
+        <option value="Cockatiel">Cockatiel</option>
+        <option value="Diamante Mandarim">Diamante Mandarim</option>
+        <option value="Gloster">Gloster</option>
+        <option value="Periquito Australiano">Periquito Australiano</option>
+        <option value="Periquito-de-Asa-Negra">Periquito-de-Asa-Negra</option>
+        <option value="Periquito-de-Cauda-Longa">Periquito-de-Cauda-Longa</option>
+        <option value="Periquito-de-Encontro-Amarelo">Periquito-de-Encontro-Amarelo</option>
+        <option value="Periquito-de-Mascarilha">Periquito-de-Mascarilha</option>
+        <option value="Periquito-Rei">Periquito-Rei</option>
+        <option value="Rosela">Rosela</option>
+        <option value="Sabiá Laranjeira">Sabiá Laranjeira</option>
+        <option value="Outros">Outros</option>`,
 
-        "HAMSTER": `<option value="Angorá">
-        <option value="Anão russo">
-        <option value="Bumblebee">
-        <option value="Campbell">
-        <option value="Chinês">
-        <option value="Djungarian">
-        <option value="Golden">
-        <option value="Panda">
-        <option value="Rex">
-        <option value="Roborovski">
-        <option value="Siberiano">
-        <option value="Sírio">
-        <option value="Teddy bear">
-        <option value="Turco">
-        <option value="Winter White">`,
+        "HAMSTER": `<option value="Angorá">Angorá</option>
+        <option value="Anão russo">Anão russo</option>
+        <option value="Bumblebee">Bumblebee</option>
+        <option value="Campbell">Campbell</option>
+        <option value="Chinês">Chinês</option>
+        <option value="Djungarian">Djungarian</option>
+        <option value="Golden">Golden</option>
+        <option value="Panda">Panda</option>
+        <option value="Rex">Rex</option>
+        <option value="Roborovski">Roborovski</option>
+        <option value="Siberiano">Siberiano</option>
+        <option value="Sírio">Sírio</option>
+        <option value="Teddy bear">Teddy bear</option>
+        <option value="Turco">Turco</option>
+        <option value="Winter White">Winter White</option>        
+        <option value="Outros">Outros</option>`,
 
-        "COELHO": `<option value="Coelho Angorá">
-        <option value="Coelho Californiano">
-        <option value="Coelho Cabeça de Leão">
-        <option value="Coelho Chinchila">
-        <option value="Coelho Flemish Giant">
-        <option value="Coelho Harlequin">
-        <option value="Coelho Havana">
-        <option value="Coelho Himalaio">
-        <option value="Coelho Holandês">
-        <option value="Coelho Hotot">
-        <option value="Coelho Lionhead">
-        <option value="Coelho Mini Rex">
-        <option value="Coelho Netherland Dwarf">
-        <option value="Coelho Polonês">
-        <option value="Coelho Rex">`,
+        "COELHO": `<option value="Coelho Angorá">Coelho Angorá</option>
+        <option value="Coelho Californiano">Coelho Californiano</option>
+        <option value="Coelho Cabeça de Leão">Coelho Cabeça de Leão</option>
+        <option value="Coelho Chinchila">Coelho Chinchila</option>
+        <option value="Coelho Flemish Giant">Coelho Flemish Giant</option>
+        <option value="Coelho Harlequin">Coelho Harlequin</option>
+        <option value="Coelho Havana">Coelho Havana</option>
+        <option value="Coelho Himalaio">Coelho Himalaio</option>
+        <option value="Coelho Holandês">Coelho Holandês</option>
+        <option value="Coelho Hotot">Coelho Hotot</option>
+        <option value="Coelho Lionhead">Coelho Lionhead</option>
+        <option value="Coelho Mini Rex">Coelho Mini Rex</option>
+        <option value="Coelho Netherland Dwarf">Coelho Netherland Dwarf</option>
+        <option value="Coelho Polonês">Coelho Polonês</option>
+        <option value="Coelho Rex">Coelho Rex</option>
+        <option value="Outros">Outros</option>`,
 
-        "TARTARUGA": `<option value="Tartaruga-aligator">
-        <option value="Tartaruga-das-galápagos">
-        <option value="Tartaruga-de-hermann">
-        <option value="Tartaruga-hermann">
-        <option value="Tartaruga-de-orelha-vermelha">
-        <option value="Tartaruga-de-pente">
-        <option value="Tartaruga-de-pescoço-longo">
-        <option value="Tartaruga-marinha">
-        <option value="Tartaruga-mediterrânea">
-        <option value="Tartaruga-mordedora">
-        <option value="Tartaruga-pintada">
-        <option value="Tartaruga-sulcata">
-        <option value="Tartaruga-terrestre-africana">
-        <option value="Tartaruga-terrestre-russa">
-        <option value="Tartaruga-verde">`
+        "TARTARUGA": `<option value="Tartaruga-aligator">Tartaruga-aligator</option>
+        <option value="Tartaruga-das-galápagos">Tartaruga-das-galápagos</option>
+        <option value="Tartaruga-de-hermann">Tartaruga-de-hermann</option>
+        <option value="Tartaruga-hermann">Tartaruga-hermann</option>
+        <option value="Tartaruga-de-orelha-vermelha">Tartaruga-de-orelha-vermelha</option>
+        <option value="Tartaruga-de-pente">Tartaruga-de-pente</option>
+        <option value="Tartaruga-de-pescoço-longo">Tartaruga-de-pescoço-longo</option>
+        <option value="Tartaruga-marinha">Tartaruga-marinha</option>
+        <option value="Tartaruga-mediterrânea">Tartaruga-mediterrânea</option>
+        <option value="Tartaruga-mordedora">Tartaruga-mordedora</option>
+        <option value="Tartaruga-pintada">Tartaruga-pintada</option>
+        <option value="Tartaruga-sulcata">Tartaruga-sulcata</option>
+        <option value="Tartaruga-terrestre-africana">Tartaruga-terrestre-africana</option>
+        <option value="Tartaruga-terrestre-russa">Tartaruga-terrestre-russa</option>
+        <option value="Tartaruga-verde">Tartaruga-verde</option>
+        <option value="Outros">Outros</option>`
     }
     espec = document.getElementById("espec").value.toUpperCase()
-    console.log(racas[espec])
 
+    document.getElementById("racas").innerHTML = racas[espec]
+}
+
+function validarCampo() {
+    racas = {
+        "CACHORRO": ["Akita", "Basset Hound", "Beagle", "Boxer", "Bull Terrier",
+        "Bulldog Francês", "Chihuahua", "Cocker Spaniel", "Dálmata", "Doberman",
+        "Golden Retriever", "Husky Siberiano", "Labrador Retriever", "Maltês",
+        "Mastiff", "Pastor Alemão", "Pequinês", "Pointer", "Poodle", "Pug",
+        "Rottweiler","Schnauzer", "Schnauzer Gigante", "São Bernardo",
+        "Setter Irlandês", "Shar Pei","Shiba Inu", "Shih Tzu", "Weimaraner",
+        "Yorkshire Terrier", "Vira-lata", "Outros"],
+
+        "GATO": `Abissínio, American Shorthair, Azul Russo, Bengal, Burmese,
+        British Shorthair, Cornish Rex, Devon Rex, Exótico, Gato Siberiano,
+        Himalaio, Maine Coon, Manx, Munchkin, Norueguês da Floresta, Ocicat,
+        Peterbald, Persa, Pixie Bob, Ragdoll, Sagrado da Birmânia, Scottish Fold,
+        Siamês, Snowshoe, Sokoke, Sphynx, Tonquinês, Van Turco, Vira-lata, Outros.`,
+
+        "PEIXE": `Acará-disco, Betta, Bolinha-de-vidro, Carpas-koi, Corydora,
+        Guppy, Kinguio, Molly, Neon, Pacu, Platy, Tetra-bandeira, Tetra-cardinal,
+        Tetra-neon, Tetra-preto, Outros.`,
+
+        "PÁSSARO": `Agapornis, Calopsita, Canário Belga, Caturrita, Cockatiel,
+        Diamante Mandarim, Gloster, Periquito Australiano, Periquito-de-Asa-Negra,
+        Periquito-de-Cauda-Longa, Periquito-de-Encontro-Amarelo, Periquito-de-Mascarilha,
+        Periquito-Rei, Rosela, Sabiá Laranjeira, Outros`,
+
+        "HAMSTER": `
+        Angorá, Anão russo, Bumblebee, Campbell, Chinês, Djungarian, Golden, Panda,
+        Rex, Roborovski, Siberiano, Sírio, Teddy bear, Turco, Winter White, Outros`,
+
+        "COELHO": `Coelho Angorá, Coelho Californiano, Coelho Cabeça de Leão,
+        Coelho Chinchila, Coelho Flemish Giant, Coelho Harlequin, Coelho Havana,
+        Coelho Himalaio, Coelho Holandês, Coelho Hotot, Coelho Lionhead,
+        Coelho Mini Rex, Coelho Netherland Dwarf, Coelho Polonês, Coelho Rex, Outros.`,
+
+        "TARTARUGA": `Tartaruga-aligator, Tartaruga-das-galápagos, Tartaruga-de-hermann,
+        Tartaruga-hermann, Tartaruga-de-orelha-vermelha, Tartaruga-de-pente,
+        Tartaruga-de-pescoço-longo, Tartaruga-marinha, Tartaruga-mediterrânea,
+        Tartaruga-mordedora, Tartaruga-pintada, Tartaruga-sulcata,
+        Tartaruga-terrestre-africana, Tartaruga-terrestre-russa, Tartaruga-verde, Outros`
+    }
+
+    espec = document.getElementById("espec").value.toUpperCase()
+    animais = ["CACHORRO", "GATO", "PEIXE", "PÁSSARO", "HAMSTER", "COELHO", "TARTARUGA"]
+    if (animais.indexOf(espec) != -1) {
+        console.log("teste");
+    } else {
+        console.log("tese11")
+    }
+
+    if (racas[espec] == document.getElementById("raca-input").value) {
+        console.log("teste123");
+    } else {
+        console.log("tese33311")
+    }
     document.getElementById("racas").innerHTML = racas[espec]
 }

@@ -28,7 +28,7 @@ if (!loged()) { // Verifica se há um usuário logado
     <link rel="stylesheet" href="../css-dinamico/cadAnimais.css">
 </head>
 
-<body onload="altAnimal()">
+<body onload="altAnimal(), datalistRacas()">
 
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
@@ -110,13 +110,13 @@ if (!loged()) { // Verifica se há um usuário logado
         <fieldset>
             <div>
                 <label for="nome">Nome</label><br>
-                <input type="text" name="nome"><br><br>
+                <input type="text" name="nome" required><br><br>
 
             </div>
 
             <div>
                 <label for="dataNasc">Data de Nascimento </label><br>
-                <input type="date" name="dataNasc"><br><br>
+                <input type="date" name="dataNasc" required><br><br>
 
             </div>
 
@@ -131,31 +131,59 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <div>
                 <label for="espec">Espécie</label><br>
-                <input type="text" name="espec"><br><br>
+                <input type="text" name="espec" id="espec" list="especs" onchange="datalistRacas()" required><br><br>
+
+                <datalist id="especs">
+                    <option value="Cachorro">
+                    <option value="Gato">
+                    <option value="Peixe">
+                    <option value="Pássaro">
+                    <option value="Hamster">
+                    <option value="Coelho">
+                    <option value="Tartaruga">
+                </datalist>
             </div>
 
             <div>
 
                 <label for="raca">Raça</label><br>
-                <input type="text" name="raca"><br><br>
+                <input type="text" name="raca" id="raca-input" list="racas" required><br><br>
+
+                <datalist id="racas">
+                </datalist>
             </div>
 
             <div>
-
                 <label for="peso">Peso (Kg)</label><br>
-                <input type="number" name="peso" step=0.01 pattern="[0-9]*"><br><br>
+                <input type="number" name="peso" step=0.01 pattern="[0-9]*" required><br><br>
             </div>
 
             <div>
-
                 <label for="cor">Cor</label><br>
-                <input type="text" name="cor"><br><br>
+                <input type="text" name="cor" placeholder="Digite a cor" list="cores-animais-list" required><br><br>
+
+                <datalist id="cores-animais-list">
+                    <option value="Preto">
+                    <option value="Branco">
+                    <option value="Marrom">
+                    <option value="Cinza">
+                    <option value="Bege">
+                    <option value="Laranja">
+                    <option value="Amarelo">
+                    <option value="Vermelho">
+                    <option value="Azul">
+                    <option value="Verde">
+                    <option value="Roxo">
+                    <option value="Rosa">
+                    <option value="Dourado">
+                    <option value="Prateado">
+                    <option value="Bronze">
+                </datalist>
             </div>
         </fieldset>
 
-        <button type="submit" value="Alterar">Alterar</button>
+        <button type="button" value="Alterar" onclick="validarCampo()">Alterar</button>
         <a href="<?php echo $homeRoute; ?>">Voltar</a>
-
     </form>
 
     <script src="../script.js"></script>
