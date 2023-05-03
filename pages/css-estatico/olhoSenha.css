@@ -1,0 +1,6 @@
+.bi-eye-fill, .bi-eye-slash-fill{
+    background-color: transparent;
+    margin: 0px 10px;
+    border: none;
+    cursor: pointer;
+}

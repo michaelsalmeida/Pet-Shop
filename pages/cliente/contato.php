@@ -115,19 +115,19 @@ if (isset($_SESSION['tipo'])) {
         <form action="<?php echo $procComentarioRoute; ?>" method="post">
             <fieldset id="nome">
                 <label for="">Nome</label>
-                <input type="text" name="nome" required>
+                <input type="text" name="nome" required placeholder="Mayck Luciano Soares">
             </fieldset>
             <fieldset id="tell">
                 <label for="">Telefone</label>
-                <input type="text" name="tell" pattern="[(]?[0-9]{2}[)]?[0-9]{5}[-]?[0-9]{4}" required>
+                <input type="text" name="tell" pattern="[(]?[0-9]{2}[)]?[0-9]{5}[-]?[0-9]{4}" required placeholder="(11) 9 0000-0000">
             </fieldset>
             <fieldset id="email">
                 <label for="">Email</label> 
-                <input type="email" name="email" required>
+                <input type="email" name="email" required placeholder="scar@example.com">
             </fieldset>
             <fieldset id="msg">
                 <label for="">Sua mensagem</label>
-                <textarea name="msg" id="" cols="30" rows="10" required></textarea>
+                <textarea name="msg" id="" cols="30" rows="10" required placeholder="escreva seu comentário"></textarea>
             </fieldset>
 
             <input type="submit">
