@@ -32,11 +32,6 @@ function queryBanco(tipo) {
         var servico = document.getElementById('servicos').value;
         extra = `&servico=${servico}`;
 
-    } else if (tipo == 'gerarTabelaFazAgenCli') { // Puxar os agendamentos para o agendamento
-        var tipoAgen = document.getElementById('tipoAgen').value
-        var data = document.getElementById('dataAgen').value
-        var extra = `&tipo=${tipoAgen}&data=${data}`;
-
     } else if (tipo == 'animais') {
         var cpf = document.getElementById('cpf').value;
         var extra = `&cpf=${cpf}`;
@@ -89,10 +84,16 @@ function paginacao(tipo) {
         var pesq = document.getElementById('pesq').value;
         var servico = document.getElementById('status').value;
         extra = `&servico=${servico}&pesq=${pesq}`;
+
     } else if (tipo == 'tabelaComentarios'){
         var pesq = document.getElementById('pesq').value;
         var data = document.getElementById('data').value;
         extra = `&pesq=${pesq}&data=${data}`;
+
+    } else if (tipo == 'gerarTabelaFazAgenCli') {
+        var tipoAgen = document.getElementById('tipoAgen').value
+        var data = document.getElementById('dataAgen').value
+        extra = `&tipo=${tipoAgen}&data=${data}`;
     }
 
     var pag = document.getElementById('pag').innerText
@@ -376,6 +377,7 @@ function meuPerfilCliEnd() {
     document.getElementsByName("comp")[0].removeAttribute("readonly")
     // Ativa o botão de confirmação
     document.getElementsByName("conf")[1].removeAttribute("hidden")
+    document.getElementById("alterarEnd").style.display = "none";
 }
 
 function altMeuPerfilCli() {
@@ -602,17 +604,29 @@ function validarCampo() {
     }
 
     espec = document.getElementById("espec").value.toUpperCase()
+    raca = document.getElementById("raca-input").value
+    cor = document.getElementById("cor-input").value
     animais = ["CACHORRO", "GATO", "PEIXE", "PÁSSARO", "HAMSTER", "COELHO", "TARTARUGA"]
-    if (animais.indexOf(espec) != -1) {
-        console.log("teste");
+    cores = ["Preto","Branco","Marrom","Cinza","Bege","Laranja","Amarelo","Vermelho",
+    "Azul","Verde","Roxo","Rosa","Dourado","Prateado","Bronze"]
+
+    if (animais.indexOf(espec) != -1 && racas[espec].indexOf(raca) != -1 && cores.indexOf(cor) != -1) {
+        document.getElementById("formAltAnimal").submit()
+        console.log("teste")
     } else {
-        console.log("tese11")
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+        });
+
+        Toast.fire({
+            icon: "error",
+            title: "Espécie, Raça ou Cor incorretas",
+        });
     }
 
-    if (racas[espec] == document.getElementById("raca-input").value) {
-        console.log("teste123");
-    } else {
-        console.log("tese33311")
-    }
     document.getElementById("racas").innerHTML = racas[espec]
 }

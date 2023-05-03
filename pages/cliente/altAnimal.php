@@ -100,7 +100,7 @@ if (!loged()) { // Verifica se há um usuário logado
     }
     ?>
 
-    <form action="<?php echo $proc_altAnimalCliRoute; ?>" method="post">
+    <form id="formAltAnimal" action="<?php echo $proc_altAnimalCliRoute; ?>" method="post">
         <img class="iconCachorro" src="../img-estatico/altAnimal.svg" alt="">
 
         <h1>EDITE AS INFORMAÇÕES DO SEU PET!</h1>
@@ -160,24 +160,23 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <div>
                 <label for="cor">Cor</label><br>
-                <input type="text" name="cor" placeholder="Digite a cor" list="cores-animais-list" required><br><br>
+                <input type="text" name="cor" id="cor-input" placeholder="Digite a cor" list="cores-animais-list" required><br><br>
 
                 <datalist id="cores-animais-list">
-                    <option value="Preto">
-                    <option value="Branco">
-                    <option value="Marrom">
-                    <option value="Cinza">
-                    <option value="Bege">
-                    <option value="Laranja">
                     <option value="Amarelo">
-                    <option value="Vermelho">
                     <option value="Azul">
-                    <option value="Verde">
-                    <option value="Roxo">
-                    <option value="Rosa">
-                    <option value="Dourado">
-                    <option value="Prateado">
+                    <option value="Branco">
                     <option value="Bronze">
+                    <option value="Cinza">
+                    <option value="Dourado">
+                    <option value="Laranja">
+                    <option value="Marrom">
+                    <option value="Preto">
+                    <option value="Prateado">
+                    <option value="Rosa">
+                    <option value="Roxo">
+                    <option value="Verde">
+                    <option value="Vermelho">'
                 </datalist>
             </div>
         </fieldset>
@@ -189,6 +188,7 @@ if (!loged()) { // Verifica se há um usuário logado
     <script src="../script.js"></script>
     <script src="<?php echo $dataHojeRoute; ?>"></script>
     <script src="<?php echo $functionsRoute; ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

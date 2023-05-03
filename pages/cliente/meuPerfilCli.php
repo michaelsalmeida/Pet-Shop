@@ -226,7 +226,7 @@ if (!loged()) { // Verifica se há um usuário logado
                     <label>Clique para alterar</label>
 
                     <div class="botoes-alterar">
-                        <button type="button" onclick="meuPerfilCliEnd()">Alterar</button>
+                        <button type="button" onclick="meuPerfilCliEnd()" id="alterarEnd">Alterar</button>
                         <input type="submit" value="Confirmar" name="conf" hidden>
                     </div>
 
@@ -237,19 +237,10 @@ if (!loged()) { // Verifica se há um usuário logado
 
     </form>
 
-
-
-
-
-
-
-
     <div class="box-inferior-botoes">
 
         <div class="box-botao">
             <a onclick="activeModalAlterarSenha(<?php echo $_SESSION['idCli']; ?>)" class="alterar-senha apagar-conta">Alterar Senha</a>
-
-
             <a onclick="activeModalApagarConta(<?php echo $_SESSION['idCli']; ?>)" class="apagar-conta">Apagar Conta</a>
         </div>
         

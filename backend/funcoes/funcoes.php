@@ -278,7 +278,18 @@ function checkAnimais() {
 }
 
 function gerarTabelaFazAgenCli() {
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/pages/funcionario/agendamentosFun.php';
+
+    // Receber o número da página
+    $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
+    $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+
+    // Setar a quantidade de items por pagina
+    $qnt_result_pg = 5;
+
+    // Calcular o inicio visualização
+    $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
     // String de preparação
     $stmt = $conn->prepare("SELECT Funcionarios.nome, data_agendamento,
@@ -338,7 +349,46 @@ function gerarTabelaFazAgenCli() {
         }
     }
 
-    $retornar = array("fazAgend", $tabela);
+    $stmtPg = $conn->prepare("SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos
+        INNER JOIN Funcionarios
+        ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
+        WHERE `status` = 'Disponivel' AND data_agendamento LIKE ? AND tipo = ?
+        ORDER BY data_agendamento, horario_agendamento");
+
+    $stmtPg->bind_param("ss", $data, $_GET['tipo']);
+
+    // Paginação - Somar a quantidade de usuários 
+    $stmtPg->execute();
+    $resultado = $stmtPg->get_result();
+    $row_pg = $resultado->fetch_all();
+
+    // Quantidade de pagina
+    $quantidade_pg = ceil($row_pg[0][0] / $qnt_result_pg);
+
+    // Limitar os link antes depois
+    $max_links = 2;
+    $linkPaginas = "<a href='$header?pagina=1&status=$status&pesq=".$_GET['pesq']."'><<</a>";
+
+    for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+        if ($pag_ant >= 1) {
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant
+            &status=$status&pesq=".$_GET['pesq']."'>$pag_ant</a> ";
+        }
+    }
+
+    $linkPaginas =  $linkPaginas . $pagina;
+
+    for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
+        if ($pag_dep <= $quantidade_pg) {
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep
+            &status=$status&pesq=".$_GET['pesq']."'>$pag_dep</a> ";
+        }
+    }
+
+    $linkPaginas = $linkPaginas .
+    "<a href='$header?pagina=$quantidade_pg&status=$status&pesq=".$_GET['pesq']."'>>></a>";
+
+    $retornar = array('fazAgend', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
 }
 

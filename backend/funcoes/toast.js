@@ -203,8 +203,6 @@ function activateToast(param) {
         title: `${param}`,
       });
       break; 
-
-    
   } 
 
 

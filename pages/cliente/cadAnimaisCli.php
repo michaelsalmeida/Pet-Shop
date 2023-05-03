@@ -99,7 +99,7 @@ if (!loged()) { // Verifica se há um usuário logado
         unset($_SESSION['msgCadAnimaisCli']);
     }
     ?>
-    <form action="<?php echo $proc_cadAnimalRoute; ?>" method="post">
+    <form id="formAltAnimal" action="<?php echo $proc_cadAnimalRoute; ?>" method="post">
         <img class="iconCachorro" src="../img-estatico/iconCachorro.svg" alt="">
 
         <h1>CADASTRE SEU PET EM NOSSO SISTEMA!</h1>
@@ -130,18 +130,18 @@ if (!loged()) { // Verifica se há um usuário logado
 
                 <datalist id="especs">
                     <option value="Cachorro">
-                    <option value="Gato">
-                    <option value="Peixe">
-                    <option value="Pássaro">
-                    <option value="Hamster">
                     <option value="Coelho">
+                    <option value="Gato">
+                    <option value="Hamster">
+                    <option value="Pássaro">
+                    <option value="Peixe">
                     <option value="Tartaruga">
                 </datalist>
             </div>
 
             <div>
                 <label for="raca">Raça</label><br>
-                <input type="text" name="raca" list="racas">
+                <input type="text" name="raca" id="raca-input" list="racas">
 
                 <datalist id="racas">
                 </datalist>
@@ -154,30 +154,28 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <div>
                 <label for="cor">Cor</label><br>
-                <input type="text" name="cor" placeholder="Digite a cor" list="cores-animais-list">
+                <input type="text" name="cor" id="cor-input" placeholder="Digite a cor" list="cores-animais-list">
 
                 <datalist id="cores-animais-list">
-                    <option value="Preto">
-                    <option value="Branco">
-                    <option value="Marrom">
-                    <option value="Cinza">
-                    <option value="Bege">
-                    <option value="Laranja">
                     <option value="Amarelo">
-                    <option value="Vermelho">
                     <option value="Azul">
-                    <option value="Verde">
-                    <option value="Roxo">
-                    <option value="Rosa">
-                    <option value="Dourado">
-                    <option value="Prateado">
+                    <option value="Branco">
                     <option value="Bronze">
+                    <option value="Cinza">
+                    <option value="Dourado">
+                    <option value="Laranja">
+                    <option value="Marrom">
+                    <option value="Preto">
+                    <option value="Prateado">
+                    <option value="Rosa">
+                    <option value="Roxo">
+                    <option value="Verde">
+                    <option value="Vermelho">
                 </datalist>
             </div>
         </fieldset>
 
-
-        <button type="submit" value="Cadastrar">Cadastrar</button>
+        <button type="button" value="Cadastrar" onclick="validarCampo()">Cadastrar</button>
         <a href="<?php echo $homeRoute; ?>">Voltar</a>
 
     </form>
