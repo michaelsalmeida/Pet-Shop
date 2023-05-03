@@ -129,7 +129,7 @@ if (!loged()) { // Verifica se há um usuário logado
                 <input type="text" id="espec" name="espec" list="especs" onchange="datalistRacas()">
 
                 <datalist id="especs">
-                    <option value="Cão">
+                    <option value="Cachorro">
                     <option value="Gato">
                     <option value="Peixe">
                     <option value="Pássaro">

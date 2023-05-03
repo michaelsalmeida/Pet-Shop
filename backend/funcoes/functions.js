@@ -15,7 +15,7 @@ function executeFunctions(func, id) {
 
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=${func}${extra}`, true);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Pega a resposta do servidor
@@ -44,7 +44,7 @@ function queryBanco(tipo) {
 
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=${tipo}${extra}`, true);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             
@@ -98,7 +98,7 @@ function paginacao(tipo) {
     var pag = document.getElementById('pag').innerText
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}&pag=${pag}${extra}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=${tipo}&pag=${pag}${extra}`, true);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
@@ -122,7 +122,7 @@ function queryBanco2(tipo) {
 
         var xhr = new XMLHttpRequest();
         // Executa o arquivo que irá iniciar a função
-        xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, true);
+        xhr.open("GET", location.origin + `/backend/execute.php?function=${tipo}${extra}`, true);
         xhr.onload = function () {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
@@ -146,7 +146,7 @@ function queryBanco2(tipo) {
 
         var xhr = new XMLHttpRequest();
         // Executa o arquivo que irá iniciar a função
-        xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, true);
+        xhr.open("GET", location.origin + `/backend/execute.php?function=${tipo}${extra}`, true);
         xhr.onload = function () {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
@@ -173,7 +173,7 @@ function altAnimal() {
 
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=altAnimal&idAni=${idAni}`, true);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
@@ -201,7 +201,7 @@ function activeModal(id, tipo) {
         <span onclick="document.getElementById('id01').style.display='none'">&times;</span>
         <div class="box-botao">
 
-            <a class='sim' href = "` + location.origin + `/Pet-Shop/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>
+            <a class='sim' href = "` + location.origin + `/backend/processos/proc_cancelAgen.php?id=${id}` + `">Sim</a>
             <button class='nao' onclick="document.getElementById('id01').style.display='none'">Não</button> 
         </div> 
 
@@ -212,7 +212,7 @@ function activeModal(id, tipo) {
 
         var xhr = new XMLHttpRequest();
         // Executa o arquivo que irá iniciar a função
-        xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
+        xhr.open("GET", location.origin + `/backend/execute.php?function=getDesc&id=${id}`, true);
 
         xhr.onload = function () {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
@@ -241,7 +241,7 @@ function activeModalApagarConta(id) {
 
     <div class='box-botoes-modal'>
 
-        <a class='sim' href = "` + location.origin + `/Pet-Shop/backend/processos/proc_excCliente.php?id=${id}` + `">Sim</a>
+        <a class='sim' href = "` + location.origin + `/backend/processos/proc_excCliente.php?id=${id}` + `">Sim</a>
         <button class='nao' onclick="document.getElementById('id01').style.display='none'">Não</button> 
 
     </div>    
@@ -253,7 +253,7 @@ function activeModalAlterarSenha(id) {
     document.getElementById("id01").style.display = "flex" // Muda a modal para block, para que possa ser vista
     document.getElementById("container-modal").innerHTML = `
 
-    <form action="` + location.origin + `/Pet-Shop/backend/processos/proc_AlterarSenha.php?id=${id}` + `" method="post" class='box-modal'>
+    <form action="` + location.origin + `/backend/processos/proc_AlterarSenha.php?id=${id}` + `" method="post" class='box-modal'>
 
 
         <div class='box-superior-modal'>
@@ -313,7 +313,7 @@ function activeModalDetalhesFun(id, tipo) {
     document.getElementById("id01").style.display = "flex"
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=getDesc&id=${id}`, true);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Pega a resposta do servidor
@@ -380,7 +380,7 @@ function meuPerfilCliEnd() {
 function altMeuPerfilCli() {
     var idCli = document.getElementsByName("idCliente")[0].value
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
+    xhr.open("GET", location.origin + `/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor
@@ -405,55 +405,83 @@ function altMeuPerfilCli() {
 
 function datalistRacas() {
     racas = {
-        "CÃO": `<option value="Beagle">
+        "CACHORRO": `<option value="Akita">
+        <option value="Basset Hound">
+        <option value="Beagle">
+        <option value="Boxer">
+        <option value="Bull Terrier">
         <option value="Bulldog Francês">
         <option value="Chihuahua">
         <option value="Cocker Spaniel">
         <option value="Dálmata">
+        <option value="Doberman">
         <option value="Golden Retriever">
+        <option value="Husky Siberiano">
         <option value="Labrador Retriever">
         <option value="Maltês">
+        <option value="Mastiff">
+        <option value="Pastor Alemão">
+        <option value="Pequinês">
+        <option value="Pointer">
         <option value="Poodle">
         <option value="Pug">
         <option value="Rottweiler">
         <option value="Schnauzer">
+        <option value="Schnauzer Gigante">
+        <option value="São Bernardo">
+        <option value="Setter Irlandês">
         <option value="Shar Pei">
+        <option value="Shiba Inu">
         <option value="Shih Tzu">
+        <option value="Weimaraner">
         <option value="Yorkshire Terrier">
         <option value="Vira-lata">`,
 
-        "GATO": `<option value="Siamês">
-        <option value="Persa">
-        <option value="Sphynx">
-        <option value="Bengal">
-        <option value="Ragdoll">
-        <option value="British Shorthair">
-        <option value="Maine Coon">
-        <option value="Abissínio">
+        "GATO": `<option value="Abissínio">
         <option value="American Shorthair">
+        <option value="Azul Russo">
+        <option value="Bengal">
+        <option value="Burmese">
+        <option value="British Shorthair">
+        <option value="Cornish Rex">
         <option value="Devon Rex">
+        <option value="Exótico">
+        <option value="Gato Siberiano">
         <option value="Himalaio">
+        <option value="Maine Coon">
         <option value="Manx">
+        <option value="Munchkin">
+        <option value="Norueguês da Floresta">
+        <option value="Ocicat">
+        <option value="Peterbald">
+        <option value="Persa">
+        <option value="Pixie Bob">
+        <option value="Ragdoll">
+        <option value="Sagrado da Birmânia">
         <option value="Scottish Fold">
-        <option value="Somali">
+        <option value="Siamês">
+        <option value="Snowshoe">
+        <option value="Sokoke">
+        <option value="Sphynx">
         <option value="Tonquinês">
+        <option value="Van Turco">
         <option value="Vira-lata">`,
 
         "PEIXE": `<option value="Acará-disco">
         <option value="Betta">
+        <option value="Bolinha-de-vidro">
+        <option value="Carpas-koi">
         <option value="Corydora">
         <option value="Guppy">
-        <option value="Platy">
+        <option value="Kinguio">
         <option value="Molly">
         <option value="Neon">
-        <option value="Tetra-neon">
-        <option value="Tetra-cardinal">
+        <option value="Pacu">
+        <option value="Platy">
         <option value="Tetra-bandeira">
-        <option value="Tetra-preto">
-        <option value="Bolinha-de-vidro">
-        <option value="Kinguio">
-        <option value="Carpas-koi">
-        <option value="Pacu">`,
+        <option value="Tetra-cardinal">
+        <option value="Tetra-neon">
+        <option value="Tetra-preto">`,
 
         "PÁSSARO": `<option value="Agapornis">
         <option value="Calopsita">
@@ -471,53 +499,53 @@ function datalistRacas() {
         <option value="Rosela">
         <option value="Sabiá Laranjeira">`,
 
-        "HAMSTER": `<option value="Anão russo">
-        <option value="Sírio">
-        <option value="Roborovski">
-        <option value="Chinês">
+        "HAMSTER": `<option value="Angorá">
+        <option value="Anão russo">
+        <option value="Bumblebee">
         <option value="Campbell">
-        <option value="Siberiano">
+        <option value="Chinês">
         <option value="Djungarian">
-        <option value="Angorá">
-        <option value="Panda">
-        <option value="Winter White">
         <option value="Golden">
-        <option value="Turco">
+        <option value="Panda">
         <option value="Rex">
+        <option value="Roborovski">
+        <option value="Siberiano">
+        <option value="Sírio">
         <option value="Teddy bear">
-        <option value="Bumblebee">`,
+        <option value="Turco">
+        <option value="Winter White">`,
 
-        "COELHO": `<option value="Coelho Mini Rex">
-        <option value="Coelho Netherland Dwarf">
-        <option value="Coelho Angorá">
-        <option value="Coelho Lionhead">
-        <option value="Coelho Flemish Giant">
+        "COELHO": `<option value="Coelho Angorá">
         <option value="Coelho Californiano">
-        <option value="Coelho Havana">
-        <option value="Coelho Polonês">
-        <option value="Coelho Holandês">
-        <option value="Coelho Chinchila">
-        <option value="Coelho Hotot">
         <option value="Coelho Cabeça de Leão">
-        <option value="Coelho Himalaio">
+        <option value="Coelho Chinchila">
+        <option value="Coelho Flemish Giant">
         <option value="Coelho Harlequin">
+        <option value="Coelho Havana">
+        <option value="Coelho Himalaio">
+        <option value="Coelho Holandês">
+        <option value="Coelho Hotot">
+        <option value="Coelho Lionhead">
+        <option value="Coelho Mini Rex">
+        <option value="Coelho Netherland Dwarf">
+        <option value="Coelho Polonês">
         <option value="Coelho Rex">`,
 
-        "TARTARUGA": `<option value="Tartaruga-de-pescoço-longo">
-        <option value="Tartaruga-verde">
-        <option value="Tartaruga-de-orelha-vermelha">
-        <option value="Tartaruga-sulcata">
-        <option value="Tartaruga-terrestre-russa">
-        <option value="Tartaruga-terrestre-africana">
-        <option value="Tartaruga-de-pente">
+        "TARTARUGA": `<option value="Tartaruga-aligator">
         <option value="Tartaruga-das-galápagos">
-        <option value="Tartaruga-hermann">
         <option value="Tartaruga-de-hermann">
-        <option value="Tartaruga-mordedora">
-        <option value="Tartaruga-mediterrânea">
+        <option value="Tartaruga-hermann">
+        <option value="Tartaruga-de-orelha-vermelha">
+        <option value="Tartaruga-de-pente">
+        <option value="Tartaruga-de-pescoço-longo">
         <option value="Tartaruga-marinha">
+        <option value="Tartaruga-mediterrânea">
+        <option value="Tartaruga-mordedora">
         <option value="Tartaruga-pintada">
-        <option value="Tartaruga-aligator">`
+        <option value="Tartaruga-sulcata">
+        <option value="Tartaruga-terrestre-africana">
+        <option value="Tartaruga-terrestre-russa">
+        <option value="Tartaruga-verde">`
     }
     espec = document.getElementById("espec").value.toUpperCase()
     console.log(racas[espec])
