@@ -4,13 +4,22 @@ include_once($connRoute);
 
 $_SESSION['msgCadDataErro'] = false;
 
+// data atual do sistema.
 $data_atual = date("Y-m-d");
+
+// data que o funcionário escolheu.
 $data = $_POST['data'];
 
+// hora atual do sistema.
 $hora_atual = date("H:i");
+
+// hora que o funcionário escolhe.
 $hora = $_POST['hora'];
 
+// serviço selecionado pelo funcionário.
 $servico = $_POST['servicos'];
+
+// profissional escolhido pelo
 $profissional = $_POST['profissionais'];
 
 $stmt1 = $conn->prepare("SELECT pk_Funcionario from Funcionarios where nome = ?");
