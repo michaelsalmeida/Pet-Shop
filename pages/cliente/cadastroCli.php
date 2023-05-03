@@ -20,6 +20,7 @@ include_once($funcoesRoute);
     <link rel="stylesheet" href="../css-dinamico/cadastro-cliente.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+    <link rel="stylesheet" href="../css-estatico/olhoSenha.css">
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgCadCli']); ?>)">

@@ -25,6 +25,8 @@ if (loged()) { // Verifica se há um usuário logado
     <link rel="stylesheet" href="../css-dinamico/login-cliente.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+    <link rel="stylesheet" href="../css-estatico/olhoSenha.css">
+
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msglogin']); ?>)">

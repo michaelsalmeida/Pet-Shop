@@ -32,14 +32,14 @@ if (isset($_SESSION['tipo'])) {
 </head>
 
 <body onload="delay()">
-  <!-- <div class="loading">
+  <div class="loading">
     <div>
       <img src="pages/img-estatico/fundoLoading.png" alt="">
       <p>Carregando</p>
     </div>
-  </div> -->
+  </div>
 
-  <a href="https://wa.me/5511982532481?text=Ol%C3%A1%21+Poderia+me+ajudar%3F" class="zap">
+  <a target="_blank" href="https://wa.me/5511982532481?text=Ol%C3%A1%21+Poderia+me+ajudar%3F" class="zap">
     <img src="pages/img-estatico/whatsapp.png" alt="whatsapp">
   </a>
 

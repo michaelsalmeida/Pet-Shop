@@ -65,10 +65,12 @@ function menuPerfil() {
     perfilAberto = 1;
     perfil.style.opacity = "1";
     perfil.style.zIndex = "1";
+    perfil.style.top = "80px";
   } else {
     perfilAberto = 0;
     perfil.style.opacity = "0";
     perfil.style.zIndex = "-1";
+    perfil.style.top = "-500px";
   }
 }
 
