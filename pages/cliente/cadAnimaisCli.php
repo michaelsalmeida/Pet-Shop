@@ -114,24 +114,37 @@ if (!loged()) { // Verifica se há um usuário logado
                 <label for="dataNasc">Data de Nascimento </label><br>
                 <input type="date" name="dataNasc" placeholder="Digite a data de nascimento">
             </div>
-
-            <div>
-                <label for="espec">Espécie</label><br>
-                <input type="text" name="espec">
-            </div>
-
+            
             <div>
                 <label for="sexo">Sexo</label><br>
                 <select name="sexo" id="sexo">
                     <option value="F">Feminino</option>
                     <option value="M">Masculino</option>
-                    <option value="M">Masculino</option>
+                    <option value="I">Intersexo</option>
                 </select>
             </div>
 
             <div>
+                <label for="espec">Espécie</label><br>
+                <input type="text" id="espec" name="espec" list="especs" onchange="datalistRacas()">
+
+                <datalist id="especs">
+                    <option value="Cão">
+                    <option value="Gato">
+                    <option value="Peixe">
+                    <option value="Pássaro">
+                    <option value="Hamster">
+                    <option value="Coelho">
+                    <option value="Tartaruga">
+                </datalist>
+            </div>
+
+            <div>
                 <label for="raca">Raça</label><br>
-                <input type="text" name="raca">
+                <input type="text" name="raca" list="racas">
+
+                <datalist id="racas">
+                </datalist>
             </div>
 
             <div>
@@ -141,7 +154,25 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <div>
                 <label for="cor">Cor</label><br>
-                <input type="text" name="cor" placeholder="Digite a cor">
+                <input type="text" name="cor" placeholder="Digite a cor" list="cores-animais-list">
+
+                <datalist id="cores-animais-list">
+                    <option value="Preto">
+                    <option value="Branco">
+                    <option value="Marrom">
+                    <option value="Cinza">
+                    <option value="Bege">
+                    <option value="Laranja">
+                    <option value="Amarelo">
+                    <option value="Vermelho">
+                    <option value="Azul">
+                    <option value="Verde">
+                    <option value="Roxo">
+                    <option value="Rosa">
+                    <option value="Dourado">
+                    <option value="Prateado">
+                    <option value="Bronze">
+                </datalist>
             </div>
         </fieldset>
 
