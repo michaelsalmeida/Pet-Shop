@@ -175,3 +175,62 @@ form input[type ="submit"]:disabled:hover{
 
 /* fim do formulario */
 
+/* modal requisitos de senha */
+.requisitos{
+  background-color: white;
+  box-shadow: 1px 1px 10px black;
+  padding: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 20px;
+  gap: 10px;
+  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.requisitos button{
+  background-color: transparent;
+  font-size: 30px;
+  color: red;
+  border: none;
+  padding: 0px 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  transition: all 0.5s;
+}
+
+.requisitos button:hover{
+  background-color: red;
+  color: white;
+}
+
+.requisitos p {
+  text-align: center;
+}
+
+.tituloSenha{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.btnSenha{
+  background-color: transparent;
+  border: none;
+  margin: 0px 5px;
+  display: inline;
+  cursor: pointer;
+  padding: 0px 10px;
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+
+.btnSenha:hover{
+  background-color: rgba(128, 128, 128, 0.249);
+}

@@ -21,6 +21,8 @@ if (isset($_SESSION['tipo'])) {
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/login-cliente.css">
     <link rel="stylesheet" href="../css-dinamico/login-funcionario.css">
+
+    <link rel="stylesheet" href="../css-estatico/olhoSenha.css">
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgloginFun']); ?>)">

@@ -20,6 +20,7 @@ include_once($funcoesRoute);
     <link rel="stylesheet" href="../css-dinamico/cadastro-cliente.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+    <link rel="stylesheet" href="../css-estatico/olhoSenha.css">
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgCadCli']); ?>)">
@@ -79,15 +80,27 @@ include_once($funcoesRoute);
 
                 </div>
 
+                <div class="requisitos">
+                    <p class="tituloSenha">REQUISITOS DE SENHA</p>
+                    <button onmousedown="fechaReq()">x</button>
+                    <p>Mínimo 8 caracteres, sendo eles 1 letra maiúscula, 1 letra minuscula, 1 numero e um caractere especial</p>
+                </div>
+
                 <div class="input row">
-                    <label for="senha">SENHA * <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button></label>
+                    <label for="senha">SENHA * 
+                        <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button>
+                        <p class="btnSenha" onmousedown="reqSenha()">?</p>
+                    </label>
                     <input type="password" name="senha" id="password" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
                         placeholder="Digite sua senha" required>
 
                 </div>
 
                 <div class="input row">
-                    <label for="senha">CONFIRMAR SENHA * <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2', 'password2')"></button></label>
+                    <label for="senha">CONFIRMAR SENHA * 
+                        <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2', 'password2')"></button>
+                        <p class="btnSenha" onmousedown="reqSenha()">?</p>
+                    </label>
                     <input type="password" name="confsenha" id="password2" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
                         placeholder="Digite sua senha" required>
 

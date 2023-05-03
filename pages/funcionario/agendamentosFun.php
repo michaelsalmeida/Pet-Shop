@@ -59,7 +59,7 @@ if (!isset($_SESSION['tipo'])) {
 
         </div>
 
-        <nav class="responsive menu-perfil" style="opacity: 0; z-index: -1;">
+        <nav class="responsive menu-perfil" style="opacity: 0; top: -500px;">
 
       <?php
       if ($_SESSION['tipo'] == 'Secretaria') {
