@@ -988,6 +988,7 @@ function fazerAgenParaCli(){
 
 function verificar(){
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/";
 
     $cpf = $_GET['cpf'];
 
@@ -1008,37 +1009,86 @@ function verificar(){
 
         $_SESSION['idCliente'] = $id;
 
-        $tabela = "<div>
-        <label for='nome'>Nome</label><br>
-        <input type='text' name='nome' required>
-    </div>
+        $tabela = "<form id='formAltAnimal' action=' .  $header . 'backend/processos/proc_cadAnimalFun.php' . ' method='post'>
+        <img class='iconCachorro' src='../img-estatico/iconCachorro.svg' alt=''>
 
-    <div>
-        <label for='dataNasc'>Data de Nascimento</label><br>
-        <input type='date' name='dataNasc' required>
-    </div>
+        <h1>CADASTRE SEU PET EM NOSSO SISTEMA!</h1>
 
-    <div>
-        <label for='espec'>Espécie</label><br>
-        <input type='text' name='espec' required>
-    </div>
+        <fieldset>
+            <div>
+                <label for='nome'>Nome</label><br>
+                <input type='text' name='nome' placeholder='Digite o nome'>
+            </div>
 
-    <div>
-        <label for='raca'>Raça</label><br>
-        <input type='text' name='raca' required>
-    </div>
+            <div>
+                <label for='dataNasc'>Data de Nascimento </label><br>
+                <input type='date' name='dataNasc' placeholder='Digite a data de nascimento'>
+            </div>
+            
+            <div>
+                <label for='sexo'>Sexo</label><br>
+                <select name='sexo' id='sexo'>
+                    <option value='F'>Feminino</option>
+                    <option value='M'>Masculino</option>
+                    <option value='I'>Intersexo</option>
+                </select>
+            </div>
 
-    <div>
-        <label for='peso'>Peso (Kg)</label><br>
-        <input type='number' name='peso' step=0.01 pattern='[0-9]*' required>
-    </div>
+            <div>
+                <label for='espec'>Espécie</label><br>
+                <input type='text' id='espec' name='espec' list='especs' onchange='datalistRacas()'>
 
-    <div>
-        <label for='cor'>Cor</label><br>
-        <input type='text' name='cor' required>
-        
-    </div>
-    <input type='submit' value='Cadastrar'> 
+                <datalist id='especs'>
+                    <option value='Cachorro'>
+                    <option value='Coelho'>
+                    <option value='Gato'>
+                    <option value='Hamster'>
+                    <option value='Pássaro'>
+                    <option value='Peixe'>
+                    <option value='Tartaruga'>
+                </datalist>
+            </div>
+
+            <div>
+                <label for='raca'>Raça</label><br>
+                <input type='text' name='raca' id='raca-input' list='racas'>
+
+                <datalist id='racas'>
+                </datalist>
+            </div>
+
+            <div>
+                <label for='peso'>Peso (Kg)</label><br>
+                <input type='number' name='peso' step=0.01 pattern='[0-9]*' placeholder='Digite o peso'>
+            </div>
+
+            <div>
+                <label for='cor'>Cor</label><br>
+                <input type='text' name='cor' id='cor-input' placeholder='Digite a cor' list='cores-animais-list'>
+
+                <datalist id='cores-animais-list'>
+                    <option value='Amarelo'>
+                    <option value='Azul'>
+                    <option value='Branco'>
+                    <option value='Bronze'>
+                    <option value='Cinza'>
+                    <option value='Dourado'>
+                    <option value='Laranja'>
+                    <option value='Marrom'>
+                    <option value='Preto'>
+                    <option value='Prateado'>
+                    <option value='Rosa'>
+                    <option value='Roxo'>
+                    <option value='Verde'>
+                    <option value='Vermelho'>
+                </datalist>
+            </div>
+        </fieldset>
+
+        <button type='button' value='Cadastrar' onclick='validarCampo()'>Cadastrar</button>
+        <a href=' . $header . 'pages/funcionario/agendamentosFun.php' . '>Voltar</a>
+
+    </form>
         ";
         
     } else {

@@ -131,10 +131,6 @@ function queryBanco2(tipo) {
                     activateToast("CPF não está no sistema");
                 } else if (response[1] == "Nenhum animal encontrado para esse CPF") {
                     activateToast("Nenhum animal encontrado para esse CPF");
-                } else if (response[1] = "Nenhum CPF encontrado"){
-                    document.getElementById('animal').style.display = 'none';
-                    activateToast("Nenhum CPF encontrado");
-
                 } else {
                     if (response[1].length > 74){
                         document.getElementById('status').style.display = 'flex';
@@ -150,6 +146,7 @@ function queryBanco2(tipo) {
                     // e coloca o segundo valor dentro deste elemento
                 }
             }
+        
         };
     } else if (tipo == 'verificar'){
         var cpf = document.getElementById('cpf').value;
@@ -161,18 +158,18 @@ function queryBanco2(tipo) {
         xhr.onload = function () {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
+                console.log(response[1].length);
                 document.getElementById(response[0]).innerHTML = response[1];
-                if (response[1].length > 4){
-                    document.getElementById('animal').style.display = 'block';
-                    document.getElementById('aviso').style.display = 'none';
-                    // document.getElementById('aviso').value = response[1][0];
-
-                } else {
+                if (response[1] = "Nenhum CPF encontrado"){
                     document.getElementById('animal').style.display = 'none';
-                    document.getElementById('aviso').style.display = 'block';
-                }   
+                    activateToast("Nenhum CPF encontrado")
+                } else {
+                    if (response[1].length > 4){
+                        document.getElementById('animal').style.display = 'block';
+                }
             }
-        };
+        }
+    }
     }
     xhr.send();
 }
