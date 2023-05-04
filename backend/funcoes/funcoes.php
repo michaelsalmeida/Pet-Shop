@@ -1080,7 +1080,11 @@ function tabelaComentarios() {
 
     if (mysqli_num_rows($resultado) == 0) {
         $tabela = $tabela . "
-            <label>Não há mensagems no sistema</label>
+
+            <div class='box-sem-cometario'>
+                <label class='mensagem-sem-cometarios'>Não há mensagems no sistema</label>
+            </div>
+            
             ";
     } else {
         // Pega cada linha da query e monta as linhas da tabela
