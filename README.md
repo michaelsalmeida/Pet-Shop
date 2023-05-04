@@ -10,9 +10,9 @@
 - [x] Construção do Banco de Dados
 - [x] Back-end cliente 
 - [x] Back-end funcionário
-- [ ] Front-end cliente 
+- [x] Front-end cliente 
 - [x] Front-end funcionário 
-- [ ] Teste de software
+- [x] Teste de software
 - [x] Deploy 000webhost
 - [x] Deploy Azure
 - [ ] Teste de software pós deploy
