@@ -124,7 +124,7 @@ if (isset($_SESSION['tipo'])) {
                 <img src="pages/img-estatico/carousel01.svg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-cell">
-                <img src="pages/img-estatico/carousel02.svg" class="d-block w-100" alt="...">
+                <img src="pages/img-estatico/carousel02.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-cell">
                 <img src="pages/img-estatico/carousel03.svg" class="d-block w-100" alt="...">
