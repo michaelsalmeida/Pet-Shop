@@ -18,7 +18,10 @@ if (!isset($_SESSION['tipo'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
+
+
   <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
+  <link rel="stylesheet" href="../css-dinamico/paginacao.css">
   <link rel="stylesheet" href="../css-dinamico/table.css">
   <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css">
 

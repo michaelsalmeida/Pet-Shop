@@ -6,10 +6,7 @@
     justify-content: center;
 }
 
-#links{
-    display: flex;
-    justify-content: center;
-}
+
 
 .box-input, .box-mensagem{
     padding: 30px;

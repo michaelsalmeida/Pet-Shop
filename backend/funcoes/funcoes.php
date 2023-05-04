@@ -94,7 +94,7 @@ function gerarTabelaAni() {
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
+    $linkPaginas = "<a href='$header?pagina=1'><</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
@@ -102,7 +102,7 @@ function gerarTabelaAni() {
         }
     }
 
-    $linkPaginas =  $linkPaginas . $pagina;
+    $linkPaginas =  $linkPaginas . "<p class='selecionado'>" . $pagina . "</p>";
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
@@ -110,7 +110,7 @@ function gerarTabelaAni() {
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
+    $linkPaginas = $linkPaginas . "<a href='$header?pagina=$quantidade_pg'>></a>";
 
     $retornar = array('animais', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -229,7 +229,7 @@ function gerarTabelaAgenCli() {
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
+    $linkPaginas = "<a href='$header?pagina=1'><</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
@@ -237,7 +237,7 @@ function gerarTabelaAgenCli() {
         }
     }
 
-    $linkPaginas =  $linkPaginas . $pagina;
+    $linkPaginas =  $linkPaginas . "<p class='selecionado'>" . $pagina . "</p>";
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
@@ -245,7 +245,7 @@ function gerarTabelaAgenCli() {
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
+    $linkPaginas = $linkPaginas . "<a href='$header?pagina=$quantidade_pg'>></a>";
 
     $retornar = array("agendamentos", $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -376,7 +376,7 @@ function gerarTabelaFazAgenCli() {
         }
     }
 
-    $linkPaginas =  $linkPaginas . $pagina;
+    $linkPaginas =  $linkPaginas . "<p class='selecionado'>" . $pagina . "</p>";
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
@@ -551,7 +551,7 @@ function gerarTabelaAgenFun() {
         }
     }
 
-    $linkPaginas =  $linkPaginas . $pagina;
+    $linkPaginas =  $linkPaginas . "<p class='selecionado'>" . $pagina . "</p>";
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
@@ -722,7 +722,7 @@ function gerarTabelaDeleteFun() {
         }
     }
 
-    $linkPaginas =  $linkPaginas . $pagina;
+    $linkPaginas =  $linkPaginas . "<p class='selecionado'>" . $pagina . "</p>";
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
@@ -941,7 +941,7 @@ function tabelaFunAgenCli(){
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
+    $linkPaginas = "<a href='$header?pagina=1'><</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
@@ -949,7 +949,7 @@ function tabelaFunAgenCli(){
         }
     }
 
-    $linkPaginas =  $linkPaginas . $pagina;
+    $linkPaginas =  $linkPaginas . "<p class='selecionado'>" . $pagina . "</p>";
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
@@ -957,7 +957,7 @@ function tabelaFunAgenCli(){
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
+    $linkPaginas = $linkPaginas . "<a href='$header?pagina=$quantidade_pg'>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -1168,7 +1168,7 @@ function tabelaComentarios() {
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'><<</a> ";
+    $linkPaginas = "<a href='$header?pagina=1'><</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
@@ -1176,7 +1176,7 @@ function tabelaComentarios() {
         }
     }
 
-    $linkPaginas =  $linkPaginas . $pagina;
+    $linkPaginas =  $linkPaginas . "<p class='selecionado'>" . $pagina . "</p>";
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
@@ -1184,7 +1184,7 @@ function tabelaComentarios() {
         }
     }
 
-    $linkPaginas = $linkPaginas . " <a href='$header?pagina=$quantidade_pg'>>></a>";
+    $linkPaginas = $linkPaginas . "<a href='$header?pagina=$quantidade_pg'>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
