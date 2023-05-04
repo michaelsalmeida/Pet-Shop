@@ -6,6 +6,10 @@
 }
 
 
+#links a{
+    color: #000000;
+    text-decoration: none;
+}
 .selecionado{
     padding: 0 6px;
     border-radius: 5px;

@@ -367,12 +367,12 @@ function gerarTabelaFazAgenCli() {
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1&status=$status&pesq=".$_GET['pesq']."'><<</a>";
+    $linkPaginas = "<a href='$header?pagina=1&data=$data&tipo=".$_GET['tipo']."'><</a>";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
             $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant
-            &status=$status&pesq=".$_GET['pesq']."'>$pag_ant</a> ";
+            &data=$data&tipo=".$_GET['tipo']."'>$pag_ant</a> ";
         }
     }
 
@@ -381,12 +381,12 @@ function gerarTabelaFazAgenCli() {
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
             $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep
-            &status=$status&pesq=".$_GET['pesq']."'>$pag_dep</a> ";
+            &data=$data&tipo=".$_GET['tipo']."'>$pag_dep</a> ";
         }
     }
 
     $linkPaginas = $linkPaginas .
-    "<a href='$header?pagina=$quantidade_pg&status=$status&pesq=".$_GET['pesq']."'>>></a>";
+    "<a href='$header?pagina=$quantidade_pg&data=$data&tipo=".$_GET['tipo']."'>></a>";
 
     $retornar = array('fazAgend', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -542,7 +542,7 @@ function gerarTabelaAgenFun() {
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1&status=$status&pesq=".$_GET['pesq']."'><<</a>";
+    $linkPaginas = "<a href='$header?pagina=1&status=$status&pesq=".$_GET['pesq']."'><</a>";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
@@ -561,7 +561,7 @@ function gerarTabelaAgenFun() {
     }
 
     $linkPaginas = $linkPaginas .
-    "<a href='$header?pagina=$quantidade_pg&status=$status&pesq=".$_GET['pesq']."'>>></a>";
+    "<a href='$header?pagina=$quantidade_pg&status=$status&pesq=".$_GET['pesq']."'>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -713,7 +713,7 @@ function gerarTabelaDeleteFun() {
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1&situ=$situacao&pesq=".$_GET['pesq']."'><<</a> ";
+    $linkPaginas = "<a href='$header?pagina=1&situ=$situacao&pesq=".$_GET['pesq']."'><</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
@@ -732,7 +732,7 @@ function gerarTabelaDeleteFun() {
     }
 
     $linkPaginas = 
-    $linkPaginas . " <a href='$header?pagina=$quantidade_pg&situ=$situacao&pesq=".$_GET['pesq']."'>>></a>";
+    $linkPaginas . " <a href='$header?pagina=$quantidade_pg&situ=$situacao&pesq=".$_GET['pesq']."'>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
