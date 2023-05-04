@@ -158,18 +158,15 @@ function queryBanco2(tipo) {
         xhr.onload = function () {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
-                console.log(response[1].length);
-                document.getElementById(response[0]).innerHTML = response[1];
-                if (response[1] = "Nenhum CPF encontrado"){
+                if (response[1] == "Nenhum CPF encontrado"){
                     document.getElementById('animal').style.display = 'none';
                     activateToast("Nenhum CPF encontrado")
                 } else {
-                    if (response[1].length > 4){
-                        document.getElementById('animal').style.display = 'block';
+                    document.getElementById(response[0]).innerHTML = response[1];
+                    document.getElementById('animal').style.display = 'block';
                 }
             }
         }
-    }
     }
     xhr.send();
 }

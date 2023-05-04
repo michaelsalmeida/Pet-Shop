@@ -50,10 +50,10 @@ header("Location: " . $homeRoute);
 
     <label for="cpf">CPF DO CLIENTE: </label>
     <input type="text" id="cpf" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do cliente" required>
-    <button onclick="queryBanco2('verificar')">Verificar</button>   
+    <button onclick="queryBanco2('verificar')">Verificar</button>       
 
     <fieldset id="animal" style="display: none;">
-        <form action="<?php echo $procCadAnimalFunRoute; ?>" method="post" name="formanimal" id="formanimal">    
+        <form action="<?php echo $procCadAnimalFunRoute; ?>" method="post" name="formanimal" id="formAltAnimal">    
             
         </form>
     </fieldset>
