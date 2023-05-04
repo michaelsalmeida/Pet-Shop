@@ -909,7 +909,7 @@ function tabelaFunAgenCli(){
     // Pega cada linha da query e monta as linhas da tabela
     foreach ($resultadoList as $row) {
         // Formata a data
-        $det = "<button onclick='executeFunctions(" . '"fazerAgenParaCli"' . ", $row[3])'>Agendar</button>";
+        $det = "<button onclick='executeFunctions(" . '"fazerAgenParaCli"' . ", $row[3])' class = 'agendar cancelar'>Agendar</button>";
 
         $data = date('d/m/Y', strtotime($row[1]));
         $tabela = $tabela .
