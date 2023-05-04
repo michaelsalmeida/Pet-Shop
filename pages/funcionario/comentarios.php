@@ -113,12 +113,12 @@ if (!isset($_SESSION['tipo'])) {
 
 
             
-    <div class='pesquisa-data'>
-        <div class="borda-input">
-            <input type="date" id="data">
-            <button onclick="paginacao('tabelaComentarios')"><i class="bi bi-search"></i></button>
-        </div>
+
+    <div class="box-input">
+        <input type="date" id="data">
+        <button onclick="paginacao('tabelaComentarios')"><i class="bi bi-search"></i></button>
     </div>
+  
 
 
     <div id="tabela"></div>

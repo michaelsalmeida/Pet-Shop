@@ -35,7 +35,6 @@ if (isset($_SESSION['tipo'])) {
   <div class="loading">
     <div>
       <img src="pages/img-estatico/fundoLoading.png" alt="">
-      <p>Carregando</p>
     </div>
   </div>
 

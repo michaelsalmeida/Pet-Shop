@@ -1090,19 +1090,50 @@ function tabelaComentarios() {
             $tabela = $tabela .
 
             
-                "   <label>Data</label>
-                    <p>$data</p>
-                    <label>Nome</label>
-                    <p>$row[0]</p>
-                    <label>Telefone</label>
-                    <p>$row[1]</p>
-                    <label>E-mail</label>
-                    <p>$row[2]</p>
-                    <label>Mensagem</label>
-                    <p>$row[3]</p>
-                    <label>Responder</label>
-                    <p><a href='mailto:" . $row[2] . "'>Enviar email</a></p>
-                <hr>";
+                "   
+                    <div class='box-mensagem'> 
+    
+                        <div class='superior'>
+                            <i class='bi bi-chat-square-quote'></i>
+                            <label>Mensagem</label>
+                        </div>
+
+                        <div class='mensagem'>
+
+                            <div class='box-info box-cliente'>
+                                <i class='bi bi-person-circle'></i>
+                                <label>Cliente:</label>
+                                <p>$row[0]</p>
+                            </div>
+
+                            <div class='dado-triplo'>
+                                <div class='box-info'>
+                                    <i class='bi bi-calendar-check'></i>
+                                    <label>Data:</label>
+                                    <p>$data</p>
+                                </div>
+
+                                <div class='box-info'>
+                                    <i class='bi bi-phone-vibrate'></i>
+                                    <label>Telefone:</label>
+                                    <p>$row[1]</p>
+                                </div>
+
+                                <div class='box-info'>
+                                    <i class='bi bi-envelope'></i>
+                                    <label>E-mail:</label>
+                                    <p>$row[2]</p>
+                                </div>
+
+                            </div>
+                            <p class='texto'>$row[3]</p>
+                            <a class='email' href='mailto:" . $row[2] . "'>Enviar email</a>
+                        </div>
+
+
+                       
+                    </div>
+                ";
         }
     }
 

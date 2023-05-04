@@ -127,7 +127,7 @@ if (isset($_SESSION['tipo'])) {
             </fieldset>
             <fieldset id="msg">
                 <label for="">Sua mensagem</label>
-                <textarea name="msg" id="" cols="30" rows="10" required placeholder="escreva seu comentário"></textarea>
+                <textarea name="msg" id="" cols="30" rows="10" required placeholder="Digite seu comentário"></textarea>
             </fieldset>
 
             <input type="submit">
