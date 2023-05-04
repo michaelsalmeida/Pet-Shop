@@ -11,7 +11,7 @@
 - [x] Back-end cliente 
 - [x] Back-end funcionário
 - [ ] Front-end cliente 
-- [ ] Front-end funcionário 
+- [x] Front-end funcionário 
 - [ ] Teste de software
 - [x] Deploy 000webhost
 - [x] Deploy Azure
