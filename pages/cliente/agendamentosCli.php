@@ -27,6 +27,7 @@ if (!loged()) { // Verifica se há um usuário logado
     <link rel="stylesheet" href="../css-estatico/header.css">
 
     <link rel="stylesheet" href="../css-dinamico/table.css">
+    <link rel="stylesheet" href="../css-dinamico/paginacao.css">
 
     <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css
     ">

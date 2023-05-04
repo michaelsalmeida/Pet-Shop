@@ -26,6 +26,7 @@ if (isset($_SESSION['tipo'])) {
 
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/table.css">
+    <link rel="stylesheet" href="../css-dinamico/paginacao.css">
     <link rel="stylesheet" href="../css-dinamico/agendamentoCliente.css">
     <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
