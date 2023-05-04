@@ -50,9 +50,7 @@ header("Location: " . $homeRoute);
 
     <label for="cpf">CPF DO CLIENTE: </label>
     <input type="text" id="cpf" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do cliente" required>
-    <button onclick="queryBanco2('verificar')">Verificar</button>
-
-    <p id="aviso" style="display:none;">NENHUM CPF ENCONTRADO</p>
+    <button onclick="queryBanco2('verificar')">Verificar</button>   
 
     <fieldset id="animal" style="display: none;">
         <form action="<?php echo $procCadAnimalFunRoute; ?>" method="post" name="formanimal" id="formanimal">    
@@ -65,7 +63,6 @@ header("Location: " . $homeRoute);
     <script src="<?php echo $dataHojeRoute; ?>"></script>
     <script src="../../backend/funcoes/toast.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="../../backend/funcoes/toast.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>     
+    
 </body>
 </html>
