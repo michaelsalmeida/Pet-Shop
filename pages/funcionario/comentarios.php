@@ -22,7 +22,7 @@ if (!isset($_SESSION['tipo'])) {
     <title>Document</title>
     <script src="<?php echo $functionsRoute; ?>"></script>
     
-    
+    <link rel="stylesheet" href="../css-dinamico/paginacao.css">
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css">
     <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
@@ -123,8 +123,7 @@ if (!isset($_SESSION['tipo'])) {
 
     <div id="tabela"></div>
     <div id="links"></div>
-    </div>
-    
+            
 
     
 
