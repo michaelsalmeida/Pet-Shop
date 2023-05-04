@@ -586,11 +586,17 @@ function profissionais() {
     // Pega o resultado do banco
     $resultado = $stmt->get_result();
 
-    $tabela = "<option value='' disabled selected hidden>Selecione um funcionário</option>";
+    if (mysqli_num_rows($resultado) == 0){
+        $tabela = "<option value='' disabled selected hidden>Nenhum funcionário encontrado</option>";
+    } else {
+        $tabela = "<option value='' disabled selected hidden>Selecione um funcionário</option>";
+    
+        foreach ($resultado->fetch_all() as $row) {
+            $tabela = $tabela . "<option value='$row[0]'>$row[0]</option>";
+        }
 
-    foreach ($resultado->fetch_all() as $row) {
-        $tabela = $tabela . "<option value='$row[0]'>$row[0]</option>";
     }
+
 
     $retornar = array('profissionais', $tabela);
     return json_encode($retornar);
@@ -815,7 +821,7 @@ function animais() {
     $resultado = $stmt->get_result();
 
     if (mysqli_num_rows($resultado) == 0){
-        $tabela = "<option value='' disabled selected hidden>CPF não está no sistema</option>";
+        $tabela = "CPF não está no sistema";
         $_SESSION['agenCliFun'] = "CPF não está no sistema";
     } else {
 
@@ -830,7 +836,7 @@ function animais() {
         $resultado2 = $stmt2->get_result();
 
         if (mysqli_num_rows($resultado2) == 0){
-            $tabela = "<option value='' disabled selected hidden>Nenhum animal encontrado para esse CPF</option>";
+            $tabela = "Nenhum animal encontrado para esse CPF";
         } else {
             $tabela = "<option value='' disabled selected hidden>Selecione um animal</option>";
 
@@ -894,9 +900,14 @@ function tabelaFunAgenCli(){
             <th>Marcar</th>
         </tr>";
 
+    $resultadoList = $resultado->fetch_all();
+    
+    if (!$resultadoList) {
+        $row_pg = 0;
+    }
     
     // Pega cada linha da query e monta as linhas da tabela
-    foreach ($resultado->fetch_all() as $row) {
+    foreach ($resultadoList as $row) {
         // Formata a data
         $det = "<button onclick='executeFunctions(" . '"fazerAgenParaCli"' . ", $row[3])'>Agendar</button>";
 
@@ -991,9 +1002,9 @@ function verificar(){
     // Pega o resultado do banco
     $resultado = $stmt->get_result();
 
-    $id = $resultado->fetch_all()[0][0];
 
     if (mysqli_num_rows($resultado) > 0){
+        $id = $resultado->fetch_all()[0][0];
 
         $_SESSION['idCliente'] = $id;
 
@@ -1031,7 +1042,7 @@ function verificar(){
         ";
         
     } else {
-        $tabela = "Nada";
+        $tabela = "Nenhum CPF encontrado";
     }
 
     $retornar = array('formanimal', $tabela);
@@ -1184,8 +1195,7 @@ function verificarSession($lista){
     foreach ($lista as $item){
         if (!isset($_SESSION[$item])){
             $_SESSION[$item] = false;
-        }
-        if ($_SESSION[$item] != false){
+        } else {
             $retorno = $_SESSION[$item];
             unset($_SESSION[$item]);
             return "'" . $retorno . "'";

@@ -65,5 +65,7 @@ header("Location: " . $homeRoute);
     <script src="<?php echo $dataHojeRoute; ?>"></script>
     <script src="../../backend/funcoes/toast.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>     
 </body>
 </html>

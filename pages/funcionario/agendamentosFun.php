@@ -67,6 +67,7 @@ if (!isset($_SESSION['tipo'])) {
         echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
         echo "<a href=" . $cadAnimalParaClienteRoute . ">Cadastrar animal</a>";
         echo "<a href=" . $comentariosRoute . ">Comentarios dos Clientes</a>";
+        echo "<a href=" . $comentariosRoute . ">Comentarios dos Clientes</a>";
       } elseif ($_SESSION['tipo'] == 'admin') {
         echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a>";
         echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
