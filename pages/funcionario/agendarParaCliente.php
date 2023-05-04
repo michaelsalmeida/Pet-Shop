@@ -19,6 +19,7 @@ require_once $funcoesRoute;
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../css-dinamico/table.css">
   <link rel="stylesheet" href="../css-dinamico/agendamento-funcionario-cliente.css">
+  <link rel="stylesheet" href="../css-dinamico/paginacao.css">
 
 
 </head>
