@@ -56,7 +56,6 @@ function queryBanco(tipo) {
 function agenFun() {
     var params = new URLSearchParams(location.search);
     var status = params.get('status');
-    console.log(status)
     if (status == null) {
         status = 'Disponivel';
     }
@@ -103,7 +102,6 @@ function paginacao(tipo) {
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
-            console.log(response);
             document.getElementById(response[0]).innerHTML = response[1];
             document.getElementById(response[2]).innerHTML = response[3];
             // Seleciona o elemento de acordo com o primeiro valor do JSON
@@ -153,8 +151,6 @@ function queryBanco2(tipo) {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
                 document.getElementById(response[0]).innerHTML = response[1];
-                console.log(response[1]);
-                console.log(response[1].length);
                 if (response[1].length > 4){
                     document.getElementById('animal').style.display = 'block';
                     document.getElementById('aviso').style.display = 'none';
@@ -320,7 +316,6 @@ function activeModalDetalhesFun(id, tipo) {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Pega a resposta do servidor
             // Verifica se o funcionário não é um admin ou secretaria
-            console.log(tipo);
             if (response == 'Os detalhes não foram adicionados ainda'){
                 if (tipo == 'Veterinario' || tipo == 'Esteticista') {
                     // então mostra o campo para adicionar os detalhes
@@ -612,7 +607,6 @@ function validarCampo() {
 
     if (animais.indexOf(espec) != -1 && racas[espec].indexOf(raca) != -1 && cores.indexOf(cor) != -1) {
         document.getElementById("formAltAnimal").submit()
-        console.log("teste")
     } else {
         const Toast = Swal.mixin({
             toast: true,

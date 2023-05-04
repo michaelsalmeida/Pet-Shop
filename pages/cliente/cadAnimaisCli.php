@@ -94,11 +94,6 @@ if (!loged()) { // Verifica se há um usuário logado
         </div>
     </header>
 
-    <?php
-    if (isset($_SESSION['msgCadAnimaisCli'])) { // Verifica se há uma mensagem para mostrar
-        unset($_SESSION['msgCadAnimaisCli']);
-    }
-    ?>
     <form id="formAltAnimal" action="<?php echo $proc_cadAnimalRoute; ?>" method="post">
         <img class="iconCachorro" src="../img-estatico/iconCachorro.svg" alt="">
 

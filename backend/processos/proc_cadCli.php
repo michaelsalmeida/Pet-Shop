@@ -117,4 +117,7 @@ if ($certo1 && $certo2) {
         }
         header('Location: ' . $cadastroCliRoute);
     }
+} else {
+    $_SESSION['msgCadCli'] = "CPF Incorreto";
+    header('Location: ' . $cadastroCliRoute);
 }

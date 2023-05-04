@@ -203,6 +203,13 @@ function activateToast(param) {
         title: `${param}`,
       });
       break; 
+
+    case "CPF Incorreto":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
   } 
 
 

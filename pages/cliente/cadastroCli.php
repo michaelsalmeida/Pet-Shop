@@ -87,7 +87,7 @@ include_once($funcoesRoute);
                 </div>
 
                 <div class="input row">
-                    <label for="senha">SENHA * 
+                    <label for="senha">SENHA *
                         <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button>
                         <p class="btnSenha" onmousedown="reqSenha()">?</p>
                     </label>
@@ -97,7 +97,7 @@ include_once($funcoesRoute);
                 </div>
 
                 <div class="input row">
-                    <label for="senha">CONFIRMAR SENHA * 
+                    <label for="senha">CONFIRMAR SENHA *
                         <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2', 'password2')"></button>
                         <p class="btnSenha" onmousedown="reqSenha()">?</p>
                     </label>
