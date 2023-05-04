@@ -127,17 +127,28 @@ function queryBanco2(tipo) {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
                 document.getElementById(response[0]).innerHTML = response[1];
-                if (response[1].length > 74){
-                    document.getElementById('status').style.display = 'flex';
-                    document.getElementById('divpesq').style.display = 'flex';
-                    document.getElementById('tabela').style.display = 'flex';
+                if (response[1] == "CPF não está no sistema"){
+                    activateToast("CPF não está no sistema");
+                } else if (response[1] == "Nenhum animal encontrado para esse CPF") {
+                    activateToast("Nenhum animal encontrado para esse CPF");
+                } else if (response[1] = "Nenhum CPF encontrado"){
+                    document.getElementById('animal').style.display = 'none';
+                    activateToast("Nenhum CPF encontrado");
+
                 } else {
-                    document.getElementById('status').style.display = 'none';
-                    document.getElementById('divpesq').style.display = 'none';
-                    document.getElementById('tabela').style.display = 'none';
+                    if (response[1].length > 74){
+                        document.getElementById('status').style.display = 'flex';
+                        document.getElementById('divpesq').style.display = 'flex';
+                        document.getElementById('tabela').style.display = 'flex';
+                        document.getElementById('animais').style.display = 'flex';
+                    } else {
+                        document.getElementById('status').style.display = 'none';
+                        document.getElementById('divpesq').style.display = 'none';
+                        document.getElementById('tabela').style.display = 'none';
+                    }
+                    // Seleciona o elemento de acordo com o primeiro valor do JSON
+                    // e coloca o segundo valor dentro deste elemento
                 }
-                // Seleciona o elemento de acordo com o primeiro valor do JSON
-                // e coloca o segundo valor dentro deste elemento
             }
         };
     } else if (tipo == 'verificar'){

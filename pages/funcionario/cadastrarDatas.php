@@ -88,7 +88,7 @@ if (!isset($_SESSION['tipo'])) {
                     <label for="">Selecione o profissional</label>
 
                     <select name="profissionais" id="profissionais" required style="width: 300px;">
-                        <option value="" disabled selected hidden>Selecione um profissional</option>
+                        <option value="" disabled selected hidden>Selecione um serviço primeiro</option>
 
                     </select>
 

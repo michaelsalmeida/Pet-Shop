@@ -210,6 +210,27 @@ function activateToast(param) {
         title: `${param}`,
       });
       break; 
+
+    case "CPF não está no sistema":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
+    case "Nenhum animal encontrado para esse CPF":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
+    case "Nenhum CPF encontrado":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
   } 
 
 

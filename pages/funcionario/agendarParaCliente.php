@@ -37,14 +37,15 @@ require_once $funcoesRoute;
     <div class="box-maior-input">
 
       <div class="box-input">
-        <input type="text" id="cpf" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do cliente" required>
+        <input type="text" id="cpf" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do cliente" onchange="queryBanco2('animais')" required>
+        <!-- <button onclick="queryBanco2('animais')">Verificar</button> -->
       </div>
 
       <div class="box-input">
-        <select name="animais" id="animais" required>
-          <option value="" disabled selected hidden>Selecione um tipo de serviço</option>
+        <select name="animais" id="animais" style="display: none;" required>
+          <option value="" disabled selected hidden>Verifique o CPF primeiro</option>
         </select>
-        <button onclick="queryBanco2('animais')">Verificar</button>
+        
       </div>
 
 
@@ -65,8 +66,7 @@ require_once $funcoesRoute;
 
 
       <div class="box-input box-pesquisa" id="divpesq" style="display: none;">
-        <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
-        <button onclick="paginacao('tabelaFunAgenCli')">Pesquisar</button>
+        <input type="text" placeholder="Pesquise por um Funcionário" id="pesq" onkeydown="paginacao('tabelaFunAgenCli')">
     </div>
 
 
@@ -100,6 +100,8 @@ require_once $funcoesRoute;
 
   <script src="<?php echo $functionsRoute ?>"></script>
   <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
