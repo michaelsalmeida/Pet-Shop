@@ -874,6 +874,7 @@ function tabelaFunAgenCli(){
         WHERE Funcionarios.nome LIKE ?
         AND `status` = 'Disponivel'
         AND tipo = ?
+        GROUP BY Funcionarios.nome, data_agendamento, horario_agendamento, pk_Agendamento
         ORDER BY data_agendamento, horario_agendamento");
 
     $pesquisar = "%" . $_GET['pesq'] . "%";
