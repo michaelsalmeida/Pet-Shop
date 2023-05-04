@@ -1009,11 +1009,7 @@ function verificar(){
 
         $_SESSION['idCliente'] = $id;
 
-        $tabela = "<form id='formAltAnimal' action=' .  $header . 'backend/processos/proc_cadAnimalFun.php' . ' method='post'>
-        <img class='iconCachorro' src='../img-estatico/iconCachorro.svg' alt=''>
-
-        <h1>CADASTRE SEU PET EM NOSSO SISTEMA!</h1>
-
+        $tabela = "
         <fieldset>
             <div>
                 <label for='nome'>Nome</label><br>
@@ -1092,10 +1088,12 @@ function verificar(){
         ";
         
     } else {
+
         $tabela = "Nenhum CPF encontrado";
+
     }
 
-    $retornar = array('formanimal', $tabela);
+    $retornar = array('formAltAnimal', $tabela);
     return json_encode($retornar);
 }
 
