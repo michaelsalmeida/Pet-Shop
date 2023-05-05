@@ -18,10 +18,11 @@ try {
         $_SESSION['loggedinFun'] = true;
         $_SESSION['idFun'] = $row[0]; // id do Funcionário
         $_SESSION['tipo'] = $row[1];
-        $_SESSION['nome'] = $row[2];
+        $_SESSION['nome'] = $row[2]; 
+        $_SESSION['login'] = "Bem vindo " . $row[2];
         header("Location: " . $agendamentoFunRoute);
     } else {
-        $_SESSION['msgloginFun'] = "USUÁRIO OU SENHA INCORRETO(S)";
+        $_SESSION['msgloginFun'] = "Usuário ou senha incorretos(s)";
         header("Location: " . $loginFunRoute);
     }
 } catch (Exception $e) {

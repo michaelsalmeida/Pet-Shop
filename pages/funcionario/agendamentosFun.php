@@ -10,6 +10,7 @@ if (!loged()) {
 if (!isset($_SESSION['tipo'])) {
   header("Location: " . $homeRoute);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +38,7 @@ if (!isset($_SESSION['tipo'])) {
 
 <body
     onload="agenFun(), paginacao('gerarTabelaAgenFun'), 
-    activateToast(<?php echo verificarSession(['msgCadData', 'msgCadFun', 'msgRotaProibida']); ?>)">
+    activateToast(<?php echo verificarSession(['msgCadData', 'msgCadFun', 'msgRotaProibida', 'login']); ?>)">
 
     <header class="header-corporativo">
         <div class="box-logo-barra-de-pesquisa-perfil">
@@ -62,6 +63,9 @@ if (!isset($_SESSION['tipo'])) {
         <nav class="responsive menu-perfil" style="opacity: 0; top: -500px;">
 
       <?php
+      if(isset($_SESSION['login'])){
+        unset($_SESSION['login']);
+    }
       if ($_SESSION['tipo'] == 'Secretaria') {
         echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
         echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
@@ -136,6 +140,7 @@ if (!isset($_SESSION['tipo'])) {
 
     <script src="../script.js"></script>
     <script src="../../backend/funcoes/toast.js"></script>
+    <script src="../../backend/funcoes/aaa.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 

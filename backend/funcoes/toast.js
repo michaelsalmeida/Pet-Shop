@@ -1,4 +1,4 @@
-function activateToast(param) {
+function activateToast(param) { // função que ativa os avisos na tela de acordo com a mensagem que será passada.
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -6,6 +6,13 @@ function activateToast(param) {
     timer: 3000,
     timerProgressBar: true,
   });
+
+  if (param.includes("Bem vindo")){
+    Toast.fire({
+      icon: "success",
+      title: `${param}`,
+    });
+  }
 
   switch (param){
     case "Data cadastrada com sucesso":
@@ -99,7 +106,7 @@ function activateToast(param) {
       });
       break; 
 
-    case "USUÁRIO OU SENHA INCORRETO(S)":
+    case "Usuário ou senha incorretos(s)":
       Toast.fire({
         icon: "error",
         title: `${param}`,
@@ -148,14 +155,14 @@ function activateToast(param) {
       });
       break; 
 
-    case "COMENTÁRIO ENVIADO COM SUCESSO":
+    case "Comentário enviado com sucesso":
       Toast.fire({
         icon: "success",
         title: `${param}`,
       });
       break;
       
-    case "ERRO AO ENVIAR O COMENTÁRIO":
+    case "Erro ao enviar o comentário":
       Toast.fire({
         icon: "error",
         title: `${param}`,
@@ -231,44 +238,16 @@ function activateToast(param) {
         title: `${param}`,
       });
       break; 
+
+    case "Agendamento realizado com sucesso":
+      Toast.fire({
+        icon: "success",
+        title: `${param}`,
+      });
+      break; 
+
   } 
-
-
 
 }
 
 
-
-
-
-
-
-// function perfilCliToast(param) {
-//   if (param == true) {
-//     const Toast = Swal.mixin({
-//       toast: true,
-//       position: "top-end",
-//       showConfirmButton: false,
-//       timer: 3000,
-//       timerProgressBar: true,
-//     });
-
-//     Toast.fire({
-//       icon: "success",
-//       title: "Cliente alterado com sucesso",
-//     });
-//   } else if (param == "false") {
-//     const Toast = Swal.mixin({
-//       toast: true,
-//       position: "top-end",
-//       showConfirmButton: false,
-//       timer: 3000,
-//       timerProgressBar: true,
-//     });
-
-//     Toast.fire({
-//       icon: "error",
-//       title: "Este email pertence a outro usuário.",
-//     });
-//   }
-// }

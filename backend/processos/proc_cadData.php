@@ -32,16 +32,18 @@ $result = $stmt1->get_result();
 
 $idFun = $result->fetch_row();
 
-if (strtotime($data) < strtotime($data_atual)){
+if (strtotime($data) < strtotime($data_atual)){ // verifica se a data escolhida está disponível para ser usada
     $_SESSION['msgCadDataErro'] = "Data Indisponível";
     header("location: " . $cadastradaDatasRoute);
-} elseif (strtotime($data) == strtotime($data_atual)){
+} elseif (strtotime($data) == strtotime($data_atual)){ // se a data for a mesma da atual aqui verifica se a hora ainda não passou
     if (strtotime($hora) < strtotime($hora_atual)){
         $_SESSION['msgCadDataErro'] = "Horário Indisponível";
         $_SESSION['tela'] = 'msgCadDataErro';
     header("location: " . $cadastradaDatasRoute);
-    } else {
+    } else { 
+        // formata a hora para ser inserida no banco
         $hora_formatada = date("H:i:s", strtotime($hora));
+        // comando de inserção ao banco
         $stmt2 = $conn -> prepare ("SELECT pk_Funcionario, data_agendamento, horario_agendamento
         from Funcionarios 
         inner join Agendamentos
@@ -54,6 +56,7 @@ if (strtotime($data) < strtotime($data_atual)){
 
         $result2 = $stmt2 -> get_result();
 
+        // variável para verificar se a hora escolhida já foi cadastrada para o funcionário anteriormente [0 = não / 1 = sim]
         $correto = 0;
 
         foreach ($result2->fetch_all() as $row){

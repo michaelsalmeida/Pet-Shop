@@ -31,7 +31,7 @@ if (isset($_SESSION['tipo'])) {
     <script defer src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onload="delay()">
+<body onload="delay(), activateToast(<?php echo verificarSession(['login']); ?>)">
   <div class="loading">
     <div>
       <img src="pages/img-estatico/fundoLoading.png" alt="">
@@ -246,6 +246,8 @@ if (isset($_SESSION['tipo'])) {
     
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

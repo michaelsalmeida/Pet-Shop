@@ -23,9 +23,10 @@ try {
         $_SESSION['loggedinCli'] = true;
         $_SESSION['idCli'] = $row[0]; // id do cliente
         $_SESSION['nomeCliente'] = $row[1];
+        $_SESSION['login'] = "Bem vindo " . $row[1];
         header("Location: " . $homeRoute);
     } else {
-        $_SESSION['msglogin'] = "USUÁRIO OU SENHA INCORRETO(S)";
+        $_SESSION['msglogin'] = "Usuário ou senha incorretos(s)";
         header("Location: " . $loginCliRoute);
     }
 } catch (Exception $e) {
