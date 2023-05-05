@@ -36,7 +36,7 @@ if (!isset($_SESSION['tipo'])) {
 </head>
 
 <body
-    onload="agenFun(), paginacao('gerarTabelaAgenFun'), 
+    onload="filtros('agendamentosFun'), paginacao('gerarTabelaAgenFun'), 
     activateToast(<?php echo verificarSession(['msgCadData', 'msgCadFun', 'msgRotaProibida', 'login']); ?>)">
 
     <header class="header-corporativo">

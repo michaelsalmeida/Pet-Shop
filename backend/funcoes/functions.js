@@ -53,17 +53,36 @@ function queryBanco(tipo) {
     xhr.send();
 }
 
-function agenFun() {
-    var params = new URLSearchParams(location.search);
-    var status = params.get('status');
-    if (status == null) {
-        status = 'Disponivel';
+function filtros(pag) {
+    var filtro, alt = ""
+
+    if (pag == "agendamentosFun") {
+        filtro = ["status", "pesq"]
+        alt = ["Disponivel", ""]
+    } else if (pag == "listarFuncionario") {
+        filtro = ["situacoes", "pesq"]
+        alt = ["ativo", ""]
+    } else if (pag == "comentarios") {
+        filtro = ["data", "pesq"]
+        alt = ["", ""]
+    } else if (pag == "agendarParaCliente") {
+        filtro = ["cpf", "animais", "servico", "pesq"]
+        alt = ["", "", "", ""]
     }
+    
+    filtro.forEach(function(elemento, index) { 
+        var params = new URLSearchParams(location.search);
+        var status = params.get(elemento);
+        if (status == null) {
+            status = alt[index];
+        }
+        document.getElementById(elemento).value = status;
+    });
 
-    document.getElementById('status').value = status;
-
-    var pesq = params.get('pesq');
-    document.getElementById('pesq').value = pesq;
+    if (pag == "agendarParaCliente" && document.getElementById("cpf").value != "") {
+        queryBanco2('animais')
+        paginacao('tabelaFunAgenCli')
+    }
 }
 
 function paginacao(tipo) {
@@ -72,7 +91,7 @@ function paginacao(tipo) {
     if (tipo == 'gerarTabelaDeleteFun') { // Listar funcionário
         var pesq = document.getElementById('pesq').value;
         var filtro = document.getElementById('situacoes').value;
-        extra = `&pesq=${pesq}&situ=${filtro}`;
+        extra = `&pesq=${pesq}&situacoes=${filtro}`;
         
     } else if (tipo == 'gerarTabelaAgenFun') { // Puxar os agendamentos para o funcionário
         var pesq = document.getElementById('pesq').value;
@@ -80,9 +99,11 @@ function paginacao(tipo) {
         extra = `&pesq=${pesq}&status=${filtro}`;
 
     } else if (tipo == 'tabelaFunAgenCli'){
+        var cpf = document.getElementById('cpf').value;
+        var animal = document.getElementById('animais').value;
+        var servico = document.getElementById('servico').value;
         var pesq = document.getElementById('pesq').value;
-        var servico = document.getElementById('status').value;
-        extra = `&servico=${servico}&pesq=${pesq}`;
+        extra = `&cpf=${cpf}&animais=${animal}&servico=${servico}&pesq=${pesq}`;
 
     } else if (tipo == 'tabelaComentarios'){
         var pesq = document.getElementById('pesq').value;
@@ -133,12 +154,12 @@ function queryBanco2(tipo) {
                     activateToast("Nenhum animal encontrado para esse CPF");
                 } else {
                     if (response[1].length > 74){
-                        document.getElementById('status').style.display = 'flex';
+                        document.getElementById('servico').style.display = 'flex';
                         document.getElementById('divpesq').style.display = 'flex';
                         document.getElementById('tabela').style.display = 'flex';
                         document.getElementById('animais').style.display = 'flex';
                     } else {
-                        document.getElementById('status').style.display = 'none';
+                        document.getElementById('servico').style.display = 'none';
                         document.getElementById('divpesq').style.display = 'none';
                         document.getElementById('tabela').style.display = 'none';
                     }

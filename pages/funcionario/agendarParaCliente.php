@@ -29,7 +29,7 @@ if (!isset($_SESSION['tipo'])) {
 
 </head>
 
-<body onload="activateToast(<?php echo verificarSession(['agenCliFun']); ?>)">
+<body onload="filtros('agendarParaCliente'),activateToast(<?php echo verificarSession(['agenCliFun']); ?>)">
   
 
   <div class="box-informacoes">
@@ -43,7 +43,7 @@ if (!isset($_SESSION['tipo'])) {
     <div class="box-maior-input">
 
       <div class="box-input">
-        <input type="text" id="cpf" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do cliente" onchange="queryBanco2('animais')" required>
+        <input type="text" id="cpf" name="cpf" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}" placeholder="Digite o CPF do cliente" onchange="queryBanco2('animais')" required>
         <!-- <button onclick="queryBanco2('animais')">Verificar</button> -->
       </div>
 
@@ -61,8 +61,8 @@ if (!isset($_SESSION['tipo'])) {
     <div class="box-maior-input ">
 
       <div class="box-input">
-        <select name="status" id="status" onchange="paginacao('tabelaFunAgenCli')" required style="display: none;">
-          <option value="" disabled selected hidden>Selecione o status</option>
+        <select name="servico" id="servico" onchange="paginacao('tabelaFunAgenCli')" required style="display: none;">
+          <option value="" disabled selected hidden>Selecione o serviço</option>
           <option value="Veterinario">Veterinário</option>
           <option value="Banho">Banho</option>
           <option value="Tosa">Tosa</option>
