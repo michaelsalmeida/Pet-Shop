@@ -3,6 +3,7 @@ let fecha = document.querySelector(".fechaMenu");
 let menu = document.querySelector(".responsive");
 var perfil = document.querySelector(".menu-perfil");
 let req = document.querySelector(".requisitos")
+let contato = document.querySelector(".contatoHeader")
 
 // abre menu hamburguer
 function abreMenu() {
