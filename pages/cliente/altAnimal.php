@@ -21,9 +21,8 @@ if (!loged()) { // Verifica se há um usuário logado
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animais</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
 
-
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/cadAnimais.css">
 </head>

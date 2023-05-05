@@ -31,6 +31,7 @@ if (!loged()) { // Verifica se há um usuário logado
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css-dinamico/table.css">
     <link rel="stylesheet" href="../css-dinamico/paginacao.css">
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
 
 
 

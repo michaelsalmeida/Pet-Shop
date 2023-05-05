@@ -30,6 +30,7 @@ if (!isset($_SESSION['tipo'])) {
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/">
     <link rel="stylesheet" href="../css-dinamico/cadastrar-funcionario.css">
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
 
 
 </head>

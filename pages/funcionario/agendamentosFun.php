@@ -21,9 +21,8 @@ if (!isset($_SESSION['tipo'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamentos</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
 
-
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
     <script src="<?php echo $functionsRoute; ?>"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">

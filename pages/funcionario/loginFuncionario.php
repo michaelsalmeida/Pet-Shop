@@ -23,6 +23,7 @@ if (isset($_SESSION['tipo'])) {
     <link rel="stylesheet" href="../css-dinamico/login-funcionario.css">
 
     <link rel="stylesheet" href="../css-estatico/olhoSenha.css">
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgloginFun']); ?>)">

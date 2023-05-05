@@ -33,7 +33,7 @@ if (!isset($_SESSION['tipo'])) {
     <link rel="stylesheet" href="../css-dinamico/cadAnimais.css">
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/cadastrar-animal-para-cliente.css">
-
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
     <title>Document</title>
 
 </head>

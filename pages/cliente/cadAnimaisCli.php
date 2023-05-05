@@ -26,6 +26,9 @@ if (!loged()) { // Verifica se há um usuário logado
 
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/cadAnimais.css">
+    
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
+
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgCadAnimaisCli']); ?>)">
