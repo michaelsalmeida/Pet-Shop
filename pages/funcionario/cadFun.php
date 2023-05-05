@@ -36,11 +36,11 @@ if (!isset($_SESSION['tipo'])) {
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgCadFun']); ?>)">
-    
+
     <?php
-        if (isset($_SESSION['msgCadFun'])) {
-            unset($_SESSION['msgCadFun']);
-        }
+    if (isset($_SESSION['msgCadFun'])) {
+        unset($_SESSION['msgCadFun']);
+    }
     ?>
     <div>
 
@@ -89,7 +89,17 @@ if (!isset($_SESSION['tipo'])) {
 
                 <div class="box-input">
 
-                    <label for="senha">SENHA:  <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button></label>
+                    <label for="senha" class="box-botoes-senha">SENHA:
+                        <div class="box-botoes-senha">
+
+
+                            <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button>
+                            <p class="btnSenha" onmousedown="reqSenha()">?</p>
+
+                        </div>
+
+
+                    </label>
                     <input type="password" name="senha" id="password" placeholder="Digite a senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" required>
 
                 </div>
@@ -98,7 +108,10 @@ if (!isset($_SESSION['tipo'])) {
 
                 <div class="box-input">
 
-                    <label for="confsenha">CONFIRME A SENHA: <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2' , 'password2')"></button></label>
+                    <label for="confsenha">CONFIRME A SENHA: 
+                        
+                        
+                        <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2' , 'password2')"></button></label>
                     <input type="password" name="confsenha" id="password2" placeholder="Digite a senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" required>
 
                 </div>
@@ -116,10 +129,17 @@ if (!isset($_SESSION['tipo'])) {
             </div>
 
 
-            =
+
 
 
         </form>
+
+
+        <div class="requisitos">
+            <p class="tituloSenha">REQUISITOS DE SENHA</p>
+            <button onmousedown="fechaReq()">x</button>
+            <p>Mínimo 8 caracteres, sendo eles 1 letra maiúscula, 1 letra minuscula, 1 numero e um caractere especial</p>
+        </div>
 
 
 
