@@ -21,6 +21,8 @@ if (isset($_SESSION['tipo'])) {
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css-estatico/blog.css">
 
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
+    
 </head>
 
 <body>

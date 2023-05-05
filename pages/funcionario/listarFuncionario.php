@@ -24,7 +24,7 @@ if (!isset($_SESSION['tipo'])) {
   <link rel="stylesheet" href="../css-dinamico/table.css">
   <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css">
 
-
+  <link rel="icon" href="../img-dinamico/dog-icon.png">
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 

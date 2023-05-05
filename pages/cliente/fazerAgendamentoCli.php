@@ -29,6 +29,8 @@ if (isset($_SESSION['tipo'])) {
     <link rel="stylesheet" href="../css-dinamico/paginacao.css">
     <link rel="stylesheet" href="../css-dinamico/agendamentoCliente.css">
     <script src="<?php echo $functionsRoute; ?>"></script>
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
+
 </head>
 
 <body onload="queryBanco('checkAnimais'), activateToast(<?php echo verificarSession(['msgFazAgendamento']); ?>)">

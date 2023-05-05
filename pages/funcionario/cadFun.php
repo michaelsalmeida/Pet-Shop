@@ -31,6 +31,7 @@ if (!isset($_SESSION['tipo'])) {
     <link rel="stylesheet" href="../css-dinamico/cadastrar-funcionario.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
     <link rel="stylesheet" href="../css-estatico/olhoSenha.css">
 
 </head>
