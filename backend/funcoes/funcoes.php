@@ -1082,7 +1082,6 @@ function verificar(){
         </fieldset>
 
         <button type='button' value='Cadastrar' onclick='validarCampo()'>Cadastrar</button>
-        <a href=' . $header . 'pages/funcionario/agendamentosFun.php' . '>Voltar</a>
 
     </form>
         ";

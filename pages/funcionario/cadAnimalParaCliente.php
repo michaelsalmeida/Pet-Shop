@@ -80,6 +80,8 @@ if (!isset($_SESSION['tipo'])) {
         </form>
     </fieldset>
 
+    <a href="<?php echo $agendamentoFunRoute; ?>  ">Voltar</a>
+
 
     <script src="<?php echo $functionsRoute ?>"></script>
     <script src="<?php echo $dataHojeRoute; ?>"></script>

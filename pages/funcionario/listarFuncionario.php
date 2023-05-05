@@ -4,7 +4,6 @@ include_once($connRoute);
 require_once $funcoesRoute;
 
 if (!isset($_SESSION['tipo'])) {
-  // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
   header("Location: " . $homeRoute);
 }
 ?>
