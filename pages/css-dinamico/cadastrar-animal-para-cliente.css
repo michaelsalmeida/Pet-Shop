@@ -1,3 +1,7 @@
+.box-total-cadastro{
+    padding: 7%;
+}
+
 .informacoes-superior-2{
     display: flex;
     align-items: center;
@@ -11,9 +15,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
+
 
 .botao-verificar{
     margin-top: 0.5em;
@@ -32,4 +35,15 @@
 .botao-verificar:hover{
     background-color: #8C52FF;
     color: #ffffff;
+}
+
+
+@media (max-width:500px) {
+    .box-cpf-cliente{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
 }
