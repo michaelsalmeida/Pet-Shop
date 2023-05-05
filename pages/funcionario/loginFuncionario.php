@@ -26,6 +26,11 @@ if (isset($_SESSION['tipo'])) {
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgloginFun']); ?>)">
+    <?php
+        if (isset($_SESSION['msgloginFun'])) {
+            unset($_SESSION['msgloginFun']);
+        }
+        ?>
 
     <header>
         <a href="<?php echo $homeRoute; ?>" id="logo">
@@ -70,11 +75,7 @@ if (isset($_SESSION['tipo'])) {
                 <input type="submit" value="Entrar">
 
 
-                <?php
-                if (isset($_SESSION['msgloginFun'])) {
-                    unset($_SESSION['msgloginFun']);
-                }
-                ?>
+                
 
 
                 <a class="voltar" href="<?php echo $homeRoute; ?>">Voltar</a>
