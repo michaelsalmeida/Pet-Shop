@@ -240,16 +240,16 @@ if (isset($_SESSION['tipo'])) {
 
             <div>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
-                <a class="subLinks" href="<?php echo $blogRoute; ?>">Preços</a>
-                <a class="subLinks" href="<?php echo $blogRoute; ?>">Valores</a>
-                <a class="subLinks" href="<?php echo $blogRoute; ?>">Colaboradores</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Preços</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Valores</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Colaboradores</a>
             </div>
 
             <div>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
-                <a class="subLinks" href="<?php echo $blogRoute; ?>">Mensagem</a>
-                <a class="subLinks" href="<?php echo $blogRoute; ?>">Localização</a>
-                <a class="subLinks" href="<?php echo $blogRoute; ?>">Informações</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Mensagem</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Localização</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Informações</a>
             </div>
             
         </div>
