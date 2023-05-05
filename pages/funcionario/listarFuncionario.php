@@ -28,7 +28,7 @@ if (!isset($_SESSION['tipo'])) {
   <script src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onload="paginacao('gerarTabelaDeleteFun'), activateToast(<?php echo verificarSession(['deleteFun']); ?>)">
+<body onload="filtros('listarFuncionario'), paginacao('gerarTabelaDeleteFun'), activateToast(<?php echo verificarSession(['deleteFun']); ?>)">
   <?php
   if (isset($_GET['pagina'])) {
     echo "<p id='pag' hidden>" . $_GET['pagina'] . "</p>";

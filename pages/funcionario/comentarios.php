@@ -19,7 +19,7 @@ if (!isset($_SESSION['tipo'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Comtários</title>
+    <title>Comentários</title>
     <script src="<?php echo $functionsRoute; ?>"></script>
     
     <link rel="stylesheet" href="../css-dinamico/paginacao.css">
@@ -35,7 +35,7 @@ if (!isset($_SESSION['tipo'])) {
 </head>
 
 
-<body onload="paginacao('tabelaComentarios')">
+<body onload="filtros('comentarios'), paginacao('tabelaComentarios')">
 
 
 

@@ -157,9 +157,10 @@ function gerarTabelaAgenCli() {
             INNER JOIN Funcionarios
             ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
             WHERE pk_Cliente = ?
-            ORDER BY data_agendamento, horario_agendamento");
+            ORDER BY data_agendamento, horario_agendamento
+            LIMIT ?, ?");
     // Substituição da string preparada pelos valores corretos
-    $stmt->bind_param("s", $_SESSION['idCli']);
+    $stmt->bind_param("sss", $_SESSION['idCli'], $inicio, $qnt_result_pg);
     // Executa o sql
     $stmt->execute();
     // Pega o resultado do banco
@@ -254,8 +255,8 @@ function gerarTabelaAgenCli() {
 function checkAnimais() {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
-    $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome");
-    $stmt->bind_param("s", $_SESSION['idCli']);
+    $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome LIMIT ?, ?");
+    $stmt->bind_param("sss", $_SESSION['idCli'], $inicio, $qnt_result_pg);
     // Executa o sql
     $stmt->execute();
     // Pega o resultado do banco
@@ -297,14 +298,15 @@ function gerarTabelaFazAgenCli() {
             INNER JOIN Funcionarios
             ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
             WHERE `status` = 'Disponivel' AND data_agendamento LIKE ? AND tipo = ?
-            ORDER BY data_agendamento, horario_agendamento");
+            ORDER BY data_agendamento, horario_agendamento
+            LIMIT ?, ?");
 
     // Substituição da string preparada pelos valores corretos
     $data_atual = date("Y-m-d");
     $hora_atual = date("H:i");
 
     $data = "%" . $_GET['data'] . "%";
-    $stmt->bind_param("ss", $data, $_GET['tipo']);
+    $stmt->bind_param("ssss", $data, $_GET['tipo'], $inicio, $qnt_result_pg);
     // Executa o sql
     $stmt->execute();
     // Pega o resultado do banco
@@ -447,11 +449,12 @@ function gerarTabelaAgenFun() {
             WHERE fk_Funcionario = ?
             AND Funcionarios.nome LIKE ?
             AND `status` = ?
-            ORDER BY data_agendamento, horario_agendamento");
+            ORDER BY data_agendamento, horario_agendamento
+            LIMIT ?, ?");
 
         $pesquisar = "%" . $_GET['pesq'] . "%";
         // Substituição da string preparada pelos valores corretos
-        $stmt->bind_param("sss", $_SESSION['idFun'], $pesquisar, $status);
+        $stmt->bind_param("sssss", $_SESSION['idFun'], $pesquisar, $status, $inicio, $qnt_result_pg);
 
         $stmtPg = $conn->prepare("SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos
         INNER JOIN Funcionarios ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
@@ -468,10 +471,11 @@ function gerarTabelaAgenFun() {
             ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
             WHERE Funcionarios.nome LIKE ?
             AND `status` = ?
-            ORDER BY data_agendamento, horario_agendamento");
+            ORDER BY data_agendamento, horario_agendamento
+            LIMIT ?, ?");
 
         $pesquisar = "%" . $_GET['pesq'] . "%";
-        $stmt->bind_param("ss", $pesquisar, $status);
+        $stmt->bind_param("ssss", $pesquisar, $status, $inicio, $qnt_result_pg);
 
         $stmtPg = $conn->prepare("SELECT COUNT(PK_Agendamento) AS num_result FROM Agendamentos
         INNER JOIN Funcionarios ON Agendamentos.fk_Funcionario = Funcionarios.pk_Funcionario
@@ -642,19 +646,20 @@ function gerarTabelaDeleteFun() {
         WHERE nome LIKE ?
         AND profissao != 'admin'
         AND ativo = ?
-        ORDER BY nome ASC");
+        ORDER BY nome ASC
+        LIMIT ?, ?");
 
     $pesquisar = "%" . $_GET['pesq'] . "%";
 
-    if ($_GET['situ'] == '') {
+    if ($_GET['situacoes'] == '') {
         $situacao = 'ativo';
     } else {
-        $situacao = $_GET['situ'];
+        $situacao = $_GET['situacoes'];
     }
 
 
     // Substituição da string preparada pelos valores corretos
-    $stmt->bind_param("ss", $pesquisar, $situacao);
+    $stmt->bind_param("ssss", $pesquisar, $situacao, $inicio, $qnt_result_pg);
 
     // Executa o sql
     $stmt->execute();
@@ -713,12 +718,12 @@ function gerarTabelaDeleteFun() {
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1&situ=$situacao&pesq=".$_GET['pesq']."'><</a> ";
+    $linkPaginas = "<a href='$header?pagina=1&situacoes=$situacao&pesq=".$_GET['pesq']."'><</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
             $linkPaginas =  
-            $linkPaginas . "<a href='$header?pagina=$pag_ant&situ=$situacao&pesq=".$_GET['pesq']."'>$pag_ant</a> ";
+            $linkPaginas . "<a href='$header?pagina=$pag_ant&situacoes=$situacao&pesq=".$_GET['pesq']."'>$pag_ant</a> ";
         }
     }
 
@@ -727,12 +732,12 @@ function gerarTabelaDeleteFun() {
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
             $linkPaginas =  
-            $linkPaginas . "<a href='$header?pagina=$pag_dep&situ=$situacao&pesq=".$_GET['pesq']."'>$pag_dep</a> ";
+            $linkPaginas . "<a href='$header?pagina=$pag_dep&situacoes=$situacao&pesq=".$_GET['pesq']."'>$pag_dep</a> ";
         }
     }
 
     $linkPaginas = 
-    $linkPaginas . " <a href='$header?pagina=$quantidade_pg&situ=$situacao&pesq=".$_GET['pesq']."'>></a>";
+    $linkPaginas . " <a href='$header?pagina=$quantidade_pg&situacoes=$situacao&pesq=".$_GET['pesq']."'>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -881,10 +886,11 @@ function tabelaFunAgenCli(){
         AND `status` = 'Disponivel'
         AND tipo = ?
         GROUP BY Funcionarios.nome, data_agendamento, horario_agendamento, pk_Agendamento
-        ORDER BY data_agendamento, horario_agendamento");
+        ORDER BY data_agendamento, horario_agendamento
+        LIMIT ?, ?");
 
     $pesquisar = "%" . $_GET['pesq'] . "%";
-    $stmt->bind_param("ss", $pesquisar, $servico);
+    $stmt->bind_param("ssss", $pesquisar, $servico, $inicio, $qnt_result_pg);
 
     // Executa o sql
     $stmt->execute();
@@ -941,11 +947,13 @@ function tabelaFunAgenCli(){
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'><</a> ";
+    $linkPaginas = "<a href='$header?pagina=1&cpf=".
+    $_GET['cpf'] ."&animais=". $_GET['animais'] ."&servico=". $servico ."&pesq=". $_GET['pesq']."'><</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant'>$pag_ant</a> ";
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant&cpf=".
+            $_GET['cpf'] ."&animais=". $_GET['animais'] ."&servico=". $servico ."&pesq=". $_GET['pesq']."'>$pag_ant</a> ";
         }
     }
 
@@ -953,11 +961,13 @@ function tabelaFunAgenCli(){
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep'>$pag_dep</a> ";
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep&cpf=".
+            $_GET['cpf'] ."&animais=". $_GET['animais'] ."&servico=". $servico ."&pesq=". $_GET['pesq']."'>$pag_dep</a> ";
         }
     }
 
-    $linkPaginas = $linkPaginas . "<a href='$header?pagina=$quantidade_pg'>></a>";
+    $linkPaginas = $linkPaginas . "<a href='$header?pagina=$quantidade_pg&cpf=".
+    $_GET['cpf'] ."&animais=". $_GET['animais'] ."&servico=". $servico ."&pesq=". $_GET['pesq']."'>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);
@@ -1124,9 +1134,10 @@ function tabelaComentarios() {
     pk_Comentario FROM Comentarios
     WHERE `data` = ?
     AND mensagem LIKE ?
-    ORDER BY nome LIMIT $inicio, $qnt_result_pg");
+    ORDER BY nome
+    LIMIT ?, ?");
 
-    $stmt->bind_param("ss", $filtroData, $filtroMensagem);
+    $stmt->bind_param("ssss", $filtroData, $filtroMensagem, $inicio, $qnt_result_pg);
 
     // Executa o sql
     $stmt->execute();
@@ -1215,11 +1226,11 @@ function tabelaComentarios() {
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1'><</a> ";
+    $linkPaginas = "<a href='$header?pagina=1&pesq=". $_GET['pesq']. "&data=" . $_GET['data'] . "'><</a> ";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant'>$pag_ant</a> ";
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant&pesq=". $_GET['pesq']. "&data=" . $_GET['data'] . "'>$pag_ant</a> ";
         }
     }
 
@@ -1227,11 +1238,11 @@ function tabelaComentarios() {
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep'>$pag_dep</a> ";
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep&pesq=". $_GET['pesq']. "&data=" . $_GET['data'] . "'>$pag_dep</a> ";
         }
     }
 
-    $linkPaginas = $linkPaginas . "<a href='$header?pagina=$quantidade_pg'>></a>";
+    $linkPaginas = $linkPaginas . "<a href='$header?pagina=$quantidade_pg&pesq=". $_GET['pesq']. "&data=" . $_GET['data'] . "'>></a>";
 
     $retornar = array('tabela', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);

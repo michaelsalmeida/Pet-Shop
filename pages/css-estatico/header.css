@@ -26,18 +26,27 @@ a{
   background-color: #D7D7D7;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  padding: 0px 20px;
+  padding: 5px 20px;
+  transition: all 0.5s;
+  height: 30px;
+}
+
+@keyframes evanecer {
+  from{opacity: 0;}
+  to{opacity: 1;}
 }
 
 .contatoHeader p{
   font-size: 12px;
   margin: 0px;
+  animation: evanecer 1s;
 }
 
 .contatoHeader img{
   width: 300px;
+  animation: evanecer 1s;
 }
 @media (max-width: 300px) {
   .contatoHeader img{

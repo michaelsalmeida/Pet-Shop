@@ -259,9 +259,28 @@ if (isset($_SESSION['tipo'])) {
         </a>
 
         <div class="links">
-            <a href="#">BLOG</a>
-            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
-            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+
+            <div>
+                <a href="<?php echo $blogRoute; ?>">BLOG</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Noticias</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Depoimentos</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Curiosidades</a>
+            </div>
+
+            <div>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Preços</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Valores</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Colaboradores</a>
+            </div>
+
+            <div>
+                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Mensagem</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Localização</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Informações</a>
+            </div>
+            
         </div>
 
         <div class="redes">
