@@ -24,7 +24,7 @@ if (!isset($_SESSION['tipo'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="<?php echo $functionsRoute; ?>"></script>
-    <title>Document</title>
+    <title>Cadastrar Horário</title>
 
     <link rel="stylesheet" href="../css-dinamico/meu-perfil.css">
     <link rel="stylesheet" href="../css-estatico/header.css">
