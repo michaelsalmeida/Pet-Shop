@@ -37,9 +37,9 @@ function gerarTabelaAni() {
 
     // String de preparação
     $stmt = $conn->prepare("SELECT nome, data_nascimento, raca, peso, pk_Animal
-        FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome LIMIT $inicio, $qnt_result_pg");
+        FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome LIMIT ?, ?");
     // Substituição da string preparada pelos valores corretos
-    $stmt->bind_param("s", $_SESSION['idCli']);
+    $stmt->bind_param("sss", $_SESSION['idCli'], $inicio, $qnt_result_pg);
     // Executa o sql
     $stmt->execute();
     // Pega o resultado do banco
@@ -255,8 +255,8 @@ function gerarTabelaAgenCli() {
 function checkAnimais() {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
 
-    $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome LIMIT ?, ?");
-    $stmt->bind_param("sss", $_SESSION['idCli'], $inicio, $qnt_result_pg);
+    $stmt = $conn->prepare("SELECT pk_Animal, nome FROM Animais WHERE fk_Cliente = ? AND ativo = 'ativo' ORDER BY nome");
+    $stmt->bind_param("s", $_SESSION['idCli']);
     // Executa o sql
     $stmt->execute();
     // Pega o resultado do banco
