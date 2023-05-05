@@ -37,9 +37,15 @@ if (strtotime($data) < strtotime($data_atual)){ // verifica se a data escolhida 
     header("location: " . $cadastradaDatasRoute);
 } elseif (strtotime($data) == strtotime($data_atual)){ // se a data for a mesma da atual aqui verifica se a hora ainda não passou
     if (strtotime($hora) < strtotime($hora_atual)){
+        
         $_SESSION['msgCadDataErro'] = "Horário Indisponível";
-        $_SESSION['tela'] = 'msgCadDataErro';
-    header("location: " . $cadastradaDatasRoute);
+        header("location: " . $cadastradaDatasRoute);
+
+    } elseif (strtotime($hora) < strtotime('08:00') || strtotime($hora) > strtotime('18:00')) {
+        
+        $_SESSION['msgCadDataErro'] = "Fora do horário comercial";
+        header("location: " . $cadastradaDatasRoute);
+
     } else { 
         // formata a hora para ser inserida no banco
         $hora_formatada = date("H:i:s", strtotime($hora));
@@ -106,8 +112,15 @@ if (strtotime($data) < strtotime($data_atual)){ // verifica se a data escolhida 
         }
     }
     if ($correto == 1){
+
         $_SESSION['msgCadDataErro'] = "Data já cadastrada";
         header("location: " . $cadastradaDatasRoute);
+
+    } elseif(strtotime($hora) < strtotime('08:00') || strtotime($hora) > strtotime('18:00')){
+        
+        $_SESSION['msgCadDataErro'] = "Fora do horário comercial";
+        header("location: " . $cadastradaDatasRoute);
+
     } else {
         $stmt = $conn->prepare("INSERT into Agendamentos (pk_Agendamento, fk_Funcionario, data_agendamento, horario_agendamento, tipo) VALUES (default, ?, ?, ?, ?)");
         $stmt->bind_param("ssss", $idFun[0], $data, $hora, $servico);

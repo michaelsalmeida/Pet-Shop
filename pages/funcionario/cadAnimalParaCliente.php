@@ -83,11 +83,6 @@ if (!isset($_SESSION['tipo'])) {
 
 
 
-    <fieldset id="animal" style="display: none;">
-        <form action="<?php echo $procCadAnimalFunRoute; ?>" method="post" name="formanimal" id="formAltAnimal">
-        </form>
-    </fieldset>
-
     <a href="<?php echo $agendamentoFunRoute; ?>  ">Voltar</a>
 
 

@@ -246,6 +246,13 @@ function activateToast(param) { // função que ativa os avisos na tela de acord
       });
       break; 
 
+    case "Fora do horário comercial":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
   } 
 
 }

@@ -140,7 +140,6 @@ if (!isset($_SESSION['tipo'])) {
 
     <script src="../script.js"></script>
     <script src="../../backend/funcoes/toast.js"></script>
-    <script src="../../backend/funcoes/aaa.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
