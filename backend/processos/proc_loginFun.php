@@ -6,6 +6,8 @@ $login = htmlspecialchars($_POST['login']);
 $senha = htmlspecialchars($_POST['senha']);
 $hash = hash("sha512", $senha);
 
+$login = str_replace(['.', '-'], '', $login);
+
 try {
     // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo funcionário
     $stmt = $conn->prepare("SELECT pk_Funcionario, profissao, nome FROM Funcionarios WHERE cpf = ? and senha = ?");

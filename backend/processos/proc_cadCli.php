@@ -22,8 +22,7 @@ $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $senha = hash("sha512", htmlspecialchars($_POST['senha']));
 
 // Remove os pontos e hífens do cpf
-$cpf = str_replace('.', '', $cpf);
-$cpf = str_replace('-', '', $cpf);
+$cpf = str_replace(['.', '-'], '', $cpf);
 // Tranforma a string do cpf em um array
 $sep = str_split($cpf, 1);
 

@@ -61,7 +61,7 @@ if (!isset($_SESSION['tipo'])) {
 
                 <div class="box-input">
                     <label for="cpf">CPF: </label>
-                    <input type="text" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do funcionário" required>
+                    <input type="text" name="cpf" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}" placeholder="Digite o CPF do funcionário" required>
                 </div>
 
 

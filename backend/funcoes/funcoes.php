@@ -15,6 +15,8 @@ function logoff() {
         unset($_SESSION['idFun']);
         unset($_SESSION['nome']);
         unset($_SESSION['tipo']);
+
+
     } else {
         unset($_SESSION['loggedinCli']);
         unset($_SESSION['idCli']);
