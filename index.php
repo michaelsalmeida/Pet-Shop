@@ -214,8 +214,11 @@ if (isset($_SESSION['tipo'])) {
                     saúde e do bem-estar do seu animal de estimação.</p>
             </div>
         </div>
+        
 
-        <a href="./pages/noticias/noticia3.php">Confira</a>
+        <p>Confira mais informações e curiosidades no nosso <strong>Blog!</strong></p>
+
+        <a href='<?php echo $$blogRoute; ?>'>Confira</a>
     </section>
 
     <footer>

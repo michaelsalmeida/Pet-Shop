@@ -122,7 +122,7 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <div>
                 <label for="espec">Espécie</label><br>
-                <input type="text" id="espec" name="espec" list="especs" onchange="datalistRacas()">
+                <input type="text" id="espec" name="espec" list="especs" onchange="datalistRacas()" placeholder="Digite a espécie">
 
                 <datalist id="especs">
                     <option value="Cachorro">
@@ -137,7 +137,7 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <div>
                 <label for="raca">Raça</label><br>
-                <input type="text" name="raca" id="raca-input" list="racas">
+                <input type="text" name="raca" id="raca-input" list="racas" placeholder="Digite as raça">
 
                 <datalist id="racas">
                 </datalist>
