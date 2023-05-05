@@ -1,6 +1,11 @@
 body{
     padding-bottom: 20px;
-}
+    background-image: url(../img-dinamico/fundo\ cadastro.svg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  
 .box-input input{
     border: 2px solid #403F3F;
     width: 300px;

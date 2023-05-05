@@ -165,7 +165,7 @@ if (isset($_SESSION['tipo'])) {
             <img src="../img-estatico/github.svg" alt="">
         </div>
 
-        <p>© Hamtaro Petshop trabalho com fins lucrativos</p>
+        <p>© 2023 Hamtaro Petshop trabalho com fins lucrativos</p>
     </footer>
 
     <script src="../script.js"></script>

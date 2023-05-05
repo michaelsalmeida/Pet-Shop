@@ -26,11 +26,10 @@ if (!isset($_SESSION['tipo'])) {
     <title>Cadastrar Funcionário</title>
 
     <link rel="stylesheet" href="../css-dinamico/meu-perfil.css">
-    <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
     <link rel="stylesheet" href="../css-dinamico/cadastrar-funcionario.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+    <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="icon" href="../img-dinamico/dog-icon.png">
     <link rel="stylesheet" href="../css-estatico/olhoSenha.css">
 
@@ -115,6 +114,10 @@ if (!isset($_SESSION['tipo'])) {
                 <a href="<?php echo $agendamentoFunRoute; ?>">VOLTAR</a>
 
             </div>
+
+
+            =
+
 
         </form>
 

@@ -181,6 +181,7 @@ header .menu-perfil p{
   gap: 0px 15px;
 }
 
+
 /* FIM HEADER */
 
 /* FOOTER */
@@ -219,6 +220,8 @@ footer .links div .subLinks{
   opacity: 0.5;
   font-size: 15px;
 }
+
+
 
 /* FIM FOOTER */
 
@@ -303,11 +306,13 @@ footer .links div .subLinks{
   flex-direction: column;
   align-items: center;
 }
+
 .loading div img {
   width: 300px;
   position: relative;
   animation: gira 2s ease-in infinite;
 }
+
 @keyframes gira {
   0% {
     transform: rotateY(0deg);
@@ -319,6 +324,7 @@ footer .links div .subLinks{
     transform: rotateY(0deg);
   }
 }
+
 .loading div p {
   margin: 20px 0;
   font-weight: bold;
@@ -328,20 +334,7 @@ footer .links div .subLinks{
   animation: pontinhos 2s infinite;
   content: "";
 }
-@keyframes pontinhos {
-  0% {
-    content: "";
-  }
-  30% {
-    content: ".";
-  }
-  60% {
-    content: "..";
-  }
-  100% {
-    content: "...";
-  }
-}
+
 
 /* efeito de link header */
 
@@ -380,6 +373,8 @@ header .responsive .links a:hover::after{
   transform: scaleX(1);
   transform: bottom left;
 }
+
+
 
 /* contato whatsapp */
 

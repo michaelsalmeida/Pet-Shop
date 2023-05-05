@@ -271,7 +271,7 @@ if (isset($_SESSION['tipo'])) {
             <img src="../img-estatico/github.svg" alt="">
         </div>
 
-        <p>© Hamtaro Petshop todos direitos reservados</p>
+        <p>© 2023 Hamtaro Petshop todos direitos reservados</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

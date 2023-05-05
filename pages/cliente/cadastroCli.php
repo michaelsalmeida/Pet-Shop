@@ -90,9 +90,15 @@ include_once($funcoesRoute);
                 </div>
 
                 <div class="input row">
-                    <label for="senha">SENHA *
-                        <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button>
-                        <p class="btnSenha" onmousedown="reqSenha()">?</p>
+
+                    <label  for="senha">SENHA *
+
+                        <div class="box-botoes-senha">
+                            <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button>
+
+                            <p class="btnSenha" onmousedown="reqSenha()">?</p>
+
+                        </div>
                     </label>
                     <input type="password" name="senha" id="password" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
                         placeholder="Digite sua senha" required>
@@ -101,8 +107,11 @@ include_once($funcoesRoute);
 
                 <div class="input row">
                     <label for="senha">CONFIRMAR SENHA *
+                    <div class="box-botoes-senha">
+
                         <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2', 'password2')"></button>
                         <p class="btnSenha" onmousedown="reqSenha()">?</p>
+                    </div>
                     </label>
                     <input type="password" name="confsenha" id="password2" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
                         placeholder="Digite sua senha" required>

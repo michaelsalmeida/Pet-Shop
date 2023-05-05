@@ -230,25 +230,28 @@ if (isset($_SESSION['tipo'])) {
         </a>
 
         <div class="links">
+
             <div>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
                 <a class="subLinks" href="<?php echo $blogRoute; ?>">Noticias</a>
                 <a class="subLinks" href="<?php echo $blogRoute; ?>">Depoimentos</a>
                 <a class="subLinks" href="<?php echo $blogRoute; ?>">Curiosidades</a>
             </div>
+
             <div>
                 <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
                 <a class="subLinks" href="<?php echo $blogRoute; ?>">Preços</a>
                 <a class="subLinks" href="<?php echo $blogRoute; ?>">Valores</a>
                 <a class="subLinks" href="<?php echo $blogRoute; ?>">Colaboradores</a>
-                <a class="subLinks" href="<?php echo $blogRoute; ?>">Formas de pagamentos</a>
             </div>
+
             <div>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
                 <a class="subLinks" href="<?php echo $blogRoute; ?>">Mensagem</a>
                 <a class="subLinks" href="<?php echo $blogRoute; ?>">Localização</a>
                 <a class="subLinks" href="<?php echo $blogRoute; ?>">Informações</a>
             </div>
+            
         </div>
 
         <div class="redes">
@@ -258,8 +261,11 @@ if (isset($_SESSION['tipo'])) {
             <img src="pages/img-estatico/github.svg" alt="">
         </div>
 
-        <p>© Hamtaro Petshop todos direitos reservados</p>
+       
+        <p>© 2023 Hamtaro Petshop todos direitos reservados</p>
     </footer>
+    
+
 
     <script defer src="pages/script.js"></script>
     
