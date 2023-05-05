@@ -37,6 +37,10 @@
     color: #ffffff;
 }
 
+.voltar{
+    display: flex;
+    justify-content: center;
+}
 
 @media (max-width:500px) {
     .box-cpf-cliente{

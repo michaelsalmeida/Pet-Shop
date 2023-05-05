@@ -66,7 +66,7 @@ if (!isset($_SESSION['tipo'])) {
 
             <div class="box-cpf-cliente">
 
-                <input class='input-cpf'type="text" id="cpf" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do cliente" required>
+                <input class='input-cpf' type="text" id="cpf" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do cliente" required>
                 <button class='botao-verificar' onclick="queryBanco2('verificar')">Verificar</button>
 
             </div>
@@ -83,13 +83,10 @@ if (!isset($_SESSION['tipo'])) {
 
 
 
-    <fieldset id="animal" style="display: none;">
-        <form action="<?php echo $procCadAnimalFunRoute; ?>" method="post" name="formanimal" id="formAltAnimal">
-        </form>
-    </fieldset>
 
-    <a href="<?php echo $agendamentoFunRoute; ?>  ">Voltar</a>
-
+    <div class="voltar">
+        <a class='voltar' href="<?php echo $agendamentoFunRoute; ?>  ">Voltar</a>
+    </div>
 
     <script src="<?php echo $functionsRoute ?>"></script>
     <script src="<?php echo $dataHojeRoute; ?>"></script>
