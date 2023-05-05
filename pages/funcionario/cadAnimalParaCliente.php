@@ -54,32 +54,32 @@ if (!isset($_SESSION['tipo'])) {
 
     ?>
 
-    <div class="informacoes-superior-2">
-        <img class="iconCachorro" src="../img-estatico/iconCachorro.svg" alt="">
+    <div class="box-total-cadastro">
+        <div class="informacoes-superior-2">
+            <img class="iconCachorro" src="../img-estatico/iconCachorro.svg" alt="">
 
-        <h1>CADASTRE SEU PET EM NOSSO SISTEMA!</h1>
-    </div>
-
-
-    <div class="box-input-cpf">
-        
-        <div class="box-cpf-cliente">
-
-            <label for="cpf">CPF DO CLIENTE: </label>
-            <input type="text" id="cpf" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do cliente" required>
-            <button class='botao-verificar' onclick="queryBanco2('verificar')">Verificar</button>
-            
+            <h1>CADASTRE SEU PET EM NOSSO SISTEMA!</h1>
         </div>
-        
+
+
+        <div class="box-input-cpf">
+
+            <div class="box-cpf-cliente">
+
+                <input class='input-cpf'type="text" id="cpf" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do cliente" required>
+                <button class='botao-verificar' onclick="queryBanco2('verificar')">Verificar</button>
+
+            </div>
+
+        </div>
+
+
+
+        <fieldset id="animal" style="display: none;">
+            <form action="<?php echo $procCadAnimalFunRoute; ?>" method="post" name="formanimal" id="formAltAnimal">
+            </form>
+        </fieldset>
     </div>
-
-
-
-    <fieldset id="animal" style="display: none;">
-        <form action="<?php echo $procCadAnimalFunRoute; ?>" method="post" name="formanimal" id="formAltAnimal">
-        </form>
-    </fieldset>
-
 
     <script src="<?php echo $functionsRoute ?>"></script>
     <script src="<?php echo $dataHojeRoute; ?>"></script>
