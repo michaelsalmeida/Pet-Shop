@@ -203,6 +203,23 @@ footer p{
   text-align: center;
 }
 
+footer a{
+  font-size: 20px;
+}
+
+footer .links div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+footer .links div .subLinks{
+  opacity: 0.5;
+  font-size: 15px;
+}
+
 /* FIM FOOTER */
 
 .menu{
