@@ -33,7 +33,8 @@ if (isset($_SESSION['tipo'])) {
 
 </head>
 
-<body onload="queryBanco('checkAnimais'), activateToast(<?php echo verificarSession(['msgFazAgendamento']); ?>)">
+<body onload="queryBanco('checkAnimais'), filtros('fazerAgendamentoCli'),
+    activateToast(<?php echo verificarSession(['msgFazAgendamento']); ?>)">
     <?php
     if (isset($_GET['pagina'])) {
         echo "<p id='pag' hidden>" . $_GET['pagina'] . "</p>";

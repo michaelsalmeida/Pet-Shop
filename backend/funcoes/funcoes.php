@@ -282,7 +282,7 @@ function checkAnimais() {
 
 function gerarTabelaFazAgenCli() {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/funcionario/agendamentosFun.php';
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/cliente/fazerAgendamentoCli.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
@@ -307,8 +307,8 @@ function gerarTabelaFazAgenCli() {
     $data_atual = date("Y-m-d");
     $hora_atual = date("H:i");
 
-    $data = "%" . $_GET['data'] . "%";
-    $stmt->bind_param("ssss", $data, $_GET['tipo'], $inicio, $qnt_result_pg);
+    $data = "%" . $_GET['dataAgen'] . "%";
+    $stmt->bind_param("ssss", $data, $_GET['tipoAgen'], $inicio, $qnt_result_pg);
     // Executa o sql
     $stmt->execute();
     // Pega o resultado do banco
@@ -359,9 +359,9 @@ function gerarTabelaFazAgenCli() {
         WHERE `status` = 'Disponivel' AND data_agendamento LIKE ? AND tipo = ?
         ORDER BY data_agendamento, horario_agendamento");
 
-    $stmtPg->bind_param("ss", $data, $_GET['tipo']);
+    $stmtPg->bind_param("ss", $data, $_GET['tipoAgen']);
 
-    // Paginação - Somar a quantidade de usuários 
+    // Paginação - Somar a quantidade de usuários
     $stmtPg->execute();
     $resultado = $stmtPg->get_result();
     $row_pg = $resultado->fetch_all();
@@ -371,12 +371,13 @@ function gerarTabelaFazAgenCli() {
 
     // Limitar os link antes depois
     $max_links = 2;
-    $linkPaginas = "<a href='$header?pagina=1&data=$data&tipo=".$_GET['tipo']."'><</a>";
+    $linkPaginas = "<a href='$header?pagina=1".
+    "&animais=". $_GET['animais'] ."&tipoAgen=".$_GET['tipoAgen']."&dataAgen=$dataAgen'><</a>";
 
     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
         if ($pag_ant >= 1) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant
-            &data=$data&tipo=".$_GET['tipo']."'>$pag_ant</a> ";
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_ant".
+            "&animais=". $_GET['animais'] ."&tipoAgen=".$_GET['tipoAgen']."&dataAgen=$dataAgen'>$pag_ant</a> ";
         }
     }
 
@@ -384,13 +385,14 @@ function gerarTabelaFazAgenCli() {
 
     for ($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++) {
         if ($pag_dep <= $quantidade_pg) {
-            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep
-            &data=$data&tipo=".$_GET['tipo']."'>$pag_dep</a> ";
+            $linkPaginas =  $linkPaginas . "<a href='$header?pagina=$pag_dep".
+            "&animais=". $_GET['animais'] ."&tipoAgen=".$_GET['tipoAgen']."&dataAgen=$dataAgen'>$pag_dep</a> ";
         }
     }
 
     $linkPaginas = $linkPaginas .
-    "<a href='$header?pagina=$quantidade_pg&data=$data&tipo=".$_GET['tipo']."'>></a>";
+    "<a href='$header?pagina=$quantidade_pg".
+    "&animais=". $_GET['animais'] ."&tipoAgen=".$_GET['tipoAgen']."&dataAgen=$dataAgen'>></a>";
 
     $retornar = array('fazAgend', $tabela, 'links', $linkPaginas);
     return json_encode($retornar);

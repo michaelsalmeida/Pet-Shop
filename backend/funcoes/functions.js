@@ -15,7 +15,7 @@ function executeFunctions(func, id) {
 
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, true);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${func}${extra}`, false);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Pega a resposta do servidor
@@ -39,7 +39,7 @@ function queryBanco(tipo) {
 
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, true);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, false);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             
@@ -54,7 +54,7 @@ function queryBanco(tipo) {
 }
 
 function filtros(pag) {
-    var filtro, alt = ""
+    var filtro = "", alt = ""
 
     if (pag == "agendamentosFun") {
         filtro = ["status", "pesq"]
@@ -68,6 +68,9 @@ function filtros(pag) {
     } else if (pag == "agendarParaCliente") {
         filtro = ["cpf", "animais", "servico", "pesq"]
         alt = ["", "", "", ""]
+    } else if (pag == "fazerAgendamentoCli") {
+        filtro = ["animais", "tipoAgen", "dataAgen"]
+        alt = ["", "", ""]
     }
     
     filtro.forEach(function(elemento, index) { 
@@ -82,6 +85,8 @@ function filtros(pag) {
     if (pag == "agendarParaCliente" && document.getElementById("cpf").value != "") {
         queryBanco2('animais')
         paginacao('tabelaFunAgenCli')
+    } else if (pag == "fazerAgendamentoCli") {
+        paginacao('gerarTabelaFazAgenCli')
     }
 }
 
@@ -111,15 +116,16 @@ function paginacao(tipo) {
         extra = `&pesq=${pesq}&data=${data}`;
 
     } else if (tipo == 'gerarTabelaFazAgenCli') {
+        var ani = document.getElementById('animais').value
         var tipoAgen = document.getElementById('tipoAgen').value
         var data = document.getElementById('dataAgen').value
-        extra = `&tipo=${tipoAgen}&data=${data}`;
+        extra = `&animais=${ani}&tipoAgen=${tipoAgen}&dataAgen=${data}`;
     }
 
     var pag = document.getElementById('pag').innerText
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}&pag=${pag}${extra}`, true);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}&pag=${pag}${extra}`, false);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
@@ -143,7 +149,7 @@ function queryBanco2(tipo) {
 
         var xhr = new XMLHttpRequest();
         // Executa o arquivo que irá iniciar a função
-        xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, true);
+        xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, false);
         xhr.onload = function () {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
@@ -175,7 +181,7 @@ function queryBanco2(tipo) {
 
         var xhr = new XMLHttpRequest();
         // Executa o arquivo que irá iniciar a função
-        xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, true);
+        xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=${tipo}${extra}`, false);
         xhr.onload = function () {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
@@ -236,7 +242,7 @@ function activeModal(id, tipo) {
 
         var xhr = new XMLHttpRequest();
         // Executa o arquivo que irá iniciar a função
-        xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
+        xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, false);
 
         xhr.onload = function () {
             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
@@ -337,7 +343,7 @@ function activeModalDetalhesFun(id, tipo) {
     document.getElementById("id01").style.display = "flex"
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, true);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=getDesc&id=${id}`, false);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = xhr.responseText; // Pega a resposta do servidor
@@ -404,7 +410,7 @@ function meuPerfilCliEnd() {
 function altMeuPerfilCli() {
     var idCli = document.getElementsByName("idCliente")[0].value
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, true);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altMeuPerfilCli&idCli=${idCli}`, false);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor
