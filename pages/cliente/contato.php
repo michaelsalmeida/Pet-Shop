@@ -133,7 +133,7 @@ if (isset($_SESSION['tipo'])) {
                 <textarea name="msg" id="" cols="30" rows="10" required placeholder="Digite seu comentário"></textarea>
             </fieldset>
 
-            <input type="submit">
+            <input type="submit" value="Enivar Mensagem">
         </form>
     </section>
 
