@@ -283,8 +283,8 @@ function checkAnimais() {
 }
 
 function gerarTabelaFazAgenCli() {
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
-    $header = "https://petto-shoppo-hamtaro.azurewebsites.net/pages/cliente/fazerAgendamentoCli.php';
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/funcionario/agendamentosFun.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
@@ -363,7 +363,7 @@ function gerarTabelaFazAgenCli() {
 
     $stmtPg->bind_param("ss", $data, $_GET['tipoAgen']);
 
-    // Paginação - Somar a quantidade de usuários
+    // Paginação - Somar a quantidade de usuários 
     $stmtPg->execute();
     $resultado = $stmtPg->get_result();
     $row_pg = $resultado->fetch_all();
