@@ -76,7 +76,7 @@ if (!isset($_SESSION['tipo'])) {
                     <label for="profissao">PROFISSÃO: </label>
                     <select name="profissao" id="profissao" required>
                         <option value="" disabled selected hidden>Selecione a profissão do funcionário</option>
-                        <option value="Veterinario">Veterinário</option>
+                        <option value="Veterinário">Veterinário</option>
                         <option value="Secretaria">Secretária</option>
                         <option value="Esteticista">Esteticista</option>
                     </select>
