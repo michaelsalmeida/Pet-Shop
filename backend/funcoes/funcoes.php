@@ -635,7 +635,7 @@ function getDesc() {
 
 function gerarTabelaDeleteFun() {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php');
-    $header = 'https://petto-shoppo-hamtaro.azurewebsites.net/pages/Jfuncionario/listarFuncionario.php';
+    $header = 'https://petto-shoppo-hamtaro.azurewebsites.net/pages/funcionario/listarFuncionario.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);
