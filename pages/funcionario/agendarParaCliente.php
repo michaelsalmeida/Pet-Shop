@@ -2,6 +2,11 @@
 include_once("../../rotas.php"); // Inclui o arquivo de rotas
 include_once($connRoute); // Inclui o arquivo de conexao
 require_once $funcoesRoute;
+
+if (!isset($_SESSION['tipo'])) {
+  header("Location: " . $homeRoute);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -12,18 +17,19 @@ require_once $funcoesRoute;
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Agendamento para cliente</title>
 
-
+  <link rel="icon" href="../img-dinamico/dog-icon.png">
   <link rel="stylesheet" href="../css-estatico/header.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../css-dinamico/table.css">
   <link rel="stylesheet" href="../css-dinamico/agendamento-funcionario-cliente.css">
+  <link rel="stylesheet" href="../css-dinamico/paginacao.css">
 
 
 </head>
 
-<body onload="activateToast(<?php echo verificarSession(['agenCliFun']); ?>)">
+<body onload="filtros('agendarParaCliente'),activateToast(<?php echo verificarSession(['agenCliFun']); ?>)">
   
 
   <div class="box-informacoes">
@@ -37,14 +43,15 @@ require_once $funcoesRoute;
     <div class="box-maior-input">
 
       <div class="box-input">
-        <input type="text" id="cpf" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do cliente" required>
+        <input type="text" id="cpf" name="cpf" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}" placeholder="Digite o CPF do cliente" onchange="queryBanco2('animais')" required>
+        <!-- <button onclick="queryBanco2('animais')">Verificar</button> -->
       </div>
 
       <div class="box-input">
-        <select name="animais" id="animais" required>
-          <option value="" disabled selected hidden>Selecione um tipo de serviço</option>
+        <select name="animais" id="animais" style="display: none;" required>
+          <option value="" disabled selected hidden>Verifique o CPF primeiro</option>
         </select>
-        <button onclick="queryBanco2('animais')">Verificar</button>
+        
       </div>
 
 
@@ -54,8 +61,8 @@ require_once $funcoesRoute;
     <div class="box-maior-input ">
 
       <div class="box-input">
-        <select name="status" id="status" onchange="paginacao('tabelaFunAgenCli')" required style="display: none;">
-          <option value="" disabled selected hidden>Selecione o status</option>
+        <select name="servico" id="servico" onchange="paginacao('tabelaFunAgenCli')" required style="display: none;">
+          <option value="" disabled selected hidden>Selecione o serviço</option>
           <option value="Veterinario">Veterinário</option>
           <option value="Banho">Banho</option>
           <option value="Tosa">Tosa</option>
@@ -65,8 +72,7 @@ require_once $funcoesRoute;
 
 
       <div class="box-input box-pesquisa" id="divpesq" style="display: none;">
-        <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
-        <button onclick="paginacao('tabelaFunAgenCli')">Pesquisar</button>
+        <input type="text" placeholder="Pesquise por um Funcionário" id="pesq" onkeydown="paginacao('tabelaFunAgenCli')">
     </div>
 
 
@@ -100,6 +106,8 @@ require_once $funcoesRoute;
 
   <script src="<?php echo $functionsRoute ?>"></script>
   <script src="../../backend/funcoes/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 

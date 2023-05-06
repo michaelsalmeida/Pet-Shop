@@ -20,17 +20,19 @@ if (!loged()) { // Verifica se há um usuário logado
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamentos</title>
+    <title>Meus Agendamentos - Hamtaro PetShop</title>
     <script src="<?php echo $functionsRoute; ?>"></script>
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="../css-estatico/header.css">
 
     <link rel="stylesheet" href="../css-dinamico/table.css">
+    <link rel="stylesheet" href="../css-dinamico/paginacao.css">
 
     <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css
     ">
 
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
   
 
 </head>
@@ -57,8 +59,9 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
+                <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
 
             </div>

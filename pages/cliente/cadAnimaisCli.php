@@ -20,12 +20,17 @@ if (!loged()) { // Verifica se há um usuário logado
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animais</title>
+    <title>Cadastro de animal - Hamtaro PetShop</title>
+
+
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
     <script src="<?php echo $functionsRoute; ?>"></script>
-
+    
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/cadAnimais.css">
+    
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
+
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgCadAnimaisCli']); ?>)">
@@ -39,8 +44,9 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
+                <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
 
             </div>
@@ -94,12 +100,7 @@ if (!loged()) { // Verifica se há um usuário logado
         </div>
     </header>
 
-    <?php
-    if (isset($_SESSION['msgCadAnimaisCli'])) { // Verifica se há uma mensagem para mostrar
-        unset($_SESSION['msgCadAnimaisCli']);
-    }
-    ?>
-    <form action="<?php echo $proc_cadAnimalRoute; ?>" method="post">
+    <form id="formAltAnimal" action="<?php echo $proc_cadAnimalRoute; ?>" method="post">
         <img class="iconCachorro" src="../img-estatico/iconCachorro.svg" alt="">
 
         <h1>CADASTRE SEU PET EM NOSSO SISTEMA!</h1>
@@ -114,15 +115,37 @@ if (!loged()) { // Verifica se há um usuário logado
                 <label for="dataNasc">Data de Nascimento </label><br>
                 <input type="date" name="dataNasc" placeholder="Digite a data de nascimento">
             </div>
+            
+            <div>
+                <label for="sexo">Sexo</label><br>
+                <select name="sexo" id="sexo">
+                    <option value="F">Feminino</option>
+                    <option value="M">Masculino</option>
+                    <option value="I">Intersexo</option>
+                </select>
+            </div>
 
             <div>
                 <label for="espec">Espécie</label><br>
-                <input type="text" name="espec">
+                <input type="text" id="espec" name="espec" list="especs" onchange="datalistRacas()" placeholder="Digite a espécie">
+
+                <datalist id="especs">
+                    <option value="Cachorro">
+                    <option value="Coelho">
+                    <option value="Gato">
+                    <option value="Hamster">
+                    <option value="Pássaro">
+                    <option value="Peixe">
+                    <option value="Tartaruga">
+                </datalist>
             </div>
 
             <div>
                 <label for="raca">Raça</label><br>
-                <input type="text" name="raca">
+                <input type="text" name="raca" id="raca-input" list="racas" placeholder="Digite as raça">
+
+                <datalist id="racas">
+                </datalist>
             </div>
 
             <div>
@@ -132,12 +155,28 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <div>
                 <label for="cor">Cor</label><br>
-                <input type="text" name="cor" placeholder="Digite a cor">
+                <input type="text" name="cor" id="cor-input" placeholder="Digite a cor" list="cores-animais-list">
+
+                <datalist id="cores-animais-list">
+                    <option value="Amarelo">
+                    <option value="Azul">
+                    <option value="Branco">
+                    <option value="Bronze">
+                    <option value="Cinza">
+                    <option value="Dourado">
+                    <option value="Laranja">
+                    <option value="Marrom">
+                    <option value="Preto">
+                    <option value="Prateado">
+                    <option value="Rosa">
+                    <option value="Roxo">
+                    <option value="Verde">
+                    <option value="Vermelho">
+                </datalist>
             </div>
         </fieldset>
 
-
-        <button type="submit" value="Cadastrar">Cadastrar</button>
+        <button type="button" value="Cadastrar" onclick="validarCampo()">Cadastrar</button>
         <a href="<?php echo $homeRoute; ?>">Voltar</a>
 
     </form>

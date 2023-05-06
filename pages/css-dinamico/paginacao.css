@@ -1,0 +1,19 @@
+#links{
+    display: flex;
+    justify-content: center;
+    gap: 0.5em  ;
+    padding: 20px;
+}
+
+
+#links a{
+    color: #000000;
+    text-decoration: none;
+}
+.selecionado{
+    padding: 0 6px;
+    border-radius: 5px;
+    background-color: #691EFF;
+    color: #ffffff;
+   
+}

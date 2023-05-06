@@ -12,6 +12,7 @@ try {
     $date = $dataRecebida->format("Y-m-d");
     $dataNasc = $dataRecebida->format('Y-m-d');
 
+    $sexo = htmlspecialchars($_POST['sexo']);
     $espec = htmlspecialchars($_POST['espec']);
     $raca = htmlspecialchars($_POST['raca']);
     $peso = filter_var($_POST['peso'], FILTER_SANITIZE_NUMBER_FLOAT);
@@ -22,12 +23,12 @@ try {
         $_SESSION['msgCadAnimalErro'] = "Data de nascimento inválida";
         header("Location: " . $cadAnimalParaClienteRoute);
     } else {
-        // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
+       // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
         // String de preparação
         $stmt = $conn->prepare("INSERT INTO Animais
-        VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, 'ativo')");
+        VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'ativo')");
         // Substituição da string preparada pelos valores corretos
-        $stmt->bind_param("ssssssss", $_SESSION['idCliente'], $nome, $dataNasc, $espec, $raca, $peso, $cor, $hoje);
+        $stmt->bind_param("sssssssss", $_SESSION['idCliente'], $nome, $dataNasc, $sexo, $espec, $raca, $peso, $cor, $hoje);
         // Executa o sql
         $stmt->execute();
     

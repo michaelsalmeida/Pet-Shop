@@ -1,11 +1,18 @@
-function activateToast(param) {
+function activateToast(param) { // função que ativa os avisos na tela de acordo com a mensagem que será passada.
   const Toast = Swal.mixin({
     toast: true,
-    position: "top-end",
+    position: "top-start",
     showConfirmButton: false,
     timer: 3000,
     timerProgressBar: true,
   });
+
+  if (param.includes("Bem vindo")){
+    Toast.fire({
+      icon: "success",
+      title: `${param}`,
+    });
+  }
 
   switch (param){
     case "Data cadastrada com sucesso":
@@ -99,7 +106,7 @@ function activateToast(param) {
       });
       break; 
 
-    case "USUÁRIO OU SENHA INCORRETO(S)":
+    case "Usuário ou senha incorretos(s)":
       Toast.fire({
         icon: "error",
         title: `${param}`,
@@ -148,14 +155,14 @@ function activateToast(param) {
       });
       break; 
 
-    case "COMENTÁRIO ENVIADO COM SUCESSO":
+    case "Comentário enviado com sucesso":
       Toast.fire({
         icon: "success",
         title: `${param}`,
       });
       break;
       
-    case "ERRO AO ENVIAR O COMENTÁRIO":
+    case "Erro ao enviar o comentário":
       Toast.fire({
         icon: "error",
         title: `${param}`,
@@ -197,45 +204,57 @@ function activateToast(param) {
       });
       break; 
 
-    
+    case "Data já cadastrada":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
+    case "CPF Incorreto":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
+    case "CPF não está no sistema":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
+    case "Nenhum animal encontrado para esse CPF":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
+    case "Nenhum CPF encontrado":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
+    case "Agendamento realizado com sucesso":
+      Toast.fire({
+        icon: "success",
+        title: `${param}`,
+      });
+      break; 
+
+    case "Fora do horário comercial":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
   } 
-
-
 
 }
 
 
-
-
-
-
-
-// function perfilCliToast(param) {
-//   if (param == true) {
-//     const Toast = Swal.mixin({
-//       toast: true,
-//       position: "top-end",
-//       showConfirmButton: false,
-//       timer: 3000,
-//       timerProgressBar: true,
-//     });
-
-//     Toast.fire({
-//       icon: "success",
-//       title: "Cliente alterado com sucesso",
-//     });
-//   } else if (param == "false") {
-//     const Toast = Swal.mixin({
-//       toast: true,
-//       position: "top-end",
-//       showConfirmButton: false,
-//       timer: 3000,
-//       timerProgressBar: true,
-//     });
-
-//     Toast.fire({
-//       icon: "error",
-//       title: "Este email pertence a outro usuário.",
-//     });
-//   }
-// }

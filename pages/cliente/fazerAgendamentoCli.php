@@ -21,18 +21,27 @@ if (isset($_SESSION['tipo'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animais</title>
+    <title>Agendamento - Hamtaro PetShop </title>
 
 
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/table.css">
+    <link rel="stylesheet" href="../css-dinamico/paginacao.css">
     <link rel="stylesheet" href="../css-dinamico/agendamentoCliente.css">
     <script src="<?php echo $functionsRoute; ?>"></script>
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
+
 </head>
 
-<body onload="queryBanco('checkAnimais'), activateToast(<?php echo verificarSession(['msgFazAgendamento']); ?>)">
-
-
+<body onload="queryBanco('checkAnimais'), filtros('fazerAgendamentoCli'),
+    activateToast(<?php echo verificarSession(['msgFazAgendamento']); ?>)">
+    <?php
+    if (isset($_GET['pagina'])) {
+        echo "<p id='pag' hidden>" . $_GET['pagina'] . "</p>";
+    } else {
+        echo "<p id='pag' hidden>1</p>";
+    }
+    ?>
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
@@ -42,8 +51,9 @@ if (isset($_SESSION['tipo'])) {
 
             <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
+                <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
 
             </div>
@@ -116,7 +126,7 @@ if (isset($_SESSION['tipo'])) {
 
             <div>
                 <label for="nome">Tipo de Agendamento</label><br>
-                <select name="tipoAgen" id="tipoAgen" onchange="queryBanco('gerarTabelaFazAgenCli')">
+                <select name="tipoAgen" id="tipoAgen" onchange="paginacao('gerarTabelaFazAgenCli')">
                     <option value="" disabled selected hidden>Selecione o tipo de Agendamento</option>
                     <option value="Banho">Banho</option>
                     <option value="Tosa">Tosa</option>
@@ -129,7 +139,7 @@ if (isset($_SESSION['tipo'])) {
         <fieldset class="field2">
             <div>
                 <label for="dataAgen">Data de Agendamento</label><br>
-                <input type="date" id="dataAgen" onchange="queryBanco('gerarTabelaFazAgenCli')"><br><br>
+                <input type="date" id="dataAgen" onchange="paginacao('gerarTabelaFazAgenCli')"><br><br>
             </div>
 
             <div>
@@ -141,6 +151,7 @@ if (isset($_SESSION['tipo'])) {
 
     <div class="container box-total">
         <table id="fazAgend"></table>
+        <div id="links"></div>
     </div>
 
     <script src="../script.js"></script>

@@ -1,13 +1,18 @@
-body{
+body {
     padding-bottom: 20px;
+    background-image: url(../img-dinamico/fundo\ cadastro.svg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
-.box-input input{
+
+.box-input input {
     border: 2px solid #403F3F;
     width: 300px;
     color: #403F3F;
 }
 
-.box-input select{
+.box-input select {
     border: 2px solid #403F3F;
     width: 620px;
     height: 40px;
@@ -15,48 +20,116 @@ body{
     padding: 0 10px;
 }
 
-.informacoes-superior h1{
+.informacoes-superior h1 {
     font-size: 32px;
     text-align: center;
 }
 
 
-.box-inferior-botoes{
+.box-inferior-botoes {
     margin-top: 40px;
 }
 
 
-.box-inferior-botoes input{
-  background-color: #8C52FF;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  transition: all 0.5s;
-  font-size: 16px;
-  cursor: pointer;
+.box-inferior-botoes input {
+    background-color: #8C52FF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.5s;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 
 
-.box-inferior-botoes input:hover{
+.box-inferior-botoes input:hover {
     background-color: #7f3fff;
 }
 
-.box-inferior-botoes input:disabled{
+.box-inferior-botoes input:disabled {
     cursor: not-allowed;
     background-color: #b996ff;
 
 }
 
 
-.box-inferior-botoes p{
+.box-inferior-botoes p {
     font-weight: 700;
 }
 
 
 @media (max-width:660px) {
-    .box-input select{
+    .box-input select {
         width: auto;
     }
+}
+
+
+/* modal requisitos de senha */
+.requisitos {
+    background-color: white;
+    box-shadow: 1px 1px 10px black;
+    padding: 20px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    gap: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.requisitos button {
+    background-color: transparent;
+    font-size: 30px;
+    color: red;
+    border: none;
+    padding: 0px 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    transition: all 0.5s;
+}
+
+.requisitos button:hover {
+    background-color: red;
+    color: white;
+}
+
+.requisitos p {
+    text-align: center;
+}
+
+.tituloSenha {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.btnSenha {
+    background-color: rgba(128, 128, 128, 0.249);
+    border: none;
+    color: #403F3F;
+    display: inline;
+    cursor: pointer;
+    padding: 0px 5px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.btnSenha:hover {
+    background-color: #a679ff;
+    color: #ffffff;
+}
+
+.box-botoes-senha{
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px 0 0;
 }

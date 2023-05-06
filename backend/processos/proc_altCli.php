@@ -25,6 +25,5 @@ try {
     if ($e->getCode() === 1062) {
         $_SESSION['msgAltCli'] = "Erro ao alterar usuário";
     }
-    echo $e->getMessage();
 }
 header("Location: " . $meuPerfilCliRoute);

@@ -1,0 +1,53 @@
+.box-total-cadastro{
+    padding: 7%;
+}
+
+.informacoes-superior-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+.box-input-cpf{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.botao-verificar{
+    margin-top: 0.5em;
+    background-color: transparent;
+    width: 7em;
+    border: 2px solid #8C52FF;
+    color: #8C52FF;
+    cursor: pointer;
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+
+.botao-verificar:hover{
+    background-color: #8C52FF;
+    color: #ffffff;
+}
+
+.voltar{
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width:500px) {
+    .box-cpf-cliente{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+}

@@ -10,14 +10,19 @@ require_once $funcoesRoute;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre nós - Hamtaro Petshop</title>
+    <title>Sobre nós - Hamtaro PetShop</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css-estatico/sobre-nos.css">
     <link rel="stylesheet" href="../css-estatico/header.css">
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
+
 </head>
 
 <body>
+  <a href="" class="zap">
+    <img src="../img-estatico/whatsapp.png" alt="whatsapp">
+  </a>
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
@@ -29,7 +34,7 @@ require_once $funcoesRoute;
             <div class="links">
                 <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
 
             </div>
@@ -263,9 +268,9 @@ require_once $funcoesRoute;
             <div class="item-valor">
                 <img src="../img-estatico/compromisso.svg" alt="ícone do compromisso">
 
-                <h4>Compromisso com a saúde e bem-estar </h4>
+                <h4>Compromisso com a saúde </h4>
                 <p>A empresa deve oferecer serviços e produtos de qualidade para garantir a saúde e o bem-estar dos
-                    animais, desde alimentação saudável até tratamentos médicos.</p>
+                    animais, desde alimentação saudável até tratamentos.</p>
             </div>
 
             <div class="item-valor">
@@ -304,9 +309,28 @@ require_once $funcoesRoute;
         </a>
 
         <div class="links">
-            <a href="<?php echo $blogRoute; ?>">BLOG</a>
-            <a href="#">SOBRE NÓS</a>
-            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+
+            <div>
+                <a href="<?php echo $blogRoute; ?>">BLOG</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Noticias</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Depoimentos</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Curiosidades</a>
+            </div>
+
+            <div>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Preços</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Valores</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Colaboradores</a>
+            </div>
+
+            <div>
+                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Mensagem</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Localização</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Informações</a>
+            </div>
+            
         </div>
 
         <div class="redes">
@@ -316,7 +340,7 @@ require_once $funcoesRoute;
             <img src="../img-estatico/github.svg" alt="">
         </div>
 
-        <p>© Hamtaro Petshop todos direitos reservados</p>
+        <p>© 2023 Hamtaro Petshop todos direitos reservados</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

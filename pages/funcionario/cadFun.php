@@ -23,22 +23,24 @@ if (!isset($_SESSION['tipo'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastrar Funcionário</title>
 
     <link rel="stylesheet" href="../css-dinamico/meu-perfil.css">
-    <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
     <link rel="stylesheet" href="../css-dinamico/cadastrar-funcionario.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css-estatico/header.css">
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
+    <link rel="stylesheet" href="../css-estatico/olhoSenha.css">
 
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgCadFun']); ?>)">
-    
+
     <?php
-        if (isset($_SESSION['msgCadFun'])) {
-            unset($_SESSION['msgCadFun']);
-        }
+    if (isset($_SESSION['msgCadFun'])) {
+        unset($_SESSION['msgCadFun']);
+    }
     ?>
     <div>
 
@@ -59,7 +61,7 @@ if (!isset($_SESSION['tipo'])) {
 
                 <div class="box-input">
                     <label for="cpf">CPF: </label>
-                    <input type="text" name="cpf" pattern="[0-9]{11}" placeholder="Digite o CPF do funcionário" required>
+                    <input type="text" name="cpf" pattern="\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}" placeholder="Digite o CPF do funcionário" required>
                 </div>
 
 
@@ -71,7 +73,7 @@ if (!isset($_SESSION['tipo'])) {
 
                 <div class="box-input">
 
-                    <label for="profissao">PROFISSÃO</label>
+                    <label for="profissao">PROFISSÃO: </label>
                     <select name="profissao" id="profissao" required>
                         <option value="" disabled selected hidden>Selecione a profissão do funcionário</option>
                         <option value="Veterinario">Veterinário</option>
@@ -87,8 +89,18 @@ if (!isset($_SESSION['tipo'])) {
 
                 <div class="box-input">
 
-                    <label for="senha">SENHA: </label>
-                    <input type="password" name="senha" placeholder="Digite a senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" required>
+                    <label for="senha" class="box-botoes-senha">SENHA:
+                        <div class="box-botoes-senha">
+
+
+                            <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button>
+                            <p class="btnSenha" onmousedown="reqSenha()">?</p>
+
+                        </div>
+
+
+                    </label>
+                    <input type="password" name="senha" id="password" placeholder="Digite a senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" required>
 
                 </div>
 
@@ -96,8 +108,11 @@ if (!isset($_SESSION['tipo'])) {
 
                 <div class="box-input">
 
-                    <label for="confsenha">CONFIRME A SENHA: </label>
-                    <input type="password" name="confsenha" placeholder="Digite a senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" required>
+                    <label for="confsenha">CONFIRME A SENHA: 
+                        
+                        
+                        <button type="button" id="toggleButton2" class="bi-eye-fill" onclick="mostrarSenha('toggleButton2' , 'password2')"></button></label>
+                    <input type="password" name="confsenha" id="password2" placeholder="Digite a senha" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).{8,}$" required>
 
                 </div>
 
@@ -113,7 +128,18 @@ if (!isset($_SESSION['tipo'])) {
 
             </div>
 
+
+
+
+
         </form>
+
+
+        <div class="requisitos">
+            <p class="tituloSenha">REQUISITOS DE SENHA</p>
+            <button onmousedown="fechaReq()">x</button>
+            <p>Mínimo 8 caracteres, sendo eles 1 letra maiúscula, 1 letra minuscula, 1 numero e um caractere especial</p>
+        </div>
 
 
 
@@ -121,6 +147,8 @@ if (!isset($_SESSION['tipo'])) {
     <script src="<?php echo $confSenhaRoute; ?>"></script>
     <script src="../../backend/funcoes/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../script.js"></script>
+
 </body>
 
 </html>

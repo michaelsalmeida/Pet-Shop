@@ -25,11 +25,15 @@ if (!loged()) { // Verifica se há um usuário logado
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil</title>
+    <title>Meu Perfil - Hamtaro PetShop</title>
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/meu-perfil.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
+
+    
+    <link rel="stylesheet" href="../css-estatico/olhoSenha.css">
 </head>
 
 <body onload="altMeuPerfilCli(), activateToast(<?php echo verificarSession(['msgAltCli', 'msgMeuPerfilCli']); ?>)">
@@ -48,8 +52,9 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
+                <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
 
             </div>
@@ -224,7 +229,7 @@ if (!loged()) { // Verifica se há um usuário logado
                     <label>Clique para alterar</label>
 
                     <div class="botoes-alterar">
-                        <button type="button" onclick="meuPerfilCliEnd()">Alterar</button>
+                        <button type="button" onclick="meuPerfilCliEnd()" id="alterarEnd">Alterar</button>
                         <input type="submit" value="Confirmar" name="conf" hidden>
                     </div>
 
@@ -235,19 +240,10 @@ if (!loged()) { // Verifica se há um usuário logado
 
     </form>
 
-
-
-
-
-
-
-
     <div class="box-inferior-botoes">
 
         <div class="box-botao">
             <a onclick="activeModalAlterarSenha(<?php echo $_SESSION['idCli']; ?>)" class="alterar-senha apagar-conta">Alterar Senha</a>
-
-
             <a onclick="activeModalApagarConta(<?php echo $_SESSION['idCli']; ?>)" class="apagar-conta">Apagar Conta</a>
         </div>
         

@@ -6,7 +6,7 @@ require_once $funcoesRoute;
 
 if (isset($_SESSION['tipo'])) {
     // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
-    header("Location: " . $homeRoute);
+    header("Location: " . $agendamentoFunRoute);
 }
 ?>
 
@@ -21,9 +21,17 @@ if (isset($_SESSION['tipo'])) {
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/login-cliente.css">
     <link rel="stylesheet" href="../css-dinamico/login-funcionario.css">
+
+    <link rel="stylesheet" href="../css-estatico/olhoSenha.css">
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgloginFun']); ?>)">
+    <?php
+        if (isset($_SESSION['msgloginFun'])) {
+            unset($_SESSION['msgloginFun']);
+        }
+        ?>
 
     <header>
         <a href="<?php echo $homeRoute; ?>" id="logo">
@@ -57,8 +65,8 @@ if (isset($_SESSION['tipo'])) {
                 </div>
 
                 <div class="senha">
-                    <label for="senha">Senha</label><br>
-                    <input type="password" name="senha" required>
+                    <label for="senha">Senha <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button></label><br>
+                    <input type="password" name="senha" id="password" required>
                 </div>
 
             </div>
@@ -68,11 +76,7 @@ if (isset($_SESSION['tipo'])) {
                 <input type="submit" value="Entrar">
 
 
-                <?php
-                if (isset($_SESSION['msgloginFun'])) {
-                    unset($_SESSION['msgloginFun']);
-                }
-                ?>
+                
 
 
                 <a class="voltar" href="<?php echo $homeRoute; ?>">Voltar</a>
@@ -83,10 +87,11 @@ if (isset($_SESSION['tipo'])) {
 
 
     <div class="box-cadastro">
-        <span>Ainda não possui cadastro corporativo? <a href=""> Informe seu gestor.</a></span>
+        <span>Ainda não possui cadastro corporativo? <a href="" id="link-gestor"> Informe seu gestor.</a></span>
     </div>
     <script src="../../backend/funcoes/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../script.js"></script>
 </body>
 
 </html>

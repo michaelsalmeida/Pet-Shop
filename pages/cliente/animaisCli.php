@@ -4,12 +4,12 @@ include_once($connRoute);
 require_once $funcoesRoute;
 
 if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcionário
-  header("Location: " . $agendamentoFunRoute);
+    header("Location: " . $agendamentoFunRoute);
 }
 if (!loged()) { // Verifica se há um usuário logado
-  $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
-  // Se não tiver manda ele para a página de login
-  header("Location: " . $loginCliRoute);
+    $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
+    // Se não tiver manda ele para a página de login
+    header("Location: " . $loginCliRoute);
 }
 ?>
 
@@ -17,44 +17,50 @@ if (!loged()) { // Verifica se há um usuário logado
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animais</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css-estatico/header.css">
-  <link rel="stylesheet" href="../css-dinamico/animais-cliente.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="../css-dinamico/table.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Animais - Hamtaro PetShop</title>
 
 
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css-estatico/header.css">
+    <link rel="stylesheet" href="../css-dinamico/animais-cliente.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css-dinamico/table.css">
+    <link rel="stylesheet" href="../css-dinamico/paginacao.css">
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
 
-  <script src="<?php echo $functionsRoute; ?>"></script>
+
+
+
+    <script src="<?php echo $functionsRoute; ?>"></script>
 
 </head>
 
-<body onload="paginacao('gerarTabelaAni'), activateToast(<?php echo verificarSession(['msgAltAnimaisCli', 'msgExcAnimal']); ?>)">
+<body
+onload="paginacao('gerarTabelaAni'), activateToast(<?php echo verificarSession(['msgAltAnimaisCli', 'msgExcAnimal']); ?>)">
+    <?php
+    if (isset($_GET['pagina'])) {
+        echo "<p id='pag' hidden>" . $_GET['pagina'] . "</p>";
+    } else {
+        echo "<p id='pag' hidden>1</p>";
+    }
+    ?>
+    <header>
+        <a href="<?php echo $homeRoute; ?>" class="logo">
+            <img src="../img-estatico/logo.svg" alt="">
+        </a>
 
-
-  <?php
-  if (isset($_GET['pagina'])) {
-    echo "<p id='pag' hidden>".$_GET['pagina']."</p>";
-  } else {
-    echo "<p id='pag' hidden>1</p>";
-  }
-  ?>
-  <header>
-    <a href="<?php echo $homeRoute; ?>" class="logo">
-      <img src="../img-estatico/logo.svg" alt="">
-    </a>
-
-    <div class="responsive">
+        <div class="responsive">
 
             <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
+                <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
 
             </div>
@@ -76,7 +82,7 @@ if (!loged()) { // Verifica se há um usuário logado
                 //   echo $_SESSION['msgRotaProibidaCli'];
                 //   unset($_SESSION['msgRotaProibidaCli']);
                 // }
-
+                
                 ?>
             </div>
         </div>
@@ -95,7 +101,7 @@ if (!loged()) { // Verifica se há um usuário logado
                     
                     
                     <div class='menu-perfil'>
-                    <p>Bem Vindo! ".$_SESSION['nomeCliente']."</p>
+                    <p>Bem Vindo! " . $_SESSION['nomeCliente'] . "</p>
                     <a href='$meuPerfilCliRoute'><img src='../img-estatico/account_circle.svg'> Meu Perfil</a>
                     <a href='$animaisCliRoute'>Meus Animais</a>
                     <a href='$agendamentoCliRoute'>Meus Agendamentos</a>
@@ -106,21 +112,23 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <img onmousedown="abreMenu()" src="../img-estatico/menu.png" class="menu" alt="menu">
         </div>
-  </header>
+    </header>
 
 
 
-  <div class="container box-total">
-    <h1>Veja seus animais cadastrados na plataforma</h1>
+    <div class="container box-total">
+        <h1>Veja seus animais cadastrados na plataforma</h1>
 
-    <table id="animais"></table>
-    <div id="links"></div>
-  </div>
+        <table id="animais"></table>
+        <div id="links"></div>
+    </div>
 
-  <script src="../script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-  <script src="<?php echo $functionsRoute; ?>"></script>
-  <script src="../../backend/funcoes/toast.js"></script>
+    <script src="../script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="<?php echo $functionsRoute; ?>"></script>
+    <script src="../../backend/funcoes/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 

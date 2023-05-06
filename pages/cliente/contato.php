@@ -15,15 +15,21 @@ if (isset($_SESSION['tipo'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato - Hantaro</title>
+    <title>Contato - Hamtaro PetShop</title>
 
     <link rel="stylesheet" href="../css-estatico/contato.css">
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
+
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msgComent']); ?>)">
+  <a href="https://wa.me/5511982532481?text=Ol%C3%A1%21+Poderia+me+ajudar%3F" class="zap">
+    <img src="../img-estatico/whatsapp.png" alt="whatsapp">
+  </a>
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
@@ -35,7 +41,7 @@ if (isset($_SESSION['tipo'])) {
             <div class="links">
                 <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
                 <a href="#">CONTATO</a>
 
             </div>
@@ -112,19 +118,19 @@ if (isset($_SESSION['tipo'])) {
         <form action="<?php echo $procComentarioRoute; ?>" method="post">
             <fieldset id="nome">
                 <label for="">Nome</label>
-                <input type="text" name="nome" required>
+                <input type="text" name="nome" required placeholder="Mayck Luciano Soares">
             </fieldset>
             <fieldset id="tell">
                 <label for="">Telefone</label>
-                <input type="text" name="tell" required>
+                <input type="text" name="tell" pattern="[(]?[0-9]{2}[)]?[0-9]{5}[-]?[0-9]{4}" required placeholder="(11) 9 0000-0000">
             </fieldset>
             <fieldset id="email">
                 <label for="">Email</label> 
-                <input type="email" name="email" required>
+                <input type="email" name="email" required placeholder="scar@example.com">
             </fieldset>
             <fieldset id="msg">
                 <label for="">Sua mensagem</label>
-                <textarea name="msg" id="" cols="30" rows="10" required></textarea>
+                <textarea name="msg" id="" cols="30" rows="10" required placeholder="Digite seu comentário"></textarea>
             </fieldset>
 
             <input type="submit">
@@ -147,9 +153,28 @@ if (isset($_SESSION['tipo'])) {
         </a>
 
         <div class="links">
-            <a href="<?php echo $blogRoute; ?>">BLOG</a>
-            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
-            <a href="#">CONTATO</a>
+
+            <div>
+                <a href="<?php echo $blogRoute; ?>">BLOG</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Noticias</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Depoimentos</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Curiosidades</a>
+            </div>
+
+            <div>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Preços</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Valores</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Colaboradores</a>
+            </div>
+
+            <div>
+                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Mensagem</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Localização</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Informações</a>
+            </div>
+            
         </div>
 
         <div class="redes">
@@ -159,7 +184,7 @@ if (isset($_SESSION['tipo'])) {
             <img src="../img-estatico/github.svg" alt="">
         </div>
 
-        <p>© Hamtaro Petshop trabalho com fins lucrativos</p>
+        <p>© 2023 Hamtaro Petshop trabalho com fins lucrativos</p>
     </footer>
 
     <script src="../script.js"></script>

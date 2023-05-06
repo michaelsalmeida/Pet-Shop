@@ -1,0 +1,124 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+#tabela{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.box-input, .box-mensagem{
+    padding: 30px;
+}
+
+
+.box-input{
+    display: flex;
+    filter: drop-shadow(0px 4px 9px rgba(0, 0, 0, 0.25));
+    justify-content: center;
+
+}
+
+.box-input input{
+    width: 200px;
+    padding: 8px 10px;
+    border: none;
+    font-weight: 700;
+    border-radius: 5px 0 0 5px;
+}
+
+.box-input button{
+    padding: 0 10px;
+    border-radius: 0 5px 5px 0 ;
+    border: none;
+    background-color: #6E29FF;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.box-input button:hover{
+    background-color: #8d58ff;
+}
+.box-input button i{
+    color: #ffffff;
+}
+
+
+/* -------------------- MESAGEM ------------------------------- */
+.box-mensagem{
+    display: flex;
+    flex-flow: column wrap;
+
+}
+
+.box-mensagem .box-info{
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.box-mensagem .dado-triplo{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.mensagem{
+    display: flex;
+    flex-flow:column wrap;
+    gap: 15px;
+    background-color: #ffffff;
+    border-radius: 0 0 5px 5px;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    filter: drop-shadow(0px 4px 9px rgba(0, 0, 0, 0.25));
+
+}
+
+.superior{
+    border-radius: 5px 5px 0 0;
+    background-color: #777777;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+}
+
+
+.mensagem .email{
+    border: 2px solid #691EFF;
+    padding: 5px 15px;
+    color: #691EFF;
+    font-weight: 700;
+    transition: all 0.9s;
+}
+
+.mensagem .email:hover{
+    border-radius: 10px;
+    border: 2px solid #000000;
+    color: #000000;
+}
+
+
+.box-sem-cometario{
+    width: 400px;
+    border:2px solid #691EFF;
+    color: #691EFF;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    align-self: center;
+   margin-bottom: 1em;
+}
+

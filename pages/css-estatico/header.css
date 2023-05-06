@@ -11,8 +11,13 @@
 
 a{
   text-decoration: none !important;
+  cursor: pointer;
 }
 
+
+#link-gestor{
+  cursor: auto;
+}
 /* FIM RESET */
 
 /* CONTATOS HEADER */
@@ -21,18 +26,27 @@ a{
   background-color: #D7D7D7;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  padding: 0px 20px;
+  padding: 5px 20px;
+  transition: all 0.5s;
+  height: 30px;
+}
+
+@keyframes evanecer {
+  from{opacity: 0;}
+  to{opacity: 1;}
 }
 
 .contatoHeader p{
   font-size: 12px;
   margin: 0px;
+  animation: evanecer 1s;
 }
 
 .contatoHeader img{
   width: 300px;
+  animation: evanecer 1s;
 }
 @media (max-width: 300px) {
   .contatoHeader img{
@@ -176,6 +190,7 @@ header .menu-perfil p{
   gap: 0px 15px;
 }
 
+
 /* FIM HEADER */
 
 /* FOOTER */
@@ -197,6 +212,25 @@ footer p{
   width: 90%;
   text-align: center;
 }
+
+footer a{
+  font-size: 20px;
+}
+
+footer .links div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+footer .links div .subLinks{
+  opacity: 0.5;
+  font-size: 15px;
+}
+
+
 
 /* FIM FOOTER */
 
@@ -281,11 +315,13 @@ footer p{
   flex-direction: column;
   align-items: center;
 }
+
 .loading div img {
   width: 300px;
   position: relative;
   animation: gira 2s ease-in infinite;
 }
+
 @keyframes gira {
   0% {
     transform: rotateY(0deg);
@@ -297,6 +333,7 @@ footer p{
     transform: rotateY(0deg);
   }
 }
+
 .loading div p {
   margin: 20px 0;
   font-weight: bold;
@@ -306,20 +343,7 @@ footer p{
   animation: pontinhos 2s infinite;
   content: "";
 }
-@keyframes pontinhos {
-  0% {
-    content: "";
-  }
-  30% {
-    content: ".";
-  }
-  60% {
-    content: "..";
-  }
-  100% {
-    content: "...";
-  }
-}
+
 
 /* efeito de link header */
 
@@ -348,7 +372,8 @@ header .responsive .links a::after{
   height: 2px;
   bottom: -5px;
   left: 0px;
-  background-color: #0051ff;
+  /* background-color: #0051ff; */
+  background-color: #7da4fa;
   transform-origin: bottom right;
   transition: transform 0.5s ease-in-out;
 }
@@ -356,4 +381,18 @@ header .responsive .links a::after{
 header .responsive .links a:hover::after{
   transform: scaleX(1);
   transform: bottom left;
+}
+
+
+
+/* contato whatsapp */
+
+.zap{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.zap img{
+  width: 70px;
 }

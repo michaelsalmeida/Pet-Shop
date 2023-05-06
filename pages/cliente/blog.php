@@ -21,9 +21,14 @@ if (isset($_SESSION['tipo'])) {
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css-estatico/blog.css">
 
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
+    
 </head>
 
 <body>
+  <a href="https://wa.me/5511982532481?text=Ol%C3%A1%21+Poderia+me+ajudar%3F" class="zap">
+    <img src="../img-estatico/whatsapp.png" alt="whatsapp">
+  </a>
     <header>
         <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
@@ -35,7 +40,7 @@ if (isset($_SESSION['tipo'])) {
             <div class="links">
                 <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
 
             </div>
@@ -209,7 +214,7 @@ if (isset($_SESSION['tipo'])) {
 
                 <div class="comentario">
                     <h3>Lucas Santos Silva</h3>
-                    <p>Gostei muito da consulta meu gato ficou 100%.</p>
+                    <p>Gostei muito da consulta, meu gato ficou (100%).</p>
                 </div>
             </div>
 
@@ -218,7 +223,7 @@ if (isset($_SESSION['tipo'])) {
 
                 <div class="comentario">
                     <h3>Luiza Soares</h3>
-                    <p>Preços bons e funcionários apaixonados pelo animais.</p>
+                    <p>Preços bons e funcionários apaixonados pelos animais.</p>
                 </div>
             </div>
 
@@ -231,7 +236,7 @@ if (isset($_SESSION['tipo'])) {
 
                 <div class="comentario">
                     <h3>Luiz Carlos Sampaio</h3>
-                    <p>A pata do meu pet está saudável graças ao veterináro Daniel.</p>
+                    <p>A pata do meu pet está saudável graças ao veterinário Daniel.</p>
                 </div>
             </div>
 
@@ -254,9 +259,28 @@ if (isset($_SESSION['tipo'])) {
         </a>
 
         <div class="links">
-            <a href="#">BLOG</a>
-            <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
-            <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+
+            <div>
+                <a href="<?php echo $blogRoute; ?>">BLOG</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Noticias</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Depoimentos</a>
+                <a class="subLinks" href="<?php echo $blogRoute; ?>">Curiosidades</a>
+            </div>
+
+            <div>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Preços</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Valores</a>
+                <a class="subLinks" href="<?php echo $sobreRoute; ?>">Colaboradores</a>
+            </div>
+
+            <div>
+                <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Mensagem</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Localização</a>
+                <a class="subLinks" href="<?php echo $contatoRoute; ?>">Informações</a>
+            </div>
+            
         </div>
 
         <div class="redes">
@@ -266,7 +290,7 @@ if (isset($_SESSION['tipo'])) {
             <img src="../img-estatico/github.svg" alt="">
         </div>
 
-        <p>© Hamtaro Petshop todos direitos reservados</p>
+        <p>© 2023 Hamtaro Petshop todos direitos reservados</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

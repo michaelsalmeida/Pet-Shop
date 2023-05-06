@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Clientes` (
   `cep` CHAR(8) NOT NULL,
   `logradouro` VARCHAR(100) NOT NULL,
   `numero` VARCHAR(5) NOT NULL,
-  `complemento` VARCHAR(5) NOT NULL,
+  `complemento` VARCHAR(50) NOT NULL,
   `bairro` VARCHAR(100) NOT NULL,
   `municipio` VARCHAR(100) NOT NULL,
   `uf` CHAR(2) NOT NULL,
@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `petshop`.`Animais` (
   `fk_Cliente` INT UNSIGNED NOT NULL,
   `nome` VARCHAR(100) NOT NULL,
   `data_nascimento` DATE NOT NULL,
+  `sexo` ENUM('F', 'M', 'I'),
   `especie` VARCHAR(45) NOT NULL,
   `raca` VARCHAR(45) NOT NULL,
   `peso` FLOAT NOT NULL,
@@ -125,7 +126,7 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 
 insert into Funcionarios values 
-(default, 'Michael', 22222222222, 'admin', 
+(default, 'Michael', 03524746020, 'admin', 
 'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af', 'ativo');
 
 SET SQL_MODE=@OLD_SQL_MODE;

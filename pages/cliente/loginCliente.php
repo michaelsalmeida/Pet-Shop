@@ -23,7 +23,13 @@ if (loged()) { // Verifica se há um usuário logado
     <title>Login - Hamtaro PetShop</title>
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/login-cliente.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+    <link rel="stylesheet" href="../css-estatico/olhoSenha.css">
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
+
+  
+    
 </head>
 
 <body onload="activateToast(<?php echo verificarSession(['msglogin']); ?>)">
@@ -61,8 +67,8 @@ if (loged()) { // Verifica se há um usuário logado
                 </div>
 
                 <div class="senha">
-                    <label for="senha">Senha</label><br>
-                    <input type="password" name="senha">
+                    <label for="senha">Senha <button type="button" id="toggleButton" class="bi-eye-fill" onclick="mostrarSenha('toggleButton', 'password')"></button></label><br>
+                    <input type="password" name="senha" id="password">
                 </div>
 
             </div>
@@ -80,6 +86,7 @@ if (loged()) { // Verifica se há um usuário logado
                 <a class="voltar" href="<?php echo $homeRoute; ?>">Voltar</a>
             </div>
         </form>
+        
     </div>
 
 
@@ -91,6 +98,7 @@ if (loged()) { // Verifica se há um usuário logado
     <script src="<?php echo $functionsRoute; ?>"></script>
     <script src="../../backend/funcoes/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../script.js"></script>
 </body>
 
 </html>

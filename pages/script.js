@@ -2,6 +2,8 @@ let hambur = document.querySelector(".menu");
 let fecha = document.querySelector(".fechaMenu");
 let menu = document.querySelector(".responsive");
 var perfil = document.querySelector(".menu-perfil");
+let req = document.querySelector(".requisitos")
+let contato = document.querySelector(".contatoHeader")
 
 // abre menu hamburguer
 function abreMenu() {
@@ -65,10 +67,12 @@ function menuPerfil() {
     perfilAberto = 1;
     perfil.style.opacity = "1";
     perfil.style.zIndex = "1";
+    perfil.style.top = "80px";
   } else {
     perfilAberto = 0;
     perfil.style.opacity = "0";
     perfil.style.zIndex = "-1";
+    perfil.style.top = "-500px";
   }
 }
 
@@ -79,4 +83,29 @@ function delay(){
 
 function fechaCarregando(){
   document.querySelector(".loading").style.display= "none"
+}
+
+// inicio lógica do olho para mostrar a senha
+function mostrarSenha(botao, input){
+  const passwordInput = document.getElementById(`${input}`);
+  const toggleButton = document.getElementById(`${botao}`);
+  
+  if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      toggleButton.className = "bi-eye-slash-fill";
+  } else {
+      passwordInput.type = "password";
+      toggleButton.className = "bi-eye-fill";
+  }
+
+}
+
+// fecha modal senha
+function fechaReq(){
+  req.style.display = "none"
+}
+
+// abre modal senha
+function reqSenha(){
+  req.style.display = "flex"
 }

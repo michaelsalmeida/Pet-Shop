@@ -8,9 +8,9 @@ if (!loged()) {
   header("Location: " . $loginFunRoute);
 }
 if (!isset($_SESSION['tipo'])) {
-  // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
   header("Location: " . $homeRoute);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -20,14 +20,14 @@ if (!isset($_SESSION['tipo'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamentos</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5998/5998796.png">
+    <title>Agendamentos Marcados</title>
 
-
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
     <script src="<?php echo $functionsRoute; ?>"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css-dinamico/table.css">
+    <link rel="stylesheet" href="../css-dinamico/paginacao.css">
     <link rel="stylesheet" href="../css-dinamico/pagina-inicial-corporativo.css">
 
     <link rel="stylesheet" href="../css-dinamico/header-corporativo.css">
@@ -36,17 +36,18 @@ if (!isset($_SESSION['tipo'])) {
 </head>
 
 <body
-    onload="agenFun(), paginacao('gerarTabelaAgenFun'), 
-    activateToast(<?php echo verificarSession(['msgCadData', 'msgCadFun', 'msgRotaProibida']); ?>)">
+    onload="filtros('agendamentosFun'), paginacao('gerarTabelaAgenFun'), 
+    activateToast(<?php echo verificarSession(['msgCadData', 'msgCadFun', 'msgRotaProibida', 'login']); ?>)">
 
     <header class="header-corporativo">
         <div class="box-logo-barra-de-pesquisa-perfil">
 
-            <a href="<?php echo $homeRoute; ?>"><img src="../img-dinamico/logo-corporativo.svg"
+            <a href="<?php echo $agendamentoFunRoute; ?>"><img src="../img-dinamico/logo-corporativo.svg"
                     alt="logo hamtaro petshop corporativo"></a>
 
             <div class="box-pesquisar">
-                <input type="text" placeholder="Pesquise por um Funcionário" id="pesq">
+                <input type="text" placeholder="Pesquise por um Funcionário" id="pesq"
+                onkeydown="if(event.keyCode==13){paginacao('gerarTabelaAgenFun');}">
                 <button onclick="paginacao('gerarTabelaAgenFun')"><i class="bi bi-search"></i></button>
             </div>
 
@@ -58,9 +59,12 @@ if (!isset($_SESSION['tipo'])) {
 
         </div>
 
-        <nav class="responsive menu-perfil" style="opacity: 0; z-index: -1;">
+        <nav class="responsive menu-perfil" style="opacity: 0; top: -500px;">
 
       <?php
+      if(isset($_SESSION['login'])){
+        unset($_SESSION['login']);
+    }
       if ($_SESSION['tipo'] == 'Secretaria') {
         echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
         echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";

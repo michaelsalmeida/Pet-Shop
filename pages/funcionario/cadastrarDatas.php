@@ -24,12 +24,13 @@ if (!isset($_SESSION['tipo'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="<?php echo $functionsRoute; ?>"></script>
-    <title>Document</title>
+    <title>Cadastrar Horário</title>
 
     <link rel="stylesheet" href="../css-dinamico/meu-perfil.css">
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-dinamico/">
     <link rel="stylesheet" href="../css-dinamico/cadastrar-funcionario.css">
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
 
 
 </head>
@@ -88,7 +89,7 @@ if (!isset($_SESSION['tipo'])) {
                     <label for="">Selecione o profissional</label>
 
                     <select name="profissionais" id="profissionais" required style="width: 300px;">
-                        <option value="" disabled selected hidden>Selecione um profissional</option>
+                        <option value="" disabled selected hidden>Selecione um serviço primeiro</option>
 
                     </select>
 

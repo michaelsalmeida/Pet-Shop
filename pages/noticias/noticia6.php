@@ -14,20 +14,22 @@ include_once("../../rotas.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../css-estatico/header.css">
     <link rel="stylesheet" href="../css-estatico/noticias.css">
+    <link rel="icon" href="../img-dinamico/dog-icon.png">
 </head>
 
 <body>
 
     <header>
-        <a href="" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
         <div class="responsive">
             <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
             <div class="links">
+                <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
-                <a href="<?php echo $sobreRoute; ?>">SOBRE NÓS</a>
+                <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
                 <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
             </div>
 
@@ -76,7 +78,7 @@ include_once("../../rotas.php");
 
 
     <footer>
-        <a href="" class="logo">
+        <a href="<?php echo $homeRoute; ?>" class="logo">
             <img src="../img-estatico/logo.svg" alt="">
         </a>
 
