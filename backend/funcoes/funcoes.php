@@ -266,7 +266,7 @@ function checkAnimais() {
     // Pega o resultado do banco
     $resultado = $stmt->get_result();
 
-    $opcoes = "<option value='0' disabled selected hidden>Selecione um animal</option>";
+    $opcoes = "<option value='' disabled selected hidden>Selecione um animal</option>";
 
     if (mysqli_num_rows($resultado) == 0) {
         $opcoes = $opcoes . "
