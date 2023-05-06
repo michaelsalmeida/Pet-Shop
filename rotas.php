@@ -7,7 +7,7 @@ $rootBackFunctions = $rootBack . "funcoes/";
 $rootFront = $root . "pages/";
 $rootCliPages = $rootFront . "cliente/";
 $rootFunPages = $rootFront . "funcionario/";
-$connRoute = $_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php';
+$connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php';
 
 // ----------------------    Rotas Estáticas    -----------------------------
 
@@ -79,5 +79,5 @@ $toastRoute = $rootBackFunctions . "toast.js";
 
 
 
-$funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/backend/funcoes/funcoes.php";
+$funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.php";
 

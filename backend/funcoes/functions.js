@@ -204,7 +204,7 @@ function altAnimal() {
 
     var xhr = new XMLHttpRequest();
     // Executa o arquivo que irá iniciar a função
-    xhr.open("GET", location.origin + `/backend/execute.php?function=altAnimal&idAni=${idAni}`, false);
+    xhr.open("GET", location.origin + `/Pet-Shop/backend/execute.php?function=altAnimal&idAni=${idAni}`, false);
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
@@ -270,7 +270,7 @@ function activeModalApagarConta(id) {
 
     <div class='box-botoes-modal'>
 
-        <a class='sim' href = "` + location.origin + `/backend/processos/proc_excCliente.php?id=${id}` + `">Sim</a>
+        <a class='sim' href = "` + location.origin + `/Pet-Shop/backend/processos/proc_excCliente.php?id=${id}` + `">Sim</a>
         <button class='nao' onclick="document.getElementById('id01').style.display='none'">Não</button> 
 
     </div>    
@@ -282,7 +282,7 @@ function activeModalAlterarSenha(id) {
     document.getElementById("id01").style.display = "flex" // Muda a modal para block, para que possa ser vista
     document.getElementById("container-modal").innerHTML = `
 
-    <form action="` + location.origin + `/backend/processos/proc_AlterarSenha.php?id=${id}` + `" method="post" class='box-modal'>
+    <form action="` + location.origin + `/Pet-Shop/backend/processos/proc_AlterarSenha.php?id=${id}` + `" method="post" class='box-modal'>
 
 
         <div class='box-superior-modal'>
