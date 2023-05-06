@@ -1,13 +1,13 @@
 <?php
 session_start();
-$root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/";
+$root = "https://petto-shoppo-hamtaro.azurewebsites.net/";
 $rootBack = $root . "backend/";
 $rootBackProc = $rootBack . "processos/";
 $rootBackFunctions = $rootBack . "funcoes/";
 $rootFront = $root . "pages/";
 $rootCliPages = $rootFront . "cliente/";
 $rootFunPages = $rootFront . "funcionario/";
-$connRoute = $_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php';
+$connRoute = $_SERVER['DOCUMENT_ROOT'] . '/backend/conexao.php';
 
 // ----------------------    Rotas Estáticas    -----------------------------
 
@@ -79,5 +79,5 @@ $toastRoute = $rootBackFunctions . "toast.js";
 
 
 
-$funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/Pet-Shop/backend/funcoes/funcoes.php";
+$funcoesRoute = $_SERVER['DOCUMENT_ROOT'] . "/backend/funcoes/funcoes.php";
 
