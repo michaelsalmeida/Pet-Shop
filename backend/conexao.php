@@ -1,5 +1,5 @@
 <?php
-$host = "petshop-hamtaro.mysql.database.azure.com";
+$host = "localhost";
 $user = "root";
 $pass = '';
 $dbname = "petshop";

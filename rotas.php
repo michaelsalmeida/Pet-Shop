@@ -1,6 +1,6 @@
 <?php
 session_start();
-$root = "https://petto-shoppo-hamtaro.azurewebsites.net/";
+$root = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/";
 $rootBack = $root . "backend/";
 $rootBackProc = $rootBack . "processos/";
 $rootBackFunctions = $rootBack . "funcoes/";
