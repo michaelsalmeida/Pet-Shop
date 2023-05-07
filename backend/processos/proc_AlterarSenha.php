@@ -13,9 +13,9 @@ $hashNova = hash("sha512", $senhaNova);
 
 try {
     // Faz a query no banco, utilizando a senha e o cpf, fornecidos pelo usuário
-    $stmt = $conn->prepare("SELECT pk_Cliente, nome FROM Clientes WHERE senha = ? AND ativo = 'ativo'");
+    $stmt = $conn->prepare("SELECT pk_Cliente, nome FROM Clientes WHERE pk_Cliente = ? AND senha = ? AND ativo = 'ativo'");
     // Substituição da string preparada pelos valores corretos
-    $stmt->bind_param("s", $hashAtual);
+    $stmt->bind_param("ss", $_GET['id'], $hashAtual);
     // Executa o sql
     $stmt->execute();
     // Pega os resultados da query
@@ -32,10 +32,10 @@ try {
         // Pega os resultados da query
         $resultado = $stmt->get_result();
         
-        $_SESSION['msgAltCli'] = "SENHA ATUALIZADA COM SUCESSO";
+        $_SESSION['msgAltCli'] = "Senha atualizada com sucesso";
         header("Location: " . $meuPerfilCliRoute);
     } else {
-        $_SESSION['msgAltCli'] = "SENHA INCORRETA!";
+        $_SESSION['msgAltCli'] = "Senha atual incorreta";
         header("Location: " . $meuPerfilCliRoute);
     }
 } catch (Exception $e) {
