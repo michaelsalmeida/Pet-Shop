@@ -138,7 +138,7 @@ if (!isset($_SESSION['tipo'])) {
         <div class="requisitos">
             <p class="tituloSenha">REQUISITOS DE SENHA</p>
             <button onmousedown="fechaReq()">x</button>
-            <p>Mínimo 8 caracteres, sendo eles 1 letra maiúscula, 1 letra minuscula, 1 numero e um caractere especial</p>
+            <p>Mínimo 8 caracteres, sendo eles 1 letra maiúscula, 1 letra minúscula, 1 número e um caractér especial</p>
         </div>
 
 
