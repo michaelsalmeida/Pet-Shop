@@ -46,7 +46,7 @@ if (isset($_SESSION['tipo'])) {
   </a>
 
   <div class="contatoHeader">
-    <p class='contato-header-telefone'><i class="bi bi-geo-alt-fill"></i> Avenida Interlagos 2034, Jardim Marajoara</p>
+    <p class='contato-header-telefone'><i class="bi bi-geo-alt-fill"></i> Avenida Interlagos 2034, Jardim Marajoara</p>  
   </div>
 
 
@@ -81,7 +81,6 @@ if (isset($_SESSION['tipo'])) {
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
           echo "<a href='$cadastroCliRoute'>Cadastro</a>";
         }
-       
 
         ?>
       </div>
@@ -277,9 +276,8 @@ if (isset($_SESSION['tipo'])) {
         mudou = false
       } else {
         contato.innerHTML = `
-          <p class='contato-header-telefone'><i class="bi bi-telephone-forward-fill"></i> Contate-nos: (11) 98253-2481</p>
-    `
-        mudou = true;
+        <p class='contato-header-telefone'><i class="bi bi-telephone-forward-fill"></i> Contate-nos: (11) 98253-2481</p>    `
+        mudou = true
       }
     }
 

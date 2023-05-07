@@ -4,6 +4,10 @@ body {
     background-image: url(../img-dinamico/fundo.svg);
 }
 
+body {
+    background-image: url(../img-dinamico/fundo.svg);
+}
+
 /* DIV COM TITULO E TABELA */
 .box-total {
     display: flex;
