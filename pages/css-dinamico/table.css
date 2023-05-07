@@ -1,5 +1,8 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css");
 
+body {
+    background-image: url(../img-dinamico/fundo.svg);
+}
 
 /* DIV COM TITULO E TABELA */
 .box-total {

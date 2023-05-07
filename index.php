@@ -34,7 +34,7 @@ if (isset($_SESSION['tipo'])) {
   <script defer src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onload="delay(), activateToast(<?php echo verificarSession(['login']); ?>)">
+<body onload="delay(), activateToast(<?php echo verificarSession(['login', 'msgRotaProibidaCli']); ?>)">
   <div class="loading">
     <div>
       <img src="pages/img-estatico/fundoLoading.png" alt="">
@@ -46,12 +46,13 @@ if (isset($_SESSION['tipo'])) {
   </a>
 
   <div class="contatoHeader">
-    <img src="pages/img-estatico/endereço.svg" alt="">
+    <p class='contato-header-telefone'><i class="bi bi-geo-alt-fill"></i> Avenida Interlagos 2034, Jardim Marajoara</p>
   </div>
 
 
 
   <header>
+
     <a href="#" class="logo">
       <img src="pages/img-estatico/logo.svg" alt="">
     </a>
@@ -65,7 +66,6 @@ if (isset($_SESSION['tipo'])) {
         <a href="<?php echo $blogRoute; ?>">BLOG</a>
         <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
         <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
-
       </div>
 
       <div class="acesso">
@@ -81,10 +81,7 @@ if (isset($_SESSION['tipo'])) {
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
           echo "<a href='$cadastroCliRoute'>Cadastro</a>";
         }
-        // if (isset($_SESSION['msgRotaProibidaCli'])){
-        //   echo $_SESSION['msgRotaProibidaCli'];
-        //   unset($_SESSION['msgRotaProibidaCli']);
-        // }
+       
 
         ?>
       </div>
@@ -268,23 +265,25 @@ if (isset($_SESSION['tipo'])) {
   <script defer src="pages/script.js"></script>
 
   <script>
-    let mudou = true
+
+    let mudou = true;
+
     function mudaContato() {
       
       if (mudou == true) {
         contato.innerHTML = `
-    <img src="pages/img-estatico/endereço.svg" alt="">
+        <p class='contato-header-telefone'><i class="bi bi-geo-alt-fill"></i> Avenida Interlagos 2034, Jardim Marajoara</p>
     `
         mudou = false
       } else {
         contato.innerHTML = `
-    <p>Contate-nos: (11) 98253-2481</p>
+          <p class='contato-header-telefone'><i class="bi bi-telephone-forward-fill"></i> Contate-nos: (11) 98253-2481</p>
     `
-        mudou = true
+        mudou = true;
       }
     }
 
-    setInterval(mudaContato, 5000)
+    setInterval(mudaContato, 3500)
   </script>
 
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
