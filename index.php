@@ -34,7 +34,7 @@ if (isset($_SESSION['tipo'])) {
   <script defer src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onload="delay(), activateToast(<?php echo verificarSession(['login']); ?>)">
+<body onload="delay(), activateToast(<?php echo verificarSession(['login', 'msgRotaProibidaCli']); ?>)">
   <div class="loading">
     <div>
       <img src="pages/img-estatico/fundoLoading.png" alt="">
@@ -46,7 +46,7 @@ if (isset($_SESSION['tipo'])) {
   </a>
 
   <div class="contatoHeader">
-    <img src="pages/img-estatico/endereço.svg" alt="">
+    <p class='contato-header-telefone'><i class="bi bi-geo-alt-fill"></i> Avenida Interlagos 2034, Jardim Marajoara</p>  
   </div>
 
 
@@ -81,10 +81,7 @@ if (isset($_SESSION['tipo'])) {
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
           echo "<a href='$cadastroCliRoute'>Cadastro</a>";
         }
-        // if (isset($_SESSION['msgRotaProibidaCli'])){
-        //   echo $_SESSION['msgRotaProibidaCli'];
-        //   unset($_SESSION['msgRotaProibidaCli']);
-        // }
+
 
         ?>
       </div>
@@ -273,13 +270,12 @@ if (isset($_SESSION['tipo'])) {
       
       if (mudou == true) {
         contato.innerHTML = `
-    <img src="pages/img-estatico/endereço.svg" alt="">
+        <p class='contato-header-telefone'><i class="bi bi-geo-alt-fill"></i> Avenida Interlagos 2034, Jardim Marajoara</p>
     `
         mudou = false
       } else {
         contato.innerHTML = `
-    <p>Contate-nos: (11) 98253-2481</p>
-    `
+        <p class='contato-header-telefone'><i class="bi bi-telephone-forward-fill"></i> Contate-nos: (11) 98253-2481</p>    `
         mudou = true
       }
     }
