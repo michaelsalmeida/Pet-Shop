@@ -253,6 +253,34 @@ function activateToast(param) { // função que ativa os avisos na tela de acord
       });
       break; 
 
+    case "Funcionário não Cadastrado":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
+    case "Senha atual incorreta":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
+    case "Senha atualizada com sucesso":
+      Toast.fire({
+        icon: "success",
+        title: `${param}`,
+      });
+      break; 
+
+    case "Você Não possui permissão para entrar nessa página":
+      Toast.fire({
+        icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
   } 
 
 }

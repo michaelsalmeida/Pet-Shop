@@ -76,7 +76,7 @@ if (!isset($_SESSION['tipo'])) {
                     <label for="profissao">PROFISSÃO: </label>
                     <select name="profissao" id="profissao" required>
                         <option value="" disabled selected hidden>Selecione a profissão do funcionário</option>
-                        <option value="Veterinario">Veterinário</option>
+                        <option value="Veterinário">Veterinário</option>
                         <option value="Secretaria">Secretária</option>
                         <option value="Esteticista">Esteticista</option>
                     </select>
@@ -138,7 +138,7 @@ if (!isset($_SESSION['tipo'])) {
         <div class="requisitos">
             <p class="tituloSenha">REQUISITOS DE SENHA</p>
             <button onmousedown="fechaReq()">x</button>
-            <p>Mínimo 8 caracteres, sendo eles 1 letra maiúscula, 1 letra minuscula, 1 numero e um caractere especial</p>
+            <p>Mínimo 8 caracteres, sendo eles 1 letra maiúscula, 1 letra minúscula, 1 número e um caractér especial</p>
         </div>
 
 

@@ -84,7 +84,7 @@ if ($certo1 && $certo2) {
             $_SESSION['msgCadFun'] = "CPF já cadastrado";
         } else {
             // Trabalha qualquer outro erro
-            $_SESSION['msgCadFun'] = "Funcionário não Cadastrado.";
+            $_SESSION['msgCadFun'] = "Funcionário não Cadastrado";
         }
         header('Location: ' . $cadastrarFunRoute);
     }

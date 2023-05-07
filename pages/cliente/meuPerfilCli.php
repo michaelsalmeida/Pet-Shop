@@ -10,7 +10,7 @@ if (isset($_SESSION['tipo'])) { // Verifica se o usuário logado é um funcioná
     header("Location: " . $agendamentoFunRoute);
 }
 if (!loged()) { // Verifica se há um usuário logado
-    $_SESSION['msglogin'] = "Por favor, faça o login primeiro.";
+    $_SESSION['msglogin'] = "Por favor, faça o login primeiro";
     // Se não tiver manda ele para a página de login
     header("Location: " . $loginCliRoute);
 }
