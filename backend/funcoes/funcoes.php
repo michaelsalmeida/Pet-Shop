@@ -685,7 +685,7 @@ function gerarTabelaDeleteFun() {
     if (mysqli_num_rows($resultado) == 0){
         $tabela = $tabela . "
             <tr>
-                <td colspan=7>Não há agendamentos cadastrados</td>
+                <td colspan=7>Não há funcionários cadastrados</td>
             </tr>
             ";
     } else {
