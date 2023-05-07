@@ -42,7 +42,7 @@ include_once("../../rotas.php");
             </div>
         </div>
 
-        <img src="../img-estatico/menu.png" class="menu" alt="menu">
+        <img src="../img-estatico/menu.png"  onmousedown="abreMenu()" class="menu" alt="menu">
     </header>
 
 
