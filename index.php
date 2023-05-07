@@ -52,6 +52,7 @@ if (isset($_SESSION['tipo'])) {
 
 
   <header>
+
     <a href="#" class="logo">
       <img src="pages/img-estatico/logo.svg" alt="">
     </a>
@@ -65,7 +66,6 @@ if (isset($_SESSION['tipo'])) {
         <a href="<?php echo $blogRoute; ?>">BLOG</a>
         <a href="<?php echo $sobreRoute; ?>">SOBRE</a>
         <a href="<?php echo $contatoRoute; ?>">CONTATO</a>
-
       </div>
 
       <div class="acesso">
@@ -81,7 +81,6 @@ if (isset($_SESSION['tipo'])) {
           echo "<a href='$loginCliRoute'><img src='pages/img-estatico/login.svg' alt=''> Login</a>";
           echo "<a href='$cadastroCliRoute'>Cadastro</a>";
         }
-
 
         ?>
       </div>
@@ -265,7 +264,9 @@ if (isset($_SESSION['tipo'])) {
   <script defer src="pages/script.js"></script>
 
   <script>
-    let mudou = true
+
+    let mudou = true;
+
     function mudaContato() {
       
       if (mudou == true) {
@@ -280,7 +281,7 @@ if (isset($_SESSION['tipo'])) {
       }
     }
 
-    setInterval(mudaContato, 5000)
+    setInterval(mudaContato, 3500)
   </script>
 
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>

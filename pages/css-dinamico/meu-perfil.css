@@ -4,6 +4,10 @@ body {
     background-image: url(../img-dinamico/fundo.svg);
 }
 
+body {
+    background-image: url(../img-dinamico/fundo.svg);
+}
+
 /* IMAGEM E TÍTULOS */
 .informacoes-superior {
     margin-top: 5em;
