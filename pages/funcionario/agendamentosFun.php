@@ -8,7 +8,8 @@ if (!loged()) {
   header("Location: " . $loginFunRoute);
 }
 if (!isset($_SESSION['tipo'])) {
-  header("Location: " . $homeRoute);
+    $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
+    header("Location: " . $homeRoute);
 }
 
 ?>
