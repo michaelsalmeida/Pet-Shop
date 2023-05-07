@@ -22,6 +22,7 @@ $servico = $_POST['servicos'];
 // profissional escolhido pelo
 $profissional = $_POST['profissionais'];
 
+// comando sql
 $stmt1 = $conn->prepare("SELECT pk_Funcionario from Funcionarios where nome = ?");
 
 $stmt1->bind_param("s", $profissional);

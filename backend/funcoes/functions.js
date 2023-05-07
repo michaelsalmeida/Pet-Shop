@@ -1,4 +1,3 @@
-
 function executeFunctions(func, id) {
     // Define as variaveis necessárias no caso da função for acionada pelo botão de agendar
     extra = `&id=${id}`
