@@ -25,7 +25,8 @@ include_once("../../rotas.php");
         </a>
 
         <div class="responsive">
-            <img src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            <img onmousedown="fechaMenu()" src="../img-estatico/fechar.png" class="fechaMenu" alt="fecha">
+            
             <div class="links">
                 <a href="<?php echo $homeRoute; ?>">HOME</a>
                 <a href="<?php echo $blogRoute; ?>">BLOG</a>
@@ -39,7 +40,7 @@ include_once("../../rotas.php");
             </div>
         </div>
 
-        <img src="../img-estatico/menu.png" class="menu" alt="menu">
+        <img src="../img-estatico/menu.png" onmousedown="abreMenu()" class="menu" alt="menu">
     </header>
 
 
