@@ -220,7 +220,7 @@ if (isset($_SESSION['tipo'])) {
 
     <p>Confira mais informações e curiosidades no nosso <strong>Blog!</strong></p>
 
-    <a href='<?php echo $$blogRoute; ?>'>Confira</a>
+    <a href='<?php echo $blogRoute; ?>'>Confira</a>
   </section>
 
   <footer>

@@ -76,7 +76,7 @@ if (!isset($_SESSION['tipo'])) {
                     <label for="">Selecione o tipo de serviço</label>
                     <select name="servicos" id="servicos" onchange="queryBanco('profissionais')" required style="width: 300px;">
                         <option value="" disabled selected hidden>Selecione o tipo de serviço</option>
-                        <option value="Veterinario">Veterinário</option>
+                        <option value="Veterinário">Veterinário</option>
                         <option value="Banho">Banho</option>
                         <option value="Tosa">Tosa</option>
                         <option value="Banho e Tosa">Banho e Tosa</option>

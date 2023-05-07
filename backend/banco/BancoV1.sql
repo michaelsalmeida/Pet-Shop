@@ -126,7 +126,7 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 
 insert into Funcionarios values 
-(default, 'Michael', 03524746020, 'admin', 
+(default, 'Michael', '03524746020', 'admin', 
 'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af', 'ativo');
 
 SET SQL_MODE=@OLD_SQL_MODE;
