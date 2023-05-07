@@ -5,6 +5,11 @@ require_once $funcoesRoute;
 
 if (!isset($_SESSION['tipo'])) {
   header("Location: " . $homeRoute);
+} else {
+  if($_SESSION['tipo'] != 'admin' || $_SESSION['tipo'] != 'Secretaria'){
+    $_SESSION['msgRotaProibida'] = "Você Não possui permissão para entrar nessa página";
+    header("Location: " . $homeRoute);
+  }
 }
 ?>
 

@@ -4,9 +4,11 @@ include_once($connRoute); // Inclui o arquivo de conexao
 require_once $funcoesRoute;
 
 
-if (isset($_SESSION['tipo'])) {
-    // $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
+if (isset($_SESSION['tipo']) || isset($_SESSION['nomeCliente'])) {
+    $_SESSION['msgRotaProibidaCli'] = "Você Não possui permissão para entrar nessa página";
     header("Location: " . $agendamentoFunRoute);
+} elseif (isset($_SESSION['nomeCliente'])){
+    header("Location: " . $homeRoute);
 }
 ?>
 

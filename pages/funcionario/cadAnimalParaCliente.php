@@ -5,7 +5,7 @@ require_once $funcoesRoute;
 
 
 if (!loged()) {
-    $_SESSION['msgloginFun'] = "Por favor, faça o login primeiro.";
+    $_SESSION['msgloginFun'] = "Por favor, faça o login primeiro";
     header("Location: " . $loginFunRoute);
 }
 
