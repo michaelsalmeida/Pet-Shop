@@ -20,7 +20,7 @@
 - [x] Deploy 000webhost
 - [x] Deploy Azure
 - [x] Firulas 
-- [ ] Treino apresentação 
+- [x] Treino apresentação 
 - [ ] Apresentação 
 
 
@@ -31,6 +31,9 @@
 > Flow chatbot whatsapp [flow.txt](https://github.com/michaelsalmeida/Pet-Shop/files/11363856/flow.txt)
 
 > Apresentação Michael [apresentação funcionário.txt](https://github.com/michaelsalmeida/Pet-Shop/files/11413590/apresentacao.funcionario.txt)
+
+> Documentação Entrega [Documentação Hamtaro PetShop.pdf](https://github.com/michaelsalmeida/Pet-Shop/files/11423093/Documentacao.Hamtaro.PetShop.pdf)
+
 
 
 
