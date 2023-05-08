@@ -110,13 +110,13 @@ if (!loged()) { // Verifica se há um usuário logado
         <fieldset>
             <div>
                 <label for="nome">Nome</label><br>
-                <input type="text" name="nome" required><br><br>
+                <input type="text" name="nome" id="nome" required><br><br>
 
             </div>
 
             <div>
                 <label for="dataNasc">Data de Nascimento </label><br>
-                <input type="date" name="dataNasc" required><br><br>
+                <input type="date" name="dataNasc" id="data" required><br><br>
 
             </div>
 
@@ -155,7 +155,7 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <div>
                 <label for="peso">Peso (Kg)</label><br>
-                <input type="number" name="peso" step=0.01 pattern="[0-9]*" required><br><br>
+                <input type="number" name="peso" id="peso" step=0.01 pattern="[0-9]*" required><br><br>
             </div>
 
             <div>

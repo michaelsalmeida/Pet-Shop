@@ -113,7 +113,7 @@ function activateToast(param) { // função que ativa os avisos na tela de acord
       });
       break; 
     
-    case "Por favor, faça o login primeiro.":
+    case "Por favor, faça o login primeiro":
       Toast.fire({
         icon: "error",
         title: `${param}`,
@@ -277,6 +277,13 @@ function activateToast(param) { // função que ativa os avisos na tela de acord
     case "Você Não possui permissão para entrar nessa página":
       Toast.fire({
         icon: "error",
+        title: `${param}`,
+      });
+      break; 
+
+    case "Obrigado por sua estadia, esperamos te ver novamente":
+      Toast.fire({
+        icon: "success",
         title: `${param}`,
       });
       break; 

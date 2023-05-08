@@ -24,7 +24,7 @@ try {
     // Executa o sql
     $stmtAni->execute();
 
-    $stmtCli = $conn->prepare("UPDATE Clientes SET ativo = 'inativo' WHERE pk_Cliente = ?");
+    $stmtCli = $conn->prepare("UPDATE Clientes SET ativo = 'inativo', email = '' WHERE pk_Cliente = ?");
     // Substituição da string preparada pelos valores corretos
     $stmtCli->bind_param("s", $idCli);
     // Executa o sql

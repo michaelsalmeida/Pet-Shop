@@ -34,7 +34,7 @@ if (isset($_SESSION['tipo'])) {
   <script defer src="<?php echo $functionsRoute; ?>"></script>
 </head>
 
-<body onload="delay(), activateToast(<?php echo verificarSession(['login', 'msgRotaProibidaCli']); ?>)">
+<body onload="delay(), activateToast(<?php echo verificarSession(['login', 'msgRotaProibidaCli', 'msgIndex']); ?>)">
   <div class="loading">
     <div>
       <img src="pages/img-estatico/fundoLoading.png" alt="">

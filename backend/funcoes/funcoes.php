@@ -75,9 +75,9 @@ function gerarTabelaAni() {
                     <td>$data</td>
                     <td>$row[2]</td>
                     <td>$row[3] Kg</td>
-                    <td><a href='http://'" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/cliente/altAnimal.php?id='
+                    <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/altAnimal.php?id="
                 . $row[4] . "'><i class='bi bi-pencil-square'></i></a></td>
-                    <td><a href='http://'" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/backend/processos/proc_excAnimal.php?id='
+                    <td><a href='http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/backend/processos/proc_excAnimal.php?id="
                 . $row[4] . "'><i class='bi bi-trash'></i></a></td>
                 </tr>";
         }
@@ -310,6 +310,12 @@ function gerarTabelaFazAgenCli() {
     $data_atual = date("Y-m-d");
     $hora_atual = date("H:i");
 
+    if ($_GET['dataAgen'] == ''){
+        $dataAgen = date("Y-m-d");
+    } else {
+        $dataAgen = $_GET['dataAgen'];
+    }
+
     $data = "%" . $_GET['dataAgen'] . "%";
     $stmt->bind_param("ssss", $data, $_GET['tipoAgen'], $inicio, $qnt_result_pg);
     // Executa o sql
@@ -412,15 +418,13 @@ function fazAgendamentoCli() {
             $stmt->execute();
 
             $_SESSION['msgAgendamentoCli'] = "Agendamento Realizado";
-            return "https://petto-shoppo-hamtaro.azurewebsites.net/pages/cliente/agendamentosCli.php";
+            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/agendamentosCli.php";
         } catch (Exception $e) {
             $_SESSION['msgFazAgendamento'] = "Error";
-            return "https://petto-shoppo-hamtaro.azurewebsites.net/pages/cliente/fazerAgendamentoCli.php";
-        }
+            return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/agendamentosCli.php";        }
     } else {
         $_SESSION['msgFazAgendamento'] = "Selecione um animal por favor";
-        return "https://petto-shoppo-hamtaro.azurewebsites.net/pages/cliente/fazerAgendamentoCli.php";
-    }
+        return "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . "/Pet-Shop/pages/cliente/agendamentosCli.php";    }
 }
 
 function gerarTabelaAgenFun() {
@@ -1030,12 +1034,12 @@ function verificar(){
         <fieldset>
             <div>
                 <label for='nome'>Nome</label><br>
-                <input type='text' name='nome' placeholder='Digite o nome'>
+                <input type='text' name='nome' id='nome' placeholder='Digite o nome'>
             </div>
 
             <div>
                 <label for='dataNasc'>Data de Nascimento </label><br>
-                <input type='date' name='dataNasc' placeholder='Digite a data de nascimento'>
+                <input type='date' name='dataNasc' id='data' placeholder='Digite a data de nascimento'>
             </div>
             
             <div>
@@ -1072,7 +1076,7 @@ function verificar(){
 
             <div>
                 <label for='peso'>Peso (Kg)</label><br>
-                <input type='number' name='peso' step=0.01 pattern='[0-9]*' placeholder='Digite o peso'>
+                <input type='number' name='peso' id='peso' step=0.01 pattern='[0-9]*' placeholder='Digite o peso'>
             </div>
 
             <div>

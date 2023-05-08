@@ -37,9 +37,7 @@ $idFun = $result->fetch_row();
 
 if (strtotime($data) < strtotime($data_atual)){ // verifica se a data escolhida está disponível para ser usada
     $_SESSION['msgCadDataErro'] = "Data Indisponível";
-    echo $data . "<br>";
-    echo $data_atual;
-    // header("location: " . $cadastradaDatasRoute);
+    header("location: " . $cadastradaDatasRoute);   
 } elseif (strtotime($data) == strtotime($data_atual)){ // se a data for a mesma da atual aqui verifica se a hora ainda não passou
     if (strtotime($hora) < strtotime($hora_atual)){
         

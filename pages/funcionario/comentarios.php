@@ -53,7 +53,7 @@ if (!isset($_SESSION['tipo'])) {
             <a href="<?php echo $homeRoute; ?>"><img src="../img-dinamico/logo-corporativo.svg" alt="logo hamtaro petshop corporativo"></a>
 
             <div class="box-pesquisar">
-                <input type="text" placeholder="Pesquise por palavras chaves" id="pesq">
+                <input type="text" placeholder="Pesquise por palavras chaves nas mensagens" id="pesq">
                 <button onclick="paginacao('tabelaComentarios')"><i class="bi bi-search"></i></button>
 
             </div>
