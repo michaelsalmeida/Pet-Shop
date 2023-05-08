@@ -34,6 +34,8 @@
 
 > Documentação Entrega [Documentação Hamtaro PetShop.pdf](https://github.com/michaelsalmeida/Pet-Shop/files/11423093/Documentacao.Hamtaro.PetShop.pdf)
 
+> Link hospedagem - https://hamtato-pet-shop.azurewebsites.net/
+
 
 
 
