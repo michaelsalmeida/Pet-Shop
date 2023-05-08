@@ -2,7 +2,9 @@
 
 > #### Atividade para  a aula de Banco de Dados e Programação Web Back-end da instituição Senai Suiço Brasileiro. 
 
-
+<p align="center">
+  <img src="gif-readme.gif">
+</p>
 ## Etapas do atividade 
 
 - [x] Arquitetura de pastas
