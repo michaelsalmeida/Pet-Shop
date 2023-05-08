@@ -20,7 +20,7 @@
 - [x] Deploy 000webhost
 - [x] Deploy Azure
 - [x] Firulas 
-- [ ] Treino apresentação 
+- [x] Treino apresentação 
 - [ ] Apresentação 
 
 
