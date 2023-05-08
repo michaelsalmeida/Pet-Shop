@@ -30,7 +30,7 @@ try {
     // Executa o sql
     $stmtCli->execute();
 
-    $_SESSION['msgIndex'] = "Obrigado por sua estadia, esperamos te ver novamente";
+    $_SESSION['msgIndex'] = "Conta excluida com sucesso";
     logoff();
     header("Location: " . $homeRoute);
 } catch (Exception $e) {

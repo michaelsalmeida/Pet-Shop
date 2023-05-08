@@ -281,7 +281,7 @@ function activateToast(param) { // função que ativa os avisos na tela de acord
       });
       break; 
 
-    case "Obrigado por sua estadia, esperamos te ver novamente":
+    case "Conta excluida com sucesso":
       Toast.fire({
         icon: "success",
         title: `${param}`,
