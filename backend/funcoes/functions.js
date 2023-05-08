@@ -631,25 +631,61 @@ function validarCampo() {
     espec = document.getElementById("espec").value.toUpperCase()
     raca = document.getElementById("raca-input").value
     cor = document.getElementById("cor-input").value
+    
+    nome = document.getElementById("nome").value
+    data = document.getElementById("data").value
+    sexo = document.getElementById("sexo").value
+    peso = document.getElementById("peso").value
+
     animais = ["CACHORRO", "GATO", "PEIXE", "PÁSSARO", "HAMSTER", "COELHO", "TARTARUGA"]
     cores = ["Preto","Branco","Marrom","Cinza","Bege","Laranja","Amarelo","Vermelho",
     "Azul","Verde","Roxo","Rosa","Dourado","Prateado","Bronze"]
 
     if (animais.indexOf(espec) != -1 && racas[espec].indexOf(raca) != -1 && cores.indexOf(cor) != -1) {
-        document.getElementById("formAltAnimal").submit()
+        if (nome == '' || data == '' || sexo == '' || peso == ''){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+    
+            Toast.fire({
+                icon: "error",
+                title: "Preencha todos os campos",
+            });
+        } else {
+            document.getElementById("formAltAnimal").submit()
+        }
     } else {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-        });
-
-        Toast.fire({
-            icon: "error",
-            title: "Espécie, Raça ou Cor incorretas",
-        });
+        if (nome == '' || data == '' || sexo == '' || peso == ''){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+    
+            Toast.fire({
+                icon: "error",
+                title: "Preencha todos os campos",
+            });
+        } else {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+    
+            Toast.fire({
+                icon: "error",
+                title: "Espécie, Raça ou Cor incorretas",
+            });
+        }
     }
 
     document.getElementById("racas").innerHTML = racas[espec]

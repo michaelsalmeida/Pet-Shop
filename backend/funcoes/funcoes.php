@@ -20,6 +20,7 @@ function logoff() {
     } else {
         unset($_SESSION['loggedinCli']);
         unset($_SESSION['idCli']);
+        unset($_SESSION['nomeCliente']);
     }
 }
 
@@ -139,7 +140,7 @@ function altAnimal() {
 
 function gerarTabelaAgenCli() {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/Pet-Shop/backend/conexao.php');
-    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/clientes/agendamentosCli.php';
+    $header = "http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . '/Pet-Shop/pages/cliente/agendamentosCli.php';
 
     // Receber o número da página
     $pagina_atual = filter_input(INPUT_GET, 'pag', FILTER_SANITIZE_NUMBER_INT);

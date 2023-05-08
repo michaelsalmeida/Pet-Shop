@@ -1,6 +1,7 @@
 <?php
 include_once('../../rotas.php');
 include_once($connRoute);
+// date_default_timezone_set('America/Sao_Paulo');  
 
 $_SESSION['msgCadDataErro'] = false;
 
@@ -36,14 +37,16 @@ $idFun = $result->fetch_row();
 
 if (strtotime($data) < strtotime($data_atual)){ // verifica se a data escolhida está disponível para ser usada
     $_SESSION['msgCadDataErro'] = "Data Indisponível";
-    header("location: " . $cadastradaDatasRoute);
+    echo $data . "<br>";
+    echo $data_atual;
+    // header("location: " . $cadastradaDatasRoute);
 } elseif (strtotime($data) == strtotime($data_atual)){ // se a data for a mesma da atual aqui verifica se a hora ainda não passou
     if (strtotime($hora) < strtotime($hora_atual)){
         
         $_SESSION['msgCadDataErro'] = "Horário Indisponível";
         header("location: " . $cadastradaDatasRoute);
 
-    } elseif (strtotime($hora) < strtotime('08:00:00') || strtotime($hora) > strtotime('20:00:00')) {
+    } elseif (strtotime($hora) < strtotime('08:00:00') || strtotime($hora) > strtotime('19:30:00')) {
         $_SESSION['msgCadDataErro'] = "Fora do horário comercial";
         header("location: " . $cadastradaDatasRoute);
 
@@ -117,7 +120,7 @@ if (strtotime($data) < strtotime($data_atual)){ // verifica se a data escolhida 
         $_SESSION['msgCadDataErro'] = "Data já cadastrada";
         header("location: " . $cadastradaDatasRoute);
 
-    } elseif(strtotime($hora) < strtotime('08:00:00') || strtotime($hora) > strtotime('20:00:00')){
+    } elseif(strtotime($hora) < strtotime('08:00:00') || strtotime($hora) > strtotime('19:30:00')){
         echo strtotime($hora);
         $_SESSION['msgCadDataErro'] = "Fora do horário comercial";
         header("location: " . $cadastradaDatasRoute);

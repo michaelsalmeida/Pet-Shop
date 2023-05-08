@@ -108,17 +108,17 @@ if (!loged()) { // Verifica se há um usuário logado
         <fieldset>
             <div>
                 <label for="nome">Nome</label><br>
-                <input type="text" name="nome" placeholder="Digite o nome">
+                <input type="text" name="nome" id="nome" placeholder="Digite o nome" required>
             </div>
 
             <div>
                 <label for="dataNasc">Data de Nascimento </label><br>
-                <input type="date" name="dataNasc" placeholder="Digite a data de nascimento">
+                <input type="date" name="dataNasc" id="data" placeholder="Digite a data de nascimento" required>
             </div>
             
             <div>
                 <label for="sexo">Sexo</label><br>
-                <select name="sexo" id="sexo">
+                <select name="sexo" id="sexo" required>
                     <option value="F">Feminino</option>
                     <option value="M">Masculino</option>
                     <option value="I">Intersexo</option>
@@ -127,7 +127,7 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <div>
                 <label for="espec">Espécie</label><br>
-                <input type="text" id="espec" name="espec" list="especs" onchange="datalistRacas()" placeholder="Digite a espécie">
+                <input type="text" id="espec" name="espec" list="especs" onchange="datalistRacas()" placeholder="Digite a espécie" required>
 
                 <datalist id="especs">
                     <option value="Cachorro">
@@ -142,7 +142,7 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <div>
                 <label for="raca">Raça</label><br>
-                <input type="text" name="raca" id="raca-input" list="racas" placeholder="Digite as raça">
+                <input type="text" name="raca" id="raca-input" list="racas" placeholder="Digite as raça" required>
 
                 <datalist id="racas">
                 </datalist>
@@ -150,12 +150,12 @@ if (!loged()) { // Verifica se há um usuário logado
 
             <div>
                 <label for="peso">Peso (Kg)</label><br>
-                <input type="number" name="peso" step=0.01 pattern="[0-9]*" placeholder="Digite o peso">
+                <input type="number" name="peso" id="peso" step=0.01 pattern="[0-9]*" placeholder="Digite o peso" required>
             </div>
 
             <div>
                 <label for="cor">Cor</label><br>
-                <input type="text" name="cor" id="cor-input" placeholder="Digite a cor" list="cores-animais-list">
+                <input type="text" name="cor" id="cor-input" placeholder="Digite a cor" list="cores-animais-list" required>
 
                 <datalist id="cores-animais-list">
                     <option value="Amarelo">
