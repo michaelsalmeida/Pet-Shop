@@ -3,7 +3,7 @@
 > #### Atividade para  a aula de Banco de Dados e Programação Web Back-end da instituição Senai Suiço Brasileiro. 
 
 <p align="center">
-  <img width="250"src="https://cdn.dribbble.com/users/458522/screenshots/13769385/media/9c3a4a8d8d35f8a63ca4ec1956d0c387.gif">
+  <img width="500"src="https://cdn.dribbble.com/users/458522/screenshots/13769385/media/9c3a4a8d8d35f8a63ca4ec1956d0c387.gif">
 </p>
 ## Etapas do atividade 
 
