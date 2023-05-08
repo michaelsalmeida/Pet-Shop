@@ -77,8 +77,8 @@ if (!isset($_SESSION['tipo'])) {
         echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
         echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
         echo "<a href=" . $listarFunRoute . ">Listar Funcionários</a>";
-        echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
-        echo "<a href=" . $comentariosRoute . ">Comentarios dos Clientes</a>";      }
+        echo "<a href=" . $comentariosRoute . ">Comentarios dos Clientes</a>";     
+     }
 
 
             if (isset($_SESSION['msgCadData'])) {

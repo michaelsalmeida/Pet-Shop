@@ -136,7 +136,7 @@ require_once $funcoesRoute;
 
 
                     <h3>Michael Almeida</h3>
-                    <img src="../img-estatico/michael.svg" alt="imagem do colaborador michael" class="perfil">
+                    <img src="michael.svg" alt="imagem do colaborador michael" class="perfil">
 
                     <div class="redes">
                         <a href="https://github.com/michaelsalmeida"><img src="../img-estatico/github-sobrenos.svg" alt="link do github do aluno michael"></a>

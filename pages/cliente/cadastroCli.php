@@ -135,19 +135,6 @@ include_once($funcoesRoute);
 
                 </div>
 
-                <div class="input row">
-                    <label>NÚMERO *</label>
-                    <input type="text" name="numero" id="numero" placeholder="Digite o número da casa" pattern="\d{1,5}"
-                        required>
-
-                </div>
-
-                <div class="input row">
-                    <label>COMPLEMENTO</label>
-                    <input type="text" name="complemento" id="complemento" placeholder="Digite o complemento"
-                        value="">
-
-                </div>
 
                 <div class="input row">
                     <label>BAIRRO *</label>
@@ -166,6 +153,20 @@ include_once($funcoesRoute);
                     <label>UF *</label>
                     <input type="text" name="uf" pattern="[a-zA-Z]{2}" id="uf" placeholder="Digite a uf" required
                         readonly>
+
+                </div>
+                
+                <div class="input row">
+                    <label>NÚMERO *</label>
+                    <input type="text" name="numero" id="numero" placeholder="Digite o número da casa" pattern="\d{1,5}"
+                        required>
+
+                </div>
+
+                <div class="input row">
+                    <label>COMPLEMENTO</label>
+                    <input type="text" name="complemento" id="complemento" placeholder="Digite o complemento"
+                        value="">
 
                 </div>
 
