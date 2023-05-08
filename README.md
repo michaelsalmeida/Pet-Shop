@@ -19,8 +19,7 @@
 - [x] Teste de software
 - [x] Deploy 000webhost
 - [x] Deploy Azure
-- [ ] Teste de software pós deploy
-- [ ] Firulas 
+- [x] Firulas 
 - [ ] Treino apresentação 
 - [ ] Apresentação 
 
