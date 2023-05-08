@@ -5,6 +5,8 @@
 <p align="center">
   <img width="500"src="https://cdn.dribbble.com/users/662463/screenshots/3935616/media/fa433a19c08e228ae7649998ee2a9230.gif">
 </p>
+
+
 ## Etapas do atividade 
 
 - [x] Arquitetura de pastas
