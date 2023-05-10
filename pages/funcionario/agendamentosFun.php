@@ -38,7 +38,7 @@ if (!isset($_SESSION['tipo'])) {
 
 <body
     onload="filtros('agendamentosFun'), paginacao('gerarTabelaAgenFun'), 
-    activateToast(<?php echo verificarSession(['msgCadData', 'msgCadFun', 'msgRotaProibida', 'login']); ?>)">
+    activateToast(<?php echo verificarSession(['msgCadData', 'msgCadFun', 'msgRotaProibida', 'login', 'msgCadCliFun']); ?>)">
 
     <header class="header-corporativo">
         <div class="box-logo-barra-de-pesquisa-perfil">
@@ -68,7 +68,7 @@ if (!isset($_SESSION['tipo'])) {
     }
       if ($_SESSION['tipo'] == 'Secretaria') {
         echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
-        echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
+        echo "<a href=" . $cadCliFunRoute    . ">Cadastrar Cliente</a>";
         echo "<a href=" . $agendarParaClienteRoute . ">Agendar consulta</a>";
         echo "<a href=" . $cadAnimalParaClienteRoute . ">Cadastrar animal</a>";
         echo "<a href=" . $comentariosRoute . ">Comentarios dos Clientes</a>";

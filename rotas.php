@@ -32,6 +32,7 @@ $listarFunRoute = $rootFunPages . "listarFuncionario.php";
 $agendarParaClienteRoute = $rootFunPages . "agendarParaCliente.php";
 $cadAnimalParaClienteRoute = $rootFunPages . "cadAnimalParaCliente.php";
 $comentariosRoute = $rootFunPages . "comentarios.php";
+$cadCliFunRoute = $rootFunPages . "cadastroCliFun.php";
 
 //                           FIM Rotas Funcionário
 
@@ -68,6 +69,7 @@ $procCadFunRoute = $rootBackProc . "proc_cadFun.php";
 $procSalvarDetalhesRoute = $rootBackProc . "proc_salvarDetalhes.php";
 $procCadAnimalFunRoute = $rootBackProc . "proc_cadAnimalFun.php";
 $procComentarioRoute = $rootBackProc . "proc_Comentario.php";
+$procCadCliFunRoute = $rootBackProc . "proc_cadCliFun.php";
 
 
 

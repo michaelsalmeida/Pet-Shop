@@ -637,6 +637,8 @@ function validarCampo() {
     sexo = document.getElementById("sexo").value
     peso = document.getElementById("peso").value
 
+    const data_Atual = new Date();
+
     animais = ["CACHORRO", "GATO", "PEIXE", "PÁSSARO", "HAMSTER", "COELHO", "TARTARUGA"]
     cores = ["Preto","Branco","Marrom","Cinza","Bege","Laranja","Amarelo","Vermelho",
     "Azul","Verde","Roxo","Rosa","Dourado","Prateado","Bronze"]
@@ -655,6 +657,19 @@ function validarCampo() {
                 icon: "error",
                 title: "Preencha todos os campos",
             });
+        } else if (data_Atual > data){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+    
+            Toast.fire({
+                icon: "error",
+                title: "Data de nascimento inválida",
+            });
         } else {
             document.getElementById("formAltAnimal").submit()
         }
@@ -671,6 +686,19 @@ function validarCampo() {
             Toast.fire({
                 icon: "error",
                 title: "Preencha todos os campos",
+            });
+        } else if (data_Atual > data){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+    
+            Toast.fire({
+                icon: "error",
+                title: "Data de nascimento inválida",
             });
         } else {
             const Toast = Swal.mixin({
