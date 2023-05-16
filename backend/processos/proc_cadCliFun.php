@@ -117,6 +117,6 @@ if ($certo1 && $certo2) {
         header('Location: ' . $cadCliFunRoute);
     }
 } else {
-    $_SESSION['msgCadCli'] = "CPF inválido";
+    $_SESSION['msgCadCliFun'] = "CPF inválido";
     header('Location: ' . $cadCliFunRoute);
 }

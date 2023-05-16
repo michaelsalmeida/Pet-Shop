@@ -36,8 +36,7 @@ if (!isset($_SESSION['tipo'])) {
 
 </head>
 
-<body
-    onload="filtros('agendamentosFun'), paginacao('gerarTabelaAgenFun'), 
+<body onload="filtros('agendamentosFun'), paginacao('gerarTabelaAgenFun'), 
     activateToast(<?php echo verificarSession(['msgCadData', 'msgCadFun', 'msgRotaProibida', 'login', 'msgCadCliFun']); ?>)">
 
     <header class="header-corporativo">
@@ -75,7 +74,7 @@ if (!isset($_SESSION['tipo'])) {
       } elseif ($_SESSION['tipo'] == 'admin') {
         echo "<a href=" . $cadastrarFunRoute . ">Cadastrar funcionário</a>";
         echo "<a href=" . $cadastradaDatasRoute . ">Cadastrar horário</a>";
-        echo "<a href=" . $cadastroCliRoute . ">Cadastrar Cliente</a>";
+        echo "<a href=" . $cadCliFunRoute . ">Cadastrar Cliente</a>";
         echo "<a href=" . $listarFunRoute . ">Listar Funcionários</a>";
         echo "<a href=" . $comentariosRoute . ">Comentarios dos Clientes</a>";     
      }

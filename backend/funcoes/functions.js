@@ -129,7 +129,6 @@ function paginacao(tipo) {
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText); // Pega a resposta do servidor e passa para JSON
-            console.log(response);
             document.getElementById(response[0]).innerHTML = response[1];
             document.getElementById(response[2]).innerHTML = response[3];
             // Seleciona o elemento de acordo com o primeiro valor do JSON

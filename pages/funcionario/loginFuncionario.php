@@ -78,10 +78,6 @@ if (isset($_SESSION['tipo'])) {
 
                 <input type="submit" value="Entrar">
 
-
-                
-
-
                 <a class="voltar" href="<?php echo $homeRoute; ?>">Voltar</a>
 
             </div>
