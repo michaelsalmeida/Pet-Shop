@@ -21,7 +21,7 @@
 - [x] Deploy Azure
 - [x] Firulas 
 - [x] Treino apresentação 
-- [ ] Apresentação 
+- [x] Apresentação 
 
 
 ## Links e documentos
