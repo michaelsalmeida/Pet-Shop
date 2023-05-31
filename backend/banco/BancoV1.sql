@@ -33,6 +33,11 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 
+insert into Funcionarios values 
+(default, 'Gina', '22211879977', 'Esteticista', 'e9b4661b61765ef1594d7969692870a29be9ca1ada44779920a5237611c83e1913c843333c5028e7df3f09f23f383762c08d9513493a34edbd9e47f943f20895', 'ativo'),
+(default, 'Dolittle', '02673025413', 'Veterinario', 'e9b4661b61765ef1594d7969692870a29be9ca1ada44779920a5237611c83e1913c843333c5028e7df3f09f23f383762c08d9513493a34edbd9e47f943f20895', 'ativo'),
+(default, 'Josilene', '67177775757', 'Secretaria', 'e9b4661b61765ef1594d7969692870a29be9ca1ada44779920a5237611c83e1913c843333c5028e7df3f09f23f383762c08d9513493a34edbd9e47f943f20895', 'ativo');
+
 -- -----------------------------------------------------
 -- Table `petshop`.`Clientes`
 -- -----------------------------------------------------
@@ -57,6 +62,10 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 
+
+insert into Clientes values (default, '34125701415', 'Marlene', 'Gomes', '11988888888', '02618200', 'Rua Torre da Alfândega', 
+'50', 'a', 'Vila Amália (Zona Norte)', 'Sao paulo', 'SP', 'marlene@gmail.com', 
+'e9b4661b61765ef1594d7969692870a29be9ca1ada44779920a5237611c83e1913c843333c5028e7df3f09f23f383762c08d9513493a34edbd9e47f943f20895', 'ativo');
 
 -- -----------------------------------------------------
 -- Table `petshop`.`Animais`
@@ -112,6 +121,11 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 
+insert into Agendamentos values (default, 2, null, '2023-06-20', '14:30', 'Disponivel', null, 'Veterinário', 'ativo');
+insert into Agendamentos values (default, 2, null, '2023-06-21', '10:00', 'Disponivel', null, 'Veterinário', 'ativo');
+
+
+
 CREATE TABLE IF NOT EXISTS `petshop`.`Comentarios` (
   `pk_Comentario` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) NOT NULL,
@@ -125,8 +139,14 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 
+select * from clientes;
+select * from animais;
+select * from Funcionarios;
+
+select * from Agendamentos;
+
 insert into Funcionarios values 
-(default, 'Michael', '03524746020', 'admin', 
+(default, 'Michael', 23301610005, 'admin', 
 'b123e9e19d217169b981a61188920f9d28638709a5132201684d792b9264271b7f09157ed4321b1c097f7a4abecfc0977d40a7ee599c845883bd1074ca23c4af', 'ativo');
 
 SET SQL_MODE=@OLD_SQL_MODE;
